@@ -1,0 +1,30 @@
+@import "assets/fonts/flyingleather.ttf";
+
+page-my-home {
+  // bat background
+  .homepage-container {
+    background-image: url("../assets/graphicMat/gradient_bats_1920.png");
+    background-size: cover;
+    background-position: center;
+    height: 100vh;
+    width: 100%;
+
+    .menu-container {
+      //margin-top: 20vh !important;
+      .row {
+        /* width: 80% !important; */
+        text-align: center !important;
+        margin: auto !important;
+      }
+      .col {
+        height: 15vh !important;
+      }
+    }
+  }
+}
+
+// override ionic cards specs
+.card-md {
+  width: calc(40% - 20px) !important;
+}
+

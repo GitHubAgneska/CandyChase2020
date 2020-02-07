@@ -1,0 +1,37 @@
+<ion-header>
+  <ion-navbar color="customColor">
+    <ion-title text-center class="mainTitles">Backpack</ion-title>
+  </ion-navbar>
+</ion-header>
+
+<ion-content class="backpackPage-container">
+
+  <div class="backpack-elements-container" *ngIf="collectedCandy">
+    <img src="assets/graphicMat/candyBag.png" alt="" />
+    <div class="myCollectedCandy" *ngFor="let item of collectedCandy">
+      <div class="candyItem">
+        <div class="candyThumbnail">
+          <img src="{{item.image_front_url}}" class="magic">
+        </div>
+        <div class="candyName">
+          <!-- <h2>{{data.brands_tags[1]}}</h2> -->
+          <h1>{{item.product_name | slice:0:20 }}</h1>
+          <button (click)="seeCandyInfos(item._id)">see infos</button>
+        </div>
+        <div class="amount"><h1>{{item.amountInBackpack}}</h1></div>
+      </div>
+    </div>
+
+    <div class="totalPoints">
+      <h2>Total points</h2>
+      <h2>{{totalCandy}}</h2>
+    </div>
+    <div class="totalPoints">
+      <h2>Current level</h2>
+      <h2>{{levelName}}</h2>
+    </div>
+<!-- <div class="levelRibbon" center>
+      <img src="assets/graphicMat/ribbon_level5.png" alt="" />
+    </div> -->
+  </div>
+</ion-content>

@@ -1,0 +1,70 @@
+<ion-header>
+  <ion-navbar color="customColor">
+    <ion-title text-center class="mainTitles">Candy Infos</ion-title>
+  </ion-navbar>
+</ion-header>
+
+<!-- Iterates through every props of the candyItem from api (~200 ..) -->
+<!-- <ion-content class="candyDetailsPage-container">
+  <div class="candyDetailsPage" *ngIf="candyItem">
+    <div *ngFor="let i of candyItem | keyvalue " class="candyList">
+    </div>
+  </div>
+</ion-content> -->
+
+
+<ion-content class="candyDetailsPage-container">
+  <div class="candyDetailsPage" *ngIf="candyItem">
+
+      <div class="candyItemTitle">
+
+        <div class="candyThumbnail">
+          <img src="{{candyItem.image_front_url}}" class="magic">
+        </div>
+
+        <div>
+          <h1>{{ candyItem.product_name | slice:0:20 }}</h1>
+        </div> 
+
+      </div>
+
+      <h1 (click)="toggleIngredients()">Ingredients<span class="arrowIcon">v</span></h1>
+      <div class="candyIngredients" *ngIf="showIngredients">
+        <table>
+          <!-- <th class="candyName"></th> -->
+          <tr *ngFor="let i of candyItem.ingredients_tags">
+            <td>
+              {{i}}
+            </td>
+          </tr>
+        </table>
+      </div>
+
+      <h1 (click)="toggleNutriscore()">Nutriscore</h1>
+      <div class="candyNutriscore" *ngIf="showNutriscore">
+        <table>
+          <!-- <th class="candyName"></th> -->
+          <tr *ngFor="let i of candyItem.nutriscore_data | keyvalue">
+            <td>
+              {{i.key}}:{{i.value}}
+            </td>
+          </tr>
+        </table>
+      </div>
+      
+      <h1 (click)="toggleAllergens()">Allergens</h1>
+      <div class="candyAllergens" *ngIf="showAllergens">
+        <table>
+          <!-- <th class="candyName"></th> -->
+          <tr *ngFor="let i of candyItem.ingredients_tags">
+            <td>
+              {{i.key}}
+            </td>
+          </tr>
+        </table>
+      </div>
+
+  
+  </div>
+
+</ion-content>

@@ -1,0 +1,102 @@
+page-candy-details {
+
+    .mainTitles {
+        font-family: "flyingleather";
+        font-size: 20vw;
+    }
+
+    .toolbar-title-md {
+        font-size: 7vw;
+    }
+
+    .candyDetailsPage-container{
+
+        background-image: url('../assets/graphicMat/gradient_bats_1920.png');
+        background-size: cover;
+        background-position: center;
+        height: 100vh;
+        width: 100%;
+        .candyDetailsPage {
+            display:flex;
+            flex-direction: column;
+            width: 80%;
+            margin:5% auto;
+            .candyItemTitle{
+                width:auto;
+                height: 10vh;
+                padding: 2%;
+                margin: 3% auto;
+                display: flex;
+                flex-direction: row;
+                justify-content: space-evenly;
+                align-content: center;
+                align-items: center;    
+                border: 5px solid orange;
+                border-radius: 30px;
+                h1{
+                    color: #B1C9FB;
+                    font-family: 'Titan One', cursive;
+                    text-transform: uppercase;
+                    font-size: 5vw;
+                }
+                .candyThumbnail {
+                    height: 6rem;
+                    width: 6rem;
+                    background-color:pink;
+                    align-content: center;
+                    align-items: center;
+                    overflow:hidden;
+                    border-radius: 50%;
+                }
+            }
+            h1 {
+                font-family: 'Titan One', cursive;
+                font-size: 5vw;
+                color:  #B1C9FB;
+                text-align: center;
+                border-bottom: 2px solid;
+                line-height: 2;
+            }
+            .arrowIcon {
+                background: url('../assets/icon/icon_arrowDown.png') 0 0 no-repeat;
+                width: 25px;
+                height: 25px;
+            }
+
+            .candyIngredients, .candyNutriscore {
+                margin: auto;
+            }
+
+            .candyIngredients {
+                table { 
+                    width: 80%;
+                }
+
+                td {
+                    border: 2px solid  #B1C9FB;
+                    font-family: 'Titan One', cursive;
+                    font-size: 4vw;
+                    color: orange;
+                    padding:2%;
+                }
+            }
+            .candyNutriscore {
+                td {
+                    border: 2px solid  #B1C9FB;
+                    font-family: 'Titan One', cursive;
+                    font-size: 4vw;
+                    color: orange;
+                    padding:2%;
+                }
+            }
+        }
+    }
+
+    .plus-btn > button{
+        width: 50px;
+        height:50px;
+        background-color: transparent;
+        }
+    }
+
+

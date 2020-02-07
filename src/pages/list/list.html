@@ -1,0 +1,32 @@
+
+<ion-header>
+  <ion-navbar color="customColor">
+    <ion-title text-center class="mainTitles">Candy to find</ion-title>
+  </ion-navbar>
+</ion-header>
+
+<ion-content class="candyPageContainer">
+  
+  <div class="candyList" *ngIf="candyList.length > 0">
+    <div *ngFor="let candyItem of candyList">
+      <div class="candyItem">
+        <div class="candyThumbnail">
+          <img src="{{candyItem.image_front_url}}" class="magic">
+        </div>
+        <div class="candyName">
+          <!-- <h2>{{data.brands_tags[1]}}</h2> -->
+          <h1>{{candyItem.product_name | slice:0:20 }}</h1>
+<!-- TODO in 'foodData' service => filter data results (remove 'ricola') / productName ( remove 'bonbons' from title / brand if in name) -->
+        </div>
+        <div class="plus-btn">
+          <!-- <button (click)="sendId(candyItem._id)"> -->
+          <button (click)="addCandyToBackpack(candyItem)">
+            <img src="assets/graphicmat/zoomIn.png" alt="plus-button"/>
+          </button>
+        </div>
+      </div>
+    </div>
+  </div>
+</ion-content>
+
+

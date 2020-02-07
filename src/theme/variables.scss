@@ -1,0 +1,279 @@
+// Ionic Variables and Theming. For more info, please see:
+// http://ionicframework.com/docs/theming/
+
+// Font path is used to include ionicons,
+// roboto, and noto sans fonts
+$font-path: "../assets/fonts";
+
+
+// The app direction is used to include
+// rtl styles in your app. For more info, please see:
+// http://ionicframework.com/docs/theming/rtl-support/
+$app-direction: ltr;
+
+
+@import "ionic.globals";
+
+
+// Shared Variables
+// --------------------------------------------------
+// To customize the look and feel of this app, you can override
+// the Sass variables found in Ionic's source scss files.
+// To view all the possible Ionic variables, see:
+// http://ionicframework.com/docs/theming/overriding-ionic-variables/
+
+@font-face {
+  font-family: "flyingleather";
+  src: url("../assets/fonts/flyingleather.ttf") format('truetype');
+}
+
+
+/* 
+ion-app.md {
+  font-family: "flying_leatherneck";
+} */
+
+
+
+/* 
+font-family: 'Shrikhand', cursive;
+font-family: 'Baloo Bhaijaan', cursive;
+font-family: 'Titan One', cursive; 
+font-family: 'Fredoka One', cursive;
+*/
+
+
+
+
+$font-family-base: "flying_leatherneck";
+$font-family-md-base: $font-family-base;
+$font-family-ios-base: $font-family-base;
+$font-family-md-base: $font-family-base;
+$font-family-wp-base: $font-family-base;
+
+
+
+$content-padding: 10px; /* The default is 16px */
+
+// Named Color Variables
+// --------------------------------------------------
+// Named colors makes it easy to reuse colors on various components.
+// It's highly recommended to change the default colors
+// to match your app's branding. Ionic uses a Sass map of
+// colors so you can add, rename and remove colors as needed.
+// The "primary" color is the only required color in the map.
+
+$colors: (
+  primary:    #488aff,
+  secondary:  #32db64,
+  danger:     #f53d3d,
+  light:      #f4f4f4,
+  dark:       #222,
+  orange:     #FF8D00,
+  blue:       #B4CDFF,
+  customColor: transparent
+);
+
+// ****** ---- V2 - sept2019
+
+$light-color: #ffeedf;
+$main-titles: #FF8D00;
+$sub-titles :rgb(255, 162, 49);
+$blue-titles: #B4CDFF;
+$icons: rgb(255, 158, 41);
+
+
+// App iOS Variables
+// --------------------------------------------------
+// iOS only Sass variables can go here
+
+
+
+
+// App Material Design Variables
+// --------------------------------------------------
+// Material Design only Sass variables can go here
+
+.md {
+  color: #222;
+}
+
+// override toolbar props ---
+.toolbar-title-md {
+  color: #222 !important;
+}
+.toolbar-title-md {
+  font-size: 7vw;
+}
+
+
+// override tabsbar & tab icons props ---
+.tabs-md .tabbar {
+  background: orange !important;
+  width: 90% !important;
+  max-width: 400px !important;
+  border-radius: 30px;
+  margin: 0px 0px 20px 5% !important;
+  max-height: 56px;
+  height: 56px;
+}
+
+.tabs-md .tab-button {
+  color:#000000 !important;
+}
+
+.tabs-md .tab-button[aria-selected=true] {
+  color: white !important;
+}
+
+.tabs-md .tab-button-icon  {
+  color:#000000  !important;
+  padding-bottom: 3px;
+}
+
+// list custom icon ( candy ) 
+.tabs-md, .tabs-wp {
+  a[aria-selected=false]{
+      .tab-button-icon[ng-reflect-name=custom-candy],
+      .tab-button-icon[aria-label=custom-candy] {
+          background-image: url(../assets/graphicMat/candy.png);
+      }
+    }
+
+  a[aria-selected=true] {
+      .tab-button-icon[ng-reflect-name=custom-candy],
+      .tab-button-icon[aria-label=custom-candy] {
+          background-image: url(../assets/graphicMat/candy.png);
+      }
+    }
+  }
+
+.tabs-ios {
+  a[aria-selected=false]{
+      .tab-button-icon[ng-reflect-name=custom-candy],
+      .tab-button-icon[aria-label="custom-candy outline"] {
+          background-image: url(../assets/graphicMat/candy.png);
+      }
+    }
+
+  a[aria-selected=true] {
+      .tab-button-icon[ng-reflect-name=custom-candy],
+      .tab-button-icon[aria-label=custom-candy] {
+          background-image: url(../assets/graphicMat/candy.png);
+      }
+    }
+  }
+
+  // backpack custom icon (bag)
+  .tabs-md, .tabs-wp {
+    a[aria-selected=false]{
+        .tab-button-icon[ng-reflect-name=custom-bag],
+        .tab-button-icon[aria-label=custom-bag] {
+            background-image: url(../assets/graphicMat/icon_bag.png);
+        }
+      }
+  
+    a[aria-selected=true] {
+        .tab-button-icon[ng-reflect-name=custom-bag],
+        .tab-button-icon[aria-label=custom-bag] {
+            background-image: url(../assets/graphicMat/icon_bag.png);
+        }
+      }
+    }
+  
+  .tabs-ios {
+    a[aria-selected=false]{
+        .tab-button-icon[ng-reflect-name=custom-bag],
+        .tab-button-icon[aria-label="custom-bag outline"] {
+            background-image: url(../assets/graphicMat/icon_bag.png);
+        }
+      }
+  
+    a[aria-selected=true] {
+        .tab-button-icon[ng-reflect-name=custom-bag],
+        .tab-button-icon[aria-label=custom-bag] {
+            background-image: url(../assets/graphicMat/icon_bag.png);
+        }
+      }
+    }
+
+
+    // navbar font color 
+    // (navbar background-color is 'custom-color: transparent' from sass color variables above)
+    .header .toolbar-title {
+      color: orange !important;
+      font-family: "flyingleather";
+      font-size: 10vw;
+  }
+  
+   // ion-navbar.toolbar { background-color : pink !important;}
+    //$toolbar-background: #3D9BDD;
+
+
+// Custom icons
+// Overriding the ion-icon behavior
+// All custom icons will start with "appname-" prefix
+/* tabIcon {
+  &[class*="appname-"] {
+      background-size: contain;
+      width: 1em;
+      height: 1em;
+  }
+  // custom icons
+  &[class*="appname-list"] {
+      background-image: url(../assets/graphicMat/candy.png);
+  }
+  &[class*="appname-customicon2"] {
+      background-image: url(../assets/img/customicon2.svg);
+  }
+} */
+
+// App Windows Variables
+// --------------------------------------------------
+// Windows only Sass variables can go here
+
+
+// App Theme
+// --------------------------------------------------
+// Ionic apps can have different themes applied, which can
+// then be future customized. This import comes last
+// so that the above variables are used and Ionic's
+// default are overridden.
+
+
+@import "ionic.theme.default";
+
+
+// Ionicons
+// --------------------------------------------------
+// The premium icon font for Ionic. For more info, please see:
+// http://ionicframework.com/docs/ionicons/
+
+@import "ionic.ionicons";
+
+
+// Fonts
+// --------------------------------------------------
+
+@import "roboto";
+@import "noto-sans";
+
+
+ion-page {
+  background-image: url('../assets/graphicMat/circles.png');
+  background-repeat: no-repeat;
+  background-size: auto;
+  background-position: center; 
+}
+
+.ion-page > ion-content {
+  position:relative !important;
+  width:80%;
+  margin:auto;
+}
+
+
+
+/* cool gradient
+background: rgb(2,0,36);
+background: radial-gradient(circle, rgba(2,0,36,1) 0%, rgba(255,145,36,1) 49%, rgba(0,212,255,1) 100%); */
