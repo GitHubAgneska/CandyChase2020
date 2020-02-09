@@ -1,43 +1,68 @@
-@font-face {
+.header .toolbar-title {
+  color: orange !important;
   font-family: "flyingleather";
-  src: url("../assets/fonts/flyingleather.ttf") format("truetype");
+  font-size: 9vw;
+  box-shadow: -1px 27px 35px 5px rgba(0, 0, 0, 0.82);
+  -webkit-box-shadow: -1px 27px 35px 5px rgba(0, 0, 0, 0.82);
+  -moz-box-shadow: -1px 27px 35px 5px rgba(0, 0, 0, 0.82);
 }
 
-/* 
-ion-app.md {
-  font-family: "flying_leatherneck";
-} */
-/* 
-font-family: 'Shrikhand', cursive;
-font-family: 'Baloo Bhaijaan', cursive;
-font-family: 'Titan One', cursive; 
-font-family: 'Fredoka One', cursive;
-*/
-/* The default is 16px */
-.md {
-  color: #222;
+.toolbar-title-ios {
+  font-weight: 100 !important;
 }
 
-.toolbar-title-md {
+.tabs-ios .tabbar {
+  background: orange !important;
+  box-shadow: 2px 3px 35px 15px rgba(0, 0, 0, 0.82);
+  -webkit-box-shadow: 2px 3px 35px 15px rgba(0, 0, 0, 0.82);
+  -moz-box-shadow: 2px 3px 35px 15px rgba(0, 0, 0, 0.82);
+  width: 90% !important;
+  border-radius: 10px;
+  margin: 0% 5% 5% 5% !important;
+  height: 56px;
+  max-height: 56px;
+}
+
+.tabs-ios .tab-button {
+  color: #000000 !important;
+  font-family: 'Titan One', cursive;
+  font-weight: 100;
+}
+
+.tabs-ios .tab-button[aria-selected=true] {
+  color: white !important;
+}
+
+.tabs-ios .tab-button-icon {
+  color: #000000  !important;
+  padding-bottom: 3px;
+}
+
+/* Set variables for all MODES */
+/* Set the font family of the entire app */
+/* Set text color of the entire app for iOS only */
+/* Set text color of the entire app for Material Design only */
+/* .toolbar-title-md {
   color: #222 !important;
-}
-
-.toolbar-title-md {
+} */
+/* .toolbar-title-md {
   font-size: 7vw;
-}
-
+} */
 .tabs-md .tabbar {
   background: orange !important;
+  box-shadow: 2px 3px 35px 15px rgba(0, 0, 0, 0.82);
+  -webkit-box-shadow: 2px 3px 35px 15px rgba(0, 0, 0, 0.82);
+  -moz-box-shadow: 2px 3px 35px 15px rgba(0, 0, 0, 0.82);
   width: 90% !important;
-  max-width: 400px !important;
-  border-radius: 30px;
-  margin: 0px 0px 20px 5% !important;
-  max-height: 56px;
+  border-radius: 10px;
+  margin: 0% 5% 5% 5% !important;
   height: 56px;
+  max-height: 56px;
 }
 
 .tabs-md .tab-button {
   color: #000000 !important;
+  font-family: "flyingleather";
 }
 
 .tabs-md .tab-button[aria-selected=true] {
@@ -93,26 +118,6 @@ font-family: 'Fredoka One', cursive;
   background-image: url(../assets/graphicMat/icon_bag.png);
 }
 
-.header .toolbar-title {
-  color: orange !important;
-  font-family: "flyingleather";
-  font-size: 10vw;
-}
-
-/* tabIcon {
-  &[class*="appname-"] {
-      background-size: contain;
-      width: 1em;
-      height: 1em;
-  }
-  // custom icons
-  &[class*="appname-list"] {
-      background-image: url(../assets/graphicMat/candy.png);
-  }
-  &[class*="appname-customicon2"] {
-      background-image: url(../assets/img/customicon2.svg);
-  }
-} */
 .ion-ios-add:before {
   content: "\f102";
 }
@@ -3930,19 +3935,23 @@ ion-icon::before {
   src: local("Noto Sans Bold"), local("Noto-Sans-Bold"), url("../assets/fonts/noto-sans-bold.woff") format("woff"), url("../assets/fonts/noto-sans-bold.ttf") format("truetype");
 }
 
+@font-face {
+  font-family: "flyingleather";
+  src: url("../assets/fonts/flyingleather.ttf") format("truetype");
+}
+
+/* 
 ion-page {
-  background-image: url("../assets/graphicMat/circles.png");
+  background-image: url('../assets/graphicMat/circles.png');
   background-repeat: no-repeat;
   background-size: auto;
-  background-position: center;
-}
-
-.ion-page > ion-content {
-  position: relative !important;
-  width: 80%;
-  margin: auto;
-}
-
+  background-position: center; 
+} */
+/* .ion-page > ion-content {
+  position:relative !important;
+  width:80%;
+  margin:auto;
+} */
 /* cool gradient
 background: rgb(2,0,36);
 background: radial-gradient(circle, rgba(2,0,36,1) 0%, rgba(255,145,36,1) 49%, rgba(0,212,255,1) 100%); */
@@ -10308,117 +10317,117 @@ ion-app [no-margin] .scroll-content {
 }
 
 ion-app.ios [padding] {
-  padding: 10px;
+  padding: 16px;
 }
 
 ion-app.ios [padding-top] {
-  padding-top: 10px;
+  padding-top: 16px;
 }
 
 ion-app.ios [padding-left] {
-  padding-left: 10px;
+  padding-left: 16px;
 }
 
 ion-app.ios [padding-right] {
-  padding-right: 10px;
+  padding-right: 16px;
 }
 
 ion-app.ios [padding-bottom] {
-  padding-bottom: 10px;
+  padding-bottom: 16px;
 }
 
 ion-app.ios [padding-vertical] {
-  padding-top: 10px;
-  padding-bottom: 10px;
+  padding-top: 16px;
+  padding-bottom: 16px;
 }
 
 ion-app.ios [padding-horizontal] {
-  padding-left: 10px;
-  padding-right: 10px;
+  padding-left: 16px;
+  padding-right: 16px;
 }
 
 ion-app.ios [padding] .scroll-content {
-  padding: 10px;
+  padding: 16px;
 }
 
 @media screen and (orientation: landscape) {
   ion-app.ios [padding] .scroll-content {
-    padding-left: calc(constant(safe-area-inset-left) + 10px);
-    padding-top: 10px;
-    padding-bottom: 10px;
-    padding: 10px calc(env(safe-area-inset-right) + 10px) 10px calc(env(safe-area-inset-left) + 10px);
+    padding-left: calc(constant(safe-area-inset-left) + 16px);
+    padding-top: 16px;
+    padding-bottom: 16px;
+    padding: 16px calc(env(safe-area-inset-right) + 16px) 16px calc(env(safe-area-inset-left) + 16px);
   }
 }
 
 ion-app.ios [padding-top] .scroll-content {
-  padding-top: 10px;
+  padding-top: 16px;
 }
 
 @media screen and (orientation: landscape) {
   ion-app.ios [padding-top] .scroll-content {
-    padding-top: 10px;
-    padding-top: 10px;
+    padding-top: 16px;
+    padding-top: 16px;
   }
 }
 
 ion-app.ios [padding-left] .scroll-content {
-  padding-left: 10px;
+  padding-left: 16px;
 }
 
 @media screen and (orientation: landscape) {
   ion-app.ios [padding-left] .scroll-content {
-    padding-left: calc(constant(safe-area-inset-left) + 10px);
-    padding-left: calc(env(safe-area-inset-left) + 10px);
+    padding-left: calc(constant(safe-area-inset-left) + 16px);
+    padding-left: calc(env(safe-area-inset-left) + 16px);
   }
 }
 
 ion-app.ios [padding-right] .scroll-content {
-  padding-right: 10px;
+  padding-right: 16px;
 }
 
 @media screen and (orientation: landscape) {
   ion-app.ios [padding-right] .scroll-content {
-    padding-right: calc(constant(safe-area-inset-right) + 10px);
-    padding-right: calc(env(safe-area-inset-right) + 10px);
+    padding-right: calc(constant(safe-area-inset-right) + 16px);
+    padding-right: calc(env(safe-area-inset-right) + 16px);
   }
 }
 
 ion-app.ios [padding-bottom] .scroll-content {
-  padding-bottom: 10px;
+  padding-bottom: 16px;
 }
 
 @media screen and (orientation: landscape) {
   ion-app.ios [padding-bottom] .scroll-content {
-    padding-bottom: 10px;
-    padding-bottom: 10px;
+    padding-bottom: 16px;
+    padding-bottom: 16px;
   }
 }
 
 ion-app.ios [padding-vertical] .scroll-content {
-  padding-top: 10px;
-  padding-bottom: 10px;
+  padding-top: 16px;
+  padding-bottom: 16px;
 }
 
 @media screen and (orientation: landscape) {
   ion-app.ios [padding-vertical] .scroll-content {
-    padding-top: 10px;
-    padding-bottom: 10px;
-    padding-top: 10px;
-    padding-bottom: 10px;
+    padding-top: 16px;
+    padding-bottom: 16px;
+    padding-top: 16px;
+    padding-bottom: 16px;
   }
 }
 
 ion-app.ios [padding-horizontal] .scroll-content {
-  padding-left: 10px;
-  padding-right: 10px;
+  padding-left: 16px;
+  padding-right: 16px;
 }
 
 @media screen and (orientation: landscape) {
   ion-app.ios [padding-horizontal] .scroll-content {
-    padding-left: calc(constant(safe-area-inset-left) + 10px);
-    padding-right: calc(constant(safe-area-inset-right) + 10px);
-    padding-left: calc(env(safe-area-inset-left) + 10px);
-    padding-right: calc(env(safe-area-inset-right) + 10px);
+    padding-left: calc(constant(safe-area-inset-left) + 16px);
+    padding-right: calc(constant(safe-area-inset-right) + 16px);
+    padding-left: calc(env(safe-area-inset-left) + 16px);
+    padding-right: calc(env(safe-area-inset-right) + 16px);
   }
 }
 
@@ -10504,117 +10513,117 @@ ion-app.ios [margin-horizontal] .scroll-content {
 }
 
 ion-app.md [padding] {
-  padding: 10px;
+  padding: 16px;
 }
 
 ion-app.md [padding-top] {
-  padding-top: 10px;
+  padding-top: 16px;
 }
 
 ion-app.md [padding-left] {
-  padding-left: 10px;
+  padding-left: 16px;
 }
 
 ion-app.md [padding-right] {
-  padding-right: 10px;
+  padding-right: 16px;
 }
 
 ion-app.md [padding-bottom] {
-  padding-bottom: 10px;
+  padding-bottom: 16px;
 }
 
 ion-app.md [padding-vertical] {
-  padding-top: 10px;
-  padding-bottom: 10px;
+  padding-top: 16px;
+  padding-bottom: 16px;
 }
 
 ion-app.md [padding-horizontal] {
-  padding-left: 10px;
-  padding-right: 10px;
+  padding-left: 16px;
+  padding-right: 16px;
 }
 
 ion-app.md [padding] .scroll-content {
-  padding: 10px;
+  padding: 16px;
 }
 
 @media screen and (orientation: landscape) {
   ion-app.md [padding] .scroll-content {
-    padding-left: calc(constant(safe-area-inset-left) + 10px);
-    padding-top: 10px;
-    padding-bottom: 10px;
-    padding: 10px calc(env(safe-area-inset-right) + 10px) 10px calc(env(safe-area-inset-left) + 10px);
+    padding-left: calc(constant(safe-area-inset-left) + 16px);
+    padding-top: 16px;
+    padding-bottom: 16px;
+    padding: 16px calc(env(safe-area-inset-right) + 16px) 16px calc(env(safe-area-inset-left) + 16px);
   }
 }
 
 ion-app.md [padding-top] .scroll-content {
-  padding-top: 10px;
+  padding-top: 16px;
 }
 
 @media screen and (orientation: landscape) {
   ion-app.md [padding-top] .scroll-content {
-    padding-top: 10px;
-    padding-top: 10px;
+    padding-top: 16px;
+    padding-top: 16px;
   }
 }
 
 ion-app.md [padding-left] .scroll-content {
-  padding-left: 10px;
+  padding-left: 16px;
 }
 
 @media screen and (orientation: landscape) {
   ion-app.md [padding-left] .scroll-content {
-    padding-left: calc(constant(safe-area-inset-left) + 10px);
-    padding-left: calc(env(safe-area-inset-left) + 10px);
+    padding-left: calc(constant(safe-area-inset-left) + 16px);
+    padding-left: calc(env(safe-area-inset-left) + 16px);
   }
 }
 
 ion-app.md [padding-right] .scroll-content {
-  padding-right: 10px;
+  padding-right: 16px;
 }
 
 @media screen and (orientation: landscape) {
   ion-app.md [padding-right] .scroll-content {
-    padding-right: calc(constant(safe-area-inset-right) + 10px);
-    padding-right: calc(env(safe-area-inset-right) + 10px);
+    padding-right: calc(constant(safe-area-inset-right) + 16px);
+    padding-right: calc(env(safe-area-inset-right) + 16px);
   }
 }
 
 ion-app.md [padding-bottom] .scroll-content {
-  padding-bottom: 10px;
+  padding-bottom: 16px;
 }
 
 @media screen and (orientation: landscape) {
   ion-app.md [padding-bottom] .scroll-content {
-    padding-bottom: 10px;
-    padding-bottom: 10px;
+    padding-bottom: 16px;
+    padding-bottom: 16px;
   }
 }
 
 ion-app.md [padding-vertical] .scroll-content {
-  padding-top: 10px;
-  padding-bottom: 10px;
+  padding-top: 16px;
+  padding-bottom: 16px;
 }
 
 @media screen and (orientation: landscape) {
   ion-app.md [padding-vertical] .scroll-content {
-    padding-top: 10px;
-    padding-bottom: 10px;
-    padding-top: 10px;
-    padding-bottom: 10px;
+    padding-top: 16px;
+    padding-bottom: 16px;
+    padding-top: 16px;
+    padding-bottom: 16px;
   }
 }
 
 ion-app.md [padding-horizontal] .scroll-content {
-  padding-left: 10px;
-  padding-right: 10px;
+  padding-left: 16px;
+  padding-right: 16px;
 }
 
 @media screen and (orientation: landscape) {
   ion-app.md [padding-horizontal] .scroll-content {
-    padding-left: calc(constant(safe-area-inset-left) + 10px);
-    padding-right: calc(constant(safe-area-inset-right) + 10px);
-    padding-left: calc(env(safe-area-inset-left) + 10px);
-    padding-right: calc(env(safe-area-inset-right) + 10px);
+    padding-left: calc(constant(safe-area-inset-left) + 16px);
+    padding-right: calc(constant(safe-area-inset-right) + 16px);
+    padding-left: calc(env(safe-area-inset-left) + 16px);
+    padding-right: calc(env(safe-area-inset-right) + 16px);
   }
 }
 
@@ -10675,117 +10684,117 @@ ion-app.md [margin-horizontal] .scroll-content {
 }
 
 ion-app.wp [padding] {
-  padding: 10px;
+  padding: 16px;
 }
 
 ion-app.wp [padding-top] {
-  padding-top: 10px;
+  padding-top: 16px;
 }
 
 ion-app.wp [padding-left] {
-  padding-left: 10px;
+  padding-left: 16px;
 }
 
 ion-app.wp [padding-right] {
-  padding-right: 10px;
+  padding-right: 16px;
 }
 
 ion-app.wp [padding-bottom] {
-  padding-bottom: 10px;
+  padding-bottom: 16px;
 }
 
 ion-app.wp [padding-vertical] {
-  padding-top: 10px;
-  padding-bottom: 10px;
+  padding-top: 16px;
+  padding-bottom: 16px;
 }
 
 ion-app.wp [padding-horizontal] {
-  padding-left: 10px;
-  padding-right: 10px;
+  padding-left: 16px;
+  padding-right: 16px;
 }
 
 ion-app.wp [padding] .scroll-content {
-  padding: 10px;
+  padding: 16px;
 }
 
 @media screen and (orientation: landscape) {
   ion-app.wp [padding] .scroll-content {
-    padding-left: calc(constant(safe-area-inset-left) + 10px);
-    padding-top: 10px;
-    padding-bottom: 10px;
-    padding: 10px calc(env(safe-area-inset-right) + 10px) 10px calc(env(safe-area-inset-left) + 10px);
+    padding-left: calc(constant(safe-area-inset-left) + 16px);
+    padding-top: 16px;
+    padding-bottom: 16px;
+    padding: 16px calc(env(safe-area-inset-right) + 16px) 16px calc(env(safe-area-inset-left) + 16px);
   }
 }
 
 ion-app.wp [padding-top] .scroll-content {
-  padding-top: 10px;
+  padding-top: 16px;
 }
 
 @media screen and (orientation: landscape) {
   ion-app.wp [padding-top] .scroll-content {
-    padding-top: 10px;
-    padding-top: 10px;
+    padding-top: 16px;
+    padding-top: 16px;
   }
 }
 
 ion-app.wp [padding-left] .scroll-content {
-  padding-left: 10px;
+  padding-left: 16px;
 }
 
 @media screen and (orientation: landscape) {
   ion-app.wp [padding-left] .scroll-content {
-    padding-left: calc(constant(safe-area-inset-left) + 10px);
-    padding-left: calc(env(safe-area-inset-left) + 10px);
+    padding-left: calc(constant(safe-area-inset-left) + 16px);
+    padding-left: calc(env(safe-area-inset-left) + 16px);
   }
 }
 
 ion-app.wp [padding-right] .scroll-content {
-  padding-right: 10px;
+  padding-right: 16px;
 }
 
 @media screen and (orientation: landscape) {
   ion-app.wp [padding-right] .scroll-content {
-    padding-right: calc(constant(safe-area-inset-right) + 10px);
-    padding-right: calc(env(safe-area-inset-right) + 10px);
+    padding-right: calc(constant(safe-area-inset-right) + 16px);
+    padding-right: calc(env(safe-area-inset-right) + 16px);
   }
 }
 
 ion-app.wp [padding-bottom] .scroll-content {
-  padding-bottom: 10px;
+  padding-bottom: 16px;
 }
 
 @media screen and (orientation: landscape) {
   ion-app.wp [padding-bottom] .scroll-content {
-    padding-bottom: 10px;
-    padding-bottom: 10px;
+    padding-bottom: 16px;
+    padding-bottom: 16px;
   }
 }
 
 ion-app.wp [padding-vertical] .scroll-content {
-  padding-top: 10px;
-  padding-bottom: 10px;
+  padding-top: 16px;
+  padding-bottom: 16px;
 }
 
 @media screen and (orientation: landscape) {
   ion-app.wp [padding-vertical] .scroll-content {
-    padding-top: 10px;
-    padding-bottom: 10px;
-    padding-top: 10px;
-    padding-bottom: 10px;
+    padding-top: 16px;
+    padding-bottom: 16px;
+    padding-top: 16px;
+    padding-bottom: 16px;
   }
 }
 
 ion-app.wp [padding-horizontal] .scroll-content {
-  padding-left: 10px;
-  padding-right: 10px;
+  padding-left: 16px;
+  padding-right: 16px;
 }
 
 @media screen and (orientation: landscape) {
   ion-app.wp [padding-horizontal] .scroll-content {
-    padding-left: calc(constant(safe-area-inset-left) + 10px);
-    padding-right: calc(constant(safe-area-inset-right) + 10px);
-    padding-left: calc(env(safe-area-inset-left) + 10px);
-    padding-right: calc(env(safe-area-inset-right) + 10px);
+    padding-left: calc(constant(safe-area-inset-left) + 16px);
+    padding-right: calc(constant(safe-area-inset-right) + 16px);
+    padding-left: calc(env(safe-area-inset-left) + 16px);
+    padding-right: calc(env(safe-area-inset-right) + 16px);
   }
 }
 
@@ -33247,7 +33256,7 @@ ion-navbar.toolbar {
 .ios ion-menu > .menu-inner > ion-content.statusbar-padding:first-child[padding-top] .scroll-content,
 .ios ion-menu > .menu-inner > ion-header > ion-content.statusbar-padding:first-child[padding] .scroll-content,
 .ios ion-menu > .menu-inner > ion-header > ion-content.statusbar-padding:first-child[padding-top] .scroll-content {
-  padding-top: calc(10px + 20px);
+  padding-top: calc(16px + 20px);
   padding-top: constant(safe-area-inset-top);
   padding-top: env(safe-area-inset-top);
 }
@@ -33293,7 +33302,7 @@ ion-navbar.toolbar {
   }
   .ios .modal-wrapper > .ion-page > ion-header > ion-content.statusbar-padding:first-child[padding] .scroll-content,
   .ios .modal-wrapper > .ion-page > ion-header > ion-content.statusbar-padding:first-child[padding-top] .scroll-content {
-    padding-top: calc(10px + 20px);
+    padding-top: calc(16px + 20px);
     padding-top: constant(safe-area-inset-top);
     padding-top: env(safe-area-inset-top);
   }
@@ -33364,7 +33373,7 @@ ion-navbar.toolbar {
 .md ion-menu > .menu-inner > ion-content.statusbar-padding:first-child[padding-top] .scroll-content,
 .md ion-menu > .menu-inner > ion-header > ion-content.statusbar-padding:first-child[padding] .scroll-content,
 .md ion-menu > .menu-inner > ion-header > ion-content.statusbar-padding:first-child[padding-top] .scroll-content {
-  padding-top: calc(10px + 20px);
+  padding-top: calc(16px + 20px);
   padding-top: constant(safe-area-inset-top);
   padding-top: env(safe-area-inset-top);
 }
@@ -33385,7 +33394,7 @@ ion-navbar.toolbar {
   }
   .md .modal-wrapper > .ion-page > ion-header > ion-content.statusbar-padding:first-child[padding] .scroll-content,
   .md .modal-wrapper > .ion-page > ion-header > ion-content.statusbar-padding:first-child[padding-top] .scroll-content {
-    padding-top: calc(10px + 20px);
+    padding-top: calc(16px + 20px);
     padding-top: constant(safe-area-inset-top);
     padding-top: env(safe-area-inset-top);
   }
@@ -33444,7 +33453,7 @@ ion-navbar.toolbar {
 .wp ion-menu > .menu-inner > ion-content.statusbar-padding:first-child[padding-top] .scroll-content,
 .wp ion-menu > .menu-inner > ion-header > ion-content.statusbar-padding:first-child[padding] .scroll-content,
 .wp ion-menu > .menu-inner > ion-header > ion-content.statusbar-padding:first-child[padding-top] .scroll-content {
-  padding-top: calc(10px + 20px);
+  padding-top: calc(16px + 20px);
   padding-top: constant(safe-area-inset-top);
   padding-top: env(safe-area-inset-top);
 }
@@ -33465,7 +33474,7 @@ ion-navbar.toolbar {
   }
   .wp .modal-wrapper > .ion-page > ion-header > ion-content.statusbar-padding:first-child[padding] .scroll-content,
   .wp .modal-wrapper > .ion-page > ion-header > ion-content.statusbar-padding:first-child[padding-top] .scroll-content {
-    padding-top: calc(10px + 20px);
+    padding-top: calc(16px + 20px);
     padding-top: constant(safe-area-inset-top);
     padding-top: env(safe-area-inset-top);
   }
@@ -33483,16 +33492,8 @@ ion-navbar.toolbar {
   min-height: calc(46px + env(safe-area-inset-bottom));
 }
 
-page-backpack .toolbar-title-md {
-  font-size: 7vw;
-}
-
-page-backpack .mainTitles {
-  font-family: "flyingleather";
-  font-size: 6vw;
-}
-
 page-backpack .backpackPage-container {
+  margin-top: 0 !important;
   background-image: url("../assets/graphicMat/gradient_bats_1920.png");
   background-size: cover;
   background-position: center;
@@ -33503,8 +33504,8 @@ page-backpack .backpackPage-container {
 page-backpack .backpackPage-container .backpack-elements-container {
   background-image: url("../assets/graphicMat/circles.png");
   background-repeat: no-repeat;
-  background-size: auto;
-  background-position: fixed;
+  background-size: contain;
+  background-position: center;
   width: 80%;
   /*  margin: auto; */
   /* padding-top:15%; */
@@ -33517,11 +33518,19 @@ page-backpack .backpackPage-container .backpack-elements-container {
   -webkit-flex-direction: column;
   -ms-flex-direction: column;
   flex-direction: column;
+  -webkit-box-align: center;
+  -webkit-align-items: center;
+  -ms-flex-align: center;
+  align-items: center;
+  -webkit-box-pack: center;
+  -webkit-justify-content: center;
+  -ms-flex-pack: center;
+  justify-content: center;
   margin: 15% 10%;
 }
 
 page-backpack .backpackPage-container .backpack-elements-container img {
-  width: 20rem;
+  width: 45%;
   margin: auto;
 }
 
@@ -33530,7 +33539,7 @@ page-backpack .backpackPage-container .backpack-elements-container .myCollectedC
   color: white;
 }
 
-page-backpack .backpackPage-container .candyItem {
+page-backpack .backpackPage-container .backpack-elements-container .candyItem {
   height: 15vh;
   display: -webkit-box;
   display: -webkit-flex;
@@ -33556,14 +33565,14 @@ page-backpack .backpackPage-container .candyItem {
   border-top: 2px solid #B1C9FB;
 }
 
-page-backpack .backpackPage-container .candyItem h1, page-backpack .backpackPage-container .candyItem h2, page-backpack .backpackPage-container .candyItem .amount {
+page-backpack .backpackPage-container .backpack-elements-container .candyItem h1, page-backpack .backpackPage-container .backpack-elements-container .candyItem h2, page-backpack .backpackPage-container .backpack-elements-container .candyItem .amount {
   font-family: 'Titan One', cursive;
   color: #B1C9FB;
   font-size: 1.5rem;
   text-transform: uppercase;
 }
 
-page-backpack .backpackPage-container .candyItem h1 {
+page-backpack .backpackPage-container .backpack-elements-container .candyItem h1 {
   transform: scale(1, 1.2);
   -webkit-transform: scale(1, 1.2);
   /* Safari and Chrome */
@@ -33575,7 +33584,7 @@ page-backpack .backpackPage-container .candyItem h1 {
   /* Opera */
 }
 
-page-backpack .backpackPage-container .candyItem .candyName {
+page-backpack .backpackPage-container .backpack-elements-container .candyItem .candyName {
   max-width: 80%;
   display: -webkit-box;
   display: -webkit-flex;
@@ -33588,14 +33597,14 @@ page-backpack .backpackPage-container .candyItem .candyName {
   flex-direction: column;
 }
 
-page-backpack .backpackPage-container .candyItem .candyName > button {
+page-backpack .backpackPage-container .backpack-elements-container .candyItem .candyName > button {
   color: orange;
   border: 1px solid orange;
   font-family: 'Titan One', cursive;
   background-color: transparent;
 }
 
-page-backpack .backpackPage-container .candyItem .candyThumbnail {
+page-backpack .backpackPage-container .backpack-elements-container .candyItem .candyThumbnail {
   height: 6rem;
   width: 6rem;
   background-color: pink;
@@ -33610,14 +33619,50 @@ page-backpack .backpackPage-container .candyItem .candyThumbnail {
   border-radius: 50%;
 }
 
-page-backpack .backpackPage-container .candyItem .amount {
+page-backpack .backpackPage-container .backpack-elements-container .candyItem .amount {
   width: 50px;
   height: 50px;
 }
 
-page-backpack .backpackPage-container .candyTotal, page-backpack .backpackPage-container .totalPoints {
-  width: 80vw;
+page-backpack .backpackPage-container .backpack-elements-container .candyTotal, page-backpack .backpackPage-container .backpack-elements-container .totalPoints {
+  width: 100%;
   height: 6rem;
+  padding: 2%;
+  display: -webkit-box;
+  display: -webkit-flex;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: horizontal;
+  -webkit-box-direction: normal;
+  -webkit-flex-direction: row;
+  -ms-flex-direction: row;
+  flex-direction: row;
+  -webkit-align-content: center;
+  -ms-flex-line-pack: center;
+  align-content: center;
+  -webkit-box-pack: justify;
+  -webkit-justify-content: space-between;
+  -ms-flex-pack: justify;
+  justify-content: space-between;
+  -webkit-box-align: center;
+  -webkit-align-items: center;
+  -ms-flex-align: center;
+  align-items: center;
+}
+
+page-backpack .backpackPage-container .backpack-elements-container .candyTotal h2, page-backpack .backpackPage-container .backpack-elements-container .totalPoints h2 {
+  text-align: center;
+  font-size: 3rem;
+  font-family: "flyingleather";
+  color: #fff7b1;
+  text-transform: uppercase;
+}
+
+page-backpack .backpackPage-container .backpack-elements-container .candyTotal .totalPoints, page-backpack .backpackPage-container .backpack-elements-container .totalPoints .totalPoints {
+  position: -webkit-sticky;
+  position: sticky;
+  width: 100%;
+  height: 5rem;
   padding: 2%;
   bottom: 50px;
   margin: 5% auto;
@@ -33646,7 +33691,7 @@ page-backpack .backpackPage-container .candyTotal, page-backpack .backpackPage-c
   border-radius: 50px;
 }
 
-page-backpack .backpackPage-container .candyTotal h2, page-backpack .backpackPage-container .totalPoints h2 {
+page-backpack .backpackPage-container .backpack-elements-container .candyTotal .totalPoints h2, page-backpack .backpackPage-container .backpack-elements-container .totalPoints .totalPoints h2 {
   padding: 0% 5%;
   text-align: center;
   font-size: 2rem;
@@ -33654,15 +33699,6 @@ page-backpack .backpackPage-container .candyTotal h2, page-backpack .backpackPag
   color: orange;
   text-transform: uppercase;
   /* letter-spacing: 3rem; */
-}
-
-page-candy-details .mainTitles {
-  font-family: "flyingleather";
-  font-size: 20vw;
-}
-
-page-candy-details .toolbar-title-md {
-  font-size: 7vw;
 }
 
 page-candy-details .candyDetailsPage-container {
@@ -33781,10 +33817,6 @@ page-candy-details .plus-btn > button {
   width: 50px;
   height: 50px;
   background-color: transparent;
-}
-
-* {
-  font-family: "flyingleather";
 }
 
 page-level .levelPage-container {
@@ -33921,22 +33953,26 @@ page-level .levelPage-container .level-bottom-elements .next-level-card img {
   margin: auto;
 }
 
-page-list .mainTitles {
-  font-family: "flyingleather";
-  font-size: 20vw;
-}
-
-page-list .toolbar-title-md {
-  font-size: 7vw;
+h1, h2, h3, h4, h5, h6 {
+  margin: 0;
 }
 
 page-list .candyPageContainer {
   background-image: url("../assets/graphicMat/gradient_bats_1920.png");
   background-size: cover;
-  background-size: cover;
   background-position: center;
   height: 100vh;
   width: 100%;
+  margin-top: 0 !important;
+}
+
+page-list .candyPageContainer .add-label {
+  height: 7vh;
+}
+
+page-list .candyPageContainer .add-label img {
+  width: 50px;
+  float: right;
 }
 
 page-list .candyList {
@@ -33975,35 +34011,11 @@ page-list .candyItem {
   -webkit-align-items: center;
   -ms-flex-align: center;
   align-items: center;
-  border-bottom: 2px solid #B1C9FB;
-  border-top: 2px solid #B1C9FB;
-}
-
-page-list .candyItem h1, page-list .candyItem h2 {
-  font-family: 'Titan One', cursive;
-  color: #B1C9FB;
-  text-transform: uppercase;
-}
-
-page-list .candyItem h1 {
-  font-size: 2rem;
-  transform: scale(1, 1.2);
-  -webkit-transform: scale(1, 1.2);
-  /* Safari and Chrome */
-  -moz-transform: scale(1, 1.2);
-  /* Firefox */
-  -ms-transform: scale(1, 1.2);
-  /* IE 9+ */
-  -o-transform: scale(1, 1.2);
-  /* Opera */
-}
-
-page-list .candyItem h2 {
-  font-size: 2rem;
+  border-bottom: 3px solid #B1C9FB;
 }
 
 page-list .candyItem .candyName {
-  max-width: 80%;
+  max-width: 70%;
   display: -webkit-box;
   display: -webkit-flex;
   display: -ms-flexbox;
@@ -34015,9 +34027,35 @@ page-list .candyItem .candyName {
   flex-direction: column;
 }
 
+page-list .candyItem .candyName h1, page-list .candyItem .candyName h2 {
+  font-family: 'Titan One', cursive;
+  color: #B1C9FB;
+  text-transform: uppercase;
+  text-align: center;
+}
+
+page-list .candyItem .candyName h1 {
+  font-size: 1.8rem;
+  transform: scale(1, 1.2);
+  -webkit-transform: scale(1, 1.2);
+  /* Safari and Chrome */
+  -moz-transform: scale(1, 1.2);
+  /* Firefox */
+  -ms-transform: scale(1, 1.2);
+  /* IE 9+ */
+  -o-transform: scale(1, 1.2);
+  /* Opera */
+}
+
+page-list .candyItem .candyName h2 {
+  font-size: 1.6rem;
+}
+
 page-list .candyItem .candyThumbnail {
-  height: 10rem;
-  width: 10rem;
+  height: 8rem;
+  width: 8rem;
+  min-width: 8rem;
+  border: 3px solid red;
   background-color: pink;
   -webkit-align-content: center;
   -ms-flex-line-pack: center;
@@ -34027,54 +34065,13 @@ page-list .candyItem .candyThumbnail {
   -ms-flex-align: center;
   align-items: center;
   overflow: hidden;
-  border-radius: 50%;
+  border-radius: 50px;
 }
 
 page-list .candyItem .plus-btn > button {
-  width: 50px;
-  height: 50px;
+  width: 5rem;
+  height: 5rem;
   background-color: transparent;
-}
-
-page-list .candyTotal {
-  width: 80vw;
-  height: 15rem;
-  bottom: 50px;
-  background-color: black;
-  position: fixed;
-  display: -webkit-box;
-  display: -webkit-flex;
-  display: -ms-flexbox;
-  display: flex;
-  -webkit-box-orient: horizontal;
-  -webkit-box-direction: normal;
-  -webkit-flex-direction: row;
-  -ms-flex-direction: row;
-  flex-direction: row;
-  -webkit-align-content: center;
-  -ms-flex-line-pack: center;
-  align-content: center;
-  -webkit-box-pack: justify;
-  -webkit-justify-content: space-between;
-  -ms-flex-pack: justify;
-  justify-content: space-between;
-  -webkit-box-align: center;
-  -webkit-align-items: center;
-  -ms-flex-align: center;
-  align-items: center;
-  border: 5px solid orange;
-  border-radius: 50px;
-  margin: auto;
-}
-
-page-list .candyTotal h2 {
-  padding: 5%;
-  text-align: center;
-  font-size: 6rem;
-  font-family: 'Titan One', cursive;
-  color: orange;
-  text-transform: uppercase;
-  /* letter-spacing: 3rem; */
 }
 
 /* customize toast message */
@@ -34085,15 +34082,6 @@ page-list .candyTotal h2 {
   font-family: "flyingleather" !important;
   font-size: 5rem !important;
   text-align: center;
-}
-
-page-map .toolbar-title-md {
-  font-size: 7vw;
-}
-
-page-map .mainTitles {
-  font-family: "flyingleather";
-  font-size: 6vw;
 }
 
 page-map #map {
@@ -34168,12 +34156,12 @@ page-my-addresses .addressesPage-container .map-sample {
 
 page-my-addresses .addressesPage-container .address-list-container {
   height: 15vh;
-  background-color: #22222B;
-  color: #B2CAF8;
+  background-color: #22222b;
+  color: #b2caf8;
 }
 
 page-my-addresses .addressesPage-container .address-list-container .address-item {
-  background-color: #B2CAF8;
+  background-color: #b2caf8;
 }
 
 page-my-home .homepage-container {
@@ -34213,22 +34201,37 @@ page-welcome .homepage-container {
   -webkit-flex-direction: column;
   -ms-flex-direction: column;
   flex-direction: column;
-  -webkit-align-content: space-around;
-  -ms-flex-line-pack: distribute;
-  align-content: space-around;
 }
 
 page-welcome .homepage-container .titles-container {
-  width: 80%;
-  margin: 10rem auto 0 auto;
+  width: 75%;
+  height: 50vh;
+  margin: 5rem auto 5rem auto;
   background-image: url("../assets/graphicMat/circles.png");
   background-repeat: no-repeat;
-  background-size: cover;
+  background-size: contain;
   background-position: center;
+  display: -webkit-box;
+  display: -webkit-flex;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+  -webkit-flex-direction: column;
+  -ms-flex-direction: column;
+  flex-direction: column;
+  -webkit-box-align: center;
+  -webkit-align-items: center;
+  -ms-flex-align: center;
+  align-items: center;
+  -webkit-box-pack: center;
+  -webkit-justify-content: center;
+  -ms-flex-pack: center;
+  justify-content: center;
 }
 
-page-welcome .homepage-container .titles-container img.mainTitle {
-  height: 5Opx;
+page-welcome .homepage-container .titles-container .candyTitle {
+  margin-top: 20%;
 }
 
 page-welcome .homepage-container .titles-container p {
@@ -34237,8 +34240,6 @@ page-welcome .homepage-container .titles-container p {
   color: orange;
   opacity: 0.8;
   margin-top: 0px;
-  margin-left: 5vw;
-  /*     margin-bottom: 10vh; */
   transform: scale(1, 1.2);
   -webkit-transform: scale(1, 1.2);
   /* Safari and Chrome */
@@ -34250,16 +34251,9 @@ page-welcome .homepage-container .titles-container p {
   /* Opera */
 }
 
-page-welcome .mainTitles {
-  font-family: "flyingleather";
-  font-size: 20vw;
-}
-
-page-welcome .toolbar-title-md {
-  font-size: 7vw;
-}
-
 page-welcome .startButton {
+  width: 80vw;
+  margin: auto;
   display: -webkit-box;
   display: -webkit-flex;
   display: -ms-flexbox;
@@ -34280,23 +34274,16 @@ page-welcome .startButton {
   -webkit-align-items: center;
   -ms-flex-align: center;
   align-items: center;
-  width: 80vw;
   border: 2px solid orange;
   border-radius: 50px;
-  margin: auto;
-  text-align: center;
   font-size: 8vw;
   font-family: 'Titan One', cursive;
   color: orange;
   text-transform: uppercase;
-  letter-spacing: 3rem;
+  letter-spacing: 5vw;
 }
 
 page-welcome .startButton p {
   padding: 5%;
   margin: 0;
-}
-
-page-welcome .button-md {
-  height: 1rem !important;
 }

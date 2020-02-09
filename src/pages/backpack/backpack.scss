@@ -1,15 +1,7 @@
 page-backpack {
 
-    .toolbar-title-md {
-        font-size: 7vw;
-    }
-
-    .mainTitles {
-        font-family: "flyingleather";
-        font-size: 6vw;
-    }
-
     .backpackPage-container{
+        margin-top: 0 !important;
         background-image: url('../assets/graphicMat/gradient_bats_1920.png');
         background-size: cover;
         background-position: center;
@@ -18,95 +10,116 @@ page-backpack {
         .backpack-elements-container{
             background-image: url('../assets/graphicMat/circles.png');
             background-repeat: no-repeat;
-            background-size: auto;
-            background-position: fixed; 
+            background-size: contain;
+            background-position: center; 
             width: 80%;
+            //height:50vh;
            /*  margin: auto; */
             /* padding-top:15%; */
             display:flex;
             flex-direction: column;
+            align-items: center;
+            justify-content: center;
             margin:15% 10%;
             img {
-                width:20rem;
+                //margin-top: 20%;
+                width:45%;;
                 margin: auto;
             }
             .myCollectedCandy {
                 background-color: #000000;
                 color: white;
             }
-        }
-
-    .candyItem {
-        height: 15vh;
-        display: flex;
-        flex-direction: row;
-        justify-content: space-between;
-        align-content: center;
-        align-items: center;
-        border-bottom: 2px solid #B1C9FB;
-        border-top: 2px solid #B1C9FB;
-        h1, h2, .amount {
-            font-family: 'Titan One', cursive;
-            color: #B1C9FB;
-            font-size: 1.5rem;
-            text-transform: uppercase;
-        }
-        h1 {  
-            transform: scale(1, 1.2);
-            -webkit-transform: scale(1, 1.2); /* Safari and Chrome */
-            -moz-transform: scale(1, 1.2); /* Firefox */
-            -ms-transform: scale(1, 1.2); /* IE 9+ */
-            -o-transform: scale(1, 1.2); /* Opera */
-        }
-        .candyName {
-            max-width: 80%;
-            display:flex;
-            flex-direction: column;
-            > button{
-                color: orange;
-                border: 1px solid orange;
-                font-family: 'Titan One', cursive;
-                background-color: transparent;
+            .candyItem {
+                height: 15vh;
+                display: flex;
+                flex-direction: row;
+                justify-content: space-between;
+                align-content: center;
+                align-items: center;
+                border-bottom: 2px solid #B1C9FB;
+                border-top: 2px solid #B1C9FB;
+                h1, h2, .amount {
+                    font-family: 'Titan One', cursive;
+                    color: #B1C9FB;
+                    font-size: 1.5rem;
+                    text-transform: uppercase;
+                }
+                h1 {  
+                    transform: scale(1, 1.2);
+                    -webkit-transform: scale(1, 1.2); /* Safari and Chrome */
+                    -moz-transform: scale(1, 1.2); /* Firefox */
+                    -ms-transform: scale(1, 1.2); /* IE 9+ */
+                    -o-transform: scale(1, 1.2); /* Opera */
+                }
+                .candyName {
+                    max-width: 80%;
+                    display:flex;
+                    flex-direction: column;
+                    > button{
+                        color: orange;
+                        border: 1px solid orange;
+                        font-family: 'Titan One', cursive;
+                        background-color: transparent;
+                    }
+                }
+                .candyThumbnail {
+                    height: 6rem;
+                    width: 6rem;
+                    background-color:pink;
+                    align-content: center;
+                    align-items: center;
+                    overflow:hidden;
+                    border-radius: 50%;
+                }
+                .amount{
+                    width: 50px;
+                    height:50px;
+                }
             }
-        }
-        .candyThumbnail {
-            height: 6rem;
-            width: 6rem;
-            background-color:pink;
-            align-content: center;
-            align-items: center;
-            overflow:hidden;
-            border-radius: 50%;
-        }
-        .amount{
-            width: 50px;
-            height:50px;
-        }
-    }
-        
-        .candyTotal, .totalPoints {
-            width:80vw;
-            height:6rem;
-            padding: 2%;
-            bottom:50px;
-            margin: 5% auto;
-            background-color:black;
-            display: flex;
-            flex-direction:row;
-            align-content:center;
-            justify-content: space-between;
-            align-items: center;
-            border: 5px solid orange;
-            border-radius: 50px;
-            h2 {
-                padding:0% 5%;
-                text-align: center;
-                font-size: 2rem;
-                font-family: 'Titan One', cursive;
-                color: orange;
-                text-transform: uppercase;
-              /* letter-spacing: 3rem; */
-            }            
+                .candyTotal , .totalPoints {
+                    width:100%;
+                    height:6rem;
+                    padding: 2%;
+                    display: flex;
+                    flex-direction:row;
+                    align-content:center;
+                    justify-content: space-between;
+                    align-items: center;
+                    h2 {
+                        // padding:0% 5%;
+                        text-align: center;
+                        font-size: 3rem;
+                        font-family: "flyingleather";
+                        color: rgb(255, 247, 177);
+                        text-transform: uppercase;
+                }
+                .totalPoints {
+                    position: sticky;
+                    width:100%;
+                    height:5rem;
+                    padding: 2%;
+                    bottom:50px;
+                    margin: 5% auto;
+                    background-color:black;
+                    display: flex;
+                    flex-direction:row;
+                    align-content:center;
+                    justify-content: space-between;
+                    align-items: center;
+                    border: 5px solid orange;
+                    border-radius: 50px;
+                    h2 {
+                        padding:0% 5%;
+                        text-align: center;
+                        font-size: 2rem;
+                        font-family: 'Titan One', cursive;
+                        color: orange;
+                        text-transform: uppercase;
+                      /* letter-spacing: 3rem; */
+                    }            
+                }
+            }
         }
     }
 }

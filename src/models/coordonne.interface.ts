@@ -10,3 +10,11 @@ export interface CoordonneI {
         speed: number;
     }
 }
+
+
+export interface Location {
+
+    lat: number;
+    lng: number;
+
+    }

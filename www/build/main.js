@@ -1,4 +1,4 @@
-webpackJsonp([10],{
+webpackJsonp([9],{
 
 /***/ 135:
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
@@ -6,7 +6,7 @@ webpackJsonp([10],{
 "use strict";
 /* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "a", function() { return ListPage; });
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__angular_core__ = __webpack_require__(1);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_1_ionic_angular__ = __webpack_require__(19);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_1_ionic_angular__ = __webpack_require__(20);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_2__ionic_native_geolocation__ = __webpack_require__(82);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_3__providers_candy_api_service_candy_api_service__ = __webpack_require__(44);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_4__providers_backpack_service_backpack_service__ = __webpack_require__(61);
@@ -33,7 +33,6 @@ var ListPage = (function () {
         this.backpackService = backpackService;
         this.geolocation = geolocation;
         this.geolocService = geolocService;
-        // important, else returns 'undefined'
         this.candyList = [];
         this.candyItem = {
             _id: "", product_name: "", amountInBackpack: 0,
@@ -54,7 +53,6 @@ var ListPage = (function () {
     ListPage.prototype.addCandyToBackpack = function (candyItem) {
         var _this = this;
         this.backpackService.currentBackpackCount.subscribe(function (data) { return _this.totalCandy = data; });
-        console.log("TOTAL CANDY RETRIEVED before adding a new one: ", this.totalCandy);
         // alert points as a new candy has been added
         this.toast.create({
             message: "+1 Point! " + name,
@@ -66,7 +64,6 @@ var ListPage = (function () {
         this.candyItem.product_name = candyItem.product_name;
         this.candyItem._id = candyItem._id;
         this.candyItem.amountInBackpack = candyItem.amountInBackpack | 0;
-        console.log("NEW CANDY ITEM: ", this.candyItem);
         // new candy has not been added yet
         var added = false;
         // look into items of backpack if new candy id already exists
@@ -84,8 +81,8 @@ var ListPage = (function () {
             this.candyItem.amountInBackpack += 1;
             this.itemsInBackpack.push(this.candyItem);
         }
-        console.log("ITEMS : ", this.itemsInBackpack);
-        console.log(this.itemsInBackpack.forEach(function (item) { return console.log(item.amountInBackpack); }));
+        //console.log("ITEMS : ", this.itemsInBackpack);
+        //console.log(this.itemsInBackpack.forEach(item => console.log(item.amountInBackpack)));
         // save new total of all candy
         this.backpackService.update_totalCandyCount(this.totalCandy += 1);
         // save backpack new state 
@@ -94,9 +91,9 @@ var ListPage = (function () {
     };
     ListPage = __decorate([
         Object(__WEBPACK_IMPORTED_MODULE_0__angular_core__["m" /* Component */])({
-            selector: 'page-list',template:/*ion-inline-start:"/Users/hildegardagnesgenay/Documents/AndBEYOND/CANDY_CHASE_2020_ionic/candyChase2020/src/pages/list/list.html"*/'\n<ion-header>\n  <ion-navbar color="customColor">\n    <ion-title text-center class="mainTitles">Candy to find</ion-title>\n  </ion-navbar>\n</ion-header>\n\n<ion-content class="candyPageContainer">\n  \n  <div class="candyList" *ngIf="candyList.length > 0">\n    <div *ngFor="let candyItem of candyList">\n      <div class="candyItem">\n        <div class="candyThumbnail">\n          <img src="{{candyItem.image_front_url}}" class="magic">\n        </div>\n        <div class="candyName">\n          <!-- <h2>{{data.brands_tags[1]}}</h2> -->\n          <h1>{{candyItem.product_name | slice:0:20 }}</h1>\n<!-- TODO in \'foodData\' service => filter data results (remove \'ricola\') / productName ( remove \'bonbons\' from title / brand if in name) -->\n        </div>\n        <div class="plus-btn">\n          <!-- <button (click)="sendId(candyItem._id)"> -->\n          <button (click)="addCandyToBackpack(candyItem)">\n            <img src="assets/graphicmat/zoomIn.png" alt="plus-button"/>\n          </button>\n        </div>\n      </div>\n    </div>\n  </div>\n</ion-content>\n\n\n'/*ion-inline-end:"/Users/hildegardagnesgenay/Documents/AndBEYOND/CANDY_CHASE_2020_ionic/candyChase2020/src/pages/list/list.html"*/
+            selector: 'page-list',template:/*ion-inline-start:"/Users/hildegardagnesgenay/Documents/AndBEYOND/CANDY_CHASE_2020_ionic/candyChase2020/src/pages/list/list.html"*/'\n<ion-header>\n  <ion-navbar color="customColor">\n    <ion-title text-center class="mainTitles">Candy to find</ion-title>\n  </ion-navbar>\n</ion-header>\n\n<ion-content class="candyPageContainer">\n  <div class="candyList" *ngIf="candyList.length > 0">\n    <div class="add-label">\n      <img src="assets/graphicMat/bubble_add2.png" alt="" />\n    </div>\n    <div *ngFor="let candyItem of candyList">\n      <div class="candyItem">\n        <div class="candyThumbnail">\n          <img src="{{candyItem.image_front_url}}" class="magic">\n        </div>\n        <div class="candyName">\n          <!-- <h2>{{data.brands_tags[1]}}</h2> -->\n          <h1>{{candyItem.product_name | slice:0:20 }}</h1>\n        </div>\n        <div class="plus-btn">\n          <!-- <button (click)="sendId(candyItem._id)"> -->\n          <button (click)="addCandyToBackpack(candyItem)">\n            <img src="assets/graphicmat/zoomIn.png" alt="plus-button"/>\n          </button>\n        </div>\n      </div>\n    </div>\n  </div>\n</ion-content>\n\n'/*ion-inline-end:"/Users/hildegardagnesgenay/Documents/AndBEYOND/CANDY_CHASE_2020_ionic/candyChase2020/src/pages/list/list.html"*/
         }),
-        __metadata("design:paramtypes", [__WEBPACK_IMPORTED_MODULE_1_ionic_angular__["j" /* ToastController */],
+        __metadata("design:paramtypes", [__WEBPACK_IMPORTED_MODULE_1_ionic_angular__["i" /* ToastController */],
             __WEBPACK_IMPORTED_MODULE_3__providers_candy_api_service_candy_api_service__["a" /* CandyService */],
             __WEBPACK_IMPORTED_MODULE_4__providers_backpack_service_backpack_service__["a" /* BackpackServiceProvider */],
             __WEBPACK_IMPORTED_MODULE_2__ionic_native_geolocation__["a" /* Geolocation */],
@@ -124,7 +121,7 @@ var ListPage = (function () {
 "use strict";
 /* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "a", function() { return AboutPage; });
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__angular_core__ = __webpack_require__(1);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_1_ionic_angular__ = __webpack_require__(19);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_1_ionic_angular__ = __webpack_require__(20);
 var __decorate = (this && this.__decorate) || function (decorators, target, key, desc) {
     var c = arguments.length, r = c < 3 ? target : desc === null ? desc = Object.getOwnPropertyDescriptor(target, key) : desc, d;
     if (typeof Reflect === "object" && typeof Reflect.decorate === "function") r = Reflect.decorate(decorators, target, key, desc);
@@ -136,25 +133,18 @@ var __metadata = (this && this.__metadata) || function (k, v) {
 };
 
 
-/**
- * Generated class for the AboutPage page.
- *
- * See https://ionicframework.com/docs/components/#navigation for more info on
- * Ionic pages and navigation.
- */
 var AboutPage = (function () {
     function AboutPage(navCtrl, navParams) {
         this.navCtrl = navCtrl;
         this.navParams = navParams;
     }
     AboutPage.prototype.ionViewDidLoad = function () {
-        console.log('ionViewDidLoad AboutPage');
     };
     AboutPage = __decorate([
         Object(__WEBPACK_IMPORTED_MODULE_0__angular_core__["m" /* Component */])({
             selector: 'page-about',template:/*ion-inline-start:"/Users/hildegardagnesgenay/Documents/AndBEYOND/CANDY_CHASE_2020_ionic/candyChase2020/src/pages/about/about.html"*/'\n<ion-header>\n\n  <ion-navbar color="customColor">\n    <ion-title>about</ion-title>\n  </ion-navbar>\n\n</ion-header>\n\n\n<ion-content padding>\n\n</ion-content>\n'/*ion-inline-end:"/Users/hildegardagnesgenay/Documents/AndBEYOND/CANDY_CHASE_2020_ionic/candyChase2020/src/pages/about/about.html"*/,
         }),
-        __metadata("design:paramtypes", [__WEBPACK_IMPORTED_MODULE_1_ionic_angular__["g" /* NavController */], __WEBPACK_IMPORTED_MODULE_1_ionic_angular__["h" /* NavParams */]])
+        __metadata("design:paramtypes", [__WEBPACK_IMPORTED_MODULE_1_ionic_angular__["f" /* NavController */], __WEBPACK_IMPORTED_MODULE_1_ionic_angular__["g" /* NavParams */]])
     ], AboutPage);
     return AboutPage;
 }());
@@ -169,7 +159,7 @@ var AboutPage = (function () {
 "use strict";
 /* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "a", function() { return CandyDetailsPage; });
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__angular_core__ = __webpack_require__(1);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_1_ionic_angular__ = __webpack_require__(19);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_1_ionic_angular__ = __webpack_require__(20);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_2__providers_candy_api_service_candy_api_service__ = __webpack_require__(44);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_3__pipes_keyvalue_keyvalue__ = __webpack_require__(81);
 var __decorate = (this && this.__decorate) || function (decorators, target, key, desc) {
@@ -205,14 +195,11 @@ var CandyDetailsPage = (function () {
         this.candyService.getCandyById(this.candyId)
             .subscribe(function (response) {
             _this.candyItem = response;
-            console.log("je suis candyItem response: ", _this.candyItem);
             _this.candyOfList = response;
-            console.log("je suis candyOfList", _this.candyOfList);
             _this.candyItem.product_name = response.product_name;
             _this.candyItem.image_front_url = response.image_front_url;
             _this.candyItem.ingredients_tags = response.ingredients_tags;
             _this.candyItem.nutriscore_data = response.nutriscore_data;
-            console.log(_this.candyItem.product_name, _this.candyItem.ingredients_tags);
         });
     };
     CandyDetailsPage.prototype.toggleIngredients = function () {
@@ -231,8 +218,8 @@ var CandyDetailsPage = (function () {
         Object(__WEBPACK_IMPORTED_MODULE_0__angular_core__["m" /* Component */])({
             selector: 'page-candy-details',template:/*ion-inline-start:"/Users/hildegardagnesgenay/Documents/AndBEYOND/CANDY_CHASE_2020_ionic/candyChase2020/src/pages/candy-details/candy-details.html"*/'<ion-header>\n  <ion-navbar color="customColor">\n    <ion-title text-center class="mainTitles">Candy Infos</ion-title>\n  </ion-navbar>\n</ion-header>\n\n<!-- Iterates through every props of the candyItem from api (~200 ..) -->\n<!-- <ion-content class="candyDetailsPage-container">\n  <div class="candyDetailsPage" *ngIf="candyItem">\n    <div *ngFor="let i of candyItem | keyvalue " class="candyList">\n    </div>\n  </div>\n</ion-content> -->\n\n\n<ion-content class="candyDetailsPage-container">\n  <div class="candyDetailsPage" *ngIf="candyItem">\n\n      <div class="candyItemTitle">\n\n        <div class="candyThumbnail">\n          <img src="{{candyItem.image_front_url}}" class="magic">\n        </div>\n\n        <div>\n          <h1>{{ candyItem.product_name | slice:0:20 }}</h1>\n        </div> \n\n      </div>\n\n      <h1 (click)="toggleIngredients()">Ingredients<span class="arrowIcon">v</span></h1>\n      <div class="candyIngredients" *ngIf="showIngredients">\n        <table>\n          <!-- <th class="candyName"></th> -->\n          <tr *ngFor="let i of candyItem.ingredients_tags">\n            <td>\n              {{i}}\n            </td>\n          </tr>\n        </table>\n      </div>\n\n      <h1 (click)="toggleNutriscore()">Nutriscore</h1>\n      <div class="candyNutriscore" *ngIf="showNutriscore">\n        <table>\n          <!-- <th class="candyName"></th> -->\n          <tr *ngFor="let i of candyItem.nutriscore_data | keyvalue">\n            <td>\n              {{i.key}}:{{i.value}}\n            </td>\n          </tr>\n        </table>\n      </div>\n      \n      <h1 (click)="toggleAllergens()">Allergens</h1>\n      <div class="candyAllergens" *ngIf="showAllergens">\n        <table>\n          <!-- <th class="candyName"></th> -->\n          <tr *ngFor="let i of candyItem.ingredients_tags">\n            <td>\n              {{i.key}}\n            </td>\n          </tr>\n        </table>\n      </div>\n\n  \n  </div>\n\n</ion-content>\n'/*ion-inline-end:"/Users/hildegardagnesgenay/Documents/AndBEYOND/CANDY_CHASE_2020_ionic/candyChase2020/src/pages/candy-details/candy-details.html"*/,
         }),
-        __metadata("design:paramtypes", [__WEBPACK_IMPORTED_MODULE_1_ionic_angular__["g" /* NavController */],
-            __WEBPACK_IMPORTED_MODULE_1_ionic_angular__["h" /* NavParams */],
+        __metadata("design:paramtypes", [__WEBPACK_IMPORTED_MODULE_1_ionic_angular__["f" /* NavController */],
+            __WEBPACK_IMPORTED_MODULE_1_ionic_angular__["g" /* NavParams */],
             __WEBPACK_IMPORTED_MODULE_2__providers_candy_api_service_candy_api_service__["a" /* CandyService */],
             __WEBPACK_IMPORTED_MODULE_3__pipes_keyvalue_keyvalue__["a" /* KeyvaluePipe */]])
     ], CandyDetailsPage);
@@ -249,7 +236,7 @@ var CandyDetailsPage = (function () {
 "use strict";
 /* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "a", function() { return LegalPage; });
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__angular_core__ = __webpack_require__(1);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_1_ionic_angular__ = __webpack_require__(19);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_1_ionic_angular__ = __webpack_require__(20);
 var __decorate = (this && this.__decorate) || function (decorators, target, key, desc) {
     var c = arguments.length, r = c < 3 ? target : desc === null ? desc = Object.getOwnPropertyDescriptor(target, key) : desc, d;
     if (typeof Reflect === "object" && typeof Reflect.decorate === "function") r = Reflect.decorate(decorators, target, key, desc);
@@ -273,13 +260,12 @@ var LegalPage = (function () {
         this.navParams = navParams;
     }
     LegalPage.prototype.ionViewDidLoad = function () {
-        console.log('ionViewDidLoad LegalPage');
     };
     LegalPage = __decorate([
         Object(__WEBPACK_IMPORTED_MODULE_0__angular_core__["m" /* Component */])({
             selector: 'page-legal',template:/*ion-inline-start:"/Users/hildegardagnesgenay/Documents/AndBEYOND/CANDY_CHASE_2020_ionic/candyChase2020/src/pages/legal/legal.html"*/'<!--\n  Generated template for the LegalPage page.\n\n  See http://ionicframework.com/docs/components/#navigation for more info on\n  Ionic pages and navigation.\n-->\n<ion-header>\n\n  <ion-navbar>\n    <ion-title>legal</ion-title>\n  </ion-navbar>\n\n</ion-header>\n\n\n<ion-content padding>\n\n</ion-content>\n'/*ion-inline-end:"/Users/hildegardagnesgenay/Documents/AndBEYOND/CANDY_CHASE_2020_ionic/candyChase2020/src/pages/legal/legal.html"*/,
         }),
-        __metadata("design:paramtypes", [__WEBPACK_IMPORTED_MODULE_1_ionic_angular__["g" /* NavController */], __WEBPACK_IMPORTED_MODULE_1_ionic_angular__["h" /* NavParams */]])
+        __metadata("design:paramtypes", [__WEBPACK_IMPORTED_MODULE_1_ionic_angular__["f" /* NavController */], __WEBPACK_IMPORTED_MODULE_1_ionic_angular__["g" /* NavParams */]])
     ], LegalPage);
     return LegalPage;
 }());
@@ -294,7 +280,7 @@ var LegalPage = (function () {
 "use strict";
 /* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "a", function() { return LevelPage; });
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__angular_core__ = __webpack_require__(1);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_1_ionic_angular__ = __webpack_require__(19);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_1_ionic_angular__ = __webpack_require__(20);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_2__providers_candy_api_service_candy_api_service__ = __webpack_require__(44);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_3__providers_level_api_service_level_api_service__ = __webpack_require__(318);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_4__providers_backpack_service_backpack_service__ = __webpack_require__(61);
@@ -399,10 +385,13 @@ var LevelPage = (function () {
         Object(__WEBPACK_IMPORTED_MODULE_0__angular_core__["m" /* Component */])({
             selector: 'page-level',template:/*ion-inline-start:"/Users/hildegardagnesgenay/Documents/AndBEYOND/CANDY_CHASE_2020_ionic/candyChase2020/src/pages/level/level.html"*/'<ion-header>\n    <ion-navbar color="customColor">\n      <ion-title text-center>Your level</ion-title>\n    </ion-navbar>\n  </ion-header>\n\n<ion-content class="levelPage-container">\n\n  <div class="levelElements">\n<!-- <div>\n        <p>you have {{ totalPoints }} points</p> \n    </div> --> \n      <div class="levelNumber">\n        <h2><span>{{level.levelName}}</span></h2>\n      </div>\n      \n      <div class="ribbon">\n        <img src= "{{ level.bannerMessage }}" alt="" />\n      </div>\n\n      <div class="levelImage">\n        <img src= "{{ level.levelImg }}" alt="" />\n      </div> \n  </div>\n\n  <div class="level-bottom-elements">\n    <div class="level-bubble">\n      <h2>Next mission:<br>Get the <span>{{ nextLevel.levelCardName }} !</span></h2>\n    </div>\n    <div class="next-level-card">\n      <img src="{{ nextLevel.levelCard}}" alt="" />\n    </div>\n  </div>\n\n</ion-content>'/*ion-inline-end:"/Users/hildegardagnesgenay/Documents/AndBEYOND/CANDY_CHASE_2020_ionic/candyChase2020/src/pages/level/level.html"*/,
         }),
-        __metadata("design:paramtypes", [typeof (_a = typeof __WEBPACK_IMPORTED_MODULE_1_ionic_angular__["g" /* NavController */] !== "undefined" && __WEBPACK_IMPORTED_MODULE_1_ionic_angular__["g" /* NavController */]) === "function" && _a || Object, typeof (_b = typeof __WEBPACK_IMPORTED_MODULE_1_ionic_angular__["h" /* NavParams */] !== "undefined" && __WEBPACK_IMPORTED_MODULE_1_ionic_angular__["h" /* NavParams */]) === "function" && _b || Object, typeof (_c = typeof __WEBPACK_IMPORTED_MODULE_2__providers_candy_api_service_candy_api_service__["a" /* CandyService */] !== "undefined" && __WEBPACK_IMPORTED_MODULE_2__providers_candy_api_service_candy_api_service__["a" /* CandyService */]) === "function" && _c || Object, typeof (_d = typeof __WEBPACK_IMPORTED_MODULE_4__providers_backpack_service_backpack_service__["a" /* BackpackServiceProvider */] !== "undefined" && __WEBPACK_IMPORTED_MODULE_4__providers_backpack_service_backpack_service__["a" /* BackpackServiceProvider */]) === "function" && _d || Object, typeof (_e = typeof __WEBPACK_IMPORTED_MODULE_3__providers_level_api_service_level_api_service__["a" /* LevelServiceProvider */] !== "undefined" && __WEBPACK_IMPORTED_MODULE_3__providers_level_api_service_level_api_service__["a" /* LevelServiceProvider */]) === "function" && _e || Object])
+        __metadata("design:paramtypes", [__WEBPACK_IMPORTED_MODULE_1_ionic_angular__["f" /* NavController */],
+            __WEBPACK_IMPORTED_MODULE_1_ionic_angular__["g" /* NavParams */],
+            __WEBPACK_IMPORTED_MODULE_2__providers_candy_api_service_candy_api_service__["a" /* CandyService */],
+            __WEBPACK_IMPORTED_MODULE_4__providers_backpack_service_backpack_service__["a" /* BackpackServiceProvider */],
+            __WEBPACK_IMPORTED_MODULE_3__providers_level_api_service_level_api_service__["a" /* LevelServiceProvider */]])
     ], LevelPage);
     return LevelPage;
-    var _a, _b, _c, _d, _e;
 }());
 
 //# sourceMappingURL=level.js.map
@@ -415,7 +404,7 @@ var LevelPage = (function () {
 "use strict";
 /* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "a", function() { return LoginPage; });
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__angular_core__ = __webpack_require__(1);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_1_ionic_angular__ = __webpack_require__(19);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_1_ionic_angular__ = __webpack_require__(20);
 var __decorate = (this && this.__decorate) || function (decorators, target, key, desc) {
     var c = arguments.length, r = c < 3 ? target : desc === null ? desc = Object.getOwnPropertyDescriptor(target, key) : desc, d;
     if (typeof Reflect === "object" && typeof Reflect.decorate === "function") r = Reflect.decorate(decorators, target, key, desc);
@@ -445,7 +434,7 @@ var LoginPage = (function () {
         Object(__WEBPACK_IMPORTED_MODULE_0__angular_core__["m" /* Component */])({
             selector: 'page-login',template:/*ion-inline-start:"/Users/hildegardagnesgenay/Documents/AndBEYOND/CANDY_CHASE_2020_ionic/candyChase2020/src/pages/login/login.html"*/'<ion-header>\n</ion-header>\n\n<ion-content padding>\n\n</ion-content>\n'/*ion-inline-end:"/Users/hildegardagnesgenay/Documents/AndBEYOND/CANDY_CHASE_2020_ionic/candyChase2020/src/pages/login/login.html"*/,
         }),
-        __metadata("design:paramtypes", [__WEBPACK_IMPORTED_MODULE_1_ionic_angular__["g" /* NavController */], __WEBPACK_IMPORTED_MODULE_1_ionic_angular__["h" /* NavParams */]])
+        __metadata("design:paramtypes", [__WEBPACK_IMPORTED_MODULE_1_ionic_angular__["f" /* NavController */], __WEBPACK_IMPORTED_MODULE_1_ionic_angular__["g" /* NavParams */]])
     ], LoginPage);
     return LoginPage;
 }());
@@ -460,7 +449,7 @@ var LoginPage = (function () {
 "use strict";
 /* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "a", function() { return MyAddressesPage; });
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__angular_core__ = __webpack_require__(1);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_1_ionic_angular__ = __webpack_require__(19);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_1_ionic_angular__ = __webpack_require__(20);
 var __decorate = (this && this.__decorate) || function (decorators, target, key, desc) {
     var c = arguments.length, r = c < 3 ? target : desc === null ? desc = Object.getOwnPropertyDescriptor(target, key) : desc, d;
     if (typeof Reflect === "object" && typeof Reflect.decorate === "function") r = Reflect.decorate(decorators, target, key, desc);
@@ -490,7 +479,7 @@ var MyAddressesPage = (function () {
         Object(__WEBPACK_IMPORTED_MODULE_0__angular_core__["m" /* Component */])({
             selector: 'page-my-addresses',template:/*ion-inline-start:"/Users/hildegardagnesgenay/Documents/AndBEYOND/CANDY_CHASE_2020_ionic/candyChase2020/src/pages/my-addresses/my-addresses.html"*/'<ion-header>\n    <ion-navbar color="customColor">\n      <ion-title text-center>Your addresses</ion-title>\n    </ion-navbar>\n  </ion-header>\n\n<ion-content class="addressesPage-container">\n\n  <div class="map-sample">\n    <img src="assets/graphicMat/map_sample.png" alt="" />\n  </div>\n\n  <div class="address-list-container">\n    <h5></h5>\n    <div class="address-item">\n      <h6></h6>\n    </div>\n    <img src="assets/graphicMat/haunted_house.png" alt="" />\n  </div>\n\n</ion-content>\n'/*ion-inline-end:"/Users/hildegardagnesgenay/Documents/AndBEYOND/CANDY_CHASE_2020_ionic/candyChase2020/src/pages/my-addresses/my-addresses.html"*/,
         }),
-        __metadata("design:paramtypes", [__WEBPACK_IMPORTED_MODULE_1_ionic_angular__["g" /* NavController */], __WEBPACK_IMPORTED_MODULE_1_ionic_angular__["h" /* NavParams */]])
+        __metadata("design:paramtypes", [__WEBPACK_IMPORTED_MODULE_1_ionic_angular__["f" /* NavController */], __WEBPACK_IMPORTED_MODULE_1_ionic_angular__["g" /* NavParams */]])
     ], MyAddressesPage);
     return MyAddressesPage;
 }());
@@ -505,7 +494,7 @@ var MyAddressesPage = (function () {
 "use strict";
 /* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "a", function() { return MyHomePage; });
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__angular_core__ = __webpack_require__(1);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_1_ionic_angular__ = __webpack_require__(19);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_1_ionic_angular__ = __webpack_require__(20);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_2__list_list__ = __webpack_require__(135);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_3__rules_rules__ = __webpack_require__(165);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_4__login_login__ = __webpack_require__(162);
@@ -553,10 +542,10 @@ var MyHomePage = (function () {
     };
     MyHomePage = __decorate([
         Object(__WEBPACK_IMPORTED_MODULE_0__angular_core__["m" /* Component */])({
-            selector: 'page-my-home',template:/*ion-inline-start:"/Users/hildegardagnesgenay/Documents/AndBEYOND/CANDY_CHASE_2020_ionic/candyChase2020/src/pages/my-home/my-home.html"*/'<ion-header>\n  <ion-navbar color="customColor">\n    <ion-title text-center class="mainTitles">Home</ion-title>\n  </ion-navbar>\n</ion-header>\n\n\n<ion-content class="homepage-container card-background-page">\n\n  <div class="menu-container">\n\n    <ion-row>\n      <ion-col>\n        <img src="assets/graphicMat/menu_rules.png" alt="menu-rules" (click)="goToRules()" />\n      </ion-col>\n      <ion-col></ion-col>\n    </ion-row>\n\n    <ion-row>\n      <ion-col></ion-col>\n      <ion-col>\n        <img src="assets/graphicMat/menu_login.png" alt="menu-login" (click)="goToLogin()" />\n      </ion-col>\n    </ion-row>\n\n    <ion-row>\n      <ion-col>\n        <img src="assets/graphicMat/menu_legal.png" alt="menu-legal" (click)="goToLegal()"/>\n      </ion-col>\n      <ion-col></ion-col>\n    </ion-row>\n\n    <ion-row>\n      <ion-col></ion-col>\n      <ion-col>\n        <img src="assets/graphicMat/menu_about.png" alt="menu-about" (click)="goToAbout()"/>\n      </ion-col>      \n    </ion-row>\n\n    <ion-spinner name="bubbles"></ion-spinner>\n\n    <ion-fab>\n      <button ion-fab><img src="assets/graphicmat/zoomIn.png" alt="plus-button" /></button>\n    </ion-fab>\n\n    <ion-fab bottom right>\n      <button ion-fab>Share</button>\n      <ion-fab-list side="top">\n        <button ion-fab>Facebook</button>\n        <button ion-fab>Twitter</button>\n        <button ion-fab>Youtube</button>\n      </ion-fab-list>\n      <ion-fab-list side="left">\n        <button ion-fab>Vimeo</button>\n      </ion-fab-list>\n    </ion-fab>\n\n  </div>\n\n</ion-content>'/*ion-inline-end:"/Users/hildegardagnesgenay/Documents/AndBEYOND/CANDY_CHASE_2020_ionic/candyChase2020/src/pages/my-home/my-home.html"*/,
+            selector: 'page-my-home',template:/*ion-inline-start:"/Users/hildegardagnesgenay/Documents/AndBEYOND/CANDY_CHASE_2020_ionic/candyChase2020/src/pages/my-home/my-home.html"*/'<ion-header>\n  <ion-navbar color="customColor">\n    <ion-title text-center class="mainTitles">Home</ion-title>\n  </ion-navbar>\n</ion-header>\n\n<ion-content class="homepage-container card-background-page">\n\n  <div class="menu-container">\n\n    <ion-row>\n      <ion-col>\n        <img src="assets/graphicMat/menu_rules.png" alt="menu-rules" (click)="goToRules()" />\n      </ion-col>\n      <ion-col></ion-col>\n    </ion-row>\n\n    <ion-row>\n      <ion-col></ion-col>\n      <ion-col>\n        <img src="assets/graphicMat/menu_login.png" alt="menu-login" (click)="goToLogin()" />\n      </ion-col>\n    </ion-row>\n\n    <ion-row>\n      <ion-col>\n        <img src="assets/graphicMat/menu_legal.png" alt="menu-legal" (click)="goToLegal()"/>\n      </ion-col>\n      <ion-col></ion-col>\n    </ion-row>\n\n    <ion-row>\n      <ion-col></ion-col>\n      <ion-col>\n        <img src="assets/graphicMat/menu_about.png" alt="menu-about" (click)="goToAbout()"/>\n      </ion-col>      \n    </ion-row>\n\n    <ion-spinner name="bubbles"></ion-spinner>\n\n    <ion-fab>\n      <button ion-fab><img src="assets/graphicmat/zoomIn.png" alt="plus-button" /></button>\n    </ion-fab>\n\n<!-- test ion fab button -->\n    <ion-fab bottom right>\n      <button ion-fab>Share</button>\n      <ion-fab-list side="top">\n        <button ion-fab>Facebook</button>\n        <button ion-fab>Twitter</button>\n        <button ion-fab>Youtube</button>\n      </ion-fab-list>\n      <ion-fab-list side="left">\n        <button ion-fab>Vimeo</button>\n      </ion-fab-list>\n    </ion-fab>\n\n  </div>\n\n</ion-content>'/*ion-inline-end:"/Users/hildegardagnesgenay/Documents/AndBEYOND/CANDY_CHASE_2020_ionic/candyChase2020/src/pages/my-home/my-home.html"*/,
         }),
-        __metadata("design:paramtypes", [__WEBPACK_IMPORTED_MODULE_1_ionic_angular__["g" /* NavController */],
-            __WEBPACK_IMPORTED_MODULE_1_ionic_angular__["h" /* NavParams */]])
+        __metadata("design:paramtypes", [__WEBPACK_IMPORTED_MODULE_1_ionic_angular__["f" /* NavController */],
+            __WEBPACK_IMPORTED_MODULE_1_ionic_angular__["g" /* NavParams */]])
     ], MyHomePage);
     return MyHomePage;
 }());
@@ -571,7 +560,7 @@ var MyHomePage = (function () {
 "use strict";
 /* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "a", function() { return RulesPage; });
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__angular_core__ = __webpack_require__(1);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_1_ionic_angular__ = __webpack_require__(19);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_1_ionic_angular__ = __webpack_require__(20);
 var __decorate = (this && this.__decorate) || function (decorators, target, key, desc) {
     var c = arguments.length, r = c < 3 ? target : desc === null ? desc = Object.getOwnPropertyDescriptor(target, key) : desc, d;
     if (typeof Reflect === "object" && typeof Reflect.decorate === "function") r = Reflect.decorate(decorators, target, key, desc);
@@ -601,7 +590,7 @@ var RulesPage = (function () {
         Object(__WEBPACK_IMPORTED_MODULE_0__angular_core__["m" /* Component */])({
             selector: 'page-rules',template:/*ion-inline-start:"/Users/hildegardagnesgenay/Documents/AndBEYOND/CANDY_CHASE_2020_ionic/candyChase2020/src/pages/rules/rules.html"*/'<ion-header>\n  <ion-navbar color="customColor">\n    <ion-title>rules</ion-title>\n  </ion-navbar>\n</ion-header>\n\n\n<ion-content padding>\n\n</ion-content>\n'/*ion-inline-end:"/Users/hildegardagnesgenay/Documents/AndBEYOND/CANDY_CHASE_2020_ionic/candyChase2020/src/pages/rules/rules.html"*/,
         }),
-        __metadata("design:paramtypes", [__WEBPACK_IMPORTED_MODULE_1_ionic_angular__["g" /* NavController */], __WEBPACK_IMPORTED_MODULE_1_ionic_angular__["h" /* NavParams */]])
+        __metadata("design:paramtypes", [__WEBPACK_IMPORTED_MODULE_1_ionic_angular__["f" /* NavController */], __WEBPACK_IMPORTED_MODULE_1_ionic_angular__["g" /* NavParams */]])
     ], RulesPage);
     return RulesPage;
 }());
@@ -616,7 +605,7 @@ var RulesPage = (function () {
 "use strict";
 /* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "a", function() { return WelcomePage; });
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__angular_core__ = __webpack_require__(1);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_1_ionic_angular__ = __webpack_require__(19);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_1_ionic_angular__ = __webpack_require__(20);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_2__tabs_tabs__ = __webpack_require__(320);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_3__providers_geoloc_service_geoloc_service__ = __webpack_require__(84);
 var __decorate = (this && this.__decorate) || function (decorators, target, key, desc) {
@@ -656,10 +645,10 @@ var WelcomePage = (function () {
     };
     WelcomePage = __decorate([
         Object(__WEBPACK_IMPORTED_MODULE_0__angular_core__["m" /* Component */])({
-            selector: 'page-welcome',template:/*ion-inline-start:"/Users/hildegardagnesgenay/Documents/AndBEYOND/CANDY_CHASE_2020_ionic/candyChase2020/src/pages/welcome/welcome.html"*/'<ion-header>\n</ion-header>\n\n<ion-content class="homepage-container">\n\n    <div class="titles-container">\n      <img [src]="img_candyTitle" class="mainTitle" alt="candy title" />\n      <p>chase !</p>\n    </div>\n\n    <div class="homepage-content">\n      <div class="startButton" (click)="start()">\n        <p>start!</p>\n      </div>\n    </div>\n\n</ion-content>\n'/*ion-inline-end:"/Users/hildegardagnesgenay/Documents/AndBEYOND/CANDY_CHASE_2020_ionic/candyChase2020/src/pages/welcome/welcome.html"*/,
+            selector: 'page-welcome',template:/*ion-inline-start:"/Users/hildegardagnesgenay/Documents/AndBEYOND/CANDY_CHASE_2020_ionic/candyChase2020/src/pages/welcome/welcome.html"*/'<ion-header>\n</ion-header>\n\n<ion-content class="homepage-container">\n\n    <div class="titles-container">\n      <img [src]="img_candyTitle" class="candyTitle" alt="candy title" />\n      <p>chase !</p>\n    </div>\n\n    <div>\n      <div class="startButton" (click)="start()">\n        <p>start!</p>\n      </div>\n    </div>\n\n</ion-content>\n'/*ion-inline-end:"/Users/hildegardagnesgenay/Documents/AndBEYOND/CANDY_CHASE_2020_ionic/candyChase2020/src/pages/welcome/welcome.html"*/,
         }),
-        __metadata("design:paramtypes", [__WEBPACK_IMPORTED_MODULE_1_ionic_angular__["g" /* NavController */],
-            __WEBPACK_IMPORTED_MODULE_1_ionic_angular__["h" /* NavParams */],
+        __metadata("design:paramtypes", [__WEBPACK_IMPORTED_MODULE_1_ionic_angular__["f" /* NavController */],
+            __WEBPACK_IMPORTED_MODULE_1_ionic_angular__["g" /* NavParams */],
             __WEBPACK_IMPORTED_MODULE_3__providers_geoloc_service_geoloc_service__["a" /* GeolocServiceProvider */]])
     ], WelcomePage);
     return WelcomePage;
@@ -691,43 +680,39 @@ webpackEmptyAsyncContext.id = 179;
 
 var map = {
 	"../pages/about/about.module": [
-		696,
-		9
-	],
-	"../pages/add-place/add-place.module": [
-		697,
+		695,
 		8
 	],
 	"../pages/candy-details/candy-details.module": [
-		698,
+		696,
 		7
 	],
 	"../pages/legal/legal.module": [
-		699,
+		697,
 		6
 	],
 	"../pages/level/level.module": [
-		700,
+		698,
 		5
 	],
 	"../pages/login/login.module": [
-		701,
+		699,
 		4
 	],
 	"../pages/my-addresses/my-addresses.module": [
-		702,
+		700,
 		3
 	],
 	"../pages/my-home/my-home.module": [
-		703,
+		701,
 		2
 	],
 	"../pages/rules/rules.module": [
-		704,
+		702,
 		1
 	],
 	"../pages/welcome/welcome.module": [
-		705,
+		703,
 		0
 	]
 };
@@ -836,7 +821,7 @@ var TabsPage = (function () {
         this.tab5Root = __WEBPACK_IMPORTED_MODULE_5__my_home_my_home__["a" /* MyHomePage */];
     }
     TabsPage = __decorate([
-        Object(__WEBPACK_IMPORTED_MODULE_0__angular_core__["m" /* Component */])({template:/*ion-inline-start:"/Users/hildegardagnesgenay/Documents/AndBEYOND/CANDY_CHASE_2020_ionic/candyChase2020/src/pages/tabs/tabs.html"*/'<ion-tabs>\n  <ion-tab [root]="tab1Root" tabTitle="List" tabIcon="custom-candy"></ion-tab>\n  <ion-tab [root]="tab2Root" tabTitle="Map" tabIcon="map"></ion-tab>\n  <ion-tab [root]="tab3Root" tabTitle="Backpack" tabIcon="custom-bag"></ion-tab>\n  <ion-tab [root]="tab4Root" tabTitle="Level" tabIcon="star"></ion-tab>\n  <ion-tab [root]="tab5Root" tabTitle="Home" tabIcon="home"></ion-tab>\n</ion-tabs>\n'/*ion-inline-end:"/Users/hildegardagnesgenay/Documents/AndBEYOND/CANDY_CHASE_2020_ionic/candyChase2020/src/pages/tabs/tabs.html"*/
+        Object(__WEBPACK_IMPORTED_MODULE_0__angular_core__["m" /* Component */])({template:/*ion-inline-start:"/Users/hildegardagnesgenay/Documents/AndBEYOND/CANDY_CHASE_2020_ionic/candyChase2020/src/pages/tabs/tabs.html"*/'<ion-tabs>\n  <ion-tab [root]="tab1Root" tabTitle="List" tabIcon="paper"></ion-tab>\n  <ion-tab [root]="tab2Root" tabTitle="Map" tabIcon="map"></ion-tab>\n  <ion-tab [root]="tab3Root" tabTitle="Backpack" tabIcon="paper"></ion-tab>\n  <ion-tab [root]="tab4Root" tabTitle="Level" tabIcon="star"></ion-tab>\n  <ion-tab [root]="tab5Root" tabTitle="Home" tabIcon="home"></ion-tab>\n</ion-tabs>\n'/*ion-inline-end:"/Users/hildegardagnesgenay/Documents/AndBEYOND/CANDY_CHASE_2020_ionic/candyChase2020/src/pages/tabs/tabs.html"*/
         }),
         __metadata("design:paramtypes", [])
     ], TabsPage);
@@ -853,7 +838,7 @@ var TabsPage = (function () {
 "use strict";
 /* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "a", function() { return MapPage; });
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__angular_core__ = __webpack_require__(1);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_1_ionic_angular__ = __webpack_require__(19);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_1_ionic_angular__ = __webpack_require__(20);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_2__providers_geoloc_service_geoloc_service__ = __webpack_require__(84);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_3__ionic_native_geolocation__ = __webpack_require__(82);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_4__my_addresses_my_addresses__ = __webpack_require__(163);
@@ -907,7 +892,7 @@ var MapPage = (function () {
         Object(__WEBPACK_IMPORTED_MODULE_0__angular_core__["m" /* Component */])({
             selector: 'page-map',template:/*ion-inline-start:"/Users/hildegardagnesgenay/Documents/AndBEYOND/CANDY_CHASE_2020_ionic/candyChase2020/src/pages/map/map.html"*/'<ion-header>\n  <ion-navbar color="customColor">\n    <ion-title text-center class="mainTitles">\n      Map\n    </ion-title>\n    <ion-buttons end> \n      <button ion-button icon-only color="primary" (click)="addCircle()">\n        <ion-icon name="md-locate"></ion-icon>\n      </button>\n    <button ion-button icon-only color="primary" (click)="myAddresses()"><ion-icon name="md-globe"></ion-icon></button>\n    </ion-buttons>\n  </ion-navbar>\n</ion-header>\n\n<ion-content class="mapPage-container">\n  <div class="mapSelectAge">\n    <p>Select your age!</p>\n    <button (click)="selectArea1()">3 - 6</button>\n    <button (click)="selectArea2()">7 - 9</button>\n    <button (click)="selectArea3()"> + 10</button>\n  </div>\n  <div class="mapContainer">\n    <div id="map"></div>\n  </div>\n</ion-content>\n\n'/*ion-inline-end:"/Users/hildegardagnesgenay/Documents/AndBEYOND/CANDY_CHASE_2020_ionic/candyChase2020/src/pages/map/map.html"*/
         }),
-        __metadata("design:paramtypes", [__WEBPACK_IMPORTED_MODULE_1_ionic_angular__["g" /* NavController */],
+        __metadata("design:paramtypes", [__WEBPACK_IMPORTED_MODULE_1_ionic_angular__["f" /* NavController */],
             __WEBPACK_IMPORTED_MODULE_2__providers_geoloc_service_geoloc_service__["a" /* GeolocServiceProvider */],
             __WEBPACK_IMPORTED_MODULE_3__ionic_native_geolocation__["a" /* Geolocation */]])
     ], MapPage);
@@ -925,7 +910,7 @@ var MapPage = (function () {
 /* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "a", function() { return BackpackPage; });
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__providers_candy_api_service_candy_api_service__ = __webpack_require__(44);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_1__angular_core__ = __webpack_require__(1);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_2_ionic_angular__ = __webpack_require__(19);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_2_ionic_angular__ = __webpack_require__(20);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_3__candy_details_candy_details__ = __webpack_require__(159);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_4__providers_backpack_service_backpack_service__ = __webpack_require__(61);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_5__pipes_keyvalue_keyvalue__ = __webpack_require__(81);
@@ -960,7 +945,7 @@ var BackpackPage = (function () {
         this.backpackService.currentBackpackCount.subscribe(function (data) { return _this.totalCandy = data; });
         //console.log("TOTAL CANDY AT INIT: ", this.totalCandy);
         this.backpackService.currentLevel.subscribe(function (levelName) { return _this.levelName = levelName; });
-        console.log("LEVEL NAME RETRIEVED: ", this.levelName);
+        //console.log("LEVEL NAME RETRIEVED: ", this.levelName);
     };
     BackpackPage.prototype.setBackpack = function () {
         var _this = this;
@@ -972,12 +957,15 @@ var BackpackPage = (function () {
     };
     BackpackPage = __decorate([
         Object(__WEBPACK_IMPORTED_MODULE_1__angular_core__["m" /* Component */])({
-            selector: 'page-backpack',template:/*ion-inline-start:"/Users/hildegardagnesgenay/Documents/AndBEYOND/CANDY_CHASE_2020_ionic/candyChase2020/src/pages/backpack/backpack.html"*/'<ion-header>\n  <ion-navbar color="customColor">\n    <ion-title text-center class="mainTitles">Backpack</ion-title>\n  </ion-navbar>\n</ion-header>\n\n<ion-content class="backpackPage-container">\n\n  <div class="backpack-elements-container" *ngIf="collectedCandy">\n    <img src="assets/graphicMat/candyBag.png" alt="" />\n    <div class="myCollectedCandy" *ngFor="let item of collectedCandy">\n      <div class="candyItem">\n        <div class="candyThumbnail">\n          <img src="{{item.image_front_url}}" class="magic">\n        </div>\n        <div class="candyName">\n          <!-- <h2>{{data.brands_tags[1]}}</h2> -->\n          <h1>{{item.product_name | slice:0:20 }}</h1>\n          <button (click)="seeCandyInfos(item._id)">see infos</button>\n        </div>\n        <div class="amount"><h1>{{item.amountInBackpack}}</h1></div>\n      </div>\n    </div>\n\n    <div class="totalPoints">\n      <h2>Total points</h2>\n      <h2>{{totalCandy}}</h2>\n    </div>\n    <div class="totalPoints">\n      <h2>Current level</h2>\n      <h2>{{levelName}}</h2>\n    </div>\n<!-- <div class="levelRibbon" center>\n      <img src="assets/graphicMat/ribbon_level5.png" alt="" />\n    </div> -->\n  </div>\n</ion-content>\n'/*ion-inline-end:"/Users/hildegardagnesgenay/Documents/AndBEYOND/CANDY_CHASE_2020_ionic/candyChase2020/src/pages/backpack/backpack.html"*/
+            selector: 'page-backpack',template:/*ion-inline-start:"/Users/hildegardagnesgenay/Documents/AndBEYOND/CANDY_CHASE_2020_ionic/candyChase2020/src/pages/backpack/backpack.html"*/'<ion-header>\n  <ion-navbar color="customColor">\n    <ion-title text-center class="mainTitles">Backpack</ion-title>\n  </ion-navbar>\n</ion-header>\n\n<ion-content class="backpackPage-container">\n\n  <div class="backpack-elements-container" *ngIf="collectedCandy">\n    <img src="assets/graphicMat/candyBag.png" alt="" />\n    <div class="candyTotal">\n      <h2>Total points</h2>\n      <h2>{{totalCandy}}</h2>\n    </div>\n    <div class="littleGuys">\n      <\n    </div>\n    <div class="totalPoints">\n      <h2>Current level</h2>\n      <h2>{{levelName}}</h2>\n    </div>\n    <div class="myCollectedCandy" *ngFor="let item of collectedCandy">\n      <div class="candyItem">\n        <div class="candyThumbnail">\n          <img src="{{item.image_front_url}}" class="magic">\n        </div>\n        <div class="candyName">\n          <!-- <h2>{{data.brands_tags[1]}}</h2> -->\n          <h1>{{item.product_name | slice:0:20 }}</h1>\n          <button (click)="seeCandyInfos(item._id)">see infos</button>\n        </div>\n        <div class="amount">\n          <h1>{{item.amountInBackpack}}</h1>\n        </div>\n      </div>\n    </div>\n\n\n    <!-- <div class="levelRibbon" center>\n      <img src="assets/graphicMat/ribbon_level5.png" alt="" />\n    </div> -->\n  </div>\n</ion-content>'/*ion-inline-end:"/Users/hildegardagnesgenay/Documents/AndBEYOND/CANDY_CHASE_2020_ionic/candyChase2020/src/pages/backpack/backpack.html"*/
         }),
-        __metadata("design:paramtypes", [typeof (_a = typeof __WEBPACK_IMPORTED_MODULE_2_ionic_angular__["g" /* NavController */] !== "undefined" && __WEBPACK_IMPORTED_MODULE_2_ionic_angular__["g" /* NavController */]) === "function" && _a || Object, typeof (_b = typeof __WEBPACK_IMPORTED_MODULE_2_ionic_angular__["h" /* NavParams */] !== "undefined" && __WEBPACK_IMPORTED_MODULE_2_ionic_angular__["h" /* NavParams */]) === "function" && _b || Object, typeof (_c = typeof __WEBPACK_IMPORTED_MODULE_0__providers_candy_api_service_candy_api_service__["a" /* CandyService */] !== "undefined" && __WEBPACK_IMPORTED_MODULE_0__providers_candy_api_service_candy_api_service__["a" /* CandyService */]) === "function" && _c || Object, typeof (_d = typeof __WEBPACK_IMPORTED_MODULE_4__providers_backpack_service_backpack_service__["a" /* BackpackServiceProvider */] !== "undefined" && __WEBPACK_IMPORTED_MODULE_4__providers_backpack_service_backpack_service__["a" /* BackpackServiceProvider */]) === "function" && _d || Object, typeof (_e = typeof __WEBPACK_IMPORTED_MODULE_5__pipes_keyvalue_keyvalue__["a" /* KeyvaluePipe */] !== "undefined" && __WEBPACK_IMPORTED_MODULE_5__pipes_keyvalue_keyvalue__["a" /* KeyvaluePipe */]) === "function" && _e || Object])
+        __metadata("design:paramtypes", [__WEBPACK_IMPORTED_MODULE_2_ionic_angular__["f" /* NavController */],
+            __WEBPACK_IMPORTED_MODULE_2_ionic_angular__["g" /* NavParams */],
+            __WEBPACK_IMPORTED_MODULE_0__providers_candy_api_service_candy_api_service__["a" /* CandyService */],
+            __WEBPACK_IMPORTED_MODULE_4__providers_backpack_service_backpack_service__["a" /* BackpackServiceProvider */],
+            __WEBPACK_IMPORTED_MODULE_5__pipes_keyvalue_keyvalue__["a" /* KeyvaluePipe */]])
     ], BackpackPage);
     return BackpackPage;
-    var _a, _b, _c, _d, _e;
 }());
 
 /* --method with api call to retrieve backpack with candy id
@@ -995,51 +983,9 @@ this.candyService.getCandyById(item._id).subscribe((response:Candy) => {
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
-/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "a", function() { return AddPlacePage; });
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__angular_core__ = __webpack_require__(1);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_1_ionic_angular__ = __webpack_require__(19);
-var __decorate = (this && this.__decorate) || function (decorators, target, key, desc) {
-    var c = arguments.length, r = c < 3 ? target : desc === null ? desc = Object.getOwnPropertyDescriptor(target, key) : desc, d;
-    if (typeof Reflect === "object" && typeof Reflect.decorate === "function") r = Reflect.decorate(decorators, target, key, desc);
-    else for (var i = decorators.length - 1; i >= 0; i--) if (d = decorators[i]) r = (c < 3 ? d(r) : c > 3 ? d(target, key, r) : d(target, key)) || r;
-    return c > 3 && r && Object.defineProperty(target, key, r), r;
-};
-var __metadata = (this && this.__metadata) || function (k, v) {
-    if (typeof Reflect === "object" && typeof Reflect.metadata === "function") return Reflect.metadata(k, v);
-};
-
-
-/* import { SetLocationPage } from '../set-location/set-location';
- */
-var AddPlacePage = (function () {
-    function AddPlacePage(navCtrl, navParams, modalCtrl) {
-        this.navCtrl = navCtrl;
-        this.navParams = navParams;
-        this.modalCtrl = modalCtrl;
-    }
-    AddPlacePage.prototype.onSubmit = function (form) {
-        console.log(form.value);
-    };
-    AddPlacePage = __decorate([
-        Object(__WEBPACK_IMPORTED_MODULE_0__angular_core__["m" /* Component */])({
-            selector: 'page-add-place',template:/*ion-inline-start:"/Users/hildegardagnesgenay/Documents/AndBEYOND/CANDY_CHASE_2020_ionic/candyChase2020/src/pages/add-place/add-place.html"*/'<!-- <ion-header>\n\n  <ion-navbar>\n    <ion-title>Add a Place</ion-title>\n  </ion-navbar>\n\n</ion-header>\n\n\n<ion-content padding>\n  <form #f="ngForm" (ngSubmit)="onSubmit(f)">\n    <ion-list>\n      <ion-item>\n        <ion-label fixed>Title</ion-label>\n        <ion-input type="text" placeholder="Beautiful church..." name="title" ngModel required></ion-input>\n      </ion-item>\n      <ion-item>\n        <ion-label floating>Short Description</ion-label>\n        <ion-textarea name="description" ngModel required></ion-textarea>\n      </ion-item>\n    </ion-list>\n    <ion-grid>\n      <ion-row>\n        <ion-col>\n          <button ion-button block outline type="button" icon-left (click)="onLocate()">\n            <ion-icon name="locate"></ion-icon>\n            Locate me\n          </button>\n        </ion-col>\n        <ion-col>\n          <button ion-button block outline type="button" icon-left (click)="onOpenMap()">\n            <ion-icon name="map"></ion-icon>\n            Select on Map\n          </button>\n        </ion-col>\n      </ion-row>\n\n      <ion-row>\n        <ion-col text-center>\n          <h5>Take a Photo!</h5>\n        </ion-col>\n      </ion-row>\n      <ion-row>\n        <ion-col>\n          <button ion-button icon-left block outline type="button" (click)="onTakePhoto()">\n            <ion-icon name="camera"></ion-icon>\n            Open Camera\n          </button>\n        </ion-col>\n      </ion-row>\n      <ion-row *ngIf="imageUrl">\n        <ion-col>\n          <img [src]="imageUrl">\n        </ion-col>\n      </ion-row>\n      <ion-row>\n        <ion-col>\n          <button ion-button color="secondary" block type="submit"\n            [disabled]="!f.valid || !locationIsSet || imageUrl == \'\'">\n            Add this Place\n          </button>\n        </ion-col>\n      </ion-row>\n    </ion-grid>\n  </form>\n</ion-content> -->'/*ion-inline-end:"/Users/hildegardagnesgenay/Documents/AndBEYOND/CANDY_CHASE_2020_ionic/candyChase2020/src/pages/add-place/add-place.html"*/,
-        }),
-        __metadata("design:paramtypes", [__WEBPACK_IMPORTED_MODULE_1_ionic_angular__["g" /* NavController */], __WEBPACK_IMPORTED_MODULE_1_ionic_angular__["h" /* NavParams */], __WEBPACK_IMPORTED_MODULE_1_ionic_angular__["f" /* ModalController */]])
-    ], AddPlacePage);
-    return AddPlacePage;
-}());
-
-//# sourceMappingURL=add-place.js.map
-
-/***/ }),
-
-/***/ 365:
-/***/ (function(module, __webpack_exports__, __webpack_require__) {
-
-"use strict";
 /* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "a", function() { return PipesModule; });
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__angular_core__ = __webpack_require__(1);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_1__keys_keys__ = __webpack_require__(673);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_1__keys_keys__ = __webpack_require__(672);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_2__keyvalue_keyvalue__ = __webpack_require__(81);
 var __decorate = (this && this.__decorate) || function (decorators, target, key, desc) {
     var c = arguments.length, r = c < 3 ? target : desc === null ? desc = Object.getOwnPropertyDescriptor(target, key) : desc, d;
@@ -1069,13 +1015,13 @@ var PipesModule = (function () {
 
 /***/ }),
 
-/***/ 366:
+/***/ 365:
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
 Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__angular_platform_browser_dynamic__ = __webpack_require__(367);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_1__app_module__ = __webpack_require__(371);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__angular_platform_browser_dynamic__ = __webpack_require__(366);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_1__app_module__ = __webpack_require__(370);
 
 
 Object(__WEBPACK_IMPORTED_MODULE_0__angular_platform_browser_dynamic__["a" /* platformBrowserDynamic */])().bootstrapModule(__WEBPACK_IMPORTED_MODULE_1__app_module__["a" /* AppModule */]);
@@ -1083,7 +1029,7 @@ Object(__WEBPACK_IMPORTED_MODULE_0__angular_platform_browser_dynamic__["a" /* pl
 
 /***/ }),
 
-/***/ 371:
+/***/ 370:
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
@@ -1092,33 +1038,32 @@ Object(__WEBPACK_IMPORTED_MODULE_0__angular_platform_browser_dynamic__["a" /* pl
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_1__angular_common_http__ = __webpack_require__(180);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_2__angular_core__ = __webpack_require__(1);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_3__angular_platform_browser__ = __webpack_require__(40);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_4__app_component__ = __webpack_require__(372);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_5_ionic_angular__ = __webpack_require__(19);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_4__app_component__ = __webpack_require__(371);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_5_ionic_angular__ = __webpack_require__(20);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_6__angular_forms__ = __webpack_require__(26);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_7__ionic_native_geolocation__ = __webpack_require__(82);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_8__providers_geoloc_service_geoloc_service__ = __webpack_require__(84);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_9__ionic_native_diagnostic__ = __webpack_require__(695);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_9__ionic_native_diagnostic__ = __webpack_require__(694);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_10__pages_tabs_tabs__ = __webpack_require__(320);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_11__ionic_native_status_bar__ = __webpack_require__(362);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_12__ionic_native_splash_screen__ = __webpack_require__(363);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_13__providers_candy_api_service_candy_api_service__ = __webpack_require__(44);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_14__providers_level_api_service_level_api_service__ = __webpack_require__(318);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_15__providers_backpack_service_backpack_service__ = __webpack_require__(61);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_16__pages_welcome_welcome__ = __webpack_require__(166);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_17__pages_login_login__ = __webpack_require__(162);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_18__pages_my_home_my_home__ = __webpack_require__(164);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_19__pages_map_map__ = __webpack_require__(321);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_20__pages_list_list__ = __webpack_require__(135);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_21__pages_backpack_backpack__ = __webpack_require__(322);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_22__pages_level_level__ = __webpack_require__(161);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_23__pages_candy_details_candy_details__ = __webpack_require__(159);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_24__pages_add_place_add_place__ = __webpack_require__(364);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_25__pages_rules_rules__ = __webpack_require__(165);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_26__pages_legal_legal__ = __webpack_require__(160);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_27__pages_about_about__ = __webpack_require__(158);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_28__pages_my_addresses_my_addresses__ = __webpack_require__(163);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_29__pipes_pipes_module__ = __webpack_require__(365);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_30__pipes_keyvalue_keyvalue__ = __webpack_require__(81);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_16__pipes_pipes_module__ = __webpack_require__(364);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_17__pipes_keyvalue_keyvalue__ = __webpack_require__(81);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_18__pages_welcome_welcome__ = __webpack_require__(166);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_19__pages_login_login__ = __webpack_require__(162);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_20__pages_my_home_my_home__ = __webpack_require__(164);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_21__pages_map_map__ = __webpack_require__(321);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_22__pages_list_list__ = __webpack_require__(135);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_23__pages_backpack_backpack__ = __webpack_require__(322);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_24__pages_level_level__ = __webpack_require__(161);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_25__pages_candy_details_candy_details__ = __webpack_require__(159);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_26__pages_my_addresses_my_addresses__ = __webpack_require__(163);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_27__pages_rules_rules__ = __webpack_require__(165);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_28__pages_legal_legal__ = __webpack_require__(160);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_29__pages_about_about__ = __webpack_require__(158);
 var __decorate = (this && this.__decorate) || function (decorators, target, key, desc) {
     var c = arguments.length, r = c < 3 ? target : desc === null ? desc = Object.getOwnPropertyDescriptor(target, key) : desc, d;
     if (typeof Reflect === "object" && typeof Reflect.decorate === "function") r = Reflect.decorate(decorators, target, key, desc);
@@ -1133,8 +1078,6 @@ var __decorate = (this && this.__decorate) || function (decorators, target, key,
 
 
 
-
-/* import { GoogleMap, GoogleMaps } from "@ionic-native/google-maps"; */
 
 
 
@@ -1165,30 +1108,28 @@ var AppModule = (function () {
             declarations: [
                 __WEBPACK_IMPORTED_MODULE_4__app_component__["a" /* MyApp */],
                 __WEBPACK_IMPORTED_MODULE_10__pages_tabs_tabs__["a" /* TabsPage */],
-                __WEBPACK_IMPORTED_MODULE_16__pages_welcome_welcome__["a" /* WelcomePage */],
-                __WEBPACK_IMPORTED_MODULE_17__pages_login_login__["a" /* LoginPage */],
-                __WEBPACK_IMPORTED_MODULE_19__pages_map_map__["a" /* MapPage */],
-                __WEBPACK_IMPORTED_MODULE_21__pages_backpack_backpack__["a" /* BackpackPage */],
-                __WEBPACK_IMPORTED_MODULE_20__pages_list_list__["a" /* ListPage */],
-                __WEBPACK_IMPORTED_MODULE_18__pages_my_home_my_home__["a" /* MyHomePage */],
-                __WEBPACK_IMPORTED_MODULE_24__pages_add_place_add_place__["a" /* AddPlacePage */],
-                __WEBPACK_IMPORTED_MODULE_22__pages_level_level__["a" /* LevelPage */],
-                __WEBPACK_IMPORTED_MODULE_23__pages_candy_details_candy_details__["a" /* CandyDetailsPage */],
-                __WEBPACK_IMPORTED_MODULE_25__pages_rules_rules__["a" /* RulesPage */],
-                __WEBPACK_IMPORTED_MODULE_26__pages_legal_legal__["a" /* LegalPage */],
-                __WEBPACK_IMPORTED_MODULE_27__pages_about_about__["a" /* AboutPage */],
-                __WEBPACK_IMPORTED_MODULE_28__pages_my_addresses_my_addresses__["a" /* MyAddressesPage */]
+                __WEBPACK_IMPORTED_MODULE_18__pages_welcome_welcome__["a" /* WelcomePage */],
+                __WEBPACK_IMPORTED_MODULE_19__pages_login_login__["a" /* LoginPage */],
+                __WEBPACK_IMPORTED_MODULE_21__pages_map_map__["a" /* MapPage */],
+                __WEBPACK_IMPORTED_MODULE_23__pages_backpack_backpack__["a" /* BackpackPage */],
+                __WEBPACK_IMPORTED_MODULE_22__pages_list_list__["a" /* ListPage */],
+                __WEBPACK_IMPORTED_MODULE_20__pages_my_home_my_home__["a" /* MyHomePage */],
+                __WEBPACK_IMPORTED_MODULE_24__pages_level_level__["a" /* LevelPage */],
+                __WEBPACK_IMPORTED_MODULE_25__pages_candy_details_candy_details__["a" /* CandyDetailsPage */],
+                __WEBPACK_IMPORTED_MODULE_27__pages_rules_rules__["a" /* RulesPage */],
+                __WEBPACK_IMPORTED_MODULE_28__pages_legal_legal__["a" /* LegalPage */],
+                __WEBPACK_IMPORTED_MODULE_29__pages_about_about__["a" /* AboutPage */],
+                __WEBPACK_IMPORTED_MODULE_26__pages_my_addresses_my_addresses__["a" /* MyAddressesPage */]
             ],
             imports: [
                 __WEBPACK_IMPORTED_MODULE_3__angular_platform_browser__["a" /* BrowserModule */],
                 __WEBPACK_IMPORTED_MODULE_0__angular_http__["b" /* HttpModule */],
                 __WEBPACK_IMPORTED_MODULE_1__angular_common_http__["b" /* HttpClientModule */],
                 __WEBPACK_IMPORTED_MODULE_6__angular_forms__["a" /* FormsModule */],
-                __WEBPACK_IMPORTED_MODULE_29__pipes_pipes_module__["a" /* PipesModule */],
+                __WEBPACK_IMPORTED_MODULE_16__pipes_pipes_module__["a" /* PipesModule */],
                 __WEBPACK_IMPORTED_MODULE_5_ionic_angular__["c" /* IonicModule */].forRoot(__WEBPACK_IMPORTED_MODULE_4__app_component__["a" /* MyApp */], {}, {
                     links: [
                         { loadChildren: '../pages/about/about.module#AboutPageModule', name: 'AboutPage', segment: 'about', priority: 'low', defaultHistory: [] },
-                        { loadChildren: '../pages/add-place/add-place.module#AddPlacePageModule', name: 'AddPlacePage', segment: 'add-place', priority: 'low', defaultHistory: [] },
                         { loadChildren: '../pages/candy-details/candy-details.module#CandyDetailsPageModule', name: 'CandyDetailsPage', segment: 'candy-details', priority: 'low', defaultHistory: [] },
                         { loadChildren: '../pages/legal/legal.module#LegalPageModule', name: 'LegalPage', segment: 'legal', priority: 'low', defaultHistory: [] },
                         { loadChildren: '../pages/level/level.module#LevelPageModule', name: 'LevelPage', segment: 'level', priority: 'low', defaultHistory: [] },
@@ -1203,20 +1144,19 @@ var AppModule = (function () {
             bootstrap: [__WEBPACK_IMPORTED_MODULE_5_ionic_angular__["a" /* IonicApp */]],
             entryComponents: [
                 __WEBPACK_IMPORTED_MODULE_4__app_component__["a" /* MyApp */],
-                __WEBPACK_IMPORTED_MODULE_17__pages_login_login__["a" /* LoginPage */],
-                __WEBPACK_IMPORTED_MODULE_16__pages_welcome_welcome__["a" /* WelcomePage */],
-                __WEBPACK_IMPORTED_MODULE_19__pages_map_map__["a" /* MapPage */],
-                __WEBPACK_IMPORTED_MODULE_21__pages_backpack_backpack__["a" /* BackpackPage */],
-                __WEBPACK_IMPORTED_MODULE_20__pages_list_list__["a" /* ListPage */],
+                __WEBPACK_IMPORTED_MODULE_19__pages_login_login__["a" /* LoginPage */],
+                __WEBPACK_IMPORTED_MODULE_18__pages_welcome_welcome__["a" /* WelcomePage */],
+                __WEBPACK_IMPORTED_MODULE_21__pages_map_map__["a" /* MapPage */],
+                __WEBPACK_IMPORTED_MODULE_23__pages_backpack_backpack__["a" /* BackpackPage */],
+                __WEBPACK_IMPORTED_MODULE_22__pages_list_list__["a" /* ListPage */],
                 __WEBPACK_IMPORTED_MODULE_10__pages_tabs_tabs__["a" /* TabsPage */],
-                __WEBPACK_IMPORTED_MODULE_24__pages_add_place_add_place__["a" /* AddPlacePage */],
-                __WEBPACK_IMPORTED_MODULE_25__pages_rules_rules__["a" /* RulesPage */],
-                __WEBPACK_IMPORTED_MODULE_26__pages_legal_legal__["a" /* LegalPage */],
-                __WEBPACK_IMPORTED_MODULE_27__pages_about_about__["a" /* AboutPage */],
-                __WEBPACK_IMPORTED_MODULE_28__pages_my_addresses_my_addresses__["a" /* MyAddressesPage */],
-                __WEBPACK_IMPORTED_MODULE_18__pages_my_home_my_home__["a" /* MyHomePage */],
-                __WEBPACK_IMPORTED_MODULE_22__pages_level_level__["a" /* LevelPage */],
-                __WEBPACK_IMPORTED_MODULE_23__pages_candy_details_candy_details__["a" /* CandyDetailsPage */]
+                __WEBPACK_IMPORTED_MODULE_27__pages_rules_rules__["a" /* RulesPage */],
+                __WEBPACK_IMPORTED_MODULE_28__pages_legal_legal__["a" /* LegalPage */],
+                __WEBPACK_IMPORTED_MODULE_29__pages_about_about__["a" /* AboutPage */],
+                __WEBPACK_IMPORTED_MODULE_26__pages_my_addresses_my_addresses__["a" /* MyAddressesPage */],
+                __WEBPACK_IMPORTED_MODULE_20__pages_my_home_my_home__["a" /* MyHomePage */],
+                __WEBPACK_IMPORTED_MODULE_24__pages_level_level__["a" /* LevelPage */],
+                __WEBPACK_IMPORTED_MODULE_25__pages_candy_details_candy_details__["a" /* CandyDetailsPage */]
             ],
             providers: [
                 /*     AngularFireAuth, */
@@ -1228,11 +1168,11 @@ var AppModule = (function () {
                 __WEBPACK_IMPORTED_MODULE_13__providers_candy_api_service_candy_api_service__["a" /* CandyService */],
                 __WEBPACK_IMPORTED_MODULE_8__providers_geoloc_service_geoloc_service__["a" /* GeolocServiceProvider */],
                 __WEBPACK_IMPORTED_MODULE_14__providers_level_api_service_level_api_service__["a" /* LevelServiceProvider */],
-                __WEBPACK_IMPORTED_MODULE_30__pipes_keyvalue_keyvalue__["a" /* KeyvaluePipe */],
+                __WEBPACK_IMPORTED_MODULE_17__pipes_keyvalue_keyvalue__["a" /* KeyvaluePipe */],
                 __WEBPACK_IMPORTED_MODULE_15__providers_backpack_service_backpack_service__["a" /* BackpackServiceProvider */]
             ],
             exports: [
-                __WEBPACK_IMPORTED_MODULE_30__pipes_keyvalue_keyvalue__["a" /* KeyvaluePipe */]
+                __WEBPACK_IMPORTED_MODULE_17__pipes_keyvalue_keyvalue__["a" /* KeyvaluePipe */]
             ]
         })
     ], AppModule);
@@ -1243,13 +1183,13 @@ var AppModule = (function () {
 
 /***/ }),
 
-/***/ 372:
+/***/ 371:
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
 /* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "a", function() { return MyApp; });
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__angular_core__ = __webpack_require__(1);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_1_ionic_angular__ = __webpack_require__(19);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_1_ionic_angular__ = __webpack_require__(20);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_2__ionic_native_status_bar__ = __webpack_require__(362);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_3__ionic_native_splash_screen__ = __webpack_require__(363);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_4__pages_welcome_welcome__ = __webpack_require__(166);
@@ -1281,7 +1221,7 @@ var MyApp = (function () {
     MyApp = __decorate([
         Object(__WEBPACK_IMPORTED_MODULE_0__angular_core__["m" /* Component */])({template:/*ion-inline-start:"/Users/hildegardagnesgenay/Documents/AndBEYOND/CANDY_CHASE_2020_ionic/candyChase2020/src/app/app.html"*/'<ion-menu [content]="content">\n\n  <ion-header>\n    <ion-toolbar>\n      <ion-title>Pages</ion-title>\n    </ion-toolbar>\n  </ion-header>\n\n  <ion-content>\n    <ion-list>\n      <button ion-item *ngFor="let p of pages" (click)="openPage(p)">\n        {{p.title}}\n      </button>\n    </ion-list>\n  </ion-content>\n\n</ion-menu>\n\n<ion-nav [root]="rootPage" #content swipeBackEnabled="false"></ion-nav>\n'/*ion-inline-end:"/Users/hildegardagnesgenay/Documents/AndBEYOND/CANDY_CHASE_2020_ionic/candyChase2020/src/app/app.html"*/
         }),
-        __metadata("design:paramtypes", [__WEBPACK_IMPORTED_MODULE_1_ionic_angular__["i" /* Platform */], __WEBPACK_IMPORTED_MODULE_2__ionic_native_status_bar__["a" /* StatusBar */], __WEBPACK_IMPORTED_MODULE_3__ionic_native_splash_screen__["a" /* SplashScreen */], __WEBPACK_IMPORTED_MODULE_1_ionic_angular__["e" /* MenuController */]])
+        __metadata("design:paramtypes", [__WEBPACK_IMPORTED_MODULE_1_ionic_angular__["h" /* Platform */], __WEBPACK_IMPORTED_MODULE_2__ionic_native_status_bar__["a" /* StatusBar */], __WEBPACK_IMPORTED_MODULE_3__ionic_native_splash_screen__["a" /* SplashScreen */], __WEBPACK_IMPORTED_MODULE_1_ionic_angular__["e" /* MenuController */]])
     ], MyApp);
     return MyApp;
 }());
@@ -1354,7 +1294,7 @@ var CandyService = (function () {
 /* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "a", function() { return BackpackServiceProvider; });
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__angular_common_http__ = __webpack_require__(180);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_1__angular_core__ = __webpack_require__(1);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_2_rxjs__ = __webpack_require__(404);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_2_rxjs__ = __webpack_require__(403);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_2_rxjs___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_2_rxjs__);
 var __decorate = (this && this.__decorate) || function (decorators, target, key, desc) {
     var c = arguments.length, r = c < 3 ? target : desc === null ? desc = Object.getOwnPropertyDescriptor(target, key) : desc, d;
@@ -1409,7 +1349,7 @@ var BackpackServiceProvider = (function () {
 
 /***/ }),
 
-/***/ 673:
+/***/ 672:
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
@@ -1468,7 +1408,7 @@ var KeyvaluePipe = (function () {
                 a.push({ key: key, val: object[key] });
             }
         }
-        console.log("je suis keyvalue pipe object: ", a);
+        //console.log("je suis keyvalue pipe object: ", a);
         return a;
     };
     KeyvaluePipe = __decorate([
@@ -1492,7 +1432,7 @@ var KeyvaluePipe = (function () {
 /* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "a", function() { return GeolocServiceProvider; });
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__angular_core__ = __webpack_require__(1);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_1__ionic_native_geolocation__ = __webpack_require__(82);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_2_leaflet__ = __webpack_require__(677);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_2_leaflet__ = __webpack_require__(676);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_2_leaflet___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_2_leaflet__);
 var __decorate = (this && this.__decorate) || function (decorators, target, key, desc) {
     var c = arguments.length, r = c < 3 ? target : desc === null ? desc = Object.getOwnPropertyDescriptor(target, key) : desc, d;
@@ -1606,7 +1546,7 @@ var GeolocServiceProvider = (function () {
     return GeolocServiceProvider;
 }());
 
-// show the scale bar on the lower left corner
+// ++ show the scale bar on the lower left corner
 // L.control.scale().addTo(map);
 //  // show a marker on the map
 //  L.marker({lon: 0, lat: 0}).bindPopup('The center of the world').addTo(map);
@@ -1614,5 +1554,5 @@ var GeolocServiceProvider = (function () {
 
 /***/ })
 
-},[366]);
+},[365]);
 //# sourceMappingURL=main.js.map

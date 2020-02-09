@@ -121,9 +121,7 @@ export class GeolocServiceProvider {
 }
 
 
-
-
- // show the scale bar on the lower left corner
+ // ++ show the scale bar on the lower left corner
   // L.control.scale().addTo(map);
   //  // show a marker on the map
   //  L.marker({lon: 0, lat: 0}).bindPopup('The center of the world').addTo(map);

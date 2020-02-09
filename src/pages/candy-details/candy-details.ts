@@ -20,7 +20,6 @@ export class CandyDetailsPage {
   public showAllergens: boolean;
   public showNutriscore: boolean;
 
-
   constructor(
     public navCtrl: NavController,
     public navParams: NavParams,
@@ -36,7 +35,6 @@ export class CandyDetailsPage {
       this.showIngredients = false;
       this.showAllergens = false;
       this.showNutriscore = false;
-
     }
 
   ionViewDidLoad() {}
@@ -46,17 +44,12 @@ export class CandyDetailsPage {
     this.candyService.getCandyById(this.candyId)
     .subscribe( (response:Candy ) => {
       this.candyItem = response;
-      console.log("je suis candyItem response: " , this.candyItem);
-
       this.candyOfList = response;
-      console.log("je suis candyOfList", this.candyOfList);
 
       this.candyItem.product_name = response.product_name;
       this.candyItem.image_front_url = response.image_front_url;
       this.candyItem.ingredients_tags = response.ingredients_tags;
       this.candyItem.nutriscore_data = response.nutriscore_data;
-
-      console.log(this.candyItem.product_name, this.candyItem.ingredients_tags)
     })
   }
 
@@ -71,7 +64,6 @@ export class CandyDetailsPage {
   toggleNutriscore(){
     this.showNutriscore = !this.showNutriscore;
   }
-
 
   goBack(){
     this.navCtrl.pop();

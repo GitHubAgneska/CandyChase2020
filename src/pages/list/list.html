@@ -6,8 +6,10 @@
 </ion-header>
 
 <ion-content class="candyPageContainer">
-  
   <div class="candyList" *ngIf="candyList.length > 0">
+    <div class="add-label">
+      <img src="assets/graphicMat/bubble_add2.png" alt="" />
+    </div>
     <div *ngFor="let candyItem of candyList">
       <div class="candyItem">
         <div class="candyThumbnail">
@@ -16,7 +18,6 @@
         <div class="candyName">
           <!-- <h2>{{data.brands_tags[1]}}</h2> -->
           <h1>{{candyItem.product_name | slice:0:20 }}</h1>
-<!-- TODO in 'foodData' service => filter data results (remove 'ricola') / productName ( remove 'bonbons' from title / brand if in name) -->
         </div>
         <div class="plus-btn">
           <!-- <button (click)="sendId(candyItem._id)"> -->
@@ -28,5 +29,4 @@
     </div>
   </div>
 </ion-content>
-
 

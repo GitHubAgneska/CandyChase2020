@@ -4,7 +4,6 @@ import { NavController, NavParams } from 'ionic-angular';
 import { CandyDetailsPage } from '../candy-details/candy-details';
 import { Candy } from '../../models/candy.model';
 import { BackpackServiceProvider } from '../../providers/backpack-service/backpack-service';
-import { CandyTypeInBackpack } from '../../models/candyTypeInBackpack.model';
 import { KeyvaluePipe } from '../../pipes/keyvalue/keyvalue';
 
 @Component({
@@ -38,7 +37,7 @@ export class BackpackPage implements OnInit{
     //console.log("TOTAL CANDY AT INIT: ", this.totalCandy);
     
     this.backpackService.currentLevel.subscribe(levelName => this.levelName = levelName);
-    console.log("LEVEL NAME RETRIEVED: ", this.levelName);
+    //console.log("LEVEL NAME RETRIEVED: ", this.levelName);
   }
 
 

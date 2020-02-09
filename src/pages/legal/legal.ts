@@ -19,7 +19,6 @@ export class LegalPage {
   }
 
   ionViewDidLoad() {
-    console.log('ionViewDidLoad LegalPage');
   }
 
 }

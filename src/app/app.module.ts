@@ -13,8 +13,6 @@ import { FormsModule } from '@angular/forms';
 
 import { Geolocation } from '@ionic-native/geolocation';
 import { GeolocServiceProvider } from '../providers/geoloc-service/geoloc-service';
-/* import { GoogleMap, GoogleMaps } from "@ionic-native/google-maps"; */
-
 import { Diagnostic } from '@ionic-native/diagnostic';
 
 import { TabsPage } from '../pages/tabs/tabs';
@@ -26,6 +24,9 @@ import { CandyService } from '../providers/candy-api-service/candy-api-service';
 import { LevelServiceProvider } from '../providers/level-api-service/level-api-service';
 import { BackpackServiceProvider } from '../providers/backpack-service/backpack-service';
 
+import { PipesModule } from '../pipes/pipes.module';
+import { KeyvaluePipe } from '../pipes/keyvalue/keyvalue';
+
 import { WelcomePage } from '../pages/welcome/welcome';
 import { LoginPage } from '../pages/login/login';
 import { MyHomePage } from './../pages/my-home/my-home';
@@ -34,16 +35,11 @@ import { ListPage } from '../pages/list/list';
 import { BackpackPage } from '../pages/backpack/backpack';
 import { LevelPage } from './../pages/level/level';
 import { CandyDetailsPage } from './../pages/candy-details/candy-details';
-import { AddPlacePage } from '../pages/add-place/add-place';
+import { MyAddressesPage } from '../pages/my-addresses/my-addresses';
+
 import { RulesPage } from '../pages/rules/rules';
 import { LegalPage } from '../pages/legal/legal';
 import { AboutPage } from '../pages/about/about';
-import { MyAddressesPage } from '../pages/my-addresses/my-addresses';
-
-import { PipesModule } from '../pipes/pipes.module';
-import { KeyvaluePipe } from '../pipes/keyvalue/keyvalue';
-
-
 
 @NgModule({
   declarations: [
@@ -55,14 +51,12 @@ import { KeyvaluePipe } from '../pipes/keyvalue/keyvalue';
     BackpackPage,
     ListPage,
     MyHomePage,
-    AddPlacePage,
     LevelPage,
     CandyDetailsPage,
     RulesPage,
     LegalPage,
     AboutPage,
     MyAddressesPage
-
   ],
   imports: [
     BrowserModule,
@@ -82,12 +76,10 @@ import { KeyvaluePipe } from '../pipes/keyvalue/keyvalue';
     BackpackPage,
     ListPage,
     TabsPage,
-    AddPlacePage,
     RulesPage,
     LegalPage,
     AboutPage,
     MyAddressesPage,
-
     MyHomePage,
     LevelPage,
     CandyDetailsPage
@@ -104,7 +96,6 @@ import { KeyvaluePipe } from '../pipes/keyvalue/keyvalue';
     LevelServiceProvider,
     KeyvaluePipe,
     BackpackServiceProvider
-
   ],
   exports : [
     KeyvaluePipe

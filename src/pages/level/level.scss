@@ -1,6 +1,6 @@
 @import "assets/fonts/flyingleather.ttf";
 
-* {font-family: "flyingleather";}
+// * {font-family: "flyingleather";}
 page-level {
     .levelPage-container {
         background: radial-gradient(circle, rgba(255, 255, 255, 0) 0%, rgba(255, 145, 36, 0.7) 25%, rgba(0, 0, 0, 1) 48%);
@@ -15,8 +15,8 @@ page-level {
             align-content: center;
             justify-content: center;
             align-items: center;
-            
             width: 100%;
+
             .levelNumber {
                 color: orange;
                 width: 50%;
@@ -51,7 +51,6 @@ page-level {
                     background-size: auto;
                     // background-attachment: fixed;
                     background-position: center;  
-                    
                     img {
                         height: 100%;
                         //width:45%;
@@ -70,7 +69,6 @@ page-level {
                 // height: 25vh;
 
                 .level-bubble, .next-level-card {
-
                     width: 40%;
                     height: 100%;
                     display: block;

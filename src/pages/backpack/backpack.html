@@ -8,6 +8,17 @@
 
   <div class="backpack-elements-container" *ngIf="collectedCandy">
     <img src="assets/graphicMat/candyBag.png" alt="" />
+    <div class="candyTotal">
+      <h2>Total points</h2>
+      <h2>{{totalCandy}}</h2>
+    </div>
+    <div class="littleGuys">
+      <
+    </div>
+    <div class="totalPoints">
+      <h2>Current level</h2>
+      <h2>{{levelName}}</h2>
+    </div>
     <div class="myCollectedCandy" *ngFor="let item of collectedCandy">
       <div class="candyItem">
         <div class="candyThumbnail">
@@ -18,19 +29,14 @@
           <h1>{{item.product_name | slice:0:20 }}</h1>
           <button (click)="seeCandyInfos(item._id)">see infos</button>
         </div>
-        <div class="amount"><h1>{{item.amountInBackpack}}</h1></div>
+        <div class="amount">
+          <h1>{{item.amountInBackpack}}</h1>
+        </div>
       </div>
     </div>
 
-    <div class="totalPoints">
-      <h2>Total points</h2>
-      <h2>{{totalCandy}}</h2>
-    </div>
-    <div class="totalPoints">
-      <h2>Current level</h2>
-      <h2>{{levelName}}</h2>
-    </div>
-<!-- <div class="levelRibbon" center>
+
+    <!-- <div class="levelRibbon" center>
       <img src="assets/graphicMat/ribbon_level5.png" alt="" />
     </div> -->
   </div>

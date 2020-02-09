@@ -1,39 +1,42 @@
-
 @import "assets/fonts/flyingleather.ttf";
+@import "assets/fonts/TitanOne-Regular.ttf";
+
 page-welcome {
 
-  // bat background
-.homepage-container {
+  .homepage-container {
+    // bat background
     background-image: url('../assets/graphicMat/gradient_bats_1920.png');
     background-size: cover;
     background-position: center;
     height: 100vh;
-    width: 100%;
+    width: 100%; 
     display: flex;
     flex-direction: column;
-    align-content: space-around;
 
     .titles-container {
-      width: 80%;
-      margin: 10rem auto 0 auto;
+      width: 75%;
+      height:50vh;
+      margin: 5rem auto 5rem auto;
       background-image: url('../assets/graphicMat/circles.png');
       background-repeat: no-repeat;
-      background-size: cover;
+      background-size: contain;
       background-position: center; 
-  
-      img.mainTitle {
-        height: 5Opx;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+
+      .candyTitle {
+        margin-top: 20%;
       }
-      // 'chase' title
-      p {
+      
+      p {   // 'chase' title
         font-family: "flyingleather";
         font-size: 20vw;
         color: orange;
         opacity: 0.8  ;
         // text-shadow: 0 5px 10px #000000;
         margin-top: 0px;
-        margin-left: 5vw;
-    /*     margin-bottom: 10vh; */
         transform: scale(1, 1.2);
         -webkit-transform: scale(1, 1.2); /* Safari and Chrome */
         -moz-transform: scale(1, 1.2); /* Firefox */
@@ -42,43 +45,26 @@ page-welcome {
       }
     }
   }
-
-  .mainTitles {
-    font-family: "flyingleather";
-    font-size: 20vw;
-  }
-
-  .toolbar-title-md {
-    font-size: 7vw;
-  }
-
   .startButton {
+    width:80vw;
+    margin: auto;
     display:flex;
     flex-direction:row;
     align-content:center;
     justify-content: center;
     align-items: center;
-    width:80vw;
     border: 2px solid orange;
     border-radius: 50px;
-    margin: auto;
-    text-align: center;
     font-size: 8vw;
     font-family: 'Titan One', cursive;
     color: orange;
     text-transform: uppercase;
-    letter-spacing: 3rem;
+    letter-spacing: 5vw;
     p {
       padding:5%;
       margin: 0;
     }
   }
-
-  .button-md {
-    height: 1rem !important;
-  }
-
-
 }
 
 

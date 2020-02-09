@@ -27,7 +27,6 @@ export class ListPage implements OnInit {
     public geolocation: Geolocation,
     public geolocService: GeolocServiceProvider) {
 
-    // important, else returns 'undefined'
     this.candyList = [];
     this.candyItem = {
       _id: "", product_name: "", amountInBackpack: 0,
@@ -51,8 +50,7 @@ export class ListPage implements OnInit {
   public addCandyToBackpack(candyItem:Candy) {
 
     this.backpackService.currentBackpackCount.subscribe(data => this.totalCandy = data);
-    console.log("TOTAL CANDY RETRIEVED before adding a new one: ", this.totalCandy);
-
+    
     // alert points as a new candy has been added
     this.toast.create({
         message: `+1 Point! ${name}`,
@@ -65,7 +63,6 @@ export class ListPage implements OnInit {
     this.candyItem.product_name = candyItem.product_name;
     this.candyItem._id = candyItem._id;
     this.candyItem.amountInBackpack = candyItem.amountInBackpack | 0;
-    console.log("NEW CANDY ITEM: ", this.candyItem)
 
     // new candy has not been added yet
     let added = false;
@@ -80,14 +77,13 @@ export class ListPage implements OnInit {
         break;
       }
     }
-
     // if id does not exist : add new candy to backpack (and increase amount)
     if (!added) {
       this.candyItem.amountInBackpack += 1;
       this.itemsInBackpack.push(this.candyItem);
     }
-    console.log("ITEMS : ", this.itemsInBackpack);
-    console.log(this.itemsInBackpack.forEach(item => console.log(item.amountInBackpack)));
+    //console.log("ITEMS : ", this.itemsInBackpack);
+    //console.log(this.itemsInBackpack.forEach(item => console.log(item.amountInBackpack)));
 
     // save new total of all candy
     this.backpackService.update_totalCandyCount(this.totalCandy+=1);
@@ -97,7 +93,6 @@ export class ListPage implements OnInit {
 
     //this.geolocService.getLocation();
   }
-
 }
 
 
