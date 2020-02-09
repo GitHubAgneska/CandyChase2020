@@ -1,12 +1,15 @@
 
 
-#### CANDY CHASE - Halloween cross platform app
+### CANDY CHASE 2020
 * * * * *
 
-> Using OPEN FOOD FACTS API
-> vectors from Vecteezy.com
+> Hybrid mobile app developed with Ionic3
 
-![alt text](./src/assets/imgs/candyChaseWIreframes.jpg)
+> Using OPEN FOOD FACTS API ( open database licence )
+
+> & vectors from Vecteezy.com 
+
+![alt text](./src/assets/imgs/candyChase_screen_welcome.jpg)
 
 
 #### Prérequis
@@ -27,12 +30,12 @@ npm i
 
 
 
-#### Current issues / Improvements to come -- 'TO DO'  - 07/02/2020
+### Current issues / Improvements to come -- 'TO DO'  - 07/02/2020
 ----------------------------------------------------------------
 
-##### Logic/data
+#### Logic/data
 
-#### must have
+##### must have
 
 - 'candyService' => REMAP data results to leverage performances
 - Implement map by age 
@@ -43,7 +46,7 @@ npm i
 
 - Configure FireBase authentication + light backend => save user & user data 
 
-#### nice to have
+##### nice to have
 
 - candy data results =>  'productName' should not contain 'bonbons' or 'brand' (filter data passed to template)
 - Modify points amount depending on candy type
@@ -51,7 +54,7 @@ npm i
 - Make app PWA so no need for connection
 
 
-##### Layout
+#### Layout
 
 - Improve general responsive
 - Implement custom icons in tabs 
