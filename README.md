@@ -1,42 +1,40 @@
 
 
-# CANDY CHASE - Halloween cross platform app
+#### CANDY CHASE - Halloween cross platform app
+* * * * *
 
-## Using OPEN FOOD FACTS API
-## Using vectors from Vecteezy.com
+> Using OPEN FOOD FACTS API
+> vectors from Vecteezy.com
 
 ![alt text](./src/assets/imgs/candyChaseWIreframes.jpg)
 
 
- 
-### Prérequis
+#### Prérequis
 * [NodeJS](https://nodejs.org/)
 * [Ionic 3](ionicframework.com/)
 
-### Installation
+#### Installation
 
 ```bash
-git clone 
-cd 
+git clone  https://github.com/GitHubAgneska/CandyChase2020.git
+cd candyChase2020
 npm i
 ```
 
-### Launch
+#### Launch
 
 `ionic s`
 
 
 
-# Current issues / Improvements to come -- 'TO DO'  - 07/02/2020
+#### Current issues / Improvements to come -- 'TO DO'  - 07/02/2020
 ----------------------------------------------------------------
 
-## Logic/data
+##### Logic/data
 
-### must have
+#### must have
 
-- 'candyService' => REMAP data results to leverage performances (raw data = too much info) 
-    +  'productName' ( remove 'bonbons' from title / or 'brand' if part of name)
-
+- 'candyService' => REMAP data results to leverage performances
 - Implement map by age 
 - Improve 'level' page with collection of cards
 - + Feature : save addresses
@@ -45,16 +43,17 @@ npm i
 
 - Configure FireBase authentication + light backend => save user & user data 
 
-### nice to have
+#### nice to have
 
+- candy data results =>  'productName' should not contain 'bonbons' or 'brand' (filter data passed to template)
 - Modify points amount depending on candy type
 - + Feature : Add sorting to Candy List
 - Make app PWA so no need for connection
 
 
-## Layout
+##### Layout
 
-- Improve responsive on specific screen sizes
+- Improve general responsive
 - Implement custom icons in tabs 
 - Add content to 'about', 'rules', 'legal' pages
 - Refactor scss to mutualize elements properties
