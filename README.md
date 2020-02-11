@@ -3,11 +3,11 @@
 ### CANDY CHASE 2020
 * * * * *
 
-> Hybrid mobile app developed with Ionic3
+Hybrid mobile app developed with Ionic 3 / Angular / Firebase
 
-> Using OPEN FOOD FACTS API ( open database licence )
+Using OPEN FOOD FACTS API ( open database licence )
 
-> & vectors from Vecteezy.com 
+Vectors from Vecteezy.com 
 
 ![alt text](./src/assets/imgs/candyChase_screen_welcome.jpg)
 
@@ -30,7 +30,7 @@ npm i
 
 
 
-### Current issues / Improvements to come -- 'TO DO'  - 07/02/2020
+### Current issues / Improvements to come  - 'TO DO'  - 07/02/2020
 ----------------------------------------------------------------
 
 #### Logic/data
@@ -43,8 +43,8 @@ npm i
 - + Feature : save addresses
 - + Feature : implement challenges ( 'trick or treat') & bonuses - every x points
 
+- Implement FireBase  (authentication + light backend => save user & user data )
 
-- Configure FireBase authentication + light backend => save user & user data 
 
 ##### nice to have
 
