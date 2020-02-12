@@ -1,6 +1,7 @@
 import { Component } from '@angular/core';
 import { IonicPage, NavController, NavParams } from 'ionic-angular';
 import { GeolocServiceProvider } from '../../providers/geoloc-service/geoloc-service';
+import { MapPage } from '../map/map';
 
 @IonicPage()
 @Component({
@@ -22,7 +23,9 @@ export class AgeSelectPage {
   setAge(ageRange:number){
     this.ageRange = ageRange;
     console.log("AGE: ", this.ageRange);
-    this.geolocService.currentUserAgeRange.subscribe(currentAge => this.ageRange = currentAge);
+    // this.geolocService.currentUserAgeRange.subscribe(currentAge => this.ageRange = currentAge);
+    this.geolocService.setCurrentAgeRange(this.ageRange);
+    this.navCtrl.push(MapPage);
   }
-
+  
 }

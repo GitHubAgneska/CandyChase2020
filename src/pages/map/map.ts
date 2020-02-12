@@ -15,12 +15,17 @@ export class MapPage {
   public map: any;
   public geo: Coordonne;
 
+  public currentUserAgeRange:number;
+
   constructor(
     public navCtrl: NavController,
     public geolocService: GeolocServiceProvider,
     public geolocation: Geolocation) { }
 
   public ngOnInit(): void {
+    this.currentUserAgeRange = this.geolocService.getCurrentAgeRange();
+    // console.log(this.currentUserAgeRange);
+
     this.geolocService.loadmap();
   }
 

@@ -3,31 +3,38 @@ import { Injectable } from '@angular/core';
 import { Geolocation } from '@ionic-native/geolocation';
 import leaflet from 'leaflet';
 import { Coordonne } from '../../models/coordonne.model';
-import { BehaviorSubject } from 'rxjs';
+// import { BehaviorSubject } from 'rxjs';
 
 @Injectable()
 export class GeolocServiceProvider {
 
   public geo: Coordonne;
   public map: any;
+  public currentUserAgeRange: number;
 
   // keep track of user's age to display the right map
-  userAgeRange$ = new BehaviorSubject(0);
-  currentUserAgeRange = this.userAgeRange$.asObservable();
+  // userAgeRange$ = new BehaviorSubject(0);
+  // currentUserAgeRange = this.userAgeRange$.asObservable();
 
   constructor(
     public geolocation: Geolocation) {}
 
-
-  setGeo(geoloc) {
+  public setGeo(geoloc) {
     this.geo = geoloc;
   }
-
-  getGeo() {
+  public getGeo() {
     return this.geo;
   }
 
+
+  public setCurrentAgeRange(age:number) {
+    this.currentUserAgeRange = age;
+  }
+  public getCurrentAgeRange() {
+    return this.currentUserAgeRange;
+  }
   
+
   public getLocation() {
     this.geolocation.getCurrentPosition().then((res) => {
       this.setGeo(res);
@@ -62,6 +69,17 @@ export class GeolocServiceProvider {
     }).on('locationerror', (err) => {
       alert(err.message);
     })
+
+    //++ show the scale bar on the lower left corner
+    leaflet.control.scale().addTo(this.map);
+    // show a marker on the map
+    leaflet.marker({lon: 0, lat: 0}).bindPopup('The center of the world').addTo(this.map);
+  }
+
+  //  display map portion function to age
+  public loadMapByAge() {
+  
+
   }
 
 
@@ -84,6 +102,7 @@ export class GeolocServiceProvider {
     markerGroup.addLayer(marker);
     this.map.addLayer(markerGroup);
   }
+ 
 
 
   addCircle() {
@@ -124,13 +143,10 @@ export class GeolocServiceProvider {
     this.map.fitBounds(polyline.getBounds());
   }
 
-  // --- display map portion according to age
+
 }
 
 
- // ++ show the scale bar on the lower left corner
-  // L.control.scale().addTo(map);
-  //  // show a marker on the map
-  //  L.marker({lon: 0, lat: 0}).bindPopup('The center of the world').addTo(map);
+
 
 
