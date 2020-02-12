@@ -3,12 +3,17 @@ import { Injectable } from '@angular/core';
 import { Geolocation } from '@ionic-native/geolocation';
 import leaflet from 'leaflet';
 import { Coordonne } from '../../models/coordonne.model';
+import { BehaviorSubject } from 'rxjs';
 
 @Injectable()
 export class GeolocServiceProvider {
 
   public geo: Coordonne;
   public map: any;
+
+  // keep track of user's age to display the right map
+  userAgeRange$ = new BehaviorSubject(0);
+  currentUserAgeRange = this.userAgeRange$.asObservable();
 
   constructor(
     public geolocation: Geolocation) {}
@@ -118,6 +123,8 @@ export class GeolocServiceProvider {
     // zoom the map to the polyline
     this.map.fitBounds(polyline.getBounds());
   }
+
+  // --- display map portion according to age
 }
 
 

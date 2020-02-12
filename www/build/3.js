@@ -5,10 +5,10 @@ webpackJsonp([3],{
 
 "use strict";
 Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
-/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "MyHomePageModule", function() { return MyHomePageModule; });
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "MyAddressesPageModule", function() { return MyAddressesPageModule; });
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__angular_core__ = __webpack_require__(1);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_1_ionic_angular__ = __webpack_require__(20);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_2__my_home__ = __webpack_require__(164);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_1_ionic_angular__ = __webpack_require__(19);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_2__my_addresses__ = __webpack_require__(164);
 var __decorate = (this && this.__decorate) || function (decorators, target, key, desc) {
     var c = arguments.length, r = c < 3 ? target : desc === null ? desc = Object.getOwnPropertyDescriptor(target, key) : desc, d;
     if (typeof Reflect === "object" && typeof Reflect.decorate === "function") r = Reflect.decorate(decorators, target, key, desc);
@@ -18,23 +18,23 @@ var __decorate = (this && this.__decorate) || function (decorators, target, key,
 
 
 
-var MyHomePageModule = (function () {
-    function MyHomePageModule() {
+var MyAddressesPageModule = (function () {
+    function MyAddressesPageModule() {
     }
-    MyHomePageModule = __decorate([
+    MyAddressesPageModule = __decorate([
         Object(__WEBPACK_IMPORTED_MODULE_0__angular_core__["I" /* NgModule */])({
             declarations: [
-                __WEBPACK_IMPORTED_MODULE_2__my_home__["a" /* MyHomePage */],
+                __WEBPACK_IMPORTED_MODULE_2__my_addresses__["a" /* MyAddressesPage */],
             ],
             imports: [
-                __WEBPACK_IMPORTED_MODULE_1_ionic_angular__["d" /* IonicPageModule */].forChild(__WEBPACK_IMPORTED_MODULE_2__my_home__["a" /* MyHomePage */]),
+                __WEBPACK_IMPORTED_MODULE_1_ionic_angular__["d" /* IonicPageModule */].forChild(__WEBPACK_IMPORTED_MODULE_2__my_addresses__["a" /* MyAddressesPage */]),
             ],
         })
-    ], MyHomePageModule);
-    return MyHomePageModule;
+    ], MyAddressesPageModule);
+    return MyAddressesPageModule;
 }());
 
-//# sourceMappingURL=my-home.module.js.map
+//# sourceMappingURL=my-addresses.module.js.map
 
 /***/ })
 

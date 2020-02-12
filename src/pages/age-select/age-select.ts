@@ -1,5 +1,6 @@
 import { Component } from '@angular/core';
 import { IonicPage, NavController, NavParams } from 'ionic-angular';
+import { GeolocServiceProvider } from '../../providers/geoloc-service/geoloc-service';
 
 @IonicPage()
 @Component({
@@ -8,13 +9,20 @@ import { IonicPage, NavController, NavParams } from 'ionic-angular';
 })
 export class AgeSelectPage {
 
-  constructor(public navCtrl: NavController, public navParams: NavParams) {
+  public ageRange: number;
+
+  constructor(
+    public navCtrl: NavController,
+    public navParams: NavParams,
+    public geolocService: GeolocServiceProvider) {
   }
 
-  ionViewDidLoad() {
-    console.log('ionViewDidLoad AgeSelectPage');
-  }
+  ionViewDidLoad() {}
 
-  getAge(){}
+  setAge(ageRange:number){
+    this.ageRange = ageRange;
+    console.log("AGE: ", this.ageRange);
+    this.geolocService.currentUserAgeRange.subscribe(currentAge => this.ageRange = currentAge);
+  }
 
 }
