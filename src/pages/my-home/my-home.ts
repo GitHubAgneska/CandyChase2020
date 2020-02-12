@@ -7,6 +7,7 @@ import { RulesPage } from '../rules/rules';
 import { LoginPage } from  '../login/login';
 import { LegalPage } from '../legal/legal';
 import { AboutPage } from '../about/about';
+import { AgeSelectPage } from '../age-select/age-select';
 
 @IonicPage()
 @Component({
@@ -27,6 +28,10 @@ export class MyHomePage {
 
   goto() :void {
     this.navCtrl.push(ListPage);
+  }
+
+  goToStart() {
+    this.navCtrl.push(AgeSelectPage);
   }
 
   goToRules() {

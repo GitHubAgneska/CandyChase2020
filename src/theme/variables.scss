@@ -20,9 +20,13 @@ $app-direction: ltr;
   color: orange !important;
   font-family: "flyingleather";
   font-size: 9vw;
+}
+
+.header {
   box-shadow: -1px 27px 35px 5px rgba(0,0,0,0.82);
   -webkit-box-shadow: -1px 27px 35px 5px rgba(0,0,0,0.82);
   -moz-box-shadow: -1px 27px 35px 5px rgba(0,0,0,0.82);
+
 }
 
 .toolbar-title-ios {

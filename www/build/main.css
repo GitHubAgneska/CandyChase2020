@@ -2,6 +2,9 @@
   color: orange !important;
   font-family: "flyingleather";
   font-size: 9vw;
+}
+
+.header {
   box-shadow: -1px 27px 35px 5px rgba(0, 0, 0, 0.82);
   -webkit-box-shadow: -1px 27px 35px 5px rgba(0, 0, 0, 0.82);
   -moz-box-shadow: -1px 27px 35px 5px rgba(0, 0, 0, 0.82);
@@ -33490,6 +33493,67 @@ ion-navbar.toolbar {
   padding-bottom: calc(env(safe-area-inset-bottom) + 4px);
   min-height: calc(46px + constant(safe-area-inset-bottom));
   min-height: calc(46px + env(safe-area-inset-bottom));
+}
+
+page-age-select .ageSelectPage-container {
+  height: 100vh;
+  width: 100%;
+}
+
+page-age-select .ageSelectPage-container .mapSelectAge {
+  /* margin-top: 0; */
+  width: 100%;
+  height: 100%;
+  background-color: rgba(0, 0, 0, 0.7);
+  display: -webkit-box;
+  display: -webkit-flex;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+  -webkit-flex-direction: column;
+  -ms-flex-direction: column;
+  flex-direction: column;
+  -webkit-align-content: center;
+  -ms-flex-line-pack: center;
+  align-content: center;
+  -webkit-box-align: center;
+  -webkit-align-items: center;
+  -ms-flex-align: center;
+  align-items: center;
+  -webkit-box-pack: center;
+  -webkit-justify-content: center;
+  -ms-flex-pack: center;
+  justify-content: center;
+}
+
+page-age-select .ageSelectPage-container .mapSelectAge p {
+  color: orange;
+  font-size: 8vw;
+  font-family: "Titan One", cursive;
+}
+
+page-age-select .ageSelectPage-container .mapSelectAge button {
+  width: 30%;
+  height: 8vh;
+  border: 2px solid orange;
+  background-color: transparent;
+  border-radius: 50px;
+  font-family: "Titan One", cursive;
+  color: orange;
+  margin: 5%;
+  font-size: 3rem;
+}
+
+page-age-select .ageSelectPage-container .mapSelectAge button:hover {
+  font-size: 3.5rem;
+  color: #B4CDFF;
+  border: 3px solid #B4CDFF;
+}
+
+page-age-select .ageSelectPage-container .scroll-content {
+  margin-top: 0 !important;
+  margin-bottom: 0 !important;
 }
 
 page-backpack .backpackPage-container {

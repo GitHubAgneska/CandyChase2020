@@ -13,14 +13,15 @@
 </ion-header>
 
 <ion-content class="mapPage-container">
-  <div class="mapSelectAge">
+ 
+  <div class="mapContainer">
+    <div id="map"></div>
+  </div>
+   <div class="mapSelectAge">
     <p>Select your age!</p>
     <button (click)="selectArea1()">3 - 6</button>
     <button (click)="selectArea2()">7 - 9</button>
     <button (click)="selectArea3()"> + 10</button>
-  </div>
-  <div class="mapContainer">
-    <div id="map"></div>
   </div>
 </ion-content>
 

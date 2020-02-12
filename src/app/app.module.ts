@@ -40,6 +40,7 @@ import { MyAddressesPage } from '../pages/my-addresses/my-addresses';
 import { RulesPage } from '../pages/rules/rules';
 import { LegalPage } from '../pages/legal/legal';
 import { AboutPage } from '../pages/about/about';
+import { AgeSelectPage } from '../pages/age-select/age-select';
 
 @NgModule({
   declarations: [
@@ -56,7 +57,8 @@ import { AboutPage } from '../pages/about/about';
     RulesPage,
     LegalPage,
     AboutPage,
-    MyAddressesPage
+    MyAddressesPage,
+    AgeSelectPage
   ],
   imports: [
     BrowserModule,
@@ -82,7 +84,8 @@ import { AboutPage } from '../pages/about/about';
     MyAddressesPage,
     MyHomePage,
     LevelPage,
-    CandyDetailsPage
+    CandyDetailsPage,
+    AgeSelectPage
   ],
   providers: [
 /*     AngularFireAuth, */
