@@ -1,26 +1,26 @@
 <ion-header>
-    <ion-navbar color="customColor">
-      <ion-title text-center>Your level</ion-title>
-    </ion-navbar>
-  </ion-header>
+  <ion-navbar color="customColor">
+    <ion-title text-center>Your level</ion-title>
+  </ion-navbar>
+</ion-header>
 
 <ion-content class="levelPage-container">
 
   <div class="levelElements">
-<!-- <div>
+    <!-- <div>
         <p>you have {{ totalPoints }} points</p> 
-    </div> --> 
-      <div class="levelNumber">
-        <h2><span>{{level.levelName}}</span></h2>
-      </div>
-      
-      <div class="ribbon">
-        <img src= "{{ level.bannerMessage }}" alt="" />
-      </div>
+    </div> -->
+    <div class="levelNumber">
+      <h2><span>{{level.levelName}}</span></h2>
+    </div>
 
-      <div class="levelImage">
-        <img src= "{{ level.levelImg }}" alt="" />
-      </div> 
+    <div class="ribbon">
+      <img src="{{ level.bannerMessage }}" alt="" />
+    </div>
+
+    <div class="levelImage">
+      <img src="{{ level.levelImg }}" alt="" />
+    </div>
   </div>
 
   <div class="level-bottom-elements">

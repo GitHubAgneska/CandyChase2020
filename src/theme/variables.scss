@@ -33,6 +33,14 @@ $app-direction: ltr;
   font-weight:100 !important;
 }
 
+.toolbar-ios {
+  min-height: 55px !important;
+}
+
+.back-button.show-back-button  {
+  font-family: 'Titan One', cursive;
+  color:  #4b4b4b !important;
+}
 
 // Color Variables---------------------------------
 $colors: (

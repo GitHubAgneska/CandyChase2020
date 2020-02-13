@@ -20,7 +20,6 @@
         <h1 (click)="toggleIngredients()">Ingredients<span class="arrowIcon"></span></h1>
         <div class="candyIngredients" *ngIf="showIngredients">
           <table>
-            <!-- <th class="candyName"></th> -->
             <tr *ngFor="let i of candyItem.ingredients_tags">
               <td>
                 {{i}}
@@ -34,7 +33,6 @@
         <h1 (click)="toggleNutriscore()">Nutriscore</h1>
         <div class="candyNutriscore" *ngIf="showNutriscore">
           <table>
-            <!-- <th class="candyName"></th> -->
             <tr *ngFor="let i of candyItem.nutriscore_data | keyvalue">
               <td>
                 {{i.key | removeUnderscore }}
@@ -51,7 +49,6 @@
         <h1 (click)="toggleAllergens()">Allergens</h1>
         <div class="candyAllergens" *ngIf="showAllergens">
           <table>
-            <!-- <th class="candyName"></th> -->
             <tr *ngFor="let i of candyItem.ingredients_tags">
               <td>
                 {{i.key}}
