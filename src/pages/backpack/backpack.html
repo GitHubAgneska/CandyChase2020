@@ -27,15 +27,16 @@
       <h2>{{totalCandy}} points !</h2>
     </div>
 
-    <div class="current-level">
-      <h2>Current level</h2>
-      <h2>{{levelName}}</h2>
-    </div>
+<!-- TO DO : get level (banner) at init --
+      <div class="current-level">
+          <h2>Current level</h2>
+          <h2>{{levelName}}</h2>
+      </div> -->
 
     <div class="myCollectedCandy" *ngFor="let item of collectedCandy">
       <div class="candyItem">
         <div class="candyThumbnail">
-          <img src="{{item.image_front_url}}" class="magic">
+          <img src="{{item.image_front_url}}">
         </div>
         <div class="candyName">
           <!-- <h2>{{data.brands_tags[1]}}</h2> -->
@@ -48,9 +49,5 @@
       </div>
     </div>
 
-
-    <!-- <div class="levelRibbon" center>
-      <img src="assets/graphicMat/ribbon_level5.png" alt="" />
-    </div> -->
   </div>
 </ion-content>

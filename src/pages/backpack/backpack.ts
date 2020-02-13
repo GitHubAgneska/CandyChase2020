@@ -41,6 +41,10 @@ export class BackpackPage implements OnInit{
   }
 
 
+/* public ionViewWillEnter() {
+    this.backpackService.currentLevel.subscribe(levelName => this.levelName = levelName);
+  } */
+
   public setBackpack() {
     this.backpackService.currentBackpack.subscribe(data => this.collectedCandy = data);
     //console.log("COLLECTED CANDY RETRIEVED ON INIT: ", this.collectedCandy);

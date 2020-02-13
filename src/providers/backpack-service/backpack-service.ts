@@ -26,8 +26,6 @@ export class BackpackServiceProvider {
   // keep track of current level --  
   private levelName$ = new BehaviorSubject("");
   currentLevel = this.levelName$.asObservable();
-
-
   // ---
 
   constructor(

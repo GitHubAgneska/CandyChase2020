@@ -67,65 +67,72 @@ page-backpack {
                 color: pink;
     
             }
-
-
-
-
-
+            .current-level h2{
+                font-size: 2.7rem;
+                font-family: 'PTSans-Regular';
+                color: pink;
+            }
 
 
             .myCollectedCandy {
-                background-color: #000000;
-                color: white;
-            }
-            .candyItem {
-                height: 15vh;
-                display: flex;
-                flex-direction: row;
-                justify-content: space-between;
-                align-content: center;
-                align-items: center;
-                border-bottom: 2px solid #B1C9FB;
-                border-top: 2px solid #B1C9FB;
-                h1, h2, .amount {
-                    font-family: 'Titan One', cursive;
-                    color: #B1C9FB;
-                    font-size: 1.5rem;
-                    text-transform: uppercase;
-                }
-                h1 {  
-                    transform: scale(1, 1.2);
-                    -webkit-transform: scale(1, 1.2); /* Safari and Chrome */
-                    -moz-transform: scale(1, 1.2); /* Firefox */
-                    -ms-transform: scale(1, 1.2); /* IE 9+ */
-                    -o-transform: scale(1, 1.2); /* Opera */
-                }
-                .candyName {
-                    max-width: 80%;
-                    display:flex;
-                    flex-direction: column;
-                    > button{
-                        color: orange;
-                        border: 1px solid orange;
-                        font-family: 'Titan One', cursive;
-                        background-color: transparent;
-                    }
-                }
-                .candyThumbnail {
-                    height: 6rem;
-                    width: 6rem;
-                    background-color:pink;
-                    align-content: center;
+                
+                width: 100%;
+
+                .candyItem {
+                    
+                    padding: 3%;
+                    margin: 3%;
+                    display: flex;
+                    flex-direction: row;
+                    justify-content: space-between;
                     align-items: center;
-                    overflow:hidden;
-                    border-radius: 50%;
+                    border: 2px solid #B1C9FB;
+                    border-radius: 50px;
+
+                    .candyThumbnail {
+                        height: 6rem;
+                        width: 6rem;
+                        background-color:pink;
+                        align-content: center;
+                        align-items: center;
+                        overflow:hidden;
+                        border-radius: 50%;
+                    }
+                    .candyName {
+                        
+                        max-width: 60%;
+                        // height: 2rem;
+                        text-align: center;
+                        display:flex;
+                        flex-direction: column;
+                        h1 {  
+                            font-family: 'Titan One', cursive;
+                            color: #B1C9FB;
+                            font-size: 1.5rem;
+                            text-transform: uppercase;
+                            transform: scale(1, 1.2);
+                            -webkit-transform: scale(1, 1.2); /* Safari and Chrome */
+                            -moz-transform: scale(1, 1.2); /* Firefox */
+                            -ms-transform: scale(1, 1.2); /* IE 9+ */
+                            -o-transform: scale(1, 1.2); /* Opera */
+                        }
+                        button {
+                            color: orange;
+                            border: 1px solid orange;
+                            font-family: 'Titan One', cursive;
+                            background-color: transparent;
+                        }
+                    }  
+                    .amount > h1{
+                        width: 50px;
+                        height:50px;
+                        font-family: 'Titan One', cursive;
+                        color: rgb(251, 177, 241);
+                        font-size: 2.8rem;
+                        text-transform: uppercase;
+                    }               
                 }
-                .amount{
-                    width: 50px;
-                    height:50px;
-                }
-            }
-               
+            }      
         }
     }
 }

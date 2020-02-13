@@ -33671,13 +33671,19 @@ page-backpack .backpackPage-container .backpack-elements-container .totalpoints 
   color: pink;
 }
 
-page-backpack .backpackPage-container .backpack-elements-container .myCollectedCandy {
-  background-color: #000000;
-  color: white;
+page-backpack .backpackPage-container .backpack-elements-container .current-level h2 {
+  font-size: 2.7rem;
+  font-family: 'PTSans-Regular';
+  color: pink;
 }
 
-page-backpack .backpackPage-container .backpack-elements-container .candyItem {
-  height: 15vh;
+page-backpack .backpackPage-container .backpack-elements-container .myCollectedCandy {
+  width: 100%;
+}
+
+page-backpack .backpackPage-container .backpack-elements-container .myCollectedCandy .candyItem {
+  padding: 3%;
+  margin: 3%;
   display: -webkit-box;
   display: -webkit-flex;
   display: -ms-flexbox;
@@ -33691,57 +33697,15 @@ page-backpack .backpackPage-container .backpack-elements-container .candyItem {
   -webkit-justify-content: space-between;
   -ms-flex-pack: justify;
   justify-content: space-between;
-  -webkit-align-content: center;
-  -ms-flex-line-pack: center;
-  align-content: center;
   -webkit-box-align: center;
   -webkit-align-items: center;
   -ms-flex-align: center;
   align-items: center;
-  border-bottom: 2px solid #B1C9FB;
-  border-top: 2px solid #B1C9FB;
+  border: 2px solid #B1C9FB;
+  border-radius: 50px;
 }
 
-page-backpack .backpackPage-container .backpack-elements-container .candyItem h1, page-backpack .backpackPage-container .backpack-elements-container .candyItem h2, page-backpack .backpackPage-container .backpack-elements-container .candyItem .amount {
-  font-family: 'Titan One', cursive;
-  color: #B1C9FB;
-  font-size: 1.5rem;
-  text-transform: uppercase;
-}
-
-page-backpack .backpackPage-container .backpack-elements-container .candyItem h1 {
-  transform: scale(1, 1.2);
-  -webkit-transform: scale(1, 1.2);
-  /* Safari and Chrome */
-  -moz-transform: scale(1, 1.2);
-  /* Firefox */
-  -ms-transform: scale(1, 1.2);
-  /* IE 9+ */
-  -o-transform: scale(1, 1.2);
-  /* Opera */
-}
-
-page-backpack .backpackPage-container .backpack-elements-container .candyItem .candyName {
-  max-width: 80%;
-  display: -webkit-box;
-  display: -webkit-flex;
-  display: -ms-flexbox;
-  display: flex;
-  -webkit-box-orient: vertical;
-  -webkit-box-direction: normal;
-  -webkit-flex-direction: column;
-  -ms-flex-direction: column;
-  flex-direction: column;
-}
-
-page-backpack .backpackPage-container .backpack-elements-container .candyItem .candyName > button {
-  color: orange;
-  border: 1px solid orange;
-  font-family: 'Titan One', cursive;
-  background-color: transparent;
-}
-
-page-backpack .backpackPage-container .backpack-elements-container .candyItem .candyThumbnail {
+page-backpack .backpackPage-container .backpack-elements-container .myCollectedCandy .candyItem .candyThumbnail {
   height: 6rem;
   width: 6rem;
   background-color: pink;
@@ -33756,9 +33720,50 @@ page-backpack .backpackPage-container .backpack-elements-container .candyItem .c
   border-radius: 50%;
 }
 
-page-backpack .backpackPage-container .backpack-elements-container .candyItem .amount {
+page-backpack .backpackPage-container .backpack-elements-container .myCollectedCandy .candyItem .candyName {
+  max-width: 60%;
+  text-align: center;
+  display: -webkit-box;
+  display: -webkit-flex;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+  -webkit-flex-direction: column;
+  -ms-flex-direction: column;
+  flex-direction: column;
+}
+
+page-backpack .backpackPage-container .backpack-elements-container .myCollectedCandy .candyItem .candyName h1 {
+  font-family: 'Titan One', cursive;
+  color: #B1C9FB;
+  font-size: 1.5rem;
+  text-transform: uppercase;
+  transform: scale(1, 1.2);
+  -webkit-transform: scale(1, 1.2);
+  /* Safari and Chrome */
+  -moz-transform: scale(1, 1.2);
+  /* Firefox */
+  -ms-transform: scale(1, 1.2);
+  /* IE 9+ */
+  -o-transform: scale(1, 1.2);
+  /* Opera */
+}
+
+page-backpack .backpackPage-container .backpack-elements-container .myCollectedCandy .candyItem .candyName button {
+  color: orange;
+  border: 1px solid orange;
+  font-family: 'Titan One', cursive;
+  background-color: transparent;
+}
+
+page-backpack .backpackPage-container .backpack-elements-container .myCollectedCandy .candyItem .amount > h1 {
   width: 50px;
   height: 50px;
+  font-family: 'Titan One', cursive;
+  color: #fbb1f1;
+  font-size: 2.8rem;
+  text-transform: uppercase;
 }
 
 page-candy-details .candyDetailsPage-container {

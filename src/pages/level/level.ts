@@ -35,7 +35,6 @@ export class LevelPage implements OnInit {
       this.levels = [];
       this.level = { "idLevel":"", "levelName": "", "levelImg": "", "bannerMessage":"", "levelCard":"", "levelCardName":"" };
       this.nextLevel = { "idLevel":"", "levelName": "", "levelImg": "", "bannerMessage":"", "levelCard":"",  "levelCardName":"" };
-
     }
 
   public ngOnInit() {
@@ -48,14 +47,12 @@ export class LevelPage implements OnInit {
     this.setCurrentLevel(this.totalPoints);   
   }
 
-
-
   // retrieve current total candy/total points from candy service, 
   // and set level accordingly, using json 'levelmodels'
   setCurrentLevel(totalPoints:number) {
     this.backpackService.currentBackpackCount.subscribe(data => this.totalPoints = data);
     //console.log('total Points retrieved by level service: ', this.totalPoints);
-
+  
     this.levelService.getLevelList().subscribe((response:Level[]) => {
 
       this.myArray = response;
