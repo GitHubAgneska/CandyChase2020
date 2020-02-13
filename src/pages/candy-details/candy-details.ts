@@ -3,6 +3,7 @@ import { IonicPage, NavController, NavParams } from 'ionic-angular';
 import { CandyService } from '../../providers/candy-api-service/candy-api-service';
 import { Candy } from '../../models/candy.model';
 import { KeyvaluePipe } from '../../pipes/keyvalue/keyvalue';
+import { RemoveUnderscorePipe } from '../../pipes/remove-underscore/remove-underscore';
 
 @IonicPage()
 @Component({
@@ -24,7 +25,8 @@ export class CandyDetailsPage {
     public navCtrl: NavController,
     public navParams: NavParams,
     public candyService: CandyService,
-    public keyvaluepipe: KeyvaluePipe 
+    public keyvaluepipe: KeyvaluePipe,
+    public removeUnderscorePipe: RemoveUnderscorePipe
     ) {
 
       this.candyId = this.navParams.get("idparam");

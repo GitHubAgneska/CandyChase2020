@@ -33789,10 +33789,11 @@ page-candy-details .candyDetailsPage-container .candyDetailsPage {
 }
 
 page-candy-details .candyDetailsPage-container .candyDetailsPage .candyItemTitle {
+  position: -webkit-sticky;
+  position: sticky;
   width: auto;
-  height: 10vh;
   padding: 2%;
-  margin: 3% auto;
+  margin: 10% auto;
   display: -webkit-box;
   display: -webkit-flex;
   display: -ms-flexbox;
@@ -33813,15 +33814,8 @@ page-candy-details .candyDetailsPage-container .candyDetailsPage .candyItemTitle
   -webkit-align-items: center;
   -ms-flex-align: center;
   align-items: center;
-  border: 5px solid orange;
-  border-radius: 30px;
-}
-
-page-candy-details .candyDetailsPage-container .candyDetailsPage .candyItemTitle h1 {
-  color: #B1C9FB;
-  font-family: 'Titan One', cursive;
-  text-transform: uppercase;
-  font-size: 5vw;
+  border: 3px solid orange;
+  border-radius: 50px;
 }
 
 page-candy-details .candyDetailsPage-container .candyDetailsPage .candyItemTitle .candyThumbnail {
@@ -33839,38 +33833,36 @@ page-candy-details .candyDetailsPage-container .candyDetailsPage .candyItemTitle
   border-radius: 50%;
 }
 
-page-candy-details .candyDetailsPage-container .candyDetailsPage h1 {
+page-candy-details .candyDetailsPage-container .candyDetailsPage .candyItemTitle h1 {
+  color: #B1C9FB;
+  font-family: 'Titan One', cursive;
+  text-transform: uppercase;
+  border-bottom: none;
+  font-size: 5vw;
+}
+
+page-candy-details .candyDetailsPage-container .candyDetailsPage .rubrik h1 {
   font-family: 'Titan One', cursive;
   font-size: 5vw;
   color: #B1C9FB;
   text-align: center;
   border-bottom: 2px solid;
-  line-height: 2;
+  line-height: 3;
 }
 
-page-candy-details .candyDetailsPage-container .candyDetailsPage .arrowIcon {
+page-candy-details .candyDetailsPage-container .candyDetailsPage .rubrik h1 .arrowIcon {
   background: url("../assets/icon/icon_arrowDown.png") 0 0 no-repeat;
   width: 25px;
   height: 25px;
 }
 
-page-candy-details .candyDetailsPage-container .candyDetailsPage .candyIngredients, page-candy-details .candyDetailsPage-container .candyDetailsPage .candyNutriscore {
+page-candy-details .candyDetailsPage-container .candyDetailsPage .candyIngredients table, page-candy-details .candyDetailsPage-container .candyDetailsPage .candyNutriscore table, page-candy-details .candyDetailsPage-container .candyDetailsPage .candyAllergens table {
   margin: auto;
+  width: 100%;
 }
 
-page-candy-details .candyDetailsPage-container .candyDetailsPage .candyIngredients table {
-  width: 80%;
-}
-
-page-candy-details .candyDetailsPage-container .candyDetailsPage .candyIngredients td {
-  border: 2px solid  #B1C9FB;
-  font-family: 'Titan One', cursive;
-  font-size: 4vw;
-  color: orange;
-  padding: 2%;
-}
-
-page-candy-details .candyDetailsPage-container .candyDetailsPage .candyNutriscore td {
+page-candy-details .candyDetailsPage-container .candyDetailsPage .candyIngredients table, page-candy-details .candyDetailsPage-container .candyDetailsPage .candyIngredients td, page-candy-details .candyDetailsPage-container .candyDetailsPage .candyIngredients tr, page-candy-details .candyDetailsPage-container .candyDetailsPage .candyNutriscore table, page-candy-details .candyDetailsPage-container .candyDetailsPage .candyNutriscore td, page-candy-details .candyDetailsPage-container .candyDetailsPage .candyNutriscore tr, page-candy-details .candyDetailsPage-container .candyDetailsPage .candyAllergens table, page-candy-details .candyDetailsPage-container .candyDetailsPage .candyAllergens td, page-candy-details .candyDetailsPage-container .candyDetailsPage .candyAllergens tr {
+  margin-top: 5%;
   border: 2px solid  #B1C9FB;
   font-family: 'Titan One', cursive;
   font-size: 4vw;

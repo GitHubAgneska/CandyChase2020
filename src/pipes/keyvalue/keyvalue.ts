@@ -11,10 +11,10 @@ export class KeyvaluePipe implements PipeTransform {
       let a = [];
       for ( let key in object) {
         if (object.hasOwnProperty(key)) {
-          a.push({key: key, val: object[key]});
+          a.push({key: key, value: object[key]});
         }
       }
-      //console.log("je suis keyvalue pipe object: ", a);
+      console.log("je suis keyvalue pipe object: ", a);
       return a;
   }
 }

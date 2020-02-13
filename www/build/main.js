@@ -9,7 +9,7 @@ webpackJsonp([10],{
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_1_ionic_angular__ = __webpack_require__(19);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_2__providers_geoloc_service_geoloc_service__ = __webpack_require__(55);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_3__ionic_native_geolocation__ = __webpack_require__(74);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_4__my_addresses_my_addresses__ = __webpack_require__(161);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_4__my_addresses_my_addresses__ = __webpack_require__(162);
 var __decorate = (this && this.__decorate) || function (decorators, target, key, desc) {
     var c = arguments.length, r = c < 3 ? target : desc === null ? desc = Object.getOwnPropertyDescriptor(target, key) : desc, d;
     if (typeof Reflect === "object" && typeof Reflect.decorate === "function") r = Reflect.decorate(decorators, target, key, desc);
@@ -75,6 +75,44 @@ var MapPage = (function () {
 /***/ }),
 
 /***/ 137:
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "a", function() { return RemoveUnderscorePipe; });
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__angular_core__ = __webpack_require__(1);
+var __decorate = (this && this.__decorate) || function (decorators, target, key, desc) {
+    var c = arguments.length, r = c < 3 ? target : desc === null ? desc = Object.getOwnPropertyDescriptor(target, key) : desc, d;
+    if (typeof Reflect === "object" && typeof Reflect.decorate === "function") r = Reflect.decorate(decorators, target, key, desc);
+    else for (var i = decorators.length - 1; i >= 0; i--) if (d = decorators[i]) r = (c < 3 ? d(r) : c > 3 ? d(target, key, r) : d(target, key)) || r;
+    return c > 3 && r && Object.defineProperty(target, key, r), r;
+};
+
+var RemoveUnderscorePipe = (function () {
+    function RemoveUnderscorePipe() {
+    }
+    RemoveUnderscorePipe.prototype.transform = function (value) {
+        for (var i = 0; i < value.length; i++) {
+            if (value[i] === "_") {
+                // value[i] = " ";
+                value = " placeholder value";
+            }
+        }
+        return value;
+    };
+    RemoveUnderscorePipe = __decorate([
+        Object(__WEBPACK_IMPORTED_MODULE_0__angular_core__["S" /* Pipe */])({
+            name: 'removeUnderscore',
+            pure: true
+        })
+    ], RemoveUnderscorePipe);
+    return RemoveUnderscorePipe;
+}());
+
+//# sourceMappingURL=remove-underscore.js.map
+
+/***/ }),
+
+/***/ 138:
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
@@ -189,7 +227,7 @@ var ListPage = (function () {
 
 /***/ }),
 
-/***/ 159:
+/***/ 160:
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
@@ -227,7 +265,7 @@ var AboutPage = (function () {
 
 /***/ }),
 
-/***/ 160:
+/***/ 161:
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
@@ -278,7 +316,7 @@ var AgeSelectPage = (function () {
 
 /***/ }),
 
-/***/ 161:
+/***/ 162:
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
@@ -320,83 +358,6 @@ var MyAddressesPage = (function () {
 }());
 
 //# sourceMappingURL=my-addresses.js.map
-
-/***/ }),
-
-/***/ 162:
-/***/ (function(module, __webpack_exports__, __webpack_require__) {
-
-"use strict";
-/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "a", function() { return CandyDetailsPage; });
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__angular_core__ = __webpack_require__(1);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_1_ionic_angular__ = __webpack_require__(19);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_2__providers_candy_api_service_candy_api_service__ = __webpack_require__(44);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_3__pipes_keyvalue_keyvalue__ = __webpack_require__(84);
-var __decorate = (this && this.__decorate) || function (decorators, target, key, desc) {
-    var c = arguments.length, r = c < 3 ? target : desc === null ? desc = Object.getOwnPropertyDescriptor(target, key) : desc, d;
-    if (typeof Reflect === "object" && typeof Reflect.decorate === "function") r = Reflect.decorate(decorators, target, key, desc);
-    else for (var i = decorators.length - 1; i >= 0; i--) if (d = decorators[i]) r = (c < 3 ? d(r) : c > 3 ? d(target, key, r) : d(target, key)) || r;
-    return c > 3 && r && Object.defineProperty(target, key, r), r;
-};
-var __metadata = (this && this.__metadata) || function (k, v) {
-    if (typeof Reflect === "object" && typeof Reflect.metadata === "function") return Reflect.metadata(k, v);
-};
-
-
-
-
-var CandyDetailsPage = (function () {
-    function CandyDetailsPage(navCtrl, navParams, candyService, keyvaluepipe) {
-        this.navCtrl = navCtrl;
-        this.navParams = navParams;
-        this.candyService = candyService;
-        this.keyvaluepipe = keyvaluepipe;
-        this.candyId = this.navParams.get("idparam");
-        this.candyItem = { _id: "", product_name: "", generic_name_fr: "",
-            image_front_url: "", brands_tags: [], ingredients_tags: [],
-            nutriscore_data: [], additive_tags: [] };
-        this.showIngredients = false;
-        this.showAllergens = false;
-        this.showNutriscore = false;
-    }
-    CandyDetailsPage.prototype.ionViewDidLoad = function () { };
-    CandyDetailsPage.prototype.ngOnInit = function () {
-        var _this = this;
-        this.candyService.getCandyById(this.candyId)
-            .subscribe(function (response) {
-            _this.candyItem = response;
-            _this.candyOfList = response;
-            _this.candyItem.product_name = response.product_name;
-            _this.candyItem.image_front_url = response.image_front_url;
-            _this.candyItem.ingredients_tags = response.ingredients_tags;
-            _this.candyItem.nutriscore_data = response.nutriscore_data;
-        });
-    };
-    CandyDetailsPage.prototype.toggleIngredients = function () {
-        this.showIngredients = !this.showIngredients;
-    };
-    CandyDetailsPage.prototype.toggleAllergens = function () {
-        this.showAllergens = !this.showAllergens;
-    };
-    CandyDetailsPage.prototype.toggleNutriscore = function () {
-        this.showNutriscore = !this.showNutriscore;
-    };
-    CandyDetailsPage.prototype.goBack = function () {
-        this.navCtrl.pop();
-    };
-    CandyDetailsPage = __decorate([
-        Object(__WEBPACK_IMPORTED_MODULE_0__angular_core__["m" /* Component */])({
-            selector: 'page-candy-details',template:/*ion-inline-start:"/Users/hildegardagnesgenay/Documents/AndBEYOND/CANDY_CHASE_2020_ionic/candyChase2020/src/pages/candy-details/candy-details.html"*/'<ion-header>\n  <ion-navbar color="customColor">\n    <ion-title text-center class="mainTitles">Candy Infos</ion-title>\n  </ion-navbar>\n</ion-header>\n\n<!-- Iterates through every props of the candyItem from api (~200 ..) -->\n<!-- <ion-content class="candyDetailsPage-container">\n  <div class="candyDetailsPage" *ngIf="candyItem">\n    <div *ngFor="let i of candyItem | keyvalue " class="candyList">\n    </div>\n  </div>\n</ion-content> -->\n\n\n<ion-content class="candyDetailsPage-container">\n  <div class="candyDetailsPage" *ngIf="candyItem">\n\n      <div class="candyItemTitle">\n\n        <div class="candyThumbnail">\n          <img src="{{candyItem.image_front_url}}" class="magic">\n        </div>\n\n        <div>\n          <h1>{{ candyItem.product_name | slice:0:20 }}</h1>\n        </div> \n\n      </div>\n\n      <h1 (click)="toggleIngredients()">Ingredients<span class="arrowIcon">v</span></h1>\n      <div class="candyIngredients" *ngIf="showIngredients">\n        <table>\n          <!-- <th class="candyName"></th> -->\n          <tr *ngFor="let i of candyItem.ingredients_tags">\n            <td>\n              {{i}}\n            </td>\n          </tr>\n        </table>\n      </div>\n\n      <h1 (click)="toggleNutriscore()">Nutriscore</h1>\n      <div class="candyNutriscore" *ngIf="showNutriscore">\n        <table>\n          <!-- <th class="candyName"></th> -->\n          <tr *ngFor="let i of candyItem.nutriscore_data | keyvalue">\n            <td>\n              {{i.key}}:{{i.value}}\n            </td>\n          </tr>\n        </table>\n      </div>\n      \n      <h1 (click)="toggleAllergens()">Allergens</h1>\n      <div class="candyAllergens" *ngIf="showAllergens">\n        <table>\n          <!-- <th class="candyName"></th> -->\n          <tr *ngFor="let i of candyItem.ingredients_tags">\n            <td>\n              {{i.key}}\n            </td>\n          </tr>\n        </table>\n      </div>\n\n  \n  </div>\n\n</ion-content>\n'/*ion-inline-end:"/Users/hildegardagnesgenay/Documents/AndBEYOND/CANDY_CHASE_2020_ionic/candyChase2020/src/pages/candy-details/candy-details.html"*/,
-        }),
-        __metadata("design:paramtypes", [__WEBPACK_IMPORTED_MODULE_1_ionic_angular__["f" /* NavController */],
-            __WEBPACK_IMPORTED_MODULE_1_ionic_angular__["g" /* NavParams */],
-            __WEBPACK_IMPORTED_MODULE_2__providers_candy_api_service_candy_api_service__["a" /* CandyService */],
-            __WEBPACK_IMPORTED_MODULE_3__pipes_keyvalue_keyvalue__["a" /* KeyvaluePipe */]])
-    ], CandyDetailsPage);
-    return CandyDetailsPage;
-}());
-
-//# sourceMappingURL=candy-details.js.map
 
 /***/ }),
 
@@ -452,7 +413,7 @@ var LegalPage = (function () {
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__angular_core__ = __webpack_require__(1);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_1_ionic_angular__ = __webpack_require__(19);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_2__providers_candy_api_service_candy_api_service__ = __webpack_require__(44);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_3__providers_level_api_service_level_api_service__ = __webpack_require__(321);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_3__providers_level_api_service_level_api_service__ = __webpack_require__(322);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_4__providers_backpack_service_backpack_service__ = __webpack_require__(62);
 var __decorate = (this && this.__decorate) || function (decorators, target, key, desc) {
     var c = arguments.length, r = c < 3 ? target : desc === null ? desc = Object.getOwnPropertyDescriptor(target, key) : desc, d;
@@ -572,6 +533,87 @@ var LevelPage = (function () {
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "a", function() { return CandyDetailsPage; });
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__angular_core__ = __webpack_require__(1);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_1_ionic_angular__ = __webpack_require__(19);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_2__providers_candy_api_service_candy_api_service__ = __webpack_require__(44);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_3__pipes_keyvalue_keyvalue__ = __webpack_require__(84);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_4__pipes_remove_underscore_remove_underscore__ = __webpack_require__(137);
+var __decorate = (this && this.__decorate) || function (decorators, target, key, desc) {
+    var c = arguments.length, r = c < 3 ? target : desc === null ? desc = Object.getOwnPropertyDescriptor(target, key) : desc, d;
+    if (typeof Reflect === "object" && typeof Reflect.decorate === "function") r = Reflect.decorate(decorators, target, key, desc);
+    else for (var i = decorators.length - 1; i >= 0; i--) if (d = decorators[i]) r = (c < 3 ? d(r) : c > 3 ? d(target, key, r) : d(target, key)) || r;
+    return c > 3 && r && Object.defineProperty(target, key, r), r;
+};
+var __metadata = (this && this.__metadata) || function (k, v) {
+    if (typeof Reflect === "object" && typeof Reflect.metadata === "function") return Reflect.metadata(k, v);
+};
+
+
+
+
+
+var CandyDetailsPage = (function () {
+    function CandyDetailsPage(navCtrl, navParams, candyService, keyvaluepipe, removeUnderscorePipe) {
+        this.navCtrl = navCtrl;
+        this.navParams = navParams;
+        this.candyService = candyService;
+        this.keyvaluepipe = keyvaluepipe;
+        this.removeUnderscorePipe = removeUnderscorePipe;
+        this.candyId = this.navParams.get("idparam");
+        this.candyItem = { _id: "", product_name: "", generic_name_fr: "",
+            image_front_url: "", brands_tags: [], ingredients_tags: [],
+            nutriscore_data: [], additive_tags: [] };
+        this.showIngredients = false;
+        this.showAllergens = false;
+        this.showNutriscore = false;
+    }
+    CandyDetailsPage.prototype.ionViewDidLoad = function () { };
+    CandyDetailsPage.prototype.ngOnInit = function () {
+        var _this = this;
+        this.candyService.getCandyById(this.candyId)
+            .subscribe(function (response) {
+            _this.candyItem = response;
+            _this.candyOfList = response;
+            _this.candyItem.product_name = response.product_name;
+            _this.candyItem.image_front_url = response.image_front_url;
+            _this.candyItem.ingredients_tags = response.ingredients_tags;
+            _this.candyItem.nutriscore_data = response.nutriscore_data;
+        });
+    };
+    CandyDetailsPage.prototype.toggleIngredients = function () {
+        this.showIngredients = !this.showIngredients;
+    };
+    CandyDetailsPage.prototype.toggleAllergens = function () {
+        this.showAllergens = !this.showAllergens;
+    };
+    CandyDetailsPage.prototype.toggleNutriscore = function () {
+        this.showNutriscore = !this.showNutriscore;
+    };
+    CandyDetailsPage.prototype.goBack = function () {
+        this.navCtrl.pop();
+    };
+    CandyDetailsPage = __decorate([
+        Object(__WEBPACK_IMPORTED_MODULE_0__angular_core__["m" /* Component */])({
+            selector: 'page-candy-details',template:/*ion-inline-start:"/Users/hildegardagnesgenay/Documents/AndBEYOND/CANDY_CHASE_2020_ionic/candyChase2020/src/pages/candy-details/candy-details.html"*/'<ion-header>\n  <ion-navbar color="customColor">\n    <ion-title text-center class="mainTitles">Candy Infos</ion-title>\n  </ion-navbar>\n</ion-header>\n\n<ion-content class="candyDetailsPage-container">\n  <div class="candyDetailsPage" *ngIf="candyItem">\n\n      <div class="candyItemTitle">\n        <div class="candyThumbnail">\n          <img src="{{candyItem.image_front_url}}">\n        </div>\n        <div>\n          <h1>{{ candyItem.product_name | slice:0:30 }}</h1>\n        </div> \n      </div>\n\n      <div class="rubrik">\n        <h1 (click)="toggleIngredients()">Ingredients<span class="arrowIcon"></span></h1>\n        <div class="candyIngredients" *ngIf="showIngredients">\n          <table>\n            <!-- <th class="candyName"></th> -->\n            <tr *ngFor="let i of candyItem.ingredients_tags">\n              <td>\n                {{i}}\n              </td>\n            </tr>\n          </table>\n        </div>\n      </div>\n\n      <div class="rubrik">\n        <h1 (click)="toggleNutriscore()">Nutriscore</h1>\n        <div class="candyNutriscore" *ngIf="showNutriscore">\n          <table>\n            <!-- <th class="candyName"></th> -->\n            <tr *ngFor="let i of candyItem.nutriscore_data | keyvalue">\n              <td>\n                {{i.key | removeUnderscore }}\n              </td>\n              <td>\n                {{i.value}}\n              </td>\n            </tr>\n          </table>\n        </div>\n      </div>\n      \n      <div class="rubrik">\n        <h1 (click)="toggleAllergens()">Allergens</h1>\n        <div class="candyAllergens" *ngIf="showAllergens">\n          <table>\n            <!-- <th class="candyName"></th> -->\n            <tr *ngFor="let i of candyItem.ingredients_tags">\n              <td>\n                {{i.key}}\n              </td>\n            </tr>\n          </table>\n        </div>\n      </div>\n\n  </div>\n</ion-content>\n'/*ion-inline-end:"/Users/hildegardagnesgenay/Documents/AndBEYOND/CANDY_CHASE_2020_ionic/candyChase2020/src/pages/candy-details/candy-details.html"*/,
+        }),
+        __metadata("design:paramtypes", [__WEBPACK_IMPORTED_MODULE_1_ionic_angular__["f" /* NavController */],
+            __WEBPACK_IMPORTED_MODULE_1_ionic_angular__["g" /* NavParams */],
+            __WEBPACK_IMPORTED_MODULE_2__providers_candy_api_service_candy_api_service__["a" /* CandyService */],
+            __WEBPACK_IMPORTED_MODULE_3__pipes_keyvalue_keyvalue__["a" /* KeyvaluePipe */],
+            __WEBPACK_IMPORTED_MODULE_4__pipes_remove_underscore_remove_underscore__["a" /* RemoveUnderscorePipe */]])
+    ], CandyDetailsPage);
+    return CandyDetailsPage;
+}());
+
+//# sourceMappingURL=candy-details.js.map
+
+/***/ }),
+
+/***/ 166:
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
 /* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "a", function() { return LoginPage; });
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__angular_core__ = __webpack_require__(1);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_1_ionic_angular__ = __webpack_require__(19);
@@ -613,19 +655,19 @@ var LoginPage = (function () {
 
 /***/ }),
 
-/***/ 166:
+/***/ 167:
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
 /* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "a", function() { return MyHomePage; });
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__angular_core__ = __webpack_require__(1);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_1_ionic_angular__ = __webpack_require__(19);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_2__list_list__ = __webpack_require__(137);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_3__rules_rules__ = __webpack_require__(167);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_4__login_login__ = __webpack_require__(165);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_2__list_list__ = __webpack_require__(138);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_3__rules_rules__ = __webpack_require__(168);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_4__login_login__ = __webpack_require__(166);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_5__legal_legal__ = __webpack_require__(163);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_6__about_about__ = __webpack_require__(159);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_7__age_select_age_select__ = __webpack_require__(160);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_6__about_about__ = __webpack_require__(160);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_7__age_select_age_select__ = __webpack_require__(161);
 var __decorate = (this && this.__decorate) || function (decorators, target, key, desc) {
     var c = arguments.length, r = c < 3 ? target : desc === null ? desc = Object.getOwnPropertyDescriptor(target, key) : desc, d;
     if (typeof Reflect === "object" && typeof Reflect.decorate === "function") r = Reflect.decorate(decorators, target, key, desc);
@@ -684,7 +726,7 @@ var MyHomePage = (function () {
 
 /***/ }),
 
-/***/ 167:
+/***/ 168:
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
@@ -729,14 +771,14 @@ var RulesPage = (function () {
 
 /***/ }),
 
-/***/ 168:
+/***/ 169:
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
 /* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "a", function() { return WelcomePage; });
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__angular_core__ = __webpack_require__(1);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_1_ionic_angular__ = __webpack_require__(19);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_2__tabs_tabs__ = __webpack_require__(322);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_2__tabs_tabs__ = __webpack_require__(323);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_3__providers_geoloc_service_geoloc_service__ = __webpack_require__(55);
 var __decorate = (this && this.__decorate) || function (decorators, target, key, desc) {
     var c = arguments.length, r = c < 3 ? target : desc === null ? desc = Object.getOwnPropertyDescriptor(target, key) : desc, d;
@@ -788,7 +830,7 @@ var WelcomePage = (function () {
 
 /***/ }),
 
-/***/ 181:
+/***/ 182:
 /***/ (function(module, exports) {
 
 function webpackEmptyAsyncContext(req) {
@@ -801,24 +843,24 @@ function webpackEmptyAsyncContext(req) {
 webpackEmptyAsyncContext.keys = function() { return []; };
 webpackEmptyAsyncContext.resolve = webpackEmptyAsyncContext;
 module.exports = webpackEmptyAsyncContext;
-webpackEmptyAsyncContext.id = 181;
+webpackEmptyAsyncContext.id = 182;
 
 /***/ }),
 
-/***/ 228:
+/***/ 229:
 /***/ (function(module, exports, __webpack_require__) {
 
 var map = {
 	"../pages/about/about.module": [
-		696,
+		697,
 		9
 	],
 	"../pages/age-select/age-select.module": [
-		697,
+		698,
 		8
 	],
 	"../pages/candy-details/candy-details.module": [
-		698,
+		701,
 		7
 	],
 	"../pages/legal/legal.module": [
@@ -830,23 +872,23 @@ var map = {
 		5
 	],
 	"../pages/login/login.module": [
-		701,
+		702,
 		4
 	],
 	"../pages/my-addresses/my-addresses.module": [
-		702,
+		703,
 		3
 	],
 	"../pages/my-home/my-home.module": [
-		703,
+		704,
 		2
 	],
 	"../pages/rules/rules.module": [
-		704,
+		705,
 		1
 	],
 	"../pages/welcome/welcome.module": [
-		705,
+		706,
 		0
 	]
 };
@@ -861,12 +903,12 @@ function webpackAsyncContext(req) {
 webpackAsyncContext.keys = function webpackAsyncContextKeys() {
 	return Object.keys(map);
 };
-webpackAsyncContext.id = 228;
+webpackAsyncContext.id = 229;
 module.exports = webpackAsyncContext;
 
 /***/ }),
 
-/***/ 321:
+/***/ 322:
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
@@ -920,17 +962,17 @@ var LevelServiceProvider = (function () {
 
 /***/ }),
 
-/***/ 322:
+/***/ 323:
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
 /* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "a", function() { return TabsPage; });
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__angular_core__ = __webpack_require__(1);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_1__map_map__ = __webpack_require__(123);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_2__list_list__ = __webpack_require__(137);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_3__backpack_backpack__ = __webpack_require__(323);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_2__list_list__ = __webpack_require__(138);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_3__backpack_backpack__ = __webpack_require__(324);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_4__level_level__ = __webpack_require__(164);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_5__my_home_my_home__ = __webpack_require__(166);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_5__my_home_my_home__ = __webpack_require__(167);
 var __decorate = (this && this.__decorate) || function (decorators, target, key, desc) {
     var c = arguments.length, r = c < 3 ? target : desc === null ? desc = Object.getOwnPropertyDescriptor(target, key) : desc, d;
     if (typeof Reflect === "object" && typeof Reflect.decorate === "function") r = Reflect.decorate(decorators, target, key, desc);
@@ -966,7 +1008,7 @@ var TabsPage = (function () {
 
 /***/ }),
 
-/***/ 323:
+/***/ 324:
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
@@ -974,7 +1016,7 @@ var TabsPage = (function () {
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__providers_candy_api_service_candy_api_service__ = __webpack_require__(44);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_1__angular_core__ = __webpack_require__(1);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_2_ionic_angular__ = __webpack_require__(19);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_3__candy_details_candy_details__ = __webpack_require__(162);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_3__candy_details_candy_details__ = __webpack_require__(165);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_4__providers_backpack_service_backpack_service__ = __webpack_require__(62);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_5__pipes_keyvalue_keyvalue__ = __webpack_require__(84);
 var __decorate = (this && this.__decorate) || function (decorators, target, key, desc) {
@@ -1045,20 +1087,22 @@ this.candyService.getCandyById(item._id).subscribe((response:Candy) => {
 
 /***/ }),
 
-/***/ 365:
+/***/ 366:
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
 /* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "a", function() { return PipesModule; });
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__angular_core__ = __webpack_require__(1);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_1__keys_keys__ = __webpack_require__(677);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_1__keys_keys__ = __webpack_require__(678);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_2__keyvalue_keyvalue__ = __webpack_require__(84);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_3__remove_underscore_remove_underscore__ = __webpack_require__(137);
 var __decorate = (this && this.__decorate) || function (decorators, target, key, desc) {
     var c = arguments.length, r = c < 3 ? target : desc === null ? desc = Object.getOwnPropertyDescriptor(target, key) : desc, d;
     if (typeof Reflect === "object" && typeof Reflect.decorate === "function") r = Reflect.decorate(decorators, target, key, desc);
     else for (var i = decorators.length - 1; i >= 0; i--) if (d = decorators[i]) r = (c < 3 ? d(r) : c > 3 ? d(target, key, r) : d(target, key)) || r;
     return c > 3 && r && Object.defineProperty(target, key, r), r;
 };
+
 
 
 
@@ -1068,10 +1112,14 @@ var PipesModule = (function () {
     PipesModule = __decorate([
         Object(__WEBPACK_IMPORTED_MODULE_0__angular_core__["I" /* NgModule */])({
             declarations: [__WEBPACK_IMPORTED_MODULE_1__keys_keys__["a" /* KeysPipe */],
-                __WEBPACK_IMPORTED_MODULE_2__keyvalue_keyvalue__["a" /* KeyvaluePipe */]],
+                __WEBPACK_IMPORTED_MODULE_2__keyvalue_keyvalue__["a" /* KeyvaluePipe */],
+                __WEBPACK_IMPORTED_MODULE_3__remove_underscore_remove_underscore__["a" /* RemoveUnderscorePipe */],
+                __WEBPACK_IMPORTED_MODULE_3__remove_underscore_remove_underscore__["a" /* RemoveUnderscorePipe */]],
             imports: [],
             exports: [__WEBPACK_IMPORTED_MODULE_1__keys_keys__["a" /* KeysPipe */],
-                __WEBPACK_IMPORTED_MODULE_2__keyvalue_keyvalue__["a" /* KeyvaluePipe */]]
+                __WEBPACK_IMPORTED_MODULE_2__keyvalue_keyvalue__["a" /* KeyvaluePipe */],
+                __WEBPACK_IMPORTED_MODULE_3__remove_underscore_remove_underscore__["a" /* RemoveUnderscorePipe */],
+                __WEBPACK_IMPORTED_MODULE_3__remove_underscore_remove_underscore__["a" /* RemoveUnderscorePipe */]]
         })
     ], PipesModule);
     return PipesModule;
@@ -1081,13 +1129,13 @@ var PipesModule = (function () {
 
 /***/ }),
 
-/***/ 366:
+/***/ 367:
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
 Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__angular_platform_browser_dynamic__ = __webpack_require__(367);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_1__app_module__ = __webpack_require__(371);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__angular_platform_browser_dynamic__ = __webpack_require__(368);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_1__app_module__ = __webpack_require__(372);
 
 
 Object(__WEBPACK_IMPORTED_MODULE_0__angular_platform_browser_dynamic__["a" /* platformBrowserDynamic */])().bootstrapModule(__WEBPACK_IMPORTED_MODULE_1__app_module__["a" /* AppModule */]);
@@ -1095,48 +1143,50 @@ Object(__WEBPACK_IMPORTED_MODULE_0__angular_platform_browser_dynamic__["a" /* pl
 
 /***/ }),
 
-/***/ 371:
+/***/ 372:
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
 /* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "a", function() { return AppModule; });
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__angular_http__ = __webpack_require__(94);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_1__angular_common_http__ = __webpack_require__(182);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_1__angular_common_http__ = __webpack_require__(183);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_2__angular_core__ = __webpack_require__(1);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_3__angular_platform_browser__ = __webpack_require__(40);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_4__app_component__ = __webpack_require__(372);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_4__app_component__ = __webpack_require__(373);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_5_ionic_angular__ = __webpack_require__(19);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_6__angular_forms__ = __webpack_require__(26);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_7__ionic_native_geolocation__ = __webpack_require__(74);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_8__providers_geoloc_service_geoloc_service__ = __webpack_require__(55);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_9__ionic_native_diagnostic__ = __webpack_require__(695);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_10__pages_tabs_tabs__ = __webpack_require__(322);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_11__ionic_native_status_bar__ = __webpack_require__(363);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_12__ionic_native_splash_screen__ = __webpack_require__(364);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_9__ionic_native_diagnostic__ = __webpack_require__(696);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_10__pages_tabs_tabs__ = __webpack_require__(323);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_11__ionic_native_status_bar__ = __webpack_require__(364);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_12__ionic_native_splash_screen__ = __webpack_require__(365);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_13__providers_candy_api_service_candy_api_service__ = __webpack_require__(44);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_14__providers_level_api_service_level_api_service__ = __webpack_require__(321);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_14__providers_level_api_service_level_api_service__ = __webpack_require__(322);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_15__providers_backpack_service_backpack_service__ = __webpack_require__(62);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_16__pipes_pipes_module__ = __webpack_require__(365);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_16__pipes_pipes_module__ = __webpack_require__(366);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_17__pipes_keyvalue_keyvalue__ = __webpack_require__(84);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_18__pages_welcome_welcome__ = __webpack_require__(168);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_19__pages_login_login__ = __webpack_require__(165);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_20__pages_my_home_my_home__ = __webpack_require__(166);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_21__pages_map_map__ = __webpack_require__(123);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_22__pages_list_list__ = __webpack_require__(137);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_23__pages_backpack_backpack__ = __webpack_require__(323);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_24__pages_level_level__ = __webpack_require__(164);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_25__pages_candy_details_candy_details__ = __webpack_require__(162);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_26__pages_my_addresses_my_addresses__ = __webpack_require__(161);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_27__pages_rules_rules__ = __webpack_require__(167);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_28__pages_legal_legal__ = __webpack_require__(163);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_29__pages_about_about__ = __webpack_require__(159);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_30__pages_age_select_age_select__ = __webpack_require__(160);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_18__pipes_remove_underscore_remove_underscore__ = __webpack_require__(137);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_19__pages_welcome_welcome__ = __webpack_require__(169);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_20__pages_login_login__ = __webpack_require__(166);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_21__pages_my_home_my_home__ = __webpack_require__(167);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_22__pages_map_map__ = __webpack_require__(123);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_23__pages_list_list__ = __webpack_require__(138);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_24__pages_backpack_backpack__ = __webpack_require__(324);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_25__pages_level_level__ = __webpack_require__(164);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_26__pages_candy_details_candy_details__ = __webpack_require__(165);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_27__pages_my_addresses_my_addresses__ = __webpack_require__(162);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_28__pages_rules_rules__ = __webpack_require__(168);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_29__pages_legal_legal__ = __webpack_require__(163);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_30__pages_about_about__ = __webpack_require__(160);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_31__pages_age_select_age_select__ = __webpack_require__(161);
 var __decorate = (this && this.__decorate) || function (decorators, target, key, desc) {
     var c = arguments.length, r = c < 3 ? target : desc === null ? desc = Object.getOwnPropertyDescriptor(target, key) : desc, d;
     if (typeof Reflect === "object" && typeof Reflect.decorate === "function") r = Reflect.decorate(decorators, target, key, desc);
     else for (var i = decorators.length - 1; i >= 0; i--) if (d = decorators[i]) r = (c < 3 ? d(r) : c > 3 ? d(target, key, r) : d(target, key)) || r;
     return c > 3 && r && Object.defineProperty(target, key, r), r;
 };
+
 
 
 
@@ -1176,19 +1226,19 @@ var AppModule = (function () {
             declarations: [
                 __WEBPACK_IMPORTED_MODULE_4__app_component__["a" /* MyApp */],
                 __WEBPACK_IMPORTED_MODULE_10__pages_tabs_tabs__["a" /* TabsPage */],
-                __WEBPACK_IMPORTED_MODULE_18__pages_welcome_welcome__["a" /* WelcomePage */],
-                __WEBPACK_IMPORTED_MODULE_19__pages_login_login__["a" /* LoginPage */],
-                __WEBPACK_IMPORTED_MODULE_21__pages_map_map__["a" /* MapPage */],
-                __WEBPACK_IMPORTED_MODULE_23__pages_backpack_backpack__["a" /* BackpackPage */],
-                __WEBPACK_IMPORTED_MODULE_22__pages_list_list__["a" /* ListPage */],
-                __WEBPACK_IMPORTED_MODULE_20__pages_my_home_my_home__["a" /* MyHomePage */],
-                __WEBPACK_IMPORTED_MODULE_24__pages_level_level__["a" /* LevelPage */],
-                __WEBPACK_IMPORTED_MODULE_25__pages_candy_details_candy_details__["a" /* CandyDetailsPage */],
-                __WEBPACK_IMPORTED_MODULE_27__pages_rules_rules__["a" /* RulesPage */],
-                __WEBPACK_IMPORTED_MODULE_28__pages_legal_legal__["a" /* LegalPage */],
-                __WEBPACK_IMPORTED_MODULE_29__pages_about_about__["a" /* AboutPage */],
-                __WEBPACK_IMPORTED_MODULE_26__pages_my_addresses_my_addresses__["a" /* MyAddressesPage */],
-                __WEBPACK_IMPORTED_MODULE_30__pages_age_select_age_select__["a" /* AgeSelectPage */]
+                __WEBPACK_IMPORTED_MODULE_19__pages_welcome_welcome__["a" /* WelcomePage */],
+                __WEBPACK_IMPORTED_MODULE_20__pages_login_login__["a" /* LoginPage */],
+                __WEBPACK_IMPORTED_MODULE_22__pages_map_map__["a" /* MapPage */],
+                __WEBPACK_IMPORTED_MODULE_24__pages_backpack_backpack__["a" /* BackpackPage */],
+                __WEBPACK_IMPORTED_MODULE_23__pages_list_list__["a" /* ListPage */],
+                __WEBPACK_IMPORTED_MODULE_21__pages_my_home_my_home__["a" /* MyHomePage */],
+                __WEBPACK_IMPORTED_MODULE_25__pages_level_level__["a" /* LevelPage */],
+                __WEBPACK_IMPORTED_MODULE_26__pages_candy_details_candy_details__["a" /* CandyDetailsPage */],
+                __WEBPACK_IMPORTED_MODULE_28__pages_rules_rules__["a" /* RulesPage */],
+                __WEBPACK_IMPORTED_MODULE_29__pages_legal_legal__["a" /* LegalPage */],
+                __WEBPACK_IMPORTED_MODULE_30__pages_about_about__["a" /* AboutPage */],
+                __WEBPACK_IMPORTED_MODULE_27__pages_my_addresses_my_addresses__["a" /* MyAddressesPage */],
+                __WEBPACK_IMPORTED_MODULE_31__pages_age_select_age_select__["a" /* AgeSelectPage */]
             ],
             imports: [
                 __WEBPACK_IMPORTED_MODULE_3__angular_platform_browser__["a" /* BrowserModule */],
@@ -1200,9 +1250,9 @@ var AppModule = (function () {
                     links: [
                         { loadChildren: '../pages/about/about.module#AboutPageModule', name: 'AboutPage', segment: 'about', priority: 'low', defaultHistory: [] },
                         { loadChildren: '../pages/age-select/age-select.module#AgeSelectPageModule', name: 'AgeSelectPage', segment: 'age-select', priority: 'low', defaultHistory: [] },
-                        { loadChildren: '../pages/candy-details/candy-details.module#CandyDetailsPageModule', name: 'CandyDetailsPage', segment: 'candy-details', priority: 'low', defaultHistory: [] },
                         { loadChildren: '../pages/legal/legal.module#LegalPageModule', name: 'LegalPage', segment: 'legal', priority: 'low', defaultHistory: [] },
                         { loadChildren: '../pages/level/level.module#LevelPageModule', name: 'LevelPage', segment: 'level', priority: 'low', defaultHistory: [] },
+                        { loadChildren: '../pages/candy-details/candy-details.module#CandyDetailsPageModule', name: 'CandyDetailsPage', segment: 'candy-details', priority: 'low', defaultHistory: [] },
                         { loadChildren: '../pages/login/login.module#LoginPageModule', name: 'LoginPage', segment: 'login', priority: 'low', defaultHistory: [] },
                         { loadChildren: '../pages/my-addresses/my-addresses.module#MyAddressesPageModule', name: 'MyAddressesPage', segment: 'my-addresses', priority: 'low', defaultHistory: [] },
                         { loadChildren: '../pages/my-home/my-home.module#MyHomePageModule', name: 'MyHomePage', segment: 'my-home', priority: 'low', defaultHistory: [] },
@@ -1214,20 +1264,20 @@ var AppModule = (function () {
             bootstrap: [__WEBPACK_IMPORTED_MODULE_5_ionic_angular__["a" /* IonicApp */]],
             entryComponents: [
                 __WEBPACK_IMPORTED_MODULE_4__app_component__["a" /* MyApp */],
-                __WEBPACK_IMPORTED_MODULE_19__pages_login_login__["a" /* LoginPage */],
-                __WEBPACK_IMPORTED_MODULE_18__pages_welcome_welcome__["a" /* WelcomePage */],
-                __WEBPACK_IMPORTED_MODULE_21__pages_map_map__["a" /* MapPage */],
-                __WEBPACK_IMPORTED_MODULE_23__pages_backpack_backpack__["a" /* BackpackPage */],
-                __WEBPACK_IMPORTED_MODULE_22__pages_list_list__["a" /* ListPage */],
+                __WEBPACK_IMPORTED_MODULE_20__pages_login_login__["a" /* LoginPage */],
+                __WEBPACK_IMPORTED_MODULE_19__pages_welcome_welcome__["a" /* WelcomePage */],
+                __WEBPACK_IMPORTED_MODULE_22__pages_map_map__["a" /* MapPage */],
+                __WEBPACK_IMPORTED_MODULE_24__pages_backpack_backpack__["a" /* BackpackPage */],
+                __WEBPACK_IMPORTED_MODULE_23__pages_list_list__["a" /* ListPage */],
                 __WEBPACK_IMPORTED_MODULE_10__pages_tabs_tabs__["a" /* TabsPage */],
-                __WEBPACK_IMPORTED_MODULE_27__pages_rules_rules__["a" /* RulesPage */],
-                __WEBPACK_IMPORTED_MODULE_28__pages_legal_legal__["a" /* LegalPage */],
-                __WEBPACK_IMPORTED_MODULE_29__pages_about_about__["a" /* AboutPage */],
-                __WEBPACK_IMPORTED_MODULE_26__pages_my_addresses_my_addresses__["a" /* MyAddressesPage */],
-                __WEBPACK_IMPORTED_MODULE_20__pages_my_home_my_home__["a" /* MyHomePage */],
-                __WEBPACK_IMPORTED_MODULE_24__pages_level_level__["a" /* LevelPage */],
-                __WEBPACK_IMPORTED_MODULE_25__pages_candy_details_candy_details__["a" /* CandyDetailsPage */],
-                __WEBPACK_IMPORTED_MODULE_30__pages_age_select_age_select__["a" /* AgeSelectPage */]
+                __WEBPACK_IMPORTED_MODULE_28__pages_rules_rules__["a" /* RulesPage */],
+                __WEBPACK_IMPORTED_MODULE_29__pages_legal_legal__["a" /* LegalPage */],
+                __WEBPACK_IMPORTED_MODULE_30__pages_about_about__["a" /* AboutPage */],
+                __WEBPACK_IMPORTED_MODULE_27__pages_my_addresses_my_addresses__["a" /* MyAddressesPage */],
+                __WEBPACK_IMPORTED_MODULE_21__pages_my_home_my_home__["a" /* MyHomePage */],
+                __WEBPACK_IMPORTED_MODULE_25__pages_level_level__["a" /* LevelPage */],
+                __WEBPACK_IMPORTED_MODULE_26__pages_candy_details_candy_details__["a" /* CandyDetailsPage */],
+                __WEBPACK_IMPORTED_MODULE_31__pages_age_select_age_select__["a" /* AgeSelectPage */]
             ],
             providers: [
                 /*     AngularFireAuth, */
@@ -1240,10 +1290,12 @@ var AppModule = (function () {
                 __WEBPACK_IMPORTED_MODULE_8__providers_geoloc_service_geoloc_service__["a" /* GeolocServiceProvider */],
                 __WEBPACK_IMPORTED_MODULE_14__providers_level_api_service_level_api_service__["a" /* LevelServiceProvider */],
                 __WEBPACK_IMPORTED_MODULE_17__pipes_keyvalue_keyvalue__["a" /* KeyvaluePipe */],
+                __WEBPACK_IMPORTED_MODULE_18__pipes_remove_underscore_remove_underscore__["a" /* RemoveUnderscorePipe */],
                 __WEBPACK_IMPORTED_MODULE_15__providers_backpack_service_backpack_service__["a" /* BackpackServiceProvider */]
             ],
             exports: [
-                __WEBPACK_IMPORTED_MODULE_17__pipes_keyvalue_keyvalue__["a" /* KeyvaluePipe */]
+                __WEBPACK_IMPORTED_MODULE_17__pipes_keyvalue_keyvalue__["a" /* KeyvaluePipe */],
+                __WEBPACK_IMPORTED_MODULE_18__pipes_remove_underscore_remove_underscore__["a" /* RemoveUnderscorePipe */]
             ]
         })
     ], AppModule);
@@ -1254,16 +1306,16 @@ var AppModule = (function () {
 
 /***/ }),
 
-/***/ 372:
+/***/ 373:
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
 /* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "a", function() { return MyApp; });
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__angular_core__ = __webpack_require__(1);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_1_ionic_angular__ = __webpack_require__(19);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_2__ionic_native_status_bar__ = __webpack_require__(363);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_3__ionic_native_splash_screen__ = __webpack_require__(364);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_4__pages_welcome_welcome__ = __webpack_require__(168);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_2__ionic_native_status_bar__ = __webpack_require__(364);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_3__ionic_native_splash_screen__ = __webpack_require__(365);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_4__pages_welcome_welcome__ = __webpack_require__(169);
 var __decorate = (this && this.__decorate) || function (decorators, target, key, desc) {
     var c = arguments.length, r = c < 3 ? target : desc === null ? desc = Object.getOwnPropertyDescriptor(target, key) : desc, d;
     if (typeof Reflect === "object" && typeof Reflect.decorate === "function") r = Reflect.decorate(decorators, target, key, desc);
@@ -1365,7 +1417,7 @@ var CandyService = (function () {
 /* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "a", function() { return GeolocServiceProvider; });
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__angular_core__ = __webpack_require__(1);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_1__ionic_native_geolocation__ = __webpack_require__(74);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_2_leaflet__ = __webpack_require__(397);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_2_leaflet__ = __webpack_require__(398);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_2_leaflet___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_2_leaflet__);
 var __decorate = (this && this.__decorate) || function (decorators, target, key, desc) {
     var c = arguments.length, r = c < 3 ? target : desc === null ? desc = Object.getOwnPropertyDescriptor(target, key) : desc, d;
@@ -1550,9 +1602,9 @@ var GeolocServiceProvider = (function () {
 
 "use strict";
 /* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "a", function() { return BackpackServiceProvider; });
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__angular_common_http__ = __webpack_require__(182);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__angular_common_http__ = __webpack_require__(183);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_1__angular_core__ = __webpack_require__(1);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_2_rxjs__ = __webpack_require__(410);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_2_rxjs__ = __webpack_require__(411);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_2_rxjs___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_2_rxjs__);
 var __decorate = (this && this.__decorate) || function (decorators, target, key, desc) {
     var c = arguments.length, r = c < 3 ? target : desc === null ? desc = Object.getOwnPropertyDescriptor(target, key) : desc, d;
@@ -1607,7 +1659,7 @@ var BackpackServiceProvider = (function () {
 
 /***/ }),
 
-/***/ 677:
+/***/ 678:
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
@@ -1663,10 +1715,10 @@ var KeyvaluePipe = (function () {
         var a = [];
         for (var key in object) {
             if (object.hasOwnProperty(key)) {
-                a.push({ key: key, val: object[key] });
+                a.push({ key: key, value: object[key] });
             }
         }
-        //console.log("je suis keyvalue pipe object: ", a);
+        console.log("je suis keyvalue pipe object: ", a);
         return a;
     };
     KeyvaluePipe = __decorate([
@@ -1683,5 +1735,5 @@ var KeyvaluePipe = (function () {
 
 /***/ })
 
-},[366]);
+},[367]);
 //# sourceMappingURL=main.js.map

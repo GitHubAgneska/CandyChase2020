@@ -37,28 +37,33 @@ npm i
 
 ##### must have
 
-- 'candyService' => REMAP data results to leverage performances
-- Implement map by age 
+- Finish Implement map by age range
+- 'candyService' => REMAP data results to leverage performances 
+    on fetching candy list
+
+- Refine candy details rubriks ( add pipes on results / filters )
 - Improve 'level' page with collection of cards
 - + Feature : save addresses
 - + Feature : implement challenges ( 'trick or treat') & bonuses - every x points
-
+- Modify points amount depending on candy type, so 
+    total points ≠ total candy
 - Implement FireBase  (authentication + light backend => save user & user data )
 
 
 ##### nice to have
 
 - candy data results =>  'productName' should not contain 'bonbons' or 'brand' (filter data passed to template)
-- Modify points amount depending on candy type
+
 - + Feature : Add sorting to Candy List
 - Make app PWA so no need for connection
 
 
 #### Layout
 
-- Improve general responsive
+- Improve general responsive (IphoneX issues currently)
 - Implement custom icons in tabs 
 - Add content to 'about', 'rules', 'legal' pages
-- Refactor scss to mutualize elements properties
+- Refactor scss to mutualize elements properties & 
+    implement sass system
 
 

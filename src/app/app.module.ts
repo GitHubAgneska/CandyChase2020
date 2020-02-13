@@ -26,6 +26,7 @@ import { BackpackServiceProvider } from '../providers/backpack-service/backpack-
 
 import { PipesModule } from '../pipes/pipes.module';
 import { KeyvaluePipe } from '../pipes/keyvalue/keyvalue';
+import { RemoveUnderscorePipe } from '../pipes/remove-underscore/remove-underscore';
 
 import { WelcomePage } from '../pages/welcome/welcome';
 import { LoginPage } from '../pages/login/login';
@@ -98,10 +99,12 @@ import { AgeSelectPage } from '../pages/age-select/age-select';
     GeolocServiceProvider,
     LevelServiceProvider,
     KeyvaluePipe,
+    RemoveUnderscorePipe,
     BackpackServiceProvider
   ],
   exports : [
-    KeyvaluePipe
+    KeyvaluePipe,
+    RemoveUnderscorePipe
   ]
 })
 export class AppModule {}

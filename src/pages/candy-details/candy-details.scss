@@ -7,29 +7,25 @@ page-candy-details {
         background-position: center;
         height: 100vh;
         width: 100%;
+
         .candyDetailsPage {
             display:flex;
             flex-direction: column;
             width: 80%;
             margin:5% auto;
-            .candyItemTitle{
-                width:auto;
-                height: 10vh;
+            .candyItemTitle {
+                position: sticky;
+                width: auto;
+                // height: 10vh;
                 padding: 2%;
-                margin: 3% auto;
+                margin: 10% auto;
                 display: flex;
                 flex-direction: row;
                 justify-content: space-evenly;
                 align-content: center;
                 align-items: center;    
-                border: 5px solid orange;
-                border-radius: 30px;
-                h1{
-                    color: #B1C9FB;
-                    font-family: 'Titan One', cursive;
-                    text-transform: uppercase;
-                    font-size: 5vw;
-                }
+                border: 3px solid orange;
+                border-radius: 50px;
                 .candyThumbnail {
                     height: 6rem;
                     width: 6rem;
@@ -39,45 +35,39 @@ page-candy-details {
                     overflow:hidden;
                     border-radius: 50%;
                 }
-            }
-            h1 {
-                font-family: 'Titan One', cursive;
-                font-size: 5vw;
-                color:  #B1C9FB;
-                text-align: center;
-                border-bottom: 2px solid;
-                line-height: 2;
-            }
-            .arrowIcon {
-                background: url('../assets/icon/icon_arrowDown.png') 0 0 no-repeat;
-                width: 25px;
-                height: 25px;
-            }
-
-            .candyIngredients, .candyNutriscore {
-                margin: auto;
-            }
-
-            .candyIngredients {
-                table { 
-                    width: 80%;
+                h1{
+                    color: #B1C9FB;
+                    font-family: 'Titan One', cursive;
+                    text-transform: uppercase;
+                    border-bottom: none;
+                    font-size: 5vw;
                 }
-
-                td {
+            }
+            .rubrik {
+                h1 { // ingredients / allergens / nutriscore titles
+                    font-family: 'Titan One', cursive;
+                    font-size: 5vw;
+                    color:  #B1C9FB;
+                    text-align: center;
+                    border-bottom: 2px solid;
+                    line-height: 3;
+                    .arrowIcon {
+                        background: url('../assets/icon/icon_arrowDown.png') 0 0 no-repeat;
+                        width: 25px;
+                        height: 25px;
+                    }
+                }
+            }
+            .candyIngredients, .candyNutriscore, .candyAllergens {
+                table {  margin: auto; width: 100%; }
+                table,td, tr {
+                    margin-top:5%; 
                     border: 2px solid  #B1C9FB;
                     font-family: 'Titan One', cursive;
                     font-size: 4vw;
                     color: orange;
                     padding:2%;
-                }
-            }
-            .candyNutriscore {
-                td {
-                    border: 2px solid  #B1C9FB;
-                    font-family: 'Titan One', cursive;
-                    font-size: 4vw;
-                    color: orange;
-                    padding:2%;
+
                 }
             }
         }
