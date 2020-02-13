@@ -16,16 +16,16 @@
     </ion-row>
 
     <ion-row>
-      <ion-col></ion-col>
+      <ion-col>
+        <img src="assets/graphicMat/menu_play.png" alt="menu-login" (click)="goToStart()" />
+      </ion-col>
       <ion-col>
         <img src="assets/graphicMat/menu_login.png" alt="menu-login" (click)="goToLogin()" />
       </ion-col>
     </ion-row>
 
     <ion-row>
-      <ion-col>
-        <button (click)="goToStart()"> PLAY NOW ! </button>
-      </ion-col>
+      <ion-col></ion-col>
       <ion-col></ion-col>
     </ion-row>
 
@@ -43,14 +43,15 @@
       <ion-col></ion-col>
     </ion-row>
 
-    <ion-spinner name="bubbles"></ion-spinner>
+  </div>
+</ion-content>
 
-    <ion-fab>
+<!--     <ion-fab>
       <button ion-fab><img src="assets/graphicmat/zoomIn.png" alt="plus-button" /></button>
-    </ion-fab>
+    </ion-fab> -->
 
 <!-- test ion fab button -->
-    <ion-fab bottom right>
+  <!--  <ion-fab bottom right>
       <button ion-fab>Share</button>
       <ion-fab-list side="top">
         <button ion-fab>Facebook</button>
@@ -60,8 +61,4 @@
       <ion-fab-list side="left">
         <button ion-fab>Vimeo</button>
       </ion-fab-list>
-    </ion-fab>
-
-  </div>
-
-</ion-content>
+    </ion-fab> -->

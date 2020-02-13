@@ -34044,7 +34044,6 @@ page-list .candyPageContainer {
 
 page-list .candyPageContainer .add-label {
   height: 20vh;
-  position: fixed;
   background-image: url("../assets/graphicMat/sparkles.png");
   background-size: cover;
   background-position: center;
