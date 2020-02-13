@@ -14,11 +14,15 @@ page-list {
       width: 100%;
       margin-top: 0 !important;
       .add-label {
-        height:7vh;
-        img {
-          width:50px;
-          float: right;
-        }
+        height:20vh;
+        position: fixed;
+        background-image: url('../assets/graphicMat/sparkles.png');
+        background-size: cover;
+        background-position: center
+      }
+      .add-label img {
+        max-width: 100px;
+        float: right;
       }
     }
 
@@ -26,7 +30,7 @@ page-list {
       display:flex;
       flex-direction: column;
       width: 80%;
-      margin:15% 10%;
+      margin: -10% 10%;
     }
 
     .candyItem {

@@ -34043,11 +34043,15 @@ page-list .candyPageContainer {
 }
 
 page-list .candyPageContainer .add-label {
-  height: 7vh;
+  height: 20vh;
+  position: fixed;
+  background-image: url("../assets/graphicMat/sparkles.png");
+  background-size: cover;
+  background-position: center;
 }
 
 page-list .candyPageContainer .add-label img {
-  width: 50px;
+  max-width: 100px;
   float: right;
 }
 
@@ -34062,7 +34066,7 @@ page-list .candyList {
   -ms-flex-direction: column;
   flex-direction: column;
   width: 80%;
-  margin: 15% 10%;
+  margin: -10% 10%;
 }
 
 page-list .candyItem {
