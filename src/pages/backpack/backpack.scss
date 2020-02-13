@@ -1,31 +1,79 @@
 page-backpack {
 
     .backpackPage-container{
+
         margin-top: 0 !important;
         background-image: url('../assets/graphicMat/gradient_bats_1920.png');
         background-size: cover;
         background-position: center;
         height: 100vh;
         width: 100%;
+
         .backpack-elements-container{
-            background-image: url('../assets/graphicMat/circles.png');
-            background-repeat: no-repeat;
-            background-size: contain;
-            background-position: center; 
             width: 80%;
-            //height:50vh;
-           /*  margin: auto; */
-            /* padding-top:15%; */
+            margin:5% 10%;
             display:flex;
             flex-direction: column;
             align-items: center;
             justify-content: center;
-            margin:15% 10%;
-            img {
-                //margin-top: 20%;
-                width:45%;;
-                margin: auto;
+            .bag-illust {
+                width: 100%;
+                text-align: center;
+                background-image: url('../assets/graphicMat/circles.png');
+                background-repeat: no-repeat;
+                // background-size: cover;
+                background-position: top;
+                background-attachment: fixed;
+                img {
+                    width:45%;
+                    margin: auto;
+                    position: sticky;
+                    height: 25vh;     
+                }
             }
+            .cornCandy-container {
+                width:100%;
+                padding: 3%;
+                display: flex;
+                flex-direction: row;
+                justify-content: space-evenly;
+                img {
+                    width: 15%;
+                }
+            }
+            .totalcandy, .totalpoints {
+                position: sticky;
+                width:80%;
+                height:6rem;
+                padding: 2%;
+                display: flex;
+                flex-direction:row;
+                align-content:center;
+                justify-content: space-between;
+                align-items: center;
+                h2 {
+                    text-align: center;
+                    text-transform: uppercase;
+                }
+            }
+            .totalcandy h2 {
+                font-size: 2.7rem;
+                font-family: 'Titan One', cursive;
+                color: orange;
+            }
+            .totalpoints h2 {
+                font-size: 2.7rem;
+                font-family: 'PTSans-Regular';
+                color: pink;
+    
+            }
+
+
+
+
+
+
+
             .myCollectedCandy {
                 background-color: #000000;
                 color: white;
@@ -77,49 +125,7 @@ page-backpack {
                     height:50px;
                 }
             }
-                .candyTotal , .totalPoints {
-                    width:100%;
-                    height:6rem;
-                    padding: 2%;
-                    display: flex;
-                    flex-direction:row;
-                    align-content:center;
-                    justify-content: space-between;
-                    align-items: center;
-                    h2 {
-                        // padding:0% 5%;
-                        text-align: center;
-                        font-size: 3rem;
-                        font-family: "flyingleather";
-                        color: rgb(255, 247, 177);
-                        text-transform: uppercase;
-                }
-                .totalPoints {
-                    position: sticky;
-                    width:100%;
-                    height:5rem;
-                    padding: 2%;
-                    bottom:50px;
-                    margin: 5% auto;
-                    background-color:black;
-                    display: flex;
-                    flex-direction:row;
-                    align-content:center;
-                    justify-content: space-between;
-                    align-items: center;
-                    border: 5px solid orange;
-                    border-radius: 50px;
-                    h2 {
-                        padding:0% 5%;
-                        text-align: center;
-                        font-size: 2rem;
-                        font-family: 'Titan One', cursive;
-                        color: orange;
-                        text-transform: uppercase;
-                      /* letter-spacing: 3rem; */
-                    }            
-                }
-            }
+               
         }
     }
 }

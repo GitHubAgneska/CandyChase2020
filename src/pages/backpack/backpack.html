@@ -7,18 +7,31 @@
 <ion-content class="backpackPage-container">
 
   <div class="backpack-elements-container" *ngIf="collectedCandy">
-    <img src="assets/graphicMat/candyBag.png" alt="" />
-    <div class="candyTotal">
-      <h2>Total points</h2>
+    <div class="bag-illust">
+      <img src="assets/graphicMat/candyBag.png" alt="" />
+    </div>
+
+    <div class="totalcandy">
+      <h2>Total candy</h2>
       <h2>{{totalCandy}}</h2>
     </div>
-    <div class="littleGuys">
-      <
+
+    <div class="cornCandy-container">
+      <ng-container *ngFor="let i of [].constructor(3)">
+        <img src="assets/graphicMat/corn_candy.png" alt="" />
+      </ng-container>
     </div>
-    <div class="totalPoints">
+
+    <div class="totalpoints">
+      <h2>You have</h2>
+      <h2>{{totalCandy}} points !</h2>
+    </div>
+
+    <div class="current-level">
       <h2>Current level</h2>
       <h2>{{levelName}}</h2>
     </div>
+
     <div class="myCollectedCandy" *ngFor="let item of collectedCandy">
       <div class="candyItem">
         <div class="candyThumbnail">

@@ -33566,13 +33566,8 @@ page-backpack .backpackPage-container {
 }
 
 page-backpack .backpackPage-container .backpack-elements-container {
-  background-image: url("../assets/graphicMat/circles.png");
-  background-repeat: no-repeat;
-  background-size: contain;
-  background-position: center;
   width: 80%;
-  /*  margin: auto; */
-  /* padding-top:15%; */
+  margin: 5% 10%;
   display: -webkit-box;
   display: -webkit-flex;
   display: -ms-flexbox;
@@ -33590,12 +33585,90 @@ page-backpack .backpackPage-container .backpack-elements-container {
   -webkit-justify-content: center;
   -ms-flex-pack: center;
   justify-content: center;
-  margin: 15% 10%;
 }
 
-page-backpack .backpackPage-container .backpack-elements-container img {
+page-backpack .backpackPage-container .backpack-elements-container .bag-illust {
+  width: 100%;
+  text-align: center;
+  background-image: url("../assets/graphicMat/circles.png");
+  background-repeat: no-repeat;
+  background-position: top;
+  background-attachment: fixed;
+}
+
+page-backpack .backpackPage-container .backpack-elements-container .bag-illust img {
   width: 45%;
   margin: auto;
+  position: -webkit-sticky;
+  position: sticky;
+  height: 25vh;
+}
+
+page-backpack .backpackPage-container .backpack-elements-container .cornCandy-container {
+  width: 100%;
+  padding: 3%;
+  display: -webkit-box;
+  display: -webkit-flex;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: horizontal;
+  -webkit-box-direction: normal;
+  -webkit-flex-direction: row;
+  -ms-flex-direction: row;
+  flex-direction: row;
+  -webkit-box-pack: space-evenly;
+  -webkit-justify-content: space-evenly;
+  -ms-flex-pack: space-evenly;
+  justify-content: space-evenly;
+}
+
+page-backpack .backpackPage-container .backpack-elements-container .cornCandy-container img {
+  width: 15%;
+}
+
+page-backpack .backpackPage-container .backpack-elements-container .totalcandy, page-backpack .backpackPage-container .backpack-elements-container .totalpoints {
+  position: -webkit-sticky;
+  position: sticky;
+  width: 80%;
+  height: 6rem;
+  padding: 2%;
+  display: -webkit-box;
+  display: -webkit-flex;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: horizontal;
+  -webkit-box-direction: normal;
+  -webkit-flex-direction: row;
+  -ms-flex-direction: row;
+  flex-direction: row;
+  -webkit-align-content: center;
+  -ms-flex-line-pack: center;
+  align-content: center;
+  -webkit-box-pack: justify;
+  -webkit-justify-content: space-between;
+  -ms-flex-pack: justify;
+  justify-content: space-between;
+  -webkit-box-align: center;
+  -webkit-align-items: center;
+  -ms-flex-align: center;
+  align-items: center;
+}
+
+page-backpack .backpackPage-container .backpack-elements-container .totalcandy h2, page-backpack .backpackPage-container .backpack-elements-container .totalpoints h2 {
+  text-align: center;
+  text-transform: uppercase;
+}
+
+page-backpack .backpackPage-container .backpack-elements-container .totalcandy h2 {
+  font-size: 2.7rem;
+  font-family: 'Titan One', cursive;
+  color: orange;
+}
+
+page-backpack .backpackPage-container .backpack-elements-container .totalpoints h2 {
+  font-size: 2.7rem;
+  font-family: 'PTSans-Regular';
+  color: pink;
 }
 
 page-backpack .backpackPage-container .backpack-elements-container .myCollectedCandy {
@@ -33686,83 +33759,6 @@ page-backpack .backpackPage-container .backpack-elements-container .candyItem .c
 page-backpack .backpackPage-container .backpack-elements-container .candyItem .amount {
   width: 50px;
   height: 50px;
-}
-
-page-backpack .backpackPage-container .backpack-elements-container .candyTotal, page-backpack .backpackPage-container .backpack-elements-container .totalPoints {
-  width: 100%;
-  height: 6rem;
-  padding: 2%;
-  display: -webkit-box;
-  display: -webkit-flex;
-  display: -ms-flexbox;
-  display: flex;
-  -webkit-box-orient: horizontal;
-  -webkit-box-direction: normal;
-  -webkit-flex-direction: row;
-  -ms-flex-direction: row;
-  flex-direction: row;
-  -webkit-align-content: center;
-  -ms-flex-line-pack: center;
-  align-content: center;
-  -webkit-box-pack: justify;
-  -webkit-justify-content: space-between;
-  -ms-flex-pack: justify;
-  justify-content: space-between;
-  -webkit-box-align: center;
-  -webkit-align-items: center;
-  -ms-flex-align: center;
-  align-items: center;
-}
-
-page-backpack .backpackPage-container .backpack-elements-container .candyTotal h2, page-backpack .backpackPage-container .backpack-elements-container .totalPoints h2 {
-  text-align: center;
-  font-size: 3rem;
-  font-family: "flyingleather";
-  color: #fff7b1;
-  text-transform: uppercase;
-}
-
-page-backpack .backpackPage-container .backpack-elements-container .candyTotal .totalPoints, page-backpack .backpackPage-container .backpack-elements-container .totalPoints .totalPoints {
-  position: -webkit-sticky;
-  position: sticky;
-  width: 100%;
-  height: 5rem;
-  padding: 2%;
-  bottom: 50px;
-  margin: 5% auto;
-  background-color: black;
-  display: -webkit-box;
-  display: -webkit-flex;
-  display: -ms-flexbox;
-  display: flex;
-  -webkit-box-orient: horizontal;
-  -webkit-box-direction: normal;
-  -webkit-flex-direction: row;
-  -ms-flex-direction: row;
-  flex-direction: row;
-  -webkit-align-content: center;
-  -ms-flex-line-pack: center;
-  align-content: center;
-  -webkit-box-pack: justify;
-  -webkit-justify-content: space-between;
-  -ms-flex-pack: justify;
-  justify-content: space-between;
-  -webkit-box-align: center;
-  -webkit-align-items: center;
-  -ms-flex-align: center;
-  align-items: center;
-  border: 5px solid orange;
-  border-radius: 50px;
-}
-
-page-backpack .backpackPage-container .backpack-elements-container .candyTotal .totalPoints h2, page-backpack .backpackPage-container .backpack-elements-container .totalPoints .totalPoints h2 {
-  padding: 0% 5%;
-  text-align: center;
-  font-size: 2rem;
-  font-family: 'Titan One', cursive;
-  color: orange;
-  text-transform: uppercase;
-  /* letter-spacing: 3rem; */
 }
 
 page-candy-details .candyDetailsPage-container {
