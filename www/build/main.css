@@ -34158,6 +34158,10 @@ page-map .mapPage-container {
   width: 100%;
 }
 
+page-map .mapPage-container .leaflet-bar {
+  margin-top: 30vh;
+}
+
 page-map .mapPage-container .mapSelectAge {
   /* margin-top: 0; */
   position: absolute;

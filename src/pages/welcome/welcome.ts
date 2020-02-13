@@ -29,7 +29,7 @@ export class WelcomePage {
     } */
 
   public ionViewDidLoad() {
-    this.geolocService.getLocation();
+   //  this.geolocService.getLocation();
    //  this.geolocService.loadmap();
   }
 

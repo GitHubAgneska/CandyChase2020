@@ -31,21 +31,22 @@ var MapPage = (function () {
         this.geolocation = geolocation;
     }
     MapPage.prototype.ngOnInit = function () {
-        this.currentUserAgeRange = this.geolocService.getCurrentAgeRange();
+        // this.currentUserAgeRange = this.geolocService.getCurrentAgeRange();
         // console.log(this.currentUserAgeRange);
         this.geolocService.loadmap();
     };
     MapPage.prototype.ionViewDidEnter = function () {
-        console.log("ENTERED");
+        // console.log("ENTERED");
     };
     MapPage.prototype.ionViewDidLoad = function () {
-        console.log("LOADED");
+        // console.log("LOADED");
         this.geo = this.geolocService.getGeo();
         console.log(this.geo);
         if (this.geo != undefined) {
             this.geolocService.setMarker();
         }
         this.geolocService.getLocation();
+        // this.newCoords(500);
     };
     MapPage.prototype.addCircle = function () {
         this.geolocService.addCircle();
@@ -766,7 +767,7 @@ var WelcomePage = (function () {
         }, 1500);
       } */
     WelcomePage.prototype.ionViewDidLoad = function () {
-        this.geolocService.getLocation();
+        //  this.geolocService.getLocation();
         //  this.geolocService.loadmap();
     };
     WelcomePage.prototype.start = function () {
@@ -1377,24 +1378,50 @@ var __metadata = (this && this.__metadata) || function (k, v) {
 
 // import { BehaviorSubject } from 'rxjs';
 var GeolocServiceProvider = (function () {
-    // keep track of user's age to display the right map
-    // userAgeRange$ = new BehaviorSubject(0);
-    // currentUserAgeRange = this.userAgeRange$.asObservable();
     function GeolocServiceProvider(geolocation) {
         this.geolocation = geolocation;
+        this.currentLat = 0;
+        this.currentLong = 0;
+        this.dist = 0;
+        this.new_latitude1 = 0;
+        this.new_longitude1 = 0;
+        this.new_latitude2 = 0;
+        this.new_longitude2 = 0;
+        this.myNewCoords = [];
+        this.mybounds = [];
     }
+    // access/modify current coords  
     GeolocServiceProvider.prototype.setGeo = function (geoloc) {
         this.geo = geoloc;
     };
     GeolocServiceProvider.prototype.getGeo = function () {
         return this.geo;
     };
+    // access /modify current user's age
     GeolocServiceProvider.prototype.setCurrentAgeRange = function (age) {
         this.currentUserAgeRange = age;
     };
     GeolocServiceProvider.prototype.getCurrentAgeRange = function () {
         return this.currentUserAgeRange;
     };
+    // get distance from age param
+    GeolocServiceProvider.prototype.getDist = function (ageRange) {
+        this.currentUserAgeRange = ageRange;
+        console.log("Age: ", this.currentUserAgeRange);
+        if (this.currentUserAgeRange === 1) {
+            this.dist = 300;
+        }
+        else {
+            if (this.currentUserAgeRange === 2) {
+                this.dist = 500;
+            }
+            else {
+                this.dist = 800;
+            }
+        }
+        return this.dist;
+    };
+    // get current location
     GeolocServiceProvider.prototype.getLocation = function () {
         var _this = this;
         this.geolocation.getCurrentPosition().then(function (res) {
@@ -1403,7 +1430,34 @@ var GeolocServiceProvider = (function () {
         }).catch(function (error) {
             console.log('Error getting location', error);
         });
+        // console.log(this.newCoords(5));
     };
+    // calculate new coords for map age filter, using current coords and distance 'dist'
+    // we need 4 points to delimit a perimeter of x meters around current position :
+    // current pos(lat + distance , long + distance), pos(lat - distance, long - distance)
+    GeolocServiceProvider.prototype.newCoords = function (dist) {
+        var r_earth = 6378;
+        this.dist = dist;
+        this.currentLat = this.geo.coords.latitude;
+        this.currentLong = this.geo.coords.longitude;
+        console.log("CURRENT: ", this.currentLong, this.currentLat);
+        var m = (1 / ((2 * Math.PI / 360) * r_earth)) / 1000; //1 meter in degree
+        this.new_latitude1 = this.currentLat + (this.dist * m);
+        this.new_longitude1 = this.currentLong + (this.dist * m) / Math.cos(this.currentLat * (Math.PI / 180));
+        console.log("new lat: ", this.new_latitude1);
+        console.log("new long: ", this.new_longitude1);
+        this.new_latitude2 = this.currentLat - (this.dist * m);
+        this.new_longitude2 = this.currentLong - (this.dist * m) / Math.cos(this.currentLat * (Math.PI / 180));
+        // this.new_latitude1  = this.currentLat  + (this.dist / r_earth) * (180 / Math.PI);
+        // this.new_longitude1 = this.currentLong + (this.dist / r_earth) * (180 / Math.PI) / Math.cos(this.currentLat * Math.PI/180);
+        this.myNewCoords.push(this.new_latitude1, this.new_longitude1, this.new_latitude2, this.new_longitude2);
+        this.mybounds = this.myNewCoords;
+        return this.mybounds;
+    };
+    GeolocServiceProvider.prototype.getNewCoords = function () {
+        return this.mybounds;
+    };
+    // load map using new coords to display map portion with 'set bounds' 
     GeolocServiceProvider.prototype.loadmap = function () {
         var _this = this;
         // initialize Leaflet
@@ -1416,41 +1470,42 @@ var GeolocServiceProvider = (function () {
         }).addTo(this.map);
         this.map.locate({
             setView: true,
-            maxZoom: 15
-        }).on('locationfound', function (e) {
+            maxZoom: 18,
+            minZoom: 16,
+        })
+            .on('locationfound', function (e) {
             var markerGroup = __WEBPACK_IMPORTED_MODULE_2_leaflet___default.a.featureGroup();
             var marker = __WEBPACK_IMPORTED_MODULE_2_leaflet___default.a.marker([e.latitude, e.longitude]).on('click', function () {
                 alert('Marker clicked');
             });
             markerGroup.addLayer(marker);
             _this.map.addLayer(markerGroup);
-        }).on('locationerror', function (err) {
+        })
+            .on('locationerror', function (err) {
             alert(err.message);
         });
-        //++ show the scale bar on the lower left corner
+        //show the scale bar on the lower left corner
         __WEBPACK_IMPORTED_MODULE_2_leaflet___default.a.control.scale().addTo(this.map);
-        // show a marker on the map
-        __WEBPACK_IMPORTED_MODULE_2_leaflet___default.a.marker({ lon: 0, lat: 0 }).bindPopup('The center of the world').addTo(this.map);
-    };
-    //  display map portion function to age
-    GeolocServiceProvider.prototype.loadMapByAge = function () {
+        // add marker to the map + pop up text
+        //leaflet.marker({lon: 0, lat: 0}).bindPopup('The center of the world').addTo(this.map);
     };
     GeolocServiceProvider.prototype.setMarker = function () {
         // custom marker
-        /*     const myIcon = leaflet.icon({
-              iconUrl: 'my-icon.png',
-              iconSize: [38, 95],
-              iconAnchor: [22, 94],
-              popupAnchor: [-3, -76],
-              shadowUrl: 'my-icon-shadow.png',
-              shadowSize: [68, 95],
-              shadowAnchor: [22, 94]
-          }); */
+        var myIcon = __WEBPACK_IMPORTED_MODULE_2_leaflet___default.a.icon({
+            iconUrl: 'my-icon.png',
+            iconSize: [38, 95],
+            iconAnchor: [22, 94],
+            popupAnchor: [-3, -76],
+            shadowUrl: 'my-icon-shadow.png',
+            shadowSize: [68, 95],
+            shadowAnchor: [22, 94]
+        });
         var markerGroup = __WEBPACK_IMPORTED_MODULE_2_leaflet___default.a.featureGroup();
         var marker = __WEBPACK_IMPORTED_MODULE_2_leaflet___default.a.marker([this.geo.coords.latitude, this.geo.coords.longitude]);
         markerGroup.addLayer(marker);
         this.map.addLayer(markerGroup);
     };
+    // add radius around current position on map
     GeolocServiceProvider.prototype.addCircle = function () {
         var _this = this;
         this.geolocation.getCurrentPosition().then(function (res) {
@@ -1462,15 +1517,6 @@ var GeolocServiceProvider = (function () {
             }).addTo(_this.map);
         }).catch(function (error) {
             console.log('Error getting location', error);
-        });
-    };
-    // test to add dark overlay around designated quest area
-    GeolocServiceProvider.prototype.addBoundaries = function () {
-        this.geolocation.getCurrentPosition().then(function (res) {
-            //var imageUrl = '../assets/graphicMat/fantom.svg',
-            //imageBounds = [[res.coords.latitude, res.coords.longitude],[res.coords.latitude, res.coords.longitude]],
-            //options = [ {zIndex: 2}];
-            //leaflet.imageOverlay(imageUrl, imageBounds, options).addTo(this.map);
         });
     };
     // trace path on the map while questing
@@ -1487,9 +1533,10 @@ var GeolocServiceProvider = (function () {
     };
     GeolocServiceProvider = __decorate([
         Object(__WEBPACK_IMPORTED_MODULE_0__angular_core__["A" /* Injectable */])(),
-        __metadata("design:paramtypes", [__WEBPACK_IMPORTED_MODULE_1__ionic_native_geolocation__["a" /* Geolocation */]])
+        __metadata("design:paramtypes", [typeof (_a = typeof __WEBPACK_IMPORTED_MODULE_1__ionic_native_geolocation__["a" /* Geolocation */] !== "undefined" && __WEBPACK_IMPORTED_MODULE_1__ionic_native_geolocation__["a" /* Geolocation */]) === "function" && _a || Object])
     ], GeolocServiceProvider);
     return GeolocServiceProvider;
+    var _a;
 }());
 
 //# sourceMappingURL=geoloc-service.js.map

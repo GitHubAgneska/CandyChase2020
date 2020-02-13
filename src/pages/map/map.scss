@@ -7,6 +7,9 @@ page-map {
         height: 100vh;
         width: 100%;
 
+        .leaflet-bar {
+            margin-top: 30vh;}
+
         .mapSelectAge {
             /* margin-top: 0; */
             position: absolute;
