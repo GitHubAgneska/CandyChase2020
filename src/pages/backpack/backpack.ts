@@ -5,6 +5,7 @@ import { CandyDetailsPage } from '../candy-details/candy-details';
 import { Candy } from '../../models/candy.model';
 import { BackpackServiceProvider } from '../../providers/backpack-service/backpack-service';
 import { KeyvaluePipe } from '../../pipes/keyvalue/keyvalue';
+import { ShortenStringPipe } from '../../pipes/shorten-string/shorten-string';
 
 @Component({
   selector: 'page-backpack',
@@ -25,7 +26,8 @@ export class BackpackPage implements OnInit{
     public navParams: NavParams,
     private candyService: CandyService,
     private backpackService: BackpackServiceProvider,
-    public keyvaluepipe: KeyvaluePipe  ) {
+    public keyvaluepipe: KeyvaluePipe,
+    public shortenString: ShortenStringPipe  ) {
   }
 
   public ngOnInit() {

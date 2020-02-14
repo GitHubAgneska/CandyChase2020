@@ -12,7 +12,7 @@
           <img src="{{candyItem.image_front_url}}">
         </div>
         <div>
-          <h1>{{ candyItem.product_name | slice:0:30 }}</h1>
+          <h1>{{ candyItem.product_name | shortenString:30 }}</h1>
         </div> 
       </div>
 
@@ -22,7 +22,7 @@
           <table>
             <tr *ngFor="let i of candyItem.ingredients_tags">
               <td>
-                {{i}}
+                {{ i | removeChars }}
               </td>
             </tr>
           </table>
@@ -35,10 +35,10 @@
           <table>
             <tr *ngFor="let i of candyItem.nutriscore_data | keyvalue">
               <td>
-                {{i.key | removeUnderscore }}
+                {{ i.key | removeUnderscore }}
               </td>
               <td>
-                {{i.value}}
+                {{ i.value }}
               </td>
             </tr>
           </table>
@@ -51,7 +51,7 @@
           <table>
             <tr *ngFor="let i of candyItem.ingredients_tags">
               <td>
-                {{i.key}}
+                {{ i.key }}
               </td>
             </tr>
           </table>

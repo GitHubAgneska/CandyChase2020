@@ -27,6 +27,8 @@ import { BackpackServiceProvider } from '../providers/backpack-service/backpack-
 import { PipesModule } from '../pipes/pipes.module';
 import { KeyvaluePipe } from '../pipes/keyvalue/keyvalue';
 import { RemoveUnderscorePipe } from '../pipes/remove-underscore/remove-underscore';
+import { ShortenStringPipe } from '../pipes/shorten-string/shorten-string';
+import { RemoveCharsPipe } from '../pipes/remove-chars/remove-chars';
 
 import { WelcomePage } from '../pages/welcome/welcome';
 import { LoginPage } from '../pages/login/login';
@@ -98,13 +100,17 @@ import { AgeSelectPage } from '../pages/age-select/age-select';
     CandyService,
     GeolocServiceProvider,
     LevelServiceProvider,
+    BackpackServiceProvider,
     KeyvaluePipe,
     RemoveUnderscorePipe,
-    BackpackServiceProvider
+    ShortenStringPipe,
+    RemoveCharsPipe 
   ],
   exports : [
     KeyvaluePipe,
-    RemoveUnderscorePipe
+    RemoveUnderscorePipe,
+    ShortenStringPipe,
+    RemoveCharsPipe
   ]
 })
 export class AppModule {}

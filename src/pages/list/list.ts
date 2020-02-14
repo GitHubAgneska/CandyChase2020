@@ -5,7 +5,7 @@ import { Candy } from '../../models/candy.model';
 import { CandyService } from '../../providers/candy-api-service/candy-api-service';
 import { BackpackServiceProvider } from '../../providers/backpack-service/backpack-service'
 import { GeolocServiceProvider } from '../../providers/geoloc-service/geoloc-service';
-
+import { ShortenStringPipe } from '../../pipes/shorten-string/shorten-string';
 @Component({
   selector: 'page-list',
   templateUrl: 'list.html'
@@ -25,7 +25,8 @@ export class ListPage implements OnInit {
     public candyService: CandyService,
     public backpackService: BackpackServiceProvider,
     public geolocation: Geolocation,
-    public geolocService: GeolocServiceProvider) {
+    public geolocService: GeolocServiceProvider,
+    public shortenString: ShortenStringPipe) {
 
     this.candyList = [];
     this.candyItem = {
@@ -51,7 +52,7 @@ export class ListPage implements OnInit {
 
     this.backpackService.currentBackpackCount.subscribe(data => this.totalCandy = data);
     
-    // alert points as a new candy has been added
+    // alert new points as user clicks '+' 
     this.toast.create({
         message: `+1 Point! ${name}`,
         duration: 300,

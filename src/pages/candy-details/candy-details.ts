@@ -4,6 +4,7 @@ import { CandyService } from '../../providers/candy-api-service/candy-api-servic
 import { Candy } from '../../models/candy.model';
 import { KeyvaluePipe } from '../../pipes/keyvalue/keyvalue';
 import { RemoveUnderscorePipe } from '../../pipes/remove-underscore/remove-underscore';
+import { RemoveCharsPipe } from '../../pipes/remove-chars/remove-chars';
 
 @IonicPage()
 @Component({
@@ -26,7 +27,8 @@ export class CandyDetailsPage {
     public navParams: NavParams,
     public candyService: CandyService,
     public keyvaluepipe: KeyvaluePipe,
-    public removeUnderscorePipe: RemoveUnderscorePipe
+    public removeUnderscore: RemoveUnderscorePipe,
+    public removeChars: RemoveCharsPipe
     ) {
 
       this.candyId = this.navParams.get("idparam");
