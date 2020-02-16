@@ -1,29 +1,32 @@
 page-map {
 
-   }
+        .mapPage-container{
 
-    .mapPage-container{
+            height: 100vh;
+            width: 100%;
+            background-image: url('../assets/graphicMat/gradient_bats_1920.png');
+            background-size: cover;
+            background-position: center;
 
-        height: 100vh;
-        width: 100%;
+            .mapContainer {
 
-        .mapContainer {
-            width: 80%;
-            height: 80%;
-            border: 5px solid black;
-            margin: 10% auto;
-            #map { height: 100%; width: 100%; }
+                width: 80%;
+                height: 80%;
+                border: 5px solid black;
+                margin: 10% auto;
+                #map { height: 100%; width: 100%; }
 
-        .leaflet-bar {
-            margin-top: 30vh;}
+            // customize zoom controls
+            .leaflet-bar {
+                margin-top: 50vh;}
 
-        .scroll-content {
-            margin-top: 0 !important;
-            margin-bottom: 0 !important;
+            .scroll-content {
+                margin-top: 0 !important;
+                margin-bottom: 0 !important;
+            }
         }
-    }
-}    
-
+    }    
+}
 
 /* from https://github.com/Leaflet/Leaflet/issues/4686 */
 .leaflet-fade-anim .leaflet-tile,.leaflet-zoom-anim .leaflet-zoom-animated { will-change:auto !important; }

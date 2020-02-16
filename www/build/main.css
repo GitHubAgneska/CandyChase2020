@@ -34163,28 +34163,31 @@ page-list .candyItem .plus-btn > button {
   text-align: center;
 }
 
-.mapPage-container {
+page-map .mapPage-container {
   height: 100vh;
   width: 100%;
+  background-image: url("../assets/graphicMat/gradient_bats_1920.png");
+  background-size: cover;
+  background-position: center;
 }
 
-.mapPage-container .mapContainer {
+page-map .mapPage-container .mapContainer {
   width: 80%;
   height: 80%;
   border: 5px solid black;
   margin: 10% auto;
 }
 
-.mapPage-container .mapContainer #map {
+page-map .mapPage-container .mapContainer #map {
   height: 100%;
   width: 100%;
 }
 
-.mapPage-container .mapContainer .leaflet-bar {
-  margin-top: 30vh;
+page-map .mapPage-container .mapContainer .leaflet-bar {
+  margin-top: 50vh;
 }
 
-.mapPage-container .mapContainer .scroll-content {
+page-map .mapPage-container .mapContainer .scroll-content {
   margin-top: 0 !important;
   margin-bottom: 0 !important;
 }
