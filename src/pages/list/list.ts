@@ -7,12 +7,15 @@ import { CandyService } from '../../providers/candy-api-service/candy-api-servic
 import { BackpackServiceProvider } from '../../providers/backpack-service/backpack-service'
 import { GeolocServiceProvider } from '../../providers/geoloc-service/geoloc-service';
 import { ShortenStringPipe } from '../../pipes/shorten-string/shorten-string';
+import { Observable } from 'rxjs';
 
 @Component({
   selector: 'page-list',
   templateUrl: 'list.html'
 })
 export class ListPage implements OnInit {
+
+  candyList$: Observable<Array<CandyI>>;
 
   public candyList: CandyI[];
   public candyItem: CandyI;
@@ -43,13 +46,15 @@ export class ListPage implements OnInit {
   public ngOnInit(): void {}
 
   public ionViewWillEnter() {
+
+    //this.candyList$ = this.candyService.candy;
     this.candyService.getAllCandyFromApi()
-    .subscribe(
-      (response: CandyI[]) => {
-        this.candyList = response;
-        // console.log(this.candyList);
-      }
-    )
+      .subscribe(
+        (response: CandyI[]) => {
+          this.candyList = response;
+          // console.log(this.candyList);
+        }
+      )
   }
 
   public addCandyToBackpack(candyItem:Candy) {

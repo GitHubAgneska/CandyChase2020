@@ -4,6 +4,8 @@ import { TabsPage } from '../tabs/tabs';
 import { MapPage } from '../map/map';
 import { GeolocServiceProvider } from  '../../providers/geoloc-service/geoloc-service';
 import { CandyService } from '../../providers/candy-api-service/candy-api-service';
+import { Observable } from 'rxjs';
+import { CandyI } from '../../models/candy.interface';
 
 @IonicPage()
 @Component({
@@ -17,6 +19,7 @@ export class WelcomePage {
   public img_chaseTitle = "assets/graphicMat/title_chase.png";
   public img_circles = "assets/graphicMat/circles.png";
   
+  candy$: Observable<Array<CandyI>>;
 
   constructor(
     public navCtrl: NavController,
@@ -33,14 +36,8 @@ export class WelcomePage {
   public ionViewDidLoad() {
     // get coords as soon as app opens
     this.geolocService.getLocation();
-
-    this.candyService.getAllCandyFromApi()
-    .subscribe(
-      response => {
-        console.log('candy loaded');
-        // console.log(this.candyList);
-      }
-    )
+    // get candy as 'hot observable' and cache response
+    this.candy$ = this.candyService.candy;
   }
 
 
