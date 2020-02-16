@@ -37,16 +37,31 @@ npm i
 
 ##### must have
 
-- Finish Implement map by age range
-- 'candyService' => REMAP data results to leverage performances 
-    on fetching candy list
+- Map by age range implem => pass distance from 'age select' component to 'map'    component that calls 'load map' method ( distance passed is currently static )
 
-- Refine candy details rubriks ( add pipes on results / filters )
+- 'candyService' => REMAP data results to leverage performances 
+    on fetching candy list / => implem of a Sharereplay operator that inits as app opens
+
+- Change type of data fetched in 'candy details' or displaying ( nutriscore data )
+
+- Routing via tabs pushing is unreliable (false routing) => find alternative
+
+ionic doc
+ ``` 
+ By default, pages are cached and left in the DOM if they are navigated away from but still in the navigation stack (the exiting page on a push() for example). They are destroyed when removed from the navigation stack (on pop() or setRoot()).
+ ```
+
+---
+
 - Improve 'level' page with collection of cards
+
 - + Feature : save addresses
+
 - + Feature : implement challenges ( 'trick or treat') & bonuses - every x points
+
 - Modify points amount depending on candy type, so 
     total points ≠ total candy
+
 - Implement FireBase  (authentication + light backend => save user & user data )
 
 

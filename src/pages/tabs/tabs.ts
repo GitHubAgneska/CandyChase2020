@@ -1,5 +1,6 @@
 
-import { Component } from '@angular/core';
+import { Component, ChangeDetectorRef } from '@angular/core';
+import { Events } from 'ionic-angular';
 import { MapPage } from '../map/map';
 import { ListPage } from '../list/list';
 import { BackpackPage } from '../backpack/backpack';
@@ -10,13 +11,13 @@ import { MyHomePage } from '../my-home/my-home';
   templateUrl: 'tabs.html'
 })
 export class TabsPage {
+ 
+    constructor( public events: Events, public detectorRef: ChangeDetectorRef )  {
+    }
 
-  tab1Root = ListPage;
-  tab2Root = MapPage;
-  tab3Root = BackpackPage;
-  tab4Root = LevelPage;
-  tab5Root = MyHomePage;
-
-  constructor() {
-  }
+  public tab1Root = ListPage;
+  public tab2Root = MapPage;
+  public tab3Root = BackpackPage;
+  public tab4Root = LevelPage;
+  public tab5Root = MyHomePage;
 }
