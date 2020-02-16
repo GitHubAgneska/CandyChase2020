@@ -44,6 +44,7 @@ import { RulesPage } from '../pages/rules/rules';
 import { LegalPage } from '../pages/legal/legal';
 import { AboutPage } from '../pages/about/about';
 import { AgeSelectPage } from '../pages/age-select/age-select';
+import { MapServiceProvider } from '../providers/map-service/map-service';
 
 @NgModule({
   declarations: [
@@ -104,7 +105,8 @@ import { AgeSelectPage } from '../pages/age-select/age-select';
     KeyvaluePipe,
     RemoveUnderscorePipe,
     ShortenStringPipe,
-    RemoveCharsPipe 
+    RemoveCharsPipe,
+    MapServiceProvider 
   ],
   exports : [
     KeyvaluePipe,

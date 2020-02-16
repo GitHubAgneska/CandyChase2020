@@ -1,6 +1,6 @@
 webpackJsonp([10],{
 
-/***/ 124:
+/***/ 125:
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
@@ -9,7 +9,7 @@ webpackJsonp([10],{
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_1_ionic_angular__ = __webpack_require__(19);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_2__providers_geoloc_service_geoloc_service__ = __webpack_require__(55);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_3__ionic_native_geolocation__ = __webpack_require__(74);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_4__my_addresses_my_addresses__ = __webpack_require__(164);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_4__my_addresses_my_addresses__ = __webpack_require__(165);
 var __decorate = (this && this.__decorate) || function (decorators, target, key, desc) {
     var c = arguments.length, r = c < 3 ? target : desc === null ? desc = Object.getOwnPropertyDescriptor(target, key) : desc, d;
     if (typeof Reflect === "object" && typeof Reflect.decorate === "function") r = Reflect.decorate(decorators, target, key, desc);
@@ -25,6 +25,7 @@ var __metadata = (this && this.__metadata) || function (k, v) {
 
 
 var MapPage = (function () {
+    //  public currentUserAgeRange:number;
     function MapPage(navCtrl, geolocService, geolocation) {
         this.navCtrl = navCtrl;
         this.geolocService = geolocService;
@@ -33,20 +34,19 @@ var MapPage = (function () {
     MapPage.prototype.ngOnInit = function () {
         // this.currentUserAgeRange = this.geolocService.getCurrentAgeRange();
         // console.log(this.currentUserAgeRange);
-        this.geolocService.loadmap();
     };
-    MapPage.prototype.ionViewDidEnter = function () {
-        // console.log("ENTERED");
+    MapPage.prototype.ionViewWillEnter = function () {
+        /*  this.geo = this.geolocService.getGeo();
+          console.log(this.geo);
+          if (this.geo != undefined) {
+            this.geolocService.setMarker();
+          }
+          this.geolocService.getLocation(); */
     };
     MapPage.prototype.ionViewDidLoad = function () {
         // console.log("LOADED");
-        this.geo = this.geolocService.getGeo();
-        console.log(this.geo);
-        if (this.geo != undefined) {
-            this.geolocService.setMarker();
-        }
-        this.geolocService.getLocation();
-        // this.newCoords(500);
+        this.geolocService.newCoords(500);
+        this.geolocService.loadmap();
     };
     MapPage.prototype.addCircle = function () {
         this.geolocService.addCircle();
@@ -74,7 +74,7 @@ var MapPage = (function () {
 
 /***/ }),
 
-/***/ 138:
+/***/ 139:
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
@@ -108,7 +108,7 @@ var RemoveUnderscorePipe = (function () {
 
 /***/ }),
 
-/***/ 139:
+/***/ 140:
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
@@ -143,7 +143,7 @@ var RemoveCharsPipe = (function () {
 
 /***/ }),
 
-/***/ 140:
+/***/ 141:
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
@@ -262,7 +262,7 @@ var ListPage = (function () {
 
 /***/ }),
 
-/***/ 162:
+/***/ 163:
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
@@ -300,7 +300,7 @@ var AboutPage = (function () {
 
 /***/ }),
 
-/***/ 163:
+/***/ 164:
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
@@ -308,7 +308,7 @@ var AboutPage = (function () {
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__angular_core__ = __webpack_require__(1);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_1_ionic_angular__ = __webpack_require__(19);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_2__providers_geoloc_service_geoloc_service__ = __webpack_require__(55);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_3__map_map__ = __webpack_require__(124);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_3__map_map__ = __webpack_require__(125);
 var __decorate = (this && this.__decorate) || function (decorators, target, key, desc) {
     var c = arguments.length, r = c < 3 ? target : desc === null ? desc = Object.getOwnPropertyDescriptor(target, key) : desc, d;
     if (typeof Reflect === "object" && typeof Reflect.decorate === "function") r = Reflect.decorate(decorators, target, key, desc);
@@ -351,7 +351,7 @@ var AgeSelectPage = (function () {
 
 /***/ }),
 
-/***/ 164:
+/***/ 165:
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
@@ -396,7 +396,7 @@ var MyAddressesPage = (function () {
 
 /***/ }),
 
-/***/ 165:
+/***/ 166:
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
@@ -405,8 +405,8 @@ var MyAddressesPage = (function () {
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_1_ionic_angular__ = __webpack_require__(19);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_2__providers_candy_api_service_candy_api_service__ = __webpack_require__(44);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_3__pipes_keyvalue_keyvalue__ = __webpack_require__(84);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_4__pipes_remove_underscore_remove_underscore__ = __webpack_require__(138);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_5__pipes_remove_chars_remove_chars__ = __webpack_require__(139);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_4__pipes_remove_underscore_remove_underscore__ = __webpack_require__(139);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_5__pipes_remove_chars_remove_chars__ = __webpack_require__(140);
 var __decorate = (this && this.__decorate) || function (decorators, target, key, desc) {
     var c = arguments.length, r = c < 3 ? target : desc === null ? desc = Object.getOwnPropertyDescriptor(target, key) : desc, d;
     if (typeof Reflect === "object" && typeof Reflect.decorate === "function") r = Reflect.decorate(decorators, target, key, desc);
@@ -481,7 +481,7 @@ var CandyDetailsPage = (function () {
 
 /***/ }),
 
-/***/ 166:
+/***/ 167:
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
@@ -525,7 +525,7 @@ var LegalPage = (function () {
 
 /***/ }),
 
-/***/ 167:
+/***/ 168:
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
@@ -649,7 +649,7 @@ var LevelPage = (function () {
 
 /***/ }),
 
-/***/ 168:
+/***/ 169:
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
@@ -694,19 +694,19 @@ var LoginPage = (function () {
 
 /***/ }),
 
-/***/ 169:
+/***/ 170:
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
 /* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "a", function() { return MyHomePage; });
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__angular_core__ = __webpack_require__(1);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_1_ionic_angular__ = __webpack_require__(19);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_2__list_list__ = __webpack_require__(140);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_3__rules_rules__ = __webpack_require__(170);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_4__login_login__ = __webpack_require__(168);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_5__legal_legal__ = __webpack_require__(166);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_6__about_about__ = __webpack_require__(162);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_7__age_select_age_select__ = __webpack_require__(163);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_2__list_list__ = __webpack_require__(141);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_3__rules_rules__ = __webpack_require__(171);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_4__login_login__ = __webpack_require__(169);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_5__legal_legal__ = __webpack_require__(167);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_6__about_about__ = __webpack_require__(163);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_7__age_select_age_select__ = __webpack_require__(164);
 var __decorate = (this && this.__decorate) || function (decorators, target, key, desc) {
     var c = arguments.length, r = c < 3 ? target : desc === null ? desc = Object.getOwnPropertyDescriptor(target, key) : desc, d;
     if (typeof Reflect === "object" && typeof Reflect.decorate === "function") r = Reflect.decorate(decorators, target, key, desc);
@@ -765,7 +765,7 @@ var MyHomePage = (function () {
 
 /***/ }),
 
-/***/ 170:
+/***/ 171:
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
@@ -810,7 +810,7 @@ var RulesPage = (function () {
 
 /***/ }),
 
-/***/ 171:
+/***/ 172:
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
@@ -848,7 +848,7 @@ var WelcomePage = (function () {
         }, 1500);
       } */
     WelcomePage.prototype.ionViewDidLoad = function () {
-        //  this.geolocService.getLocation();
+        this.geolocService.getLocation();
         //  this.geolocService.loadmap();
     };
     WelcomePage.prototype.start = function () {
@@ -869,7 +869,7 @@ var WelcomePage = (function () {
 
 /***/ }),
 
-/***/ 184:
+/***/ 185:
 /***/ (function(module, exports) {
 
 function webpackEmptyAsyncContext(req) {
@@ -882,7 +882,7 @@ function webpackEmptyAsyncContext(req) {
 webpackEmptyAsyncContext.keys = function() { return []; };
 webpackEmptyAsyncContext.resolve = webpackEmptyAsyncContext;
 module.exports = webpackEmptyAsyncContext;
-webpackEmptyAsyncContext.id = 184;
+webpackEmptyAsyncContext.id = 185;
 
 /***/ }),
 
@@ -891,43 +891,43 @@ webpackEmptyAsyncContext.id = 184;
 
 var map = {
 	"../pages/about/about.module": [
-		699,
+		700,
 		9
 	],
 	"../pages/age-select/age-select.module": [
-		700,
+		701,
 		8
 	],
 	"../pages/candy-details/candy-details.module": [
-		701,
+		702,
 		7
 	],
 	"../pages/legal/legal.module": [
-		702,
+		703,
 		6
 	],
 	"../pages/level/level.module": [
-		703,
+		704,
 		5
 	],
 	"../pages/login/login.module": [
-		704,
+		705,
 		4
 	],
 	"../pages/my-addresses/my-addresses.module": [
-		705,
+		706,
 		3
 	],
 	"../pages/my-home/my-home.module": [
-		706,
+		707,
 		2
 	],
 	"../pages/rules/rules.module": [
-		707,
+		708,
 		1
 	],
 	"../pages/welcome/welcome.module": [
-		708,
+		709,
 		0
 	]
 };
@@ -954,7 +954,7 @@ module.exports = webpackAsyncContext;
 /* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "a", function() { return LevelServiceProvider; });
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__angular_core__ = __webpack_require__(1);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_1__angular_http__ = __webpack_require__(95);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_2_rxjs_operators__ = __webpack_require__(125);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_2_rxjs_operators__ = __webpack_require__(126);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_2_rxjs_operators___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_2_rxjs_operators__);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_3__candy_api_service_candy_api_service__ = __webpack_require__(44);
 var __decorate = (this && this.__decorate) || function (decorators, target, key, desc) {
@@ -1007,11 +1007,11 @@ var LevelServiceProvider = (function () {
 "use strict";
 /* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "a", function() { return TabsPage; });
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__angular_core__ = __webpack_require__(1);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_1__map_map__ = __webpack_require__(124);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_2__list_list__ = __webpack_require__(140);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_1__map_map__ = __webpack_require__(125);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_2__list_list__ = __webpack_require__(141);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_3__backpack_backpack__ = __webpack_require__(326);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_4__level_level__ = __webpack_require__(167);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_5__my_home_my_home__ = __webpack_require__(169);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_4__level_level__ = __webpack_require__(168);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_5__my_home_my_home__ = __webpack_require__(170);
 var __decorate = (this && this.__decorate) || function (decorators, target, key, desc) {
     var c = arguments.length, r = c < 3 ? target : desc === null ? desc = Object.getOwnPropertyDescriptor(target, key) : desc, d;
     if (typeof Reflect === "object" && typeof Reflect.decorate === "function") r = Reflect.decorate(decorators, target, key, desc);
@@ -1055,7 +1055,7 @@ var TabsPage = (function () {
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__providers_candy_api_service_candy_api_service__ = __webpack_require__(44);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_1__angular_core__ = __webpack_require__(1);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_2_ionic_angular__ = __webpack_require__(19);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_3__candy_details_candy_details__ = __webpack_require__(165);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_3__candy_details_candy_details__ = __webpack_require__(166);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_4__providers_backpack_service_backpack_service__ = __webpack_require__(62);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_5__pipes_keyvalue_keyvalue__ = __webpack_require__(84);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_6__pipes_shorten_string_shorten_string__ = __webpack_require__(85);
@@ -1138,9 +1138,9 @@ this.candyService.getCandyById(item._id).subscribe((response:Candy) => {
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__angular_core__ = __webpack_require__(1);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_1__keys_keys__ = __webpack_require__(680);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_2__keyvalue_keyvalue__ = __webpack_require__(84);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_3__remove_underscore_remove_underscore__ = __webpack_require__(138);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_3__remove_underscore_remove_underscore__ = __webpack_require__(139);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_4__shorten_string_shorten_string__ = __webpack_require__(85);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_5__remove_chars_remove_chars__ = __webpack_require__(139);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_5__remove_chars_remove_chars__ = __webpack_require__(140);
 var __decorate = (this && this.__decorate) || function (decorators, target, key, desc) {
     var c = arguments.length, r = c < 3 ? target : desc === null ? desc = Object.getOwnPropertyDescriptor(target, key) : desc, d;
     if (typeof Reflect === "object" && typeof Reflect.decorate === "function") r = Reflect.decorate(decorators, target, key, desc);
@@ -1200,7 +1200,7 @@ Object(__WEBPACK_IMPORTED_MODULE_0__angular_platform_browser_dynamic__["a" /* pl
 "use strict";
 /* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "a", function() { return AppModule; });
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__angular_http__ = __webpack_require__(95);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_1__angular_common_http__ = __webpack_require__(185);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_1__angular_common_http__ = __webpack_require__(96);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_2__angular_core__ = __webpack_require__(1);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_3__angular_platform_browser__ = __webpack_require__(40);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_4__app_component__ = __webpack_require__(375);
@@ -1217,28 +1217,30 @@ Object(__WEBPACK_IMPORTED_MODULE_0__angular_platform_browser_dynamic__["a" /* pl
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_15__providers_backpack_service_backpack_service__ = __webpack_require__(62);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_16__pipes_pipes_module__ = __webpack_require__(368);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_17__pipes_keyvalue_keyvalue__ = __webpack_require__(84);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_18__pipes_remove_underscore_remove_underscore__ = __webpack_require__(138);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_18__pipes_remove_underscore_remove_underscore__ = __webpack_require__(139);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_19__pipes_shorten_string_shorten_string__ = __webpack_require__(85);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_20__pipes_remove_chars_remove_chars__ = __webpack_require__(139);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_21__pages_welcome_welcome__ = __webpack_require__(171);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_22__pages_login_login__ = __webpack_require__(168);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_23__pages_my_home_my_home__ = __webpack_require__(169);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_24__pages_map_map__ = __webpack_require__(124);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_25__pages_list_list__ = __webpack_require__(140);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_20__pipes_remove_chars_remove_chars__ = __webpack_require__(140);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_21__pages_welcome_welcome__ = __webpack_require__(172);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_22__pages_login_login__ = __webpack_require__(169);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_23__pages_my_home_my_home__ = __webpack_require__(170);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_24__pages_map_map__ = __webpack_require__(125);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_25__pages_list_list__ = __webpack_require__(141);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_26__pages_backpack_backpack__ = __webpack_require__(326);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_27__pages_level_level__ = __webpack_require__(167);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_28__pages_candy_details_candy_details__ = __webpack_require__(165);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_29__pages_my_addresses_my_addresses__ = __webpack_require__(164);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_30__pages_rules_rules__ = __webpack_require__(170);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_31__pages_legal_legal__ = __webpack_require__(166);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_32__pages_about_about__ = __webpack_require__(162);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_33__pages_age_select_age_select__ = __webpack_require__(163);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_27__pages_level_level__ = __webpack_require__(168);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_28__pages_candy_details_candy_details__ = __webpack_require__(166);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_29__pages_my_addresses_my_addresses__ = __webpack_require__(165);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_30__pages_rules_rules__ = __webpack_require__(171);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_31__pages_legal_legal__ = __webpack_require__(167);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_32__pages_about_about__ = __webpack_require__(163);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_33__pages_age_select_age_select__ = __webpack_require__(164);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_34__providers_map_service_map_service__ = __webpack_require__(699);
 var __decorate = (this && this.__decorate) || function (decorators, target, key, desc) {
     var c = arguments.length, r = c < 3 ? target : desc === null ? desc = Object.getOwnPropertyDescriptor(target, key) : desc, d;
     if (typeof Reflect === "object" && typeof Reflect.decorate === "function") r = Reflect.decorate(decorators, target, key, desc);
     else for (var i = decorators.length - 1; i >= 0; i--) if (d = decorators[i]) r = (c < 3 ? d(r) : c > 3 ? d(target, key, r) : d(target, key)) || r;
     return c > 3 && r && Object.defineProperty(target, key, r), r;
 };
+
 
 
 
@@ -1348,7 +1350,8 @@ var AppModule = (function () {
                 __WEBPACK_IMPORTED_MODULE_17__pipes_keyvalue_keyvalue__["a" /* KeyvaluePipe */],
                 __WEBPACK_IMPORTED_MODULE_18__pipes_remove_underscore_remove_underscore__["a" /* RemoveUnderscorePipe */],
                 __WEBPACK_IMPORTED_MODULE_19__pipes_shorten_string_shorten_string__["a" /* ShortenStringPipe */],
-                __WEBPACK_IMPORTED_MODULE_20__pipes_remove_chars_remove_chars__["a" /* RemoveCharsPipe */]
+                __WEBPACK_IMPORTED_MODULE_20__pipes_remove_chars_remove_chars__["a" /* RemoveCharsPipe */],
+                __WEBPACK_IMPORTED_MODULE_34__providers_map_service_map_service__["a" /* MapServiceProvider */]
             ],
             exports: [
                 __WEBPACK_IMPORTED_MODULE_17__pipes_keyvalue_keyvalue__["a" /* KeyvaluePipe */],
@@ -1374,7 +1377,7 @@ var AppModule = (function () {
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_1_ionic_angular__ = __webpack_require__(19);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_2__ionic_native_status_bar__ = __webpack_require__(366);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_3__ionic_native_splash_screen__ = __webpack_require__(367);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_4__pages_welcome_welcome__ = __webpack_require__(171);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_4__pages_welcome_welcome__ = __webpack_require__(172);
 var __decorate = (this && this.__decorate) || function (decorators, target, key, desc) {
     var c = arguments.length, r = c < 3 ? target : desc === null ? desc = Object.getOwnPropertyDescriptor(target, key) : desc, d;
     if (typeof Reflect === "object" && typeof Reflect.decorate === "function") r = Reflect.decorate(decorators, target, key, desc);
@@ -1419,7 +1422,7 @@ var MyApp = (function () {
 /* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "a", function() { return CandyService; });
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__angular_core__ = __webpack_require__(1);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_1__angular_http__ = __webpack_require__(95);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_2_rxjs_operators__ = __webpack_require__(125);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_2_rxjs_operators__ = __webpack_require__(126);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_2_rxjs_operators___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_2_rxjs_operators__);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_3__backpack_service_backpack_service__ = __webpack_require__(62);
 var __decorate = (this && this.__decorate) || function (decorators, target, key, desc) {
@@ -1497,12 +1500,7 @@ var GeolocServiceProvider = (function () {
         this.currentLat = 0;
         this.currentLong = 0;
         this.dist = 0;
-        this.new_latitude1 = 0;
-        this.new_longitude1 = 0;
-        this.new_latitude2 = 0;
-        this.new_longitude2 = 0;
-        this.myNewCoords = [];
-        this.mybounds = [];
+        this.bounds = [];
     }
     // access/modify current coords  
     GeolocServiceProvider.prototype.setGeo = function (geoloc) {
@@ -1517,6 +1515,18 @@ var GeolocServiceProvider = (function () {
     };
     GeolocServiceProvider.prototype.getCurrentAgeRange = function () {
         return this.currentUserAgeRange;
+    };
+    // get current location
+    GeolocServiceProvider.prototype.getLocation = function () {
+        var _this = this;
+        this.geolocation.getCurrentPosition().then(function (res) {
+            _this.setGeo(res);
+            _this.currentLat = res.coords.latitude;
+            _this.currentLong = res.coords.longitude;
+            console.log('get loc, current coords = : ' + _this.currentLat, _this.currentLong);
+        }).catch(function (error) {
+            console.log('Error getting location', error);
+        });
     };
     // get distance from age param
     GeolocServiceProvider.prototype.getDist = function (ageRange) {
@@ -1535,45 +1545,27 @@ var GeolocServiceProvider = (function () {
         }
         return this.dist;
     };
-    // get current location
-    GeolocServiceProvider.prototype.getLocation = function () {
-        var _this = this;
-        this.geolocation.getCurrentPosition().then(function (res) {
-            _this.setGeo(res);
-            console.log('latitude: ' + res.coords.latitude);
-        }).catch(function (error) {
-            console.log('Error getting location', error);
-        });
-        // console.log(this.newCoords(5));
-    };
     // calculate new coords for map age filter, using current coords and distance 'dist'
     // we need 4 points to delimit a perimeter of x meters around current position :
     // current pos(lat + distance , long + distance), pos(lat - distance, long - distance)
     GeolocServiceProvider.prototype.newCoords = function (dist) {
         var r_earth = 6378;
         this.dist = dist;
-        this.currentLat = this.geo.coords.latitude;
-        this.currentLong = this.geo.coords.longitude;
         console.log("CURRENT: ", this.currentLong, this.currentLat);
         var m = (1 / ((2 * Math.PI / 360) * r_earth)) / 1000; //1 meter in degree
-        this.new_latitude1 = this.currentLat + (this.dist * m);
-        this.new_longitude1 = this.currentLong + (this.dist * m) / Math.cos(this.currentLat * (Math.PI / 180));
-        console.log("new lat: ", this.new_latitude1);
-        console.log("new long: ", this.new_longitude1);
-        this.new_latitude2 = this.currentLat - (this.dist * m);
-        this.new_longitude2 = this.currentLong - (this.dist * m) / Math.cos(this.currentLat * (Math.PI / 180));
-        // this.new_latitude1  = this.currentLat  + (this.dist / r_earth) * (180 / Math.PI);
-        // this.new_longitude1 = this.currentLong + (this.dist / r_earth) * (180 / Math.PI) / Math.cos(this.currentLat * Math.PI/180);
-        this.myNewCoords.push(this.new_latitude1, this.new_longitude1, this.new_latitude2, this.new_longitude2);
-        this.mybounds = this.myNewCoords;
-        return this.mybounds;
-    };
-    GeolocServiceProvider.prototype.getNewCoords = function () {
-        return this.mybounds;
+        var new_latitude1 = this.currentLat + (this.dist * m);
+        var new_longitude1 = this.currentLong + (this.dist * m) / Math.cos(this.currentLat * (Math.PI / 180));
+        console.log("new point 1 : ", new_latitude1, new_longitude1);
+        var new_latitude2 = this.currentLat - (this.dist * m);
+        var new_longitude2 = this.currentLong - (this.dist * m) / Math.cos(this.currentLat * (Math.PI / 180));
+        this.bounds = [new_latitude1, new_longitude1, new_latitude2, new_longitude2];
+        console.log('BOUNDS= ', this.bounds);
+        return this.bounds;
     };
     // load map using new coords to display map portion with 'set bounds' 
     GeolocServiceProvider.prototype.loadmap = function () {
         var _this = this;
+        console.log('BOUNDS AT LOAD MAP = ', this.bounds);
         // initialize Leaflet
         this.map = __WEBPACK_IMPORTED_MODULE_2_leaflet___default.a.map('map').setView({ lon: 0, lat: 0 }, 2);
         // this.map = leaflet.map("map").fitWorld();
@@ -1585,7 +1577,9 @@ var GeolocServiceProvider = (function () {
         this.map.locate({
             setView: true,
             maxZoom: 18,
-            minZoom: 16,
+            //minZoom: 16,
+            // add bounds to map view, using new coords
+            bounds: this.bounds
         })
             .on('locationfound', function (e) {
             var markerGroup = __WEBPACK_IMPORTED_MODULE_2_leaflet___default.a.featureGroup();
@@ -1603,6 +1597,7 @@ var GeolocServiceProvider = (function () {
         // add marker to the map + pop up text
         //leaflet.marker({lon: 0, lat: 0}).bindPopup('The center of the world').addTo(this.map);
     };
+    // additional tools for map -- 
     GeolocServiceProvider.prototype.setMarker = function () {
         // custom marker
         var myIcon = __WEBPACK_IMPORTED_MODULE_2_leaflet___default.a.icon({
@@ -1647,11 +1642,14 @@ var GeolocServiceProvider = (function () {
     };
     GeolocServiceProvider = __decorate([
         Object(__WEBPACK_IMPORTED_MODULE_0__angular_core__["A" /* Injectable */])(),
-        __metadata("design:paramtypes", [__WEBPACK_IMPORTED_MODULE_1__ionic_native_geolocation__["a" /* Geolocation */]])
+        __metadata("design:paramtypes", [typeof (_a = typeof __WEBPACK_IMPORTED_MODULE_1__ionic_native_geolocation__["a" /* Geolocation */] !== "undefined" && __WEBPACK_IMPORTED_MODULE_1__ionic_native_geolocation__["a" /* Geolocation */]) === "function" && _a || Object])
     ], GeolocServiceProvider);
     return GeolocServiceProvider;
+    var _a;
 }());
 
+// this.new_latitude1  = this.currentLat  + (this.dist / r_earth) * (180 / Math.PI);
+// this.new_longitude1 = this.currentLong + (this.dist / r_earth) * (180 / Math.PI) / Math.cos(this.currentLat * Math.PI/180);
 //# sourceMappingURL=geoloc-service.js.map
 
 /***/ }),
@@ -1661,7 +1659,7 @@ var GeolocServiceProvider = (function () {
 
 "use strict";
 /* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "a", function() { return BackpackServiceProvider; });
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__angular_common_http__ = __webpack_require__(185);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__angular_common_http__ = __webpack_require__(96);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_1__angular_core__ = __webpack_require__(1);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_2_rxjs__ = __webpack_require__(413);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_2_rxjs___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_2_rxjs__);
@@ -1751,6 +1749,39 @@ var KeysPipe = (function () {
 }());
 
 //# sourceMappingURL=keys.js.map
+
+/***/ }),
+
+/***/ 699:
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "a", function() { return MapServiceProvider; });
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__angular_common_http__ = __webpack_require__(96);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_1__angular_core__ = __webpack_require__(1);
+var __decorate = (this && this.__decorate) || function (decorators, target, key, desc) {
+    var c = arguments.length, r = c < 3 ? target : desc === null ? desc = Object.getOwnPropertyDescriptor(target, key) : desc, d;
+    if (typeof Reflect === "object" && typeof Reflect.decorate === "function") r = Reflect.decorate(decorators, target, key, desc);
+    else for (var i = decorators.length - 1; i >= 0; i--) if (d = decorators[i]) r = (c < 3 ? d(r) : c > 3 ? d(target, key, r) : d(target, key)) || r;
+    return c > 3 && r && Object.defineProperty(target, key, r), r;
+};
+var __metadata = (this && this.__metadata) || function (k, v) {
+    if (typeof Reflect === "object" && typeof Reflect.metadata === "function") return Reflect.metadata(k, v);
+};
+
+
+var MapServiceProvider = (function () {
+    function MapServiceProvider(http) {
+        this.http = http;
+    }
+    MapServiceProvider = __decorate([
+        Object(__WEBPACK_IMPORTED_MODULE_1__angular_core__["A" /* Injectable */])(),
+        __metadata("design:paramtypes", [__WEBPACK_IMPORTED_MODULE_0__angular_common_http__["a" /* HttpClient */]])
+    ], MapServiceProvider);
+    return MapServiceProvider;
+}());
+
+//# sourceMappingURL=map-service.js.map
 
 /***/ }),
 

@@ -14,34 +14,32 @@ export class MapPage {
 
   public map: any;
   public geo: Coordonne;
-
-  public currentUserAgeRange:number;
+ //  public currentUserAgeRange:number;
 
   constructor(
     public navCtrl: NavController,
     public geolocService: GeolocServiceProvider,
-    public geolocation: Geolocation) {
-    }
+    public geolocation: Geolocation) {}
 
   public ngOnInit(): void {
     // this.currentUserAgeRange = this.geolocService.getCurrentAgeRange();
     // console.log(this.currentUserAgeRange);
-    this.geolocService.loadmap();
   }
 
-  public ionViewDidEnter(): void {
-    // console.log("ENTERED");
-  }
-
-  public ionViewDidLoad() {
-    // console.log("LOADED");
-    this.geo = this.geolocService.getGeo();
+  public ionViewWillEnter(): void {
+  /*  this.geo = this.geolocService.getGeo();
     console.log(this.geo);
     if (this.geo != undefined) {
       this.geolocService.setMarker();
     }
-    this.geolocService.getLocation();
-    // this.newCoords(500);
+    this.geolocService.getLocation(); */
+    
+  }
+
+  public ionViewDidLoad() {
+    // console.log("LOADED");
+    this.geolocService.newCoords(500);
+    this.geolocService.loadmap();
   }
 
 

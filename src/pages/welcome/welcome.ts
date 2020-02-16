@@ -4,7 +4,6 @@ import { TabsPage } from '../tabs/tabs';
 import { MapPage } from '../map/map';
 import { GeolocServiceProvider } from  '../../providers/geoloc-service/geoloc-service';
 
-
 @IonicPage()
 @Component({
   selector: 'page-welcome',
@@ -29,7 +28,7 @@ export class WelcomePage {
     } */
 
   public ionViewDidLoad() {
-   //  this.geolocService.getLocation();
+    this.geolocService.getLocation();
    //  this.geolocService.loadmap();
   }
 

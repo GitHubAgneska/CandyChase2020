@@ -10,34 +10,19 @@ export class GeolocServiceProvider {
 
   public geo: Coordonne;
   public map: any;
-  public currentUserAgeRange: number;
-
-    // variables to calculate map bounds
-    public currentLat: number;
-    public currentLong: number;
-    // direction x , direction y from current point
-    public dist: number;
   
-    public new_latitude1: number;
-    public new_longitude1: number;
-    public new_latitude2: number;
-    public new_longitude2: number;
-    public myNewCoords: number[];
-
-    public mybounds:number[];
+  public currentUserAgeRange: number;
+  public currentLat: number;
+  public currentLong: number;
+  public dist: number;
+  public bounds:number[];
 
   constructor(
     public geolocation: Geolocation) {
       this.currentLat = 0;
       this.currentLong = 0;
       this.dist = 0;
-      this.new_latitude1 = 0;
-      this.new_longitude1 = 0;
-      this.new_latitude2 = 0;
-      this.new_longitude2 = 0;
-      
-      this.myNewCoords = [];
-      this.mybounds = [];
+      this.bounds = [];
     }
 
   // access/modify current coords  
@@ -56,6 +41,21 @@ export class GeolocServiceProvider {
     return this.currentUserAgeRange;
   }
 
+
+  // get current location
+  public getLocation() {
+    this.geolocation.getCurrentPosition().then((res) => {
+      this.setGeo(res);
+      this.currentLat = res.coords.latitude;
+      this.currentLong = res.coords.longitude;
+      console.log('get loc, current coords = : ' + this.currentLat, this.currentLong);
+
+    }).catch((error) => {
+      console.log('Error getting location', error);
+    });
+  }
+
+
   // get distance from age param
   public getDist(ageRange:number) {
     this.currentUserAgeRange = ageRange;
@@ -67,59 +67,39 @@ export class GeolocServiceProvider {
       if ( this.currentUserAgeRange === 2) {
         this.dist = 500;
       } else { this.dist = 800; }
-  }
-  return this.dist;
-}
-
-
-// get current location
-  public getLocation() {
-    this.geolocation.getCurrentPosition().then((res) => {
-      this.setGeo(res);
-
-      console.log('latitude: ' + res.coords.latitude);
-    }).catch((error) => {
-      console.log('Error getting location', error);
-    });
-    // console.log(this.newCoords(5));
+    }
+    return this.dist;
   }
 
-
-  // calculate new coords for map age filter, using current coords and distance 'dist'
+    // calculate new coords for map age filter, using current coords and distance 'dist'
   // we need 4 points to delimit a perimeter of x meters around current position :
   // current pos(lat + distance , long + distance), pos(lat - distance, long - distance)
   public newCoords(dist: number) {
 
     const r_earth = 6378;
     this.dist = dist;
-    
-    this.currentLat = this.geo.coords.latitude;
-    this.currentLong = this.geo.coords.longitude;
     console.log("CURRENT: ", this.currentLong, this.currentLat);
 
     let m = (1 / ((2 * Math.PI / 360) * r_earth)) / 1000;  //1 meter in degree
-    this.new_latitude1 = this.currentLat + (this.dist * m);
-    this.new_longitude1 = this.currentLong + (this.dist * m) / Math.cos(this.currentLat * (Math.PI / 180));
-    console.log("new lat: ", this.new_latitude1);
-    console.log("new long: ", this.new_longitude1);
-    this.new_latitude2 = this.currentLat - (this.dist * m);
-    this.new_longitude2 = this.currentLong - (this.dist * m) / Math.cos(this.currentLat * (Math.PI / 180));
 
-    // this.new_latitude1  = this.currentLat  + (this.dist / r_earth) * (180 / Math.PI);
-    // this.new_longitude1 = this.currentLong + (this.dist / r_earth) * (180 / Math.PI) / Math.cos(this.currentLat * Math.PI/180);
-    this.myNewCoords.push(this.new_latitude1, this.new_longitude1,this.new_latitude2, this.new_longitude2 );
-    this.mybounds = this.myNewCoords;
-    return this.mybounds;
-  }
-  getNewCoords() {
-    return this.mybounds;
+    let new_latitude1 = this.currentLat + (this.dist * m);
+    let new_longitude1 = this.currentLong + (this.dist * m) / Math.cos(this.currentLat * (Math.PI / 180));
+    console.log("new point 1 : ", new_latitude1, new_longitude1);
+
+    let new_latitude2 = this.currentLat - (this.dist * m);
+    let new_longitude2 = this.currentLong - (this.dist * m) / Math.cos(this.currentLat * (Math.PI / 180));
+
+    this.bounds = [new_latitude1, new_longitude1,new_latitude2, new_longitude2 ];
+    console.log('BOUNDS= ', this.bounds);
+
+    return this.bounds;
   }
 
 
   // load map using new coords to display map portion with 'set bounds' 
   public loadmap() {
-
     
+    console.log('BOUNDS AT LOAD MAP = ', this.bounds);
     // initialize Leaflet
     this.map = leaflet.map('map').setView({ lon: 0, lat: 0 }, 2);
     // this.map = leaflet.map("map").fitWorld();
@@ -133,9 +113,9 @@ export class GeolocServiceProvider {
     this.map.locate({
       setView: true,
       maxZoom: 18,
-      minZoom: 16,
+      //minZoom: 16,
       // add bounds to map view, using new coords
-      // bounds: this.mybounds
+      bounds: this.bounds
     })
       .on('locationfound', (e) => {
         let markerGroup = leaflet.featureGroup();
@@ -148,6 +128,7 @@ export class GeolocServiceProvider {
       .on('locationerror', (err) => {
         alert(err.message);
       })
+    
 
     //show the scale bar on the lower left corner
     leaflet.control.scale().addTo(this.map);
@@ -155,6 +136,11 @@ export class GeolocServiceProvider {
     //leaflet.marker({lon: 0, lat: 0}).bindPopup('The center of the world').addTo(this.map);
   }
 
+
+
+
+
+  // additional tools for map -- 
 
   setMarker() {
     // custom marker
@@ -207,4 +193,5 @@ export class GeolocServiceProvider {
 
 
 
-
+    // this.new_latitude1  = this.currentLat  + (this.dist / r_earth) * (180 / Math.PI);
+    // this.new_longitude1 = this.currentLong + (this.dist / r_earth) * (180 / Math.PI) / Math.cos(this.currentLat * Math.PI/180);
