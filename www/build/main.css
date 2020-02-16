@@ -34163,67 +34163,28 @@ page-list .candyItem .plus-btn > button {
   text-align: center;
 }
 
-page-map #map {
+.mapPage-container {
   height: 100vh;
   width: 100%;
 }
 
-page-map .mapPage-container {
-  height: 100vh;
+.mapPage-container .mapContainer {
+  width: 80%;
+  height: 80%;
+  border: 5px solid black;
+  margin: 10% auto;
+}
+
+.mapPage-container .mapContainer #map {
+  height: 100%;
   width: 100%;
 }
 
-page-map .mapPage-container .leaflet-bar {
+.mapPage-container .mapContainer .leaflet-bar {
   margin-top: 30vh;
 }
 
-page-map .mapPage-container .mapSelectAge {
-  /* margin-top: 0; */
-  position: absolute;
-  z-index: 2;
-  width: 100%;
-  height: 100%;
-  background-color: rgba(0, 0, 0, 0.7);
-  display: -webkit-box;
-  display: -webkit-flex;
-  display: -ms-flexbox;
-  display: flex;
-  -webkit-box-orient: vertical;
-  -webkit-box-direction: normal;
-  -webkit-flex-direction: column;
-  -ms-flex-direction: column;
-  flex-direction: column;
-  -webkit-align-content: center;
-  -ms-flex-line-pack: center;
-  align-content: center;
-  -webkit-box-align: center;
-  -webkit-align-items: center;
-  -ms-flex-align: center;
-  align-items: center;
-  -webkit-box-pack: center;
-  -webkit-justify-content: center;
-  -ms-flex-pack: center;
-  justify-content: center;
-}
-
-page-map .mapPage-container .mapSelectAge p {
-  color: orange;
-  font-size: 8vw;
-  font-family: "Titan One", cursive;
-}
-
-page-map .mapPage-container .mapSelectAge button {
-  width: 30vw;
-  height: 8vh;
-  border: 2px solid orange;
-  border-radius: 50px;
-  font-family: "Titan One", cursive;
-  color: orange;
-  margin: 5%;
-  font-size: 5rem;
-}
-
-page-map .mapPage-container .scroll-content {
+.mapPage-container .mapContainer .scroll-content {
   margin-top: 0 !important;
   margin-bottom: 0 !important;
 }

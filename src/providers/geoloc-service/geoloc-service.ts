@@ -137,22 +137,22 @@ export class GeolocServiceProvider {
         alert(err.message);
       })
       
-
     //show the scale bar on the lower left corner
     leaflet.control.scale().addTo(this.map);
+    // add bounds from age-range select and fit map to bounds
     this.addBounds(bounds);
-    this.map.fitBounds(bounds);
+    
     // add marker to the map + pop up text
     //leaflet.marker({lon: 0, lat: 0}).bindPopup('The center of the world').addTo(this.map);
   }
 
 
-  // add radius around current position on map
+  // add bounds around current position on map
   addBounds(bounds) {
     this.geolocation.getCurrentPosition().then((res) => {
       leaflet.rectangle( bounds, {color: "#00000", weight: 1})
       .addTo(this.map);
-
+      this.map.fitBounds(bounds);
     }).catch((error) => {
       console.log('Error getting bounds', error);
     });
@@ -186,7 +186,7 @@ export class GeolocServiceProvider {
         color: 'green',
         fillColor: '#7CFC00',
         fillOpacity: 0.2,
-        radius: 500
+        radius: 50
       }).addTo(this.map);
 
     }).catch((error) => {

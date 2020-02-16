@@ -19,7 +19,7 @@ export class WelcomePage {
   public img_chaseTitle = "assets/graphicMat/title_chase.png";
   public img_circles = "assets/graphicMat/circles.png";
   
-  candy$: Observable<Array<CandyI>>;
+  candyList$: Observable<Array<CandyI>>;
 
   constructor(
     public navCtrl: NavController,
@@ -27,19 +27,14 @@ export class WelcomePage {
     public geolocService: GeolocServiceProvider,
     public candyService: CandyService ) { }
 
-  /*   GoToPage(): void {
-      setTimeout(() => {
-        this.navCtrl.push(TabsPage);
-      }, 1500);
-    } */
 
   public ionViewDidLoad() {
     // get coords as soon as app opens
     this.geolocService.getLocation();
-    // get candy as 'hot observable' and cache response
-    this.candy$ = this.candyService.candy;
+    // get candylist as 'hot observable' and cache response
+    this.candyList$ = this.candyService.candy;
+    if (this.candyList$) { console.log(this.candyList$ as any)};
   }
-
 
 
   start(): void {

@@ -4,7 +4,6 @@ import { Observable } from 'rxjs';
 import { map } from "rxjs/operators";
 import { Candy } from '../../models/candy.model';
 import { CandyI } from '../../models/candy.interface';
-
 import { BackpackServiceProvider } from '../backpack-service/backpack-service';
 import { shareReplay } from 'rxjs/operators';
 const CACHE_SIZE = 2;
@@ -24,6 +23,7 @@ export class CandyService {
     }
 
     // share a single instance of api request across all subscribers
+    // ( make next method private
     get candy() {
         if (!this.cache$) {
             this.cache$ = this.getAllCandyFromApi().pipe(

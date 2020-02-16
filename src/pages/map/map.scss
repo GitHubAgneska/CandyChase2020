@@ -1,43 +1,22 @@
 page-map {
 
-    #map { height: 100vh; width: 100%; }
+   }
 
     .mapPage-container{
 
         height: 100vh;
         width: 100%;
 
+        .mapContainer {
+            width: 80%;
+            height: 80%;
+            border: 5px solid black;
+            margin: 10% auto;
+            #map { height: 100%; width: 100%; }
+
         .leaflet-bar {
             margin-top: 30vh;}
 
-        .mapSelectAge {
-            /* margin-top: 0; */
-            position: absolute;
-            z-index: 2;
-            width: 100%;
-            height: 100%;
-            background-color: rgba(0, 0, 0, 0.7);
-            display: flex;
-            flex-direction: column;
-            align-content: center;
-            align-items: center;
-            justify-content: center;
-            p {
-            color: orange;
-            font-size: 8vw;
-            font-family: "Titan One", cursive;
-            }
-            button {
-                width: 30vw;
-                height: 8vh;
-                border: 2px solid orange;
-                border-radius: 50px;
-                font-family: "Titan One", cursive;
-                color:orange;
-                margin: 5%;
-                font-size: 5rem;
-            }
-        } 
         .scroll-content {
             margin-top: 0 !important;
             margin-bottom: 0 !important;
