@@ -38,7 +38,7 @@ export class MapPage {
 
   public ionViewDidLoad() {
     // console.log("LOADED");
-    this.geolocService.newCoords(500);
+    this.geolocService.newCoords(2000);
     this.geolocService.loadmap();
   }
 

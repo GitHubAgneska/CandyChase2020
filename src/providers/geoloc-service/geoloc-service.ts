@@ -15,14 +15,14 @@ export class GeolocServiceProvider {
   public currentLat: number;
   public currentLong: number;
   public dist: number;
-  public bounds:number[];
+  public mybounds:number[];
 
   constructor(
     public geolocation: Geolocation) {
       this.currentLat = 0;
       this.currentLong = 0;
       this.dist = 0;
-      this.bounds = [];
+      this.mybounds = [];
     }
 
   // access/modify current coords  
@@ -89,19 +89,30 @@ export class GeolocServiceProvider {
     let new_latitude2 = this.currentLat - (this.dist * m);
     let new_longitude2 = this.currentLong - (this.dist * m) / Math.cos(this.currentLat * (Math.PI / 180));
 
-    this.bounds = [new_latitude1, new_longitude1,new_latitude2, new_longitude2 ];
-    console.log('BOUNDS= ', this.bounds);
+    this.mybounds = [new_latitude1, new_longitude1,new_latitude2, new_longitude2 ];
+    console.log('BOUNDS= ', this.mybounds);
 
-    return this.bounds;
+    return this.mybounds;
   }
 
 
   // load map using new coords to display map portion with 'set bounds' 
   public loadmap() {
     
-    console.log('BOUNDS AT LOAD MAP = ', this.bounds);
+    console.log('BOUNDS AT LOAD MAP = ', this.mybounds);
+    var corner1 = leaflet.latLng(this.mybounds[0], this.mybounds[1]),
+    corner2 = leaflet.latLng(this.mybounds[2], this.mybounds[3]),
+    bounds = leaflet.latLngBounds(corner1, corner2);
+    
     // initialize Leaflet
-    this.map = leaflet.map('map').setView({ lon: 0, lat: 0 }, 2);
+    this.map = leaflet.map("map");
+
+    //leaflet.rectangle(bounds, {color: "#00000", weight: 1}).addTo(this.map);
+
+    //
+    // this.map = leaflet.map("map").fitBounds(bounds);
+    //leaflet.map("map").setMaxBounds(bounds);
+    //this.map = leaflet.map('map').setView({ lon: 0, lat: 0 }, 2);
     // this.map = leaflet.map("map").fitWorld();
 
     // add the OpenStreetMap tiles
@@ -112,10 +123,7 @@ export class GeolocServiceProvider {
 
     this.map.locate({
       setView: true,
-      maxZoom: 18,
-      //minZoom: 16,
-      // add bounds to map view, using new coords
-      bounds: this.bounds
+      maxZoom: 18
     })
       .on('locationfound', (e) => {
         let markerGroup = leaflet.featureGroup();
@@ -128,15 +136,27 @@ export class GeolocServiceProvider {
       .on('locationerror', (err) => {
         alert(err.message);
       })
-    
+      
 
     //show the scale bar on the lower left corner
     leaflet.control.scale().addTo(this.map);
+    this.addBounds(bounds);
+    this.map.fitBounds(bounds);
     // add marker to the map + pop up text
     //leaflet.marker({lon: 0, lat: 0}).bindPopup('The center of the world').addTo(this.map);
   }
 
 
+  // add radius around current position on map
+  addBounds(bounds) {
+    this.geolocation.getCurrentPosition().then((res) => {
+      leaflet.rectangle( bounds, {color: "#00000", weight: 1})
+      .addTo(this.map);
+
+    }).catch((error) => {
+      console.log('Error getting bounds', error);
+    });
+  }
 
 
 

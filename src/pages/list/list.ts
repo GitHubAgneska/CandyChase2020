@@ -2,20 +2,22 @@ import { Component, OnInit } from '@angular/core';
 import { ToastController } from 'ionic-angular';
 import { Geolocation } from '@ionic-native/geolocation';
 import { Candy } from '../../models/candy.model';
+import { CandyI } from '../../models/candy.interface';
 import { CandyService } from '../../providers/candy-api-service/candy-api-service';
 import { BackpackServiceProvider } from '../../providers/backpack-service/backpack-service'
 import { GeolocServiceProvider } from '../../providers/geoloc-service/geoloc-service';
 import { ShortenStringPipe } from '../../pipes/shorten-string/shorten-string';
+
 @Component({
   selector: 'page-list',
   templateUrl: 'list.html'
 })
 export class ListPage implements OnInit {
 
-  public candyList: Candy[];
-  public candyItem: Candy;
+  public candyList: CandyI[];
+  public candyItem: CandyI;
 
-  public itemsInBackpack: Candy[];
+  public itemsInBackpack: CandyI[];
   public totalCandy: number;
 
   public geo: any;
@@ -38,14 +40,16 @@ export class ListPage implements OnInit {
     this.totalCandy = 0;
   }
 
-  public ngOnInit(): void {
+  public ngOnInit(): void {}
+
+  public ionViewWillEnter() {
     this.candyService.getAllCandyFromApi()
-      .subscribe(
-        response => {
-          this.candyList = response;
-          // console.log(this.candyList);
-        }
-      )
+    .subscribe(
+      (response: CandyI[]) => {
+        this.candyList = response;
+        // console.log(this.candyList);
+      }
+    )
   }
 
   public addCandyToBackpack(candyItem:Candy) {
