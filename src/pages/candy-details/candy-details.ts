@@ -1,7 +1,7 @@
 import { Component } from '@angular/core';
 import { IonicPage, NavController, NavParams } from 'ionic-angular';
 import { CandyService } from '../../providers/candy-api-service/candy-api-service';
-import { Candy } from '../../models/candy.model';
+import { Candy, CandyChecklist } from '../../models/candy.model';
 import { KeyvaluePipe } from '../../pipes/keyvalue/keyvalue';
 import { RemoveUnderscorePipe } from '../../pipes/remove-underscore/remove-underscore';
 import { RemoveCharsPipe } from '../../pipes/remove-chars/remove-chars';
@@ -34,7 +34,7 @@ export class CandyDetailsPage {
       this.candyId = this.navParams.get("idparam");
       this.candyItem = { _id:"", product_name: "", generic_name_fr:"",
       image_front_url:"", brands_tags: [], ingredients_tags:[],
-      nutriscore_data:[], additive_tags:[]};
+      nutriscore_data:[], additive_tags:[], candyChecklist:[]};
 
       this.showIngredients = false;
       this.showAllergens = false;
@@ -54,6 +54,7 @@ export class CandyDetailsPage {
       this.candyItem.image_front_url = response.image_front_url;
       this.candyItem.ingredients_tags = response.ingredients_tags;
       this.candyItem.nutriscore_data = response.nutriscore_data;
+      
     })
   }
 

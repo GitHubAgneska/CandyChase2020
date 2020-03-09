@@ -7,6 +7,9 @@
 <ion-content class="candyDetailsPage-container">
   <div class="candyDetailsPage" *ngIf="candyItem">
 
+      <div class="candy-checklist" *ngFor="let i of candyItem.candyChecklist">
+        <p>{{i}}</p>
+      </div>
       <div class="candyItemTitle">
         <div class="candyThumbnail">
           <img src="{{candyItem.image_front_url}}">

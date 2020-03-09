@@ -1,4 +1,4 @@
-import { CandyI } from './candy.interface';
+import { CandyI, CandyChecklistI } from './candy.interface';
 
 export class Candy implements CandyI {
 
@@ -13,9 +13,23 @@ export class Candy implements CandyI {
     nutriscore_data? = {};
     additive_tags? = [];
 
+    candyChecklist? = [CandyChecklist];
+
     constructor(fields?: Partial<CandyI>)  {
         if(fields) {
             Object.assign(this, fields)
         }
     }
+}
+
+
+export class CandyChecklist implements CandyChecklistI {
+    
+    additives: false;
+    preservatives: false;
+    transfats: false;
+    glutenFree: false;
+    vegan: false;
+    vegetarian: false;
+
 }

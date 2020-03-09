@@ -10,4 +10,18 @@ export interface CandyI {
     ingredients_tags?: any[];
     nutriscore_data?: {};
     additive_tags?: any[];
+
+    candyChecklist?: any[];
+}
+
+
+export interface CandyChecklistI {
+
+    additives: boolean;
+    preservatives: boolean;
+    transfats: boolean;
+    glutenFree: boolean;
+    vegan: boolean;
+    vegetarian: boolean;
+    
 }
