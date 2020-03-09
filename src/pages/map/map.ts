@@ -4,6 +4,7 @@ import { GeolocServiceProvider } from '../../providers/geoloc-service/geoloc-ser
 import { Coordonne } from '../../models/coordonne.model';
 import { Geolocation } from '@ionic-native/geolocation';
 import { MyAddressesPage } from '../my-addresses/my-addresses';
+import leaflet from 'leaflet';
 
 @Component({
   selector: 'page-map',
@@ -26,30 +27,24 @@ export class MapPage {
     // console.log(this.currentUserAgeRange);
   }
 
-  public ionViewWillEnter(): void {
-  /*  this.geo = this.geolocService.getGeo();
-    console.log(this.geo);
-    if (this.geo != undefined) {
-      this.geolocService.setMarker();
-    }
-    this.geolocService.getLocation(); */
-    
-  }
+  public ionViewWillEnter(): void {}
 
-  public ionViewDidLoad() {
-    // console.log("LOADED");
-    this.geolocService.newCoords(500);
-    this.geolocService.loadmap();
+  
+  public ionViewDidEnter() {
+      this.geolocService.newCoords(500);
+      this.geolocService.loadmap();
   }
-
 
   public addCircle(){
     this.geolocService.addCircle();
-    // this.geolocService.addBoundaries();
   }  
 
   public myAddresses() {
     this.navCtrl.push(MyAddressesPage);
+  }
+
+  public ionViewWillLeave() {
+    // if(this.map) { this.map.remove(); }
   }
 
 }

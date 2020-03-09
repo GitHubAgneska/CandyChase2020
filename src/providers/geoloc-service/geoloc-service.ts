@@ -55,6 +55,12 @@ export class GeolocServiceProvider {
     });
   }
 
+  public watchPosition() {
+    this.geolocation.watchPosition();
+  }
+
+ 
+
 
   // get distance from age param
   public getDist(ageRange:number) {
@@ -98,7 +104,7 @@ export class GeolocServiceProvider {
 
   // load map using new coords to display map portion with 'set bounds' 
   public loadmap() {
-    
+
     console.log('BOUNDS AT LOAD MAP = ', this.mybounds);
     var corner1 = leaflet.latLng(this.mybounds[0], this.mybounds[1]),
     corner2 = leaflet.latLng(this.mybounds[2], this.mybounds[3]),
@@ -106,14 +112,6 @@ export class GeolocServiceProvider {
     
     // initialize Leaflet
     this.map = leaflet.map("map");
-
-    //leaflet.rectangle(bounds, {color: "#00000", weight: 1}).addTo(this.map);
-
-    //
-    // this.map = leaflet.map("map").fitBounds(bounds);
-    //leaflet.map("map").setMaxBounds(bounds);
-    //this.map = leaflet.map('map').setView({ lon: 0, lat: 0 }, 2);
-    // this.map = leaflet.map("map").fitWorld();
 
     // add the OpenStreetMap tiles
     leaflet.tileLayer('https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png', {
@@ -144,7 +142,8 @@ export class GeolocServiceProvider {
     
     // add marker to the map + pop up text
     //leaflet.marker({lon: 0, lat: 0}).bindPopup('The center of the world').addTo(this.map);
-  }
+    
+  }    
 
 
   // add bounds around current position on map
@@ -157,7 +156,6 @@ export class GeolocServiceProvider {
       console.log('Error getting bounds', error);
     });
   }
-
 
 
   // additional tools for map -- 
@@ -179,7 +177,7 @@ export class GeolocServiceProvider {
     this.map.addLayer(markerGroup);
   }
 
-  // add radius around current position on map
+  // add 50m radius around current position on map
   addCircle() {
     this.geolocation.getCurrentPosition().then((res) => {
       leaflet.circle([res.coords.latitude, res.coords.longitude], {
@@ -194,7 +192,7 @@ export class GeolocServiceProvider {
     });
   }
 
-  
+
   // trace path on the map while questing
   public tracePath() {
     // create a red polyline from an array of LatLng points

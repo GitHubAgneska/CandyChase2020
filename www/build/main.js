@@ -9,7 +9,7 @@ webpackJsonp([10],{
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_1_ionic_angular__ = __webpack_require__(17);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_2__providers_geoloc_service_geoloc_service__ = __webpack_require__(55);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_3__ionic_native_geolocation__ = __webpack_require__(74);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_4__my_addresses_my_addresses__ = __webpack_require__(165);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_4__my_addresses_my_addresses__ = __webpack_require__(164);
 var __decorate = (this && this.__decorate) || function (decorators, target, key, desc) {
     var c = arguments.length, r = c < 3 ? target : desc === null ? desc = Object.getOwnPropertyDescriptor(target, key) : desc, d;
     if (typeof Reflect === "object" && typeof Reflect.decorate === "function") r = Reflect.decorate(decorators, target, key, desc);
@@ -35,25 +35,19 @@ var MapPage = (function () {
         // this.currentUserAgeRange = this.geolocService.getCurrentAgeRange();
         // console.log(this.currentUserAgeRange);
     };
-    MapPage.prototype.ionViewWillEnter = function () {
-        /*  this.geo = this.geolocService.getGeo();
-          console.log(this.geo);
-          if (this.geo != undefined) {
-            this.geolocService.setMarker();
-          }
-          this.geolocService.getLocation(); */
-    };
-    MapPage.prototype.ionViewDidLoad = function () {
-        // console.log("LOADED");
+    MapPage.prototype.ionViewWillEnter = function () { };
+    MapPage.prototype.ionViewDidEnter = function () {
         this.geolocService.newCoords(500);
         this.geolocService.loadmap();
     };
     MapPage.prototype.addCircle = function () {
         this.geolocService.addCircle();
-        // this.geolocService.addBoundaries();
     };
     MapPage.prototype.myAddresses = function () {
         this.navCtrl.push(__WEBPACK_IMPORTED_MODULE_4__my_addresses_my_addresses__["a" /* MyAddressesPage */]);
+    };
+    MapPage.prototype.ionViewWillLeave = function () {
+        // if(this.map) { this.map.remove(); }
     };
     __decorate([
         Object(__WEBPACK_IMPORTED_MODULE_0__angular_core__["_8" /* ViewChild */])('map'),
@@ -61,7 +55,7 @@ var MapPage = (function () {
     ], MapPage.prototype, "mapContainer", void 0);
     MapPage = __decorate([
         Object(__WEBPACK_IMPORTED_MODULE_0__angular_core__["m" /* Component */])({
-            selector: 'page-map',template:/*ion-inline-start:"/Users/hildegardagnesgenay/Documents/AndBEYOND/CANDY_CHASE_2020_ionic/candyChase2020/src/pages/map/map.html"*/'<ion-header>\n  <ion-navbar color="customColor">\n    <ion-title text-center class="mainTitles">\n      Map\n    </ion-title>\n    <ion-buttons end> \n      <button ion-button icon-only color="orange" (click)="addCircle()">\n        <ion-icon name="md-locate"></ion-icon>\n      </button>\n    <button ion-button icon-only color="orange" (click)="myAddresses()"><ion-icon name="md-globe"></ion-icon></button>\n    </ion-buttons>\n  </ion-navbar>\n</ion-header>\n\n<ion-content class="mapPage-container">\n\n  <div class="mapContainer">\n    <div id="map"></div>\n  </div>\n\n</ion-content>\n\n'/*ion-inline-end:"/Users/hildegardagnesgenay/Documents/AndBEYOND/CANDY_CHASE_2020_ionic/candyChase2020/src/pages/map/map.html"*/
+            selector: 'page-map',template:/*ion-inline-start:"/Users/hildegardagnesgenay/Documents/AndBEYOND/CANDY_CHASE_2020_ionic/candyChase2020/src/pages/map/map.html"*/'<ion-header>\n  <ion-navbar color="customColor">\n    <ion-title text-center class="mainTitles">\n      Your map\n    </ion-title>\n    <ion-buttons end> \n      <button ion-button icon-only color="orange" (click)="addCircle()">\n        <ion-icon name="md-locate"></ion-icon>\n      </button>\n    <button ion-button icon-only color="orange" (click)="myAddresses()"><ion-icon name="md-globe"></ion-icon></button>\n    </ion-buttons>\n  </ion-navbar>\n</ion-header>\n\n<ion-content class="mapPage-container">\n\n  <div class="mapContainer">\n    <div id="map"></div>\n  </div>\n\n</ion-content>\n\n'/*ion-inline-end:"/Users/hildegardagnesgenay/Documents/AndBEYOND/CANDY_CHASE_2020_ionic/candyChase2020/src/pages/map/map.html"*/
         }),
         __metadata("design:paramtypes", [__WEBPACK_IMPORTED_MODULE_1_ionic_angular__["g" /* NavController */],
             __WEBPACK_IMPORTED_MODULE_2__providers_geoloc_service_geoloc_service__["a" /* GeolocServiceProvider */],
@@ -268,44 +262,6 @@ var ListPage = (function () {
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
-/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "a", function() { return AboutPage; });
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__angular_core__ = __webpack_require__(1);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_1_ionic_angular__ = __webpack_require__(17);
-var __decorate = (this && this.__decorate) || function (decorators, target, key, desc) {
-    var c = arguments.length, r = c < 3 ? target : desc === null ? desc = Object.getOwnPropertyDescriptor(target, key) : desc, d;
-    if (typeof Reflect === "object" && typeof Reflect.decorate === "function") r = Reflect.decorate(decorators, target, key, desc);
-    else for (var i = decorators.length - 1; i >= 0; i--) if (d = decorators[i]) r = (c < 3 ? d(r) : c > 3 ? d(target, key, r) : d(target, key)) || r;
-    return c > 3 && r && Object.defineProperty(target, key, r), r;
-};
-var __metadata = (this && this.__metadata) || function (k, v) {
-    if (typeof Reflect === "object" && typeof Reflect.metadata === "function") return Reflect.metadata(k, v);
-};
-
-
-var AboutPage = (function () {
-    function AboutPage(navCtrl, navParams) {
-        this.navCtrl = navCtrl;
-        this.navParams = navParams;
-    }
-    AboutPage.prototype.ionViewDidLoad = function () {
-    };
-    AboutPage = __decorate([
-        Object(__WEBPACK_IMPORTED_MODULE_0__angular_core__["m" /* Component */])({
-            selector: 'page-about',template:/*ion-inline-start:"/Users/hildegardagnesgenay/Documents/AndBEYOND/CANDY_CHASE_2020_ionic/candyChase2020/src/pages/about/about.html"*/'\n<ion-header>\n\n  <ion-navbar color="customColor">\n    <ion-title>about</ion-title>\n  </ion-navbar>\n\n</ion-header>\n\n\n<ion-content padding>\n\n</ion-content>\n'/*ion-inline-end:"/Users/hildegardagnesgenay/Documents/AndBEYOND/CANDY_CHASE_2020_ionic/candyChase2020/src/pages/about/about.html"*/,
-        }),
-        __metadata("design:paramtypes", [__WEBPACK_IMPORTED_MODULE_1_ionic_angular__["g" /* NavController */], __WEBPACK_IMPORTED_MODULE_1_ionic_angular__["h" /* NavParams */]])
-    ], AboutPage);
-    return AboutPage;
-}());
-
-//# sourceMappingURL=about.js.map
-
-/***/ }),
-
-/***/ 164:
-/***/ (function(module, __webpack_exports__, __webpack_require__) {
-
-"use strict";
 /* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "a", function() { return AgeSelectPage; });
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__angular_core__ = __webpack_require__(1);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_1_ionic_angular__ = __webpack_require__(17);
@@ -344,19 +300,20 @@ var AgeSelectPage = (function () {
     };
     AgeSelectPage = __decorate([
         Object(__WEBPACK_IMPORTED_MODULE_0__angular_core__["m" /* Component */])({
-            selector: 'page-age-select',template:/*ion-inline-start:"/Users/hildegardagnesgenay/Documents/AndBEYOND/CANDY_CHASE_2020_ionic/candyChase2020/src/pages/age-select/age-select.html"*/'<ion-header>\n  <ion-navbar color="customColor">\n    <ion-title text-center class="mainTitles">\n    </ion-title>\n  </ion-navbar>\n</ion-header>\n\n<ion-content class="ageSelectPage-container">\n\n    <div class="mapSelectAge">\n\n      <p>Select your age!</p>\n      <button (click)="setAge(1)">3 - 6</button>\n      <button (click)="setAge(2)">7 - 9</button>\n      <button (click)="setAge(3)"> + 10</button>\n\n    </div>\n    \n</ion-content>'/*ion-inline-end:"/Users/hildegardagnesgenay/Documents/AndBEYOND/CANDY_CHASE_2020_ionic/candyChase2020/src/pages/age-select/age-select.html"*/,
+            selector: 'page-age-select',template:/*ion-inline-start:"/Users/hildegardagnesgenay/Documents/AndBEYOND/CANDY_CHASE_2020_ionic/candyChase2020/src/pages/age-select/age-select.html"*/'<!-- <ion-header>\n  <ion-navbar color="customColor">\n    <ion-title text-center class="mainTitles">\n    </ion-title>\n  </ion-navbar>\n</ion-header> -->\n\n<ion-content class="ageSelectPage-container">\n\n    <div class="mapSelectAge">\n\n      <p>Select your age!</p>\n      <button (click)="setAge(1)">3 - 6</button>\n      <button (click)="setAge(2)">7 - 9</button>\n      <button (click)="setAge(3)"> + 10</button>\n\n    </div>\n    \n</ion-content>'/*ion-inline-end:"/Users/hildegardagnesgenay/Documents/AndBEYOND/CANDY_CHASE_2020_ionic/candyChase2020/src/pages/age-select/age-select.html"*/,
         }),
-        __metadata("design:paramtypes", [typeof (_a = typeof __WEBPACK_IMPORTED_MODULE_1_ionic_angular__["g" /* NavController */] !== "undefined" && __WEBPACK_IMPORTED_MODULE_1_ionic_angular__["g" /* NavController */]) === "function" && _a || Object, typeof (_b = typeof __WEBPACK_IMPORTED_MODULE_1_ionic_angular__["h" /* NavParams */] !== "undefined" && __WEBPACK_IMPORTED_MODULE_1_ionic_angular__["h" /* NavParams */]) === "function" && _b || Object, typeof (_c = typeof __WEBPACK_IMPORTED_MODULE_2__providers_geoloc_service_geoloc_service__["a" /* GeolocServiceProvider */] !== "undefined" && __WEBPACK_IMPORTED_MODULE_2__providers_geoloc_service_geoloc_service__["a" /* GeolocServiceProvider */]) === "function" && _c || Object])
+        __metadata("design:paramtypes", [__WEBPACK_IMPORTED_MODULE_1_ionic_angular__["g" /* NavController */],
+            __WEBPACK_IMPORTED_MODULE_1_ionic_angular__["h" /* NavParams */],
+            __WEBPACK_IMPORTED_MODULE_2__providers_geoloc_service_geoloc_service__["a" /* GeolocServiceProvider */]])
     ], AgeSelectPage);
     return AgeSelectPage;
-    var _a, _b, _c;
 }());
 
 //# sourceMappingURL=age-select.js.map
 
 /***/ }),
 
-/***/ 165:
+/***/ 164:
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
@@ -401,7 +358,7 @@ var MyAddressesPage = (function () {
 
 /***/ }),
 
-/***/ 166:
+/***/ 165:
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
@@ -486,7 +443,7 @@ var CandyDetailsPage = (function () {
 
 /***/ }),
 
-/***/ 167:
+/***/ 166:
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
@@ -530,7 +487,7 @@ var LegalPage = (function () {
 
 /***/ }),
 
-/***/ 168:
+/***/ 167:
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
@@ -654,6 +611,44 @@ var LevelPage = (function () {
 
 /***/ }),
 
+/***/ 168:
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "a", function() { return AboutPage; });
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__angular_core__ = __webpack_require__(1);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_1_ionic_angular__ = __webpack_require__(17);
+var __decorate = (this && this.__decorate) || function (decorators, target, key, desc) {
+    var c = arguments.length, r = c < 3 ? target : desc === null ? desc = Object.getOwnPropertyDescriptor(target, key) : desc, d;
+    if (typeof Reflect === "object" && typeof Reflect.decorate === "function") r = Reflect.decorate(decorators, target, key, desc);
+    else for (var i = decorators.length - 1; i >= 0; i--) if (d = decorators[i]) r = (c < 3 ? d(r) : c > 3 ? d(target, key, r) : d(target, key)) || r;
+    return c > 3 && r && Object.defineProperty(target, key, r), r;
+};
+var __metadata = (this && this.__metadata) || function (k, v) {
+    if (typeof Reflect === "object" && typeof Reflect.metadata === "function") return Reflect.metadata(k, v);
+};
+
+
+var AboutPage = (function () {
+    function AboutPage(navCtrl, navParams) {
+        this.navCtrl = navCtrl;
+        this.navParams = navParams;
+    }
+    AboutPage.prototype.ionViewDidLoad = function () {
+    };
+    AboutPage = __decorate([
+        Object(__WEBPACK_IMPORTED_MODULE_0__angular_core__["m" /* Component */])({
+            selector: 'page-about',template:/*ion-inline-start:"/Users/hildegardagnesgenay/Documents/AndBEYOND/CANDY_CHASE_2020_ionic/candyChase2020/src/pages/about/about.html"*/'\n<ion-header>\n\n  <ion-navbar color="customColor">\n    <ion-title>about</ion-title>\n  </ion-navbar>\n\n</ion-header>\n\n\n<ion-content padding>\n\n</ion-content>\n'/*ion-inline-end:"/Users/hildegardagnesgenay/Documents/AndBEYOND/CANDY_CHASE_2020_ionic/candyChase2020/src/pages/about/about.html"*/,
+        }),
+        __metadata("design:paramtypes", [__WEBPACK_IMPORTED_MODULE_1_ionic_angular__["g" /* NavController */], __WEBPACK_IMPORTED_MODULE_1_ionic_angular__["h" /* NavParams */]])
+    ], AboutPage);
+    return AboutPage;
+}());
+
+//# sourceMappingURL=about.js.map
+
+/***/ }),
+
 /***/ 169:
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
@@ -709,9 +704,9 @@ var LoginPage = (function () {
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_2__list_list__ = __webpack_require__(141);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_3__rules_rules__ = __webpack_require__(171);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_4__login_login__ = __webpack_require__(169);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_5__legal_legal__ = __webpack_require__(167);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_6__about_about__ = __webpack_require__(163);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_7__age_select_age_select__ = __webpack_require__(164);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_5__legal_legal__ = __webpack_require__(166);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_6__about_about__ = __webpack_require__(168);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_7__age_select_age_select__ = __webpack_require__(163);
 var __decorate = (this && this.__decorate) || function (decorators, target, key, desc) {
     var c = arguments.length, r = c < 3 ? target : desc === null ? desc = Object.getOwnPropertyDescriptor(target, key) : desc, d;
     if (typeof Reflect === "object" && typeof Reflect.decorate === "function") r = Reflect.decorate(decorators, target, key, desc);
@@ -901,23 +896,23 @@ webpackEmptyAsyncContext.id = 185;
 
 var map = {
 	"../pages/about/about.module": [
-		700,
+		704,
 		9
 	],
 	"../pages/age-select/age-select.module": [
-		701,
+		700,
 		8
 	],
 	"../pages/candy-details/candy-details.module": [
-		702,
+		701,
 		7
 	],
 	"../pages/legal/legal.module": [
-		703,
+		702,
 		6
 	],
 	"../pages/level/level.module": [
-		704,
+		703,
 		5
 	],
 	"../pages/login/login.module": [
@@ -1021,7 +1016,7 @@ var LevelServiceProvider = (function () {
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_2__map_map__ = __webpack_require__(126);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_3__list_list__ = __webpack_require__(141);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_4__backpack_backpack__ = __webpack_require__(326);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_5__level_level__ = __webpack_require__(168);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_5__level_level__ = __webpack_require__(167);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_6__my_home_my_home__ = __webpack_require__(170);
 var __decorate = (this && this.__decorate) || function (decorators, target, key, desc) {
     var c = arguments.length, r = c < 3 ? target : desc === null ? desc = Object.getOwnPropertyDescriptor(target, key) : desc, d;
@@ -1052,10 +1047,9 @@ var TabsPage = (function () {
     TabsPage = __decorate([
         Object(__WEBPACK_IMPORTED_MODULE_0__angular_core__["m" /* Component */])({template:/*ion-inline-start:"/Users/hildegardagnesgenay/Documents/AndBEYOND/CANDY_CHASE_2020_ionic/candyChase2020/src/pages/tabs/tabs.html"*/'<ion-tabs>\n  <ion-tab [root]="tab5Root" tabTitle="Home" tabIcon="home"></ion-tab>\n  <ion-tab [root]="tab1Root" tabTitle="List" tabIcon="paper"></ion-tab>\n  <ion-tab [root]="tab2Root" tabTitle="Map" tabIcon="map"></ion-tab>\n  <ion-tab [root]="tab3Root" tabTitle="Backpack" tabIcon="paper"></ion-tab>\n  <ion-tab [root]="tab4Root" tabTitle="Level" tabIcon="star"></ion-tab>\n</ion-tabs>\n'/*ion-inline-end:"/Users/hildegardagnesgenay/Documents/AndBEYOND/CANDY_CHASE_2020_ionic/candyChase2020/src/pages/tabs/tabs.html"*/
         }),
-        __metadata("design:paramtypes", [typeof (_a = typeof __WEBPACK_IMPORTED_MODULE_1_ionic_angular__["a" /* Events */] !== "undefined" && __WEBPACK_IMPORTED_MODULE_1_ionic_angular__["a" /* Events */]) === "function" && _a || Object, typeof (_b = typeof __WEBPACK_IMPORTED_MODULE_0__angular_core__["j" /* ChangeDetectorRef */] !== "undefined" && __WEBPACK_IMPORTED_MODULE_0__angular_core__["j" /* ChangeDetectorRef */]) === "function" && _b || Object])
+        __metadata("design:paramtypes", [__WEBPACK_IMPORTED_MODULE_1_ionic_angular__["a" /* Events */], __WEBPACK_IMPORTED_MODULE_0__angular_core__["j" /* ChangeDetectorRef */]])
     ], TabsPage);
     return TabsPage;
-    var _a, _b;
 }());
 
 //# sourceMappingURL=tabs.js.map
@@ -1070,7 +1064,7 @@ var TabsPage = (function () {
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__providers_candy_api_service_candy_api_service__ = __webpack_require__(43);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_1__angular_core__ = __webpack_require__(1);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_2_ionic_angular__ = __webpack_require__(17);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_3__candy_details_candy_details__ = __webpack_require__(166);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_3__candy_details_candy_details__ = __webpack_require__(165);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_4__providers_backpack_service_backpack_service__ = __webpack_require__(62);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_5__pipes_keyvalue_keyvalue__ = __webpack_require__(85);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_6__pipes_shorten_string_shorten_string__ = __webpack_require__(86);
@@ -1241,13 +1235,13 @@ Object(__WEBPACK_IMPORTED_MODULE_0__angular_platform_browser_dynamic__["a" /* pl
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_24__pages_map_map__ = __webpack_require__(126);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_25__pages_list_list__ = __webpack_require__(141);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_26__pages_backpack_backpack__ = __webpack_require__(326);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_27__pages_level_level__ = __webpack_require__(168);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_28__pages_candy_details_candy_details__ = __webpack_require__(166);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_29__pages_my_addresses_my_addresses__ = __webpack_require__(165);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_27__pages_level_level__ = __webpack_require__(167);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_28__pages_candy_details_candy_details__ = __webpack_require__(165);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_29__pages_my_addresses_my_addresses__ = __webpack_require__(164);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_30__pages_rules_rules__ = __webpack_require__(171);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_31__pages_legal_legal__ = __webpack_require__(167);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_32__pages_about_about__ = __webpack_require__(163);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_33__pages_age_select_age_select__ = __webpack_require__(164);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_31__pages_legal_legal__ = __webpack_require__(166);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_32__pages_about_about__ = __webpack_require__(168);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_33__pages_age_select_age_select__ = __webpack_require__(163);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_34__providers_map_service_map_service__ = __webpack_require__(699);
 var __decorate = (this && this.__decorate) || function (decorators, target, key, desc) {
     var c = arguments.length, r = c < 3 ? target : desc === null ? desc = Object.getOwnPropertyDescriptor(target, key) : desc, d;
@@ -1320,11 +1314,11 @@ var AppModule = (function () {
                 __WEBPACK_IMPORTED_MODULE_16__pipes_pipes_module__["a" /* PipesModule */],
                 __WEBPACK_IMPORTED_MODULE_5_ionic_angular__["d" /* IonicModule */].forRoot(__WEBPACK_IMPORTED_MODULE_4__app_component__["a" /* MyApp */], {}, {
                     links: [
-                        { loadChildren: '../pages/about/about.module#AboutPageModule', name: 'AboutPage', segment: 'about', priority: 'low', defaultHistory: [] },
                         { loadChildren: '../pages/age-select/age-select.module#AgeSelectPageModule', name: 'AgeSelectPage', segment: 'age-select', priority: 'low', defaultHistory: [] },
                         { loadChildren: '../pages/candy-details/candy-details.module#CandyDetailsPageModule', name: 'CandyDetailsPage', segment: 'candy-details', priority: 'low', defaultHistory: [] },
                         { loadChildren: '../pages/legal/legal.module#LegalPageModule', name: 'LegalPage', segment: 'legal', priority: 'low', defaultHistory: [] },
                         { loadChildren: '../pages/level/level.module#LevelPageModule', name: 'LevelPage', segment: 'level', priority: 'low', defaultHistory: [] },
+                        { loadChildren: '../pages/about/about.module#AboutPageModule', name: 'AboutPage', segment: 'about', priority: 'low', defaultHistory: [] },
                         { loadChildren: '../pages/login/login.module#LoginPageModule', name: 'LoginPage', segment: 'login', priority: 'low', defaultHistory: [] },
                         { loadChildren: '../pages/my-addresses/my-addresses.module#MyAddressesPageModule', name: 'MyAddressesPage', segment: 'my-addresses', priority: 'low', defaultHistory: [] },
                         { loadChildren: '../pages/my-home/my-home.module#MyHomePageModule', name: 'MyHomePage', segment: 'my-home', priority: 'low', defaultHistory: [] },
@@ -1558,6 +1552,9 @@ var GeolocServiceProvider = (function () {
             console.log('Error getting location', error);
         });
     };
+    GeolocServiceProvider.prototype.watchPosition = function () {
+        this.geolocation.watchPosition();
+    };
     // get distance from age param
     GeolocServiceProvider.prototype.getDist = function (ageRange) {
         this.currentUserAgeRange = ageRange;
@@ -1599,12 +1596,6 @@ var GeolocServiceProvider = (function () {
         var corner1 = __WEBPACK_IMPORTED_MODULE_2_leaflet___default.a.latLng(this.mybounds[0], this.mybounds[1]), corner2 = __WEBPACK_IMPORTED_MODULE_2_leaflet___default.a.latLng(this.mybounds[2], this.mybounds[3]), bounds = __WEBPACK_IMPORTED_MODULE_2_leaflet___default.a.latLngBounds(corner1, corner2);
         // initialize Leaflet
         this.map = __WEBPACK_IMPORTED_MODULE_2_leaflet___default.a.map("map");
-        //leaflet.rectangle(bounds, {color: "#00000", weight: 1}).addTo(this.map);
-        //
-        // this.map = leaflet.map("map").fitBounds(bounds);
-        //leaflet.map("map").setMaxBounds(bounds);
-        //this.map = leaflet.map('map').setView({ lon: 0, lat: 0 }, 2);
-        // this.map = leaflet.map("map").fitWorld();
         // add the OpenStreetMap tiles
         __WEBPACK_IMPORTED_MODULE_2_leaflet___default.a.tileLayer('https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png', {
             maxZoom: 18,
@@ -1660,7 +1651,7 @@ var GeolocServiceProvider = (function () {
         markerGroup.addLayer(marker);
         this.map.addLayer(markerGroup);
     };
-    // add radius around current position on map
+    // add 50m radius around current position on map
     GeolocServiceProvider.prototype.addCircle = function () {
         var _this = this;
         this.geolocation.getCurrentPosition().then(function (res) {

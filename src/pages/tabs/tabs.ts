@@ -1,4 +1,4 @@
-
+import { Tabs } from 'ionic-angular';
 import { Component, ChangeDetectorRef } from '@angular/core';
 import { Events } from 'ionic-angular';
 import { MapPage } from '../map/map';
@@ -11,8 +11,9 @@ import { MyHomePage } from '../my-home/my-home';
   templateUrl: 'tabs.html'
 })
 export class TabsPage {
- 
+
     constructor( public events: Events, public detectorRef: ChangeDetectorRef )  {
+      
     }
 
   public tab1Root = ListPage;

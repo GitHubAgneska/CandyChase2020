@@ -44,12 +44,7 @@ npm i
 
 - Change type of data fetched in 'candy details' or displaying ( nutriscore data )
 
-- Routing via tabs pushing is unreliable (false routing) => find alternative
-
-ionic doc
- ``` 
- By default, pages are cached and left in the DOM if they are navigated away from but still in the navigation stack (the exiting page on a push() for example). They are destroyed when removed from the navigation stack (on pop() or setRoot()).
- ```
+- Routing / tabs 
 
 ---
 
