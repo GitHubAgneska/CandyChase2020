@@ -33805,7 +33805,7 @@ page-candy-details .candyDetailsPage-container .candyDetailsPage {
 page-candy-details .candyDetailsPage-container .candyDetailsPage .candyItemTitle {
   position: -webkit-sticky;
   position: sticky;
-  width: auto;
+  width: 100%;
   padding: 2%;
   margin: 10% auto;
   display: -webkit-box;
@@ -33855,6 +33855,29 @@ page-candy-details .candyDetailsPage-container .candyDetailsPage .candyItemTitle
   font-size: 5vw;
 }
 
+page-candy-details .candyDetailsPage-container .candyDetailsPage .candy-checklist {
+  width: 100%;
+  border: 5px solid pink;
+  border-radius: 15px;
+}
+
+page-candy-details .candyDetailsPage-container .candyDetailsPage .candy-checklist ul {
+  padding: 5%;
+  list-style-type: none;
+  font-family: 'Titan One', cursive;
+  font-size: 3.5vw;
+  color: orange;
+}
+
+page-candy-details .candyDetailsPage-container .candyDetailsPage .candy-checklist ul li {
+  padding: 3% 0%;
+}
+
+page-candy-details .candyDetailsPage-container .candyDetailsPage .candy-checklist ul li img {
+  max-width: 25px;
+  padding: 3%;
+}
+
 page-candy-details .candyDetailsPage-container .candyDetailsPage .rubrik h1 {
   font-family: 'Titan One', cursive;
   font-size: 5vw;
@@ -33862,6 +33885,10 @@ page-candy-details .candyDetailsPage-container .candyDetailsPage .rubrik h1 {
   text-align: center;
   border-bottom: 2px solid;
   line-height: 3;
+}
+
+page-candy-details .candyDetailsPage-container .candyDetailsPage .rubrik h1 .selected {
+  font-size: 7vw;
 }
 
 page-candy-details .candyDetailsPage-container .candyDetailsPage .rubrik h1 .arrowIcon {

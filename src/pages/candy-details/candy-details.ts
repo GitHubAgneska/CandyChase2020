@@ -18,9 +18,21 @@ export class CandyDetailsPage {
   public candyOfList:{};
   public candyId: string | number;
 
+  public candyChecklist: CandyChecklist;
+  public additives: boolean;
+  public preservatives: boolean;
+  public organic: boolean;
+  public glutenFree: boolean;
+  public vegan: boolean;
+  public vegetarian: boolean;
+
+  public iconTrue = 'assets/icon/icon_true.png';
+  public iconFalse = 'assets/icon/icon_false.png';
+
   public showIngredients: boolean;
   public showAllergens: boolean;
   public showNutriscore: boolean;
+  public selected: boolean;
 
   constructor(
     public navCtrl: NavController,
@@ -34,7 +46,14 @@ export class CandyDetailsPage {
       this.candyId = this.navParams.get("idparam");
       this.candyItem = { _id:"", product_name: "", generic_name_fr:"",
       image_front_url:"", brands_tags: [], ingredients_tags:[],
-      nutriscore_data:[], additive_tags:[], candyChecklist:[]};
+      nutriscore_data:[], additive_tags:[], allergens_hierarchy:[]};
+
+      this.candyChecklist = { additives: false,
+                              preservatives: false,
+                              organic: false,
+                              glutenFree: false,
+                              vegan: false,
+                              vegetarian: false };
 
       this.showIngredients = false;
       this.showAllergens = false;
@@ -54,12 +73,41 @@ export class CandyDetailsPage {
       this.candyItem.image_front_url = response.image_front_url;
       this.candyItem.ingredients_tags = response.ingredients_tags;
       this.candyItem.nutriscore_data = response.nutriscore_data;
+      this.candyItem.allergens_hierarchy = response.allergens_hierarchy;
+      this.candyItem.additive_tags = response.additive_tags;
+
+      console.log('candy response: ', response);
       
+      for ( const x of this.candyItem.allergens_hierarchy ) {
+        if (x === 'gluten' ) {
+          this.candyChecklist.glutenFree = false;
+          this.glutenFree = false;
+        }
+      }
+     /*  ( x === 'milk' ||  x === 'butter' ||  x === 'eggs') */
+      for (const x of this.candyItem.ingredients_tags ) { 
+        if ( x === 'milk'){
+          this.vegan = false;
+        }
+        if ( x === 'gelatin'){
+          this.vegetarian = false;
+          this.vegan = false;
+        } else { this.vegetarian = true;}
+      }
+
+      if ( this.candyItem.additive_tags && this.candyItem.additive_tags.length>0){
+        this.additives = true;
+      }
+
+
+
+
     })
   }
 
   toggleIngredients() {
     this.showIngredients = !this.showIngredients;
+    this.selected =! this.selected;
   }
 
   toggleAllergens(){

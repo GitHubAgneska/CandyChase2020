@@ -7,9 +7,6 @@
 <ion-content class="candyDetailsPage-container">
   <div class="candyDetailsPage" *ngIf="candyItem">
 
-      <div class="candy-checklist" *ngFor="let i of candyItem.candyChecklist">
-        <p>{{i}}</p>
-      </div>
       <div class="candyItemTitle">
         <div class="candyThumbnail">
           <img src="{{candyItem.image_front_url}}">
@@ -19,8 +16,39 @@
         </div> 
       </div>
 
+      <div class="candy-checklist row">
+        <ul class="col">
+          <li class="row">
+            <div *ngIf="organic;else elseblock"><img [src]=iconTrue /></div>
+            <ng-template #elseblock><img [src]=iconFalse /></ng-template>
+            Organic
+          </li>
+          <li class="row">
+          <div *ngIf="additives;else elseblock"><img [src]=iconTrue /></div>
+          <ng-template #elseblock><img [src]=iconFalse /></ng-template>
+          Additives</li>
+          <li class="row">
+          <div *ngIf="preservatives;else elseblock"><img [src]=iconTrue /></div>
+          <ng-template #elseblock><img [src]=iconFalse /></ng-template>
+          Preservatives</li>
+        </ul> 
+        <ul class="col">
+          <li class="row">
+          <div *ngIf="glutenFree;else elseblock"><img [src]=iconTrue /></div>
+          <ng-template #elseblock><img [src]=iconFalse /></ng-template>
+          Gluten free</li>
+          <li class="row">
+          <div *ngIf="vegan;else elseblock"><img [src]=iconTrue /></div>
+          <ng-template #elseblock><img [src]=iconFalse /></ng-template>
+          Vegan</li>
+          <li class="row">
+          <div *ngIf="vegetarian;else elseblock"><img [src]=iconTrue /></div>
+          <ng-template #elseblock><img [src]=iconFalse /></ng-template>
+          Vegetarian</li>
+        </ul> 
+      </div>
       <div class="rubrik">
-        <h1 (click)="toggleIngredients()">Ingredients<span class="arrowIcon"></span></h1>
+        <h1 (click)="toggleIngredients()">Ingredients hierarchy<span class="arrowIcon"></span></h1>
         <div class="candyIngredients" *ngIf="showIngredients">
           <table>
             <tr *ngFor="let i of candyItem.ingredients_tags">
@@ -52,9 +80,9 @@
         <h1 (click)="toggleAllergens()">Allergens</h1>
         <div class="candyAllergens" *ngIf="showAllergens">
           <table>
-            <tr *ngFor="let i of candyItem.ingredients_tags">
+            <tr *ngFor="let i of candyItem.allergens_hierarchy">
               <td>
-                {{ i.key }}
+                {{ i | removeChars }}
               </td>
             </tr>
           </table>

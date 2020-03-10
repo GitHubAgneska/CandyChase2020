@@ -12,8 +12,10 @@ export class Candy implements CandyI {
     ingredients_tags? = [];
     nutriscore_data? = {};
     additive_tags? = [];
+    allergens_hierarchy? = [];
 
-    candyChecklist? = [CandyChecklist];
+
+    candyChecklist? = CandyChecklist;
 
     constructor(fields?: Partial<CandyI>)  {
         if(fields) {
@@ -25,11 +27,11 @@ export class Candy implements CandyI {
 
 export class CandyChecklist implements CandyChecklistI {
     
-    additives: false;
-    preservatives: false;
-    transfats: false;
-    glutenFree: false;
-    vegan: false;
-    vegetarian: false;
+    additives = false;
+    preservatives = false;
+    organic = false;
+    glutenFree = false;
+    vegan = false;
+    vegetarian = false;
 
 }

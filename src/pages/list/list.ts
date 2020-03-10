@@ -1,8 +1,8 @@
 import { Component, OnInit } from '@angular/core';
 import { ToastController } from 'ionic-angular';
 import { Geolocation } from '@ionic-native/geolocation';
-import { Candy } from '../../models/candy.model';
-import { CandyI } from '../../models/candy.interface';
+import { Candy ,CandyChecklist } from '../../models/candy.model';
+import { CandyI, CandyChecklistI } from '../../models/candy.interface';
 import { CandyService } from '../../providers/candy-api-service/candy-api-service';
 import { BackpackServiceProvider } from '../../providers/backpack-service/backpack-service'
 import { GeolocServiceProvider } from '../../providers/geoloc-service/geoloc-service';
@@ -18,9 +18,10 @@ export class ListPage implements OnInit {
   candyList$: Observable<Array<CandyI>>;
 
   public candyList: CandyI[];
-  public candyItem: CandyI;
+  public candyItem: Candy;
+  public candyChecklist: CandyChecklist;
 
-  public itemsInBackpack: CandyI[];
+  public itemsInBackpack: Candy[];
   public totalCandy: number;
 
   public geo: any;
@@ -37,8 +38,14 @@ export class ListPage implements OnInit {
     this.candyItem = {
       _id: "", product_name: "", amountInBackpack: 0,
       image_front_url: "", brands_tags: [], ingredients_tags: [],
-      nutriscore_data: [], additive_tags: []
+      nutriscore_data: [], additive_tags: [], allergens_hierarchy:[]
     };
+    this.candyChecklist = { additives: false,
+      preservatives: false,
+      organic: false,
+      glutenFree: false,
+      vegan: false,
+      vegetarian: false };
     this.itemsInBackpack = [];
     this.totalCandy = 0;
   }

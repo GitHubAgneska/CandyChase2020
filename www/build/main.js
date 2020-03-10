@@ -177,8 +177,14 @@ var ListPage = (function () {
         this.candyItem = {
             _id: "", product_name: "", amountInBackpack: 0,
             image_front_url: "", brands_tags: [], ingredients_tags: [],
-            nutriscore_data: [], additive_tags: []
+            nutriscore_data: [], additive_tags: [], allergens_hierarchy: []
         };
+        this.candyChecklist = { additives: false,
+            preservatives: false,
+            organic: false,
+            glutenFree: false,
+            vegan: false,
+            vegetarian: false };
         this.itemsInBackpack = [];
         this.totalCandy = 0;
     }
@@ -430,10 +436,18 @@ var CandyDetailsPage = (function () {
         this.keyvaluepipe = keyvaluepipe;
         this.removeUnderscore = removeUnderscore;
         this.removeChars = removeChars;
+        this.iconTrue = 'assets/icon/icon_true.png';
+        this.iconFalse = 'assets/icon/icon_false.png';
         this.candyId = this.navParams.get("idparam");
         this.candyItem = { _id: "", product_name: "", generic_name_fr: "",
             image_front_url: "", brands_tags: [], ingredients_tags: [],
-            nutriscore_data: [], additive_tags: [], candyChecklist: [] };
+            nutriscore_data: [], additive_tags: [], allergens_hierarchy: [] };
+        this.candyChecklist = { additives: false,
+            preservatives: false,
+            organic: false,
+            glutenFree: false,
+            vegan: false,
+            vegetarian: false };
         this.showIngredients = false;
         this.showAllergens = false;
         this.showNutriscore = false;
@@ -449,10 +463,38 @@ var CandyDetailsPage = (function () {
             _this.candyItem.image_front_url = response.image_front_url;
             _this.candyItem.ingredients_tags = response.ingredients_tags;
             _this.candyItem.nutriscore_data = response.nutriscore_data;
+            _this.candyItem.allergens_hierarchy = response.allergens_hierarchy;
+            _this.candyItem.additive_tags = response.additive_tags;
+            console.log('candy response: ', response);
+            for (var _i = 0, _a = _this.candyItem.allergens_hierarchy; _i < _a.length; _i++) {
+                var x = _a[_i];
+                if (x === 'gluten') {
+                    _this.candyChecklist.glutenFree = false;
+                    _this.glutenFree = false;
+                }
+            }
+            /*  ( x === 'milk' ||  x === 'butter' ||  x === 'eggs') */
+            for (var _b = 0, _c = _this.candyItem.ingredients_tags; _b < _c.length; _b++) {
+                var x = _c[_b];
+                if (x === 'milk') {
+                    _this.vegan = false;
+                }
+                if (x === 'gelatin') {
+                    _this.vegetarian = false;
+                    _this.vegan = false;
+                }
+                else {
+                    _this.vegetarian = true;
+                }
+            }
+            if (_this.candyItem.additive_tags && _this.candyItem.additive_tags.length > 0) {
+                _this.additives = true;
+            }
         });
     };
     CandyDetailsPage.prototype.toggleIngredients = function () {
         this.showIngredients = !this.showIngredients;
+        this.selected = !this.selected;
     };
     CandyDetailsPage.prototype.toggleAllergens = function () {
         this.showAllergens = !this.showAllergens;
@@ -465,12 +507,16 @@ var CandyDetailsPage = (function () {
     };
     CandyDetailsPage = __decorate([
         Object(__WEBPACK_IMPORTED_MODULE_0__angular_core__["m" /* Component */])({
-            selector: 'page-candy-details',template:/*ion-inline-start:"/Users/hildegardagnesgenay/Documents/AndBEYOND/CANDY_CHASE_2020_ionic/candyChase2020/src/pages/candy-details/candy-details.html"*/'<ion-header>\n  <ion-navbar color="customColor">\n    <ion-title text-center class="mainTitles">Candy Infos</ion-title>\n  </ion-navbar>\n</ion-header>\n\n<ion-content class="candyDetailsPage-container">\n  <div class="candyDetailsPage" *ngIf="candyItem">\n\n      <div class="candy-checklist" *ngFor="let i of candyItem.candyChecklist">\n        <p>{{i}}</p>\n      </div>\n      <div class="candyItemTitle">\n        <div class="candyThumbnail">\n          <img src="{{candyItem.image_front_url}}">\n        </div>\n        <div>\n          <h1>{{ candyItem.product_name | shortenString:30 }}</h1>\n        </div> \n      </div>\n\n      <div class="rubrik">\n        <h1 (click)="toggleIngredients()">Ingredients<span class="arrowIcon"></span></h1>\n        <div class="candyIngredients" *ngIf="showIngredients">\n          <table>\n            <tr *ngFor="let i of candyItem.ingredients_tags">\n              <td>\n                {{ i | removeChars }}\n              </td>\n            </tr>\n          </table>\n        </div>\n      </div>\n\n      <div class="rubrik">\n        <h1 (click)="toggleNutriscore()">Nutriscore</h1>\n        <div class="candyNutriscore" *ngIf="showNutriscore">\n          <table>\n            <tr *ngFor="let i of candyItem.nutriscore_data | keyvalue">\n              <td>\n                {{ i.key | removeUnderscore }}\n              </td>\n              <td>\n                {{ i.value }}\n              </td>\n            </tr>\n          </table>\n        </div>\n      </div>\n      \n      <div class="rubrik">\n        <h1 (click)="toggleAllergens()">Allergens</h1>\n        <div class="candyAllergens" *ngIf="showAllergens">\n          <table>\n            <tr *ngFor="let i of candyItem.ingredients_tags">\n              <td>\n                {{ i.key }}\n              </td>\n            </tr>\n          </table>\n        </div>\n      </div>\n\n  </div>\n</ion-content>\n'/*ion-inline-end:"/Users/hildegardagnesgenay/Documents/AndBEYOND/CANDY_CHASE_2020_ionic/candyChase2020/src/pages/candy-details/candy-details.html"*/,
+            selector: 'page-candy-details',template:/*ion-inline-start:"/Users/hildegardagnesgenay/Documents/AndBEYOND/CANDY_CHASE_2020_ionic/candyChase2020/src/pages/candy-details/candy-details.html"*/'<ion-header>\n  <ion-navbar color="customColor">\n    <ion-title text-center class="mainTitles">Candy Infos</ion-title>\n  </ion-navbar>\n</ion-header>\n\n<ion-content class="candyDetailsPage-container">\n  <div class="candyDetailsPage" *ngIf="candyItem">\n\n      <div class="candyItemTitle">\n        <div class="candyThumbnail">\n          <img src="{{candyItem.image_front_url}}">\n        </div>\n        <div>\n          <h1>{{ candyItem.product_name | shortenString:30 }}</h1>\n        </div> \n      </div>\n\n      <div class="candy-checklist row">\n        <ul class="col">\n          <li class="row">\n            <div *ngIf="organic;else elseblock"><img [src]=iconTrue /></div>\n            <ng-template #elseblock><img [src]=iconFalse /></ng-template>\n            Organic\n          </li>\n          <li class="row">\n          <div *ngIf="additives;else elseblock"><img [src]=iconTrue /></div>\n          <ng-template #elseblock><img [src]=iconFalse /></ng-template>\n          Additives</li>\n          <li class="row">\n          <div *ngIf="preservatives;else elseblock"><img [src]=iconTrue /></div>\n          <ng-template #elseblock><img [src]=iconFalse /></ng-template>\n          Preservatives</li>\n        </ul> \n        <ul class="col">\n          <li class="row">\n          <div *ngIf="glutenFree;else elseblock"><img [src]=iconTrue /></div>\n          <ng-template #elseblock><img [src]=iconFalse /></ng-template>\n          Gluten free</li>\n          <li class="row">\n          <div *ngIf="vegan;else elseblock"><img [src]=iconTrue /></div>\n          <ng-template #elseblock><img [src]=iconFalse /></ng-template>\n          Vegan</li>\n          <li class="row">\n          <div *ngIf="vegetarian;else elseblock"><img [src]=iconTrue /></div>\n          <ng-template #elseblock><img [src]=iconFalse /></ng-template>\n          Vegetarian</li>\n        </ul> \n      </div>\n      <div class="rubrik">\n        <h1 (click)="toggleIngredients()">Ingredients hierarchy<span class="arrowIcon"></span></h1>\n        <div class="candyIngredients" *ngIf="showIngredients">\n          <table>\n            <tr *ngFor="let i of candyItem.ingredients_tags">\n              <td>\n                {{ i | removeChars }}\n              </td>\n            </tr>\n          </table>\n        </div>\n      </div>\n\n      <div class="rubrik">\n        <h1 (click)="toggleNutriscore()">Nutriscore</h1>\n        <div class="candyNutriscore" *ngIf="showNutriscore">\n          <table>\n            <tr *ngFor="let i of candyItem.nutriscore_data | keyvalue">\n              <td>\n                {{ i.key | removeUnderscore }}\n              </td>\n              <td>\n                {{ i.value }}\n              </td>\n            </tr>\n          </table>\n        </div>\n      </div>\n      \n      <div class="rubrik">\n        <h1 (click)="toggleAllergens()">Allergens</h1>\n        <div class="candyAllergens" *ngIf="showAllergens">\n          <table>\n            <tr *ngFor="let i of candyItem.allergens_hierarchy">\n              <td>\n                {{ i | removeChars }}\n              </td>\n            </tr>\n          </table>\n        </div>\n      </div>\n\n  </div>\n</ion-content>\n'/*ion-inline-end:"/Users/hildegardagnesgenay/Documents/AndBEYOND/CANDY_CHASE_2020_ionic/candyChase2020/src/pages/candy-details/candy-details.html"*/,
         }),
-        __metadata("design:paramtypes", [typeof (_a = typeof __WEBPACK_IMPORTED_MODULE_1_ionic_angular__["g" /* NavController */] !== "undefined" && __WEBPACK_IMPORTED_MODULE_1_ionic_angular__["g" /* NavController */]) === "function" && _a || Object, typeof (_b = typeof __WEBPACK_IMPORTED_MODULE_1_ionic_angular__["h" /* NavParams */] !== "undefined" && __WEBPACK_IMPORTED_MODULE_1_ionic_angular__["h" /* NavParams */]) === "function" && _b || Object, typeof (_c = typeof __WEBPACK_IMPORTED_MODULE_2__providers_candy_api_service_candy_api_service__["a" /* CandyService */] !== "undefined" && __WEBPACK_IMPORTED_MODULE_2__providers_candy_api_service_candy_api_service__["a" /* CandyService */]) === "function" && _c || Object, typeof (_d = typeof __WEBPACK_IMPORTED_MODULE_3__pipes_keyvalue_keyvalue__["a" /* KeyvaluePipe */] !== "undefined" && __WEBPACK_IMPORTED_MODULE_3__pipes_keyvalue_keyvalue__["a" /* KeyvaluePipe */]) === "function" && _d || Object, typeof (_e = typeof __WEBPACK_IMPORTED_MODULE_4__pipes_remove_underscore_remove_underscore__["a" /* RemoveUnderscorePipe */] !== "undefined" && __WEBPACK_IMPORTED_MODULE_4__pipes_remove_underscore_remove_underscore__["a" /* RemoveUnderscorePipe */]) === "function" && _e || Object, typeof (_f = typeof __WEBPACK_IMPORTED_MODULE_5__pipes_remove_chars_remove_chars__["a" /* RemoveCharsPipe */] !== "undefined" && __WEBPACK_IMPORTED_MODULE_5__pipes_remove_chars_remove_chars__["a" /* RemoveCharsPipe */]) === "function" && _f || Object])
+        __metadata("design:paramtypes", [__WEBPACK_IMPORTED_MODULE_1_ionic_angular__["g" /* NavController */],
+            __WEBPACK_IMPORTED_MODULE_1_ionic_angular__["h" /* NavParams */],
+            __WEBPACK_IMPORTED_MODULE_2__providers_candy_api_service_candy_api_service__["a" /* CandyService */],
+            __WEBPACK_IMPORTED_MODULE_3__pipes_keyvalue_keyvalue__["a" /* KeyvaluePipe */],
+            __WEBPACK_IMPORTED_MODULE_4__pipes_remove_underscore_remove_underscore__["a" /* RemoveUnderscorePipe */],
+            __WEBPACK_IMPORTED_MODULE_5__pipes_remove_chars_remove_chars__["a" /* RemoveCharsPipe */]])
     ], CandyDetailsPage);
     return CandyDetailsPage;
-    var _a, _b, _c, _d, _e, _f;
 }());
 
 //# sourceMappingURL=candy-details.js.map
