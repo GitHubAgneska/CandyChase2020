@@ -46,7 +46,7 @@ export class CandyDetailsPage {
       this.candyId = this.navParams.get("idparam");
       this.candyItem = { _id:"", product_name: "", generic_name_fr:"",
       image_front_url:"", brands_tags: [], ingredients_tags:[],
-      nutriscore_data:[], additive_tags:[], allergens_hierarchy:[]};
+      nutriscore_data:[], additives_tags:[], allergens_hierarchy:[], labels:""};
 
       this.candyChecklist = { additives: false,
                               preservatives: false,
@@ -74,7 +74,8 @@ export class CandyDetailsPage {
       this.candyItem.ingredients_tags = response.ingredients_tags;
       this.candyItem.nutriscore_data = response.nutriscore_data;
       this.candyItem.allergens_hierarchy = response.allergens_hierarchy;
-      this.candyItem.additive_tags = response.additive_tags;
+      this.candyItem.additives_tags = response.additives_tags;
+      this.candyItem.labels = response.labels;
 
       console.log('candy response: ', response);
       
@@ -95,13 +96,15 @@ export class CandyDetailsPage {
         } else { this.vegetarian = true;}
       }
 
-      if ( this.candyItem.additive_tags && this.candyItem.additive_tags.length>0){
+      if ( this.candyItem.additives_tags && this.candyItem.additives_tags.length>0){
         this.additives = true;
       }
 
-
-
-
+      if ( this.candyItem.labels && this.candyItem.labels.length > 0 ) {
+        this.candyItem.labels.split(',').forEach(x => { if ( x === 'bio' ||  x === 'ab') {
+          this.organic = true;}
+        });
+      }
     })
   }
 

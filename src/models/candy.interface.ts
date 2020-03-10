@@ -9,8 +9,9 @@ export interface CandyI {
     brands_tags?: any[];
     ingredients_tags?: any[];
     nutriscore_data?: {};
-    additive_tags?: any[];
+    additives_tags?: any[];
     allergens_hierarchy?: any[];
+    labels?: string;
 
     candyChecklist?: {};
 }

@@ -11,9 +11,9 @@ export class Candy implements CandyI {
     brands_tags?  = [];
     ingredients_tags? = [];
     nutriscore_data? = {};
-    additive_tags? = [];
+    additives_tags? = [];
     allergens_hierarchy? = [];
-
+    labels? ="";
 
     candyChecklist? = CandyChecklist;
 

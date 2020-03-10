@@ -85,8 +85,9 @@ var RemoveUnderscorePipe = (function () {
     function RemoveUnderscorePipe() {
     }
     RemoveUnderscorePipe.prototype.transform = function (value) {
+        var toReplace = /[-_]/gm;
         if (value) {
-            return value = value.toString().replace('_', ' ');
+            return value = value.toString().replace(toReplace, ' ');
         }
     };
     RemoveUnderscorePipe = __decorate([
@@ -177,7 +178,7 @@ var ListPage = (function () {
         this.candyItem = {
             _id: "", product_name: "", amountInBackpack: 0,
             image_front_url: "", brands_tags: [], ingredients_tags: [],
-            nutriscore_data: [], additive_tags: [], allergens_hierarchy: []
+            nutriscore_data: [], additives_tags: [], allergens_hierarchy: []
         };
         this.candyChecklist = { additives: false,
             preservatives: false,
@@ -441,7 +442,7 @@ var CandyDetailsPage = (function () {
         this.candyId = this.navParams.get("idparam");
         this.candyItem = { _id: "", product_name: "", generic_name_fr: "",
             image_front_url: "", brands_tags: [], ingredients_tags: [],
-            nutriscore_data: [], additive_tags: [], allergens_hierarchy: [] };
+            nutriscore_data: [], additives_tags: [], allergens_hierarchy: [], labels: "" };
         this.candyChecklist = { additives: false,
             preservatives: false,
             organic: false,
@@ -464,7 +465,8 @@ var CandyDetailsPage = (function () {
             _this.candyItem.ingredients_tags = response.ingredients_tags;
             _this.candyItem.nutriscore_data = response.nutriscore_data;
             _this.candyItem.allergens_hierarchy = response.allergens_hierarchy;
-            _this.candyItem.additive_tags = response.additive_tags;
+            _this.candyItem.additives_tags = response.additives_tags;
+            _this.candyItem.labels = response.labels;
             console.log('candy response: ', response);
             for (var _i = 0, _a = _this.candyItem.allergens_hierarchy; _i < _a.length; _i++) {
                 var x = _a[_i];
@@ -487,8 +489,15 @@ var CandyDetailsPage = (function () {
                     _this.vegetarian = true;
                 }
             }
-            if (_this.candyItem.additive_tags && _this.candyItem.additive_tags.length > 0) {
+            if (_this.candyItem.additives_tags && _this.candyItem.additives_tags.length > 0) {
                 _this.additives = true;
+            }
+            if (_this.candyItem.labels && _this.candyItem.labels.length > 0) {
+                _this.candyItem.labels.split(',').forEach(function (x) {
+                    if (x === 'bio' || x === 'ab') {
+                        _this.organic = true;
+                    }
+                });
             }
         });
     };
@@ -507,7 +516,7 @@ var CandyDetailsPage = (function () {
     };
     CandyDetailsPage = __decorate([
         Object(__WEBPACK_IMPORTED_MODULE_0__angular_core__["m" /* Component */])({
-            selector: 'page-candy-details',template:/*ion-inline-start:"/Users/hildegardagnesgenay/Documents/AndBEYOND/CANDY_CHASE_2020_ionic/candyChase2020/src/pages/candy-details/candy-details.html"*/'<ion-header>\n  <ion-navbar color="customColor">\n    <ion-title text-center class="mainTitles">Candy Infos</ion-title>\n  </ion-navbar>\n</ion-header>\n\n<ion-content class="candyDetailsPage-container">\n  <div class="candyDetailsPage" *ngIf="candyItem">\n\n      <div class="candyItemTitle">\n        <div class="candyThumbnail">\n          <img src="{{candyItem.image_front_url}}">\n        </div>\n        <div>\n          <h1>{{ candyItem.product_name | shortenString:30 }}</h1>\n        </div> \n      </div>\n\n      <div class="candy-checklist row">\n        <ul class="col">\n          <li class="row">\n            <div *ngIf="organic;else elseblock"><img [src]=iconTrue /></div>\n            <ng-template #elseblock><img [src]=iconFalse /></ng-template>\n            Organic\n          </li>\n          <li class="row">\n          <div *ngIf="additives;else elseblock"><img [src]=iconTrue /></div>\n          <ng-template #elseblock><img [src]=iconFalse /></ng-template>\n          Additives</li>\n          <li class="row">\n          <div *ngIf="preservatives;else elseblock"><img [src]=iconTrue /></div>\n          <ng-template #elseblock><img [src]=iconFalse /></ng-template>\n          Preservatives</li>\n        </ul> \n        <ul class="col">\n          <li class="row">\n          <div *ngIf="glutenFree;else elseblock"><img [src]=iconTrue /></div>\n          <ng-template #elseblock><img [src]=iconFalse /></ng-template>\n          Gluten free</li>\n          <li class="row">\n          <div *ngIf="vegan;else elseblock"><img [src]=iconTrue /></div>\n          <ng-template #elseblock><img [src]=iconFalse /></ng-template>\n          Vegan</li>\n          <li class="row">\n          <div *ngIf="vegetarian;else elseblock"><img [src]=iconTrue /></div>\n          <ng-template #elseblock><img [src]=iconFalse /></ng-template>\n          Vegetarian</li>\n        </ul> \n      </div>\n      <div class="rubrik">\n        <h1 (click)="toggleIngredients()">Ingredients hierarchy<span class="arrowIcon"></span></h1>\n        <div class="candyIngredients" *ngIf="showIngredients">\n          <table>\n            <tr *ngFor="let i of candyItem.ingredients_tags">\n              <td>\n                {{ i | removeChars }}\n              </td>\n            </tr>\n          </table>\n        </div>\n      </div>\n\n      <div class="rubrik">\n        <h1 (click)="toggleNutriscore()">Nutriscore</h1>\n        <div class="candyNutriscore" *ngIf="showNutriscore">\n          <table>\n            <tr *ngFor="let i of candyItem.nutriscore_data | keyvalue">\n              <td>\n                {{ i.key | removeUnderscore }}\n              </td>\n              <td>\n                {{ i.value }}\n              </td>\n            </tr>\n          </table>\n        </div>\n      </div>\n      \n      <div class="rubrik">\n        <h1 (click)="toggleAllergens()">Allergens</h1>\n        <div class="candyAllergens" *ngIf="showAllergens">\n          <table>\n            <tr *ngFor="let i of candyItem.allergens_hierarchy">\n              <td>\n                {{ i | removeChars }}\n              </td>\n            </tr>\n          </table>\n        </div>\n      </div>\n\n  </div>\n</ion-content>\n'/*ion-inline-end:"/Users/hildegardagnesgenay/Documents/AndBEYOND/CANDY_CHASE_2020_ionic/candyChase2020/src/pages/candy-details/candy-details.html"*/,
+            selector: 'page-candy-details',template:/*ion-inline-start:"/Users/hildegardagnesgenay/Documents/AndBEYOND/CANDY_CHASE_2020_ionic/candyChase2020/src/pages/candy-details/candy-details.html"*/'<ion-header>\n  <ion-navbar color="customColor">\n    <ion-title text-center class="mainTitles">Candy Infos</ion-title>\n  </ion-navbar>\n</ion-header>\n\n<ion-content class="candyDetailsPage-container">\n  <div class="candyDetailsPage" *ngIf="candyItem">\n\n      <div class="candyItemTitle">\n        <div class="candyThumbnail">\n          <img src="{{candyItem.image_front_url}}">\n        </div>\n        <div>\n          <h1>{{ candyItem.product_name | shortenString:30 }}</h1>\n        </div> \n      </div>\n\n      <div class="candy-checklist row">\n        <ul class="col">\n          <li class="row">\n            <div *ngIf="organic;else elseblock"><img [src]=iconTrue /></div>\n            <ng-template #elseblock><img [src]=iconFalse /></ng-template>\n            Organic\n          </li>\n          <li class="row">\n          <div *ngIf="additives;else elseblock"><img [src]=iconTrue /></div>\n          <ng-template #elseblock><img [src]=iconFalse /></ng-template>\n          Additives</li>\n<!--           <li class="row">\n          <div *ngIf="preservatives;else elseblock"><img [src]=iconTrue /></div>\n          <ng-template #elseblock><img [src]=iconFalse /></ng-template>\n          Preservatives</li> -->\n        </ul> \n        <ul class="col">\n          <li class="row">\n          <div *ngIf="glutenFree;else elseblock"><img [src]=iconTrue /></div>\n          <ng-template #elseblock><img [src]=iconFalse /></ng-template>\n          Gluten free</li>\n          <li class="row">\n          <div *ngIf="vegan;else elseblock"><img [src]=iconTrue /></div>\n          <ng-template #elseblock><img [src]=iconFalse /></ng-template>\n          Vegan</li>\n          <li class="row">\n          <div *ngIf="vegetarian;else elseblock"><img [src]=iconTrue /></div>\n          <ng-template #elseblock><img [src]=iconFalse /></ng-template>\n          Vegetarian</li>\n        </ul> \n      </div>\n      <div class="rubrik">\n        <h1 (click)="toggleIngredients()">Ingredients hierarchy<span class="arrowIcon"></span></h1>\n        <div class="candyIngredients" *ngIf="showIngredients">\n          <table>\n            <tr *ngFor="let i of candyItem.ingredients_tags">\n              <td>\n                {{ i | removeChars | removeUnderscore }}\n              </td>\n            </tr>\n          </table>\n        </div>\n      </div>\n\n      <div class="rubrik">\n        <h1 (click)="toggleNutriscore()">Nutriscore</h1>\n        <div class="candyNutriscore" *ngIf="showNutriscore">\n          <table>\n            <tr *ngFor="let i of candyItem.nutriscore_data | keyvalue">\n              <td>\n                {{ i.key | removeUnderscore }}\n              </td>\n              <td>\n                {{ i.value }}\n              </td>\n            </tr>\n          </table>\n        </div>\n      </div>\n      \n      <div class="rubrik">\n        <h1 (click)="toggleAllergens()">Allergens</h1>\n        <div class="candyAllergens" *ngIf="showAllergens">\n          <table>\n            <tr *ngFor="let i of candyItem.allergens_hierarchy">\n              <td>\n                {{ i | removeChars }}\n              </td>\n            </tr>\n          </table>\n        </div>\n      </div>\n\n  </div>\n</ion-content>\n'/*ion-inline-end:"/Users/hildegardagnesgenay/Documents/AndBEYOND/CANDY_CHASE_2020_ionic/candyChase2020/src/pages/candy-details/candy-details.html"*/,
         }),
         __metadata("design:paramtypes", [__WEBPACK_IMPORTED_MODULE_1_ionic_angular__["g" /* NavController */],
             __WEBPACK_IMPORTED_MODULE_1_ionic_angular__["h" /* NavParams */],
