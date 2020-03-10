@@ -50,6 +50,10 @@ export class BackpackServiceProvider {
   public update_level(levelName: string) {
     this.levelName$.next(levelName);
   }
+
+  
+
+
 }
 
 // TODO : + backend => create new backpack for each user

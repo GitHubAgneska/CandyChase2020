@@ -24,6 +24,8 @@ export class ListPage implements OnInit {
   public itemsInBackpack: Candy[];
   public totalCandy: number;
 
+  // public youLevelUp = "assets/graphicMat/levelUp.png";
+
   public geo: any;
 
   constructor(
@@ -41,13 +43,14 @@ export class ListPage implements OnInit {
       nutriscore_data: [], additives_tags: [], allergens_hierarchy:[]
     };
     this.candyChecklist = { additives: false,
-      preservatives: false,
-      organic: false,
-      glutenFree: false,
-      vegan: false,
-      vegetarian: false };
+                            preservatives: false,
+                            organic: false,
+                            glutenFree: false,
+                            vegan: false,
+                            vegetarian: false };
     this.itemsInBackpack = [];
     this.totalCandy = 0;
+    this.youLevelUp = false;
   }
 
   public ngOnInit(): void {}
@@ -68,14 +71,6 @@ export class ListPage implements OnInit {
 
     this.backpackService.currentBackpackCount.subscribe(data => this.totalCandy = data);
     
-    // alert new points as user clicks '+' 
-    this.toast.create({
-        message: `+1 Point! ${name}`,
-        duration: 300,
-        position: "middle",
-        cssClass: "custom-toast"
-      }).present();
-
     this.candyItem = candyItem;
     this.candyItem.product_name = candyItem.product_name;
     this.candyItem._id = candyItem._id;
@@ -86,7 +81,6 @@ export class ListPage implements OnInit {
   
     // look into items of backpack if new candy id already exists
     for (let item of this.itemsInBackpack) {
-
       // if id exists : only increase amount of this candy
       if (item.product_name === this.candyItem.product_name) {
         item.amountInBackpack +=1;
@@ -104,13 +98,38 @@ export class ListPage implements OnInit {
 
     // save new total of all candy
     this.backpackService.update_totalCandyCount(this.totalCandy+=1);
-
     // save backpack new state 
     this.backpackService.update_backpack(this.itemsInBackpack);
 
     //this.geolocService.getLocation();
+
+    // alert new points as user clicks '+' 
+    this.toast.create({
+      message: `+1 Point! ${name}`,
+      duration: 300,
+      position: "middle",
+      cssClass: "custom-toast"
+    }).present();
+    this.toast.create({
+      message: `TOTAL POINTS :`+ this.totalCandy + `!`,
+      duration: 400,
+      position: "middle",
+      cssClass: "custom-toast"
+    }).present();
+
+    if ( this.totalCandy === 5 || this.totalCandy === 10 ){
+      this.toast.create({
+        duration: 800,
+        position: "middle",
+        cssClass: "levelUp"
+      }).present();
+    }
   }
+
+
 }
+
+
 
 
 /*

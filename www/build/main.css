@@ -34195,6 +34195,14 @@ page-list .candyItem .plus-btn > button {
   text-align: center;
 }
 
+.levelUp {
+  z-index: 3;
+  background: rgba(255, 166, 0, 0.5) url("../assets/graphicMat/levelUp.png");
+  background-size: contain;
+  background-position: center;
+  background-repeat: no-repeat;
+}
+
 page-map .mapPage-container {
   height: 100vh;
   width: 100%;
