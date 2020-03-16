@@ -188,7 +188,7 @@ var ListPage = (function () {
             vegetarian: false };
         this.itemsInBackpack = [];
         this.totalCandy = 0;
-        this.youLevelUp = false;
+        // this.youLevelUp = false;
     }
     ListPage.prototype.ngOnInit = function () { };
     ListPage.prototype.ionViewWillEnter = function () {
@@ -244,11 +244,16 @@ var ListPage = (function () {
             position: "middle",
             cssClass: "custom-toast"
         }).present();
-        if (this.totalCandy === 5 || this.totalCandy === 10) {
+        if (this.totalCandy % 5 === 0) {
             this.toast.create({
                 duration: 800,
                 position: "middle",
                 cssClass: "levelUp"
+            }).present();
+            this.toast.create({
+                duration: 400,
+                position: "middle",
+                cssClass: "newCard"
             }).present();
         }
     };
@@ -256,10 +261,14 @@ var ListPage = (function () {
         Object(__WEBPACK_IMPORTED_MODULE_0__angular_core__["m" /* Component */])({
             selector: 'page-list',template:/*ion-inline-start:"/Users/hildegardagnesgenay/Documents/AndBEYOND/CANDY_CHASE_2020_ionic/candyChase2020/src/pages/list/list.html"*/'\n<ion-header>\n  <ion-navbar color="customColor">\n    <ion-title text-center class="mainTitles">Candy to find</ion-title>\n  </ion-navbar>\n</ion-header>\n\n<ion-content class="candyPageContainer">\n  <div class="add-label">\n    <img src="assets/graphicMat/bubble_add2.png" alt="" />\n  </div>\n  <div class="candyList" *ngIf="candyList.length > 0">\n    <div *ngFor="let candyItem of candyList">\n      <div class="candyItem">\n        <div class="candyThumbnail">\n          <img src="{{candyItem.image_front_url}}" class="magic">\n        </div>\n        <div class="candyName">\n          <!-- <h2>{{data.brands_tags[1]}}</h2> -->\n          <h1>{{candyItem.product_name | shortenString:30 }}</h1>\n        </div>\n        <div class="plus-btn">\n          <!-- <button (click)="sendId(candyItem._id)"> -->\n          <button (click)="addCandyToBackpack(candyItem)">\n            <img src="assets/graphicmat/zoomIn.png" alt="plus-button"/>\n          </button>\n        </div>\n      </div>\n    </div>\n  </div>\n</ion-content>\n\n'/*ion-inline-end:"/Users/hildegardagnesgenay/Documents/AndBEYOND/CANDY_CHASE_2020_ionic/candyChase2020/src/pages/list/list.html"*/
         }),
-        __metadata("design:paramtypes", [typeof (_a = typeof __WEBPACK_IMPORTED_MODULE_1_ionic_angular__["j" /* ToastController */] !== "undefined" && __WEBPACK_IMPORTED_MODULE_1_ionic_angular__["j" /* ToastController */]) === "function" && _a || Object, typeof (_b = typeof __WEBPACK_IMPORTED_MODULE_3__providers_candy_api_service_candy_api_service__["a" /* CandyService */] !== "undefined" && __WEBPACK_IMPORTED_MODULE_3__providers_candy_api_service_candy_api_service__["a" /* CandyService */]) === "function" && _b || Object, typeof (_c = typeof __WEBPACK_IMPORTED_MODULE_4__providers_backpack_service_backpack_service__["a" /* BackpackServiceProvider */] !== "undefined" && __WEBPACK_IMPORTED_MODULE_4__providers_backpack_service_backpack_service__["a" /* BackpackServiceProvider */]) === "function" && _c || Object, typeof (_d = typeof __WEBPACK_IMPORTED_MODULE_2__ionic_native_geolocation__["a" /* Geolocation */] !== "undefined" && __WEBPACK_IMPORTED_MODULE_2__ionic_native_geolocation__["a" /* Geolocation */]) === "function" && _d || Object, typeof (_e = typeof __WEBPACK_IMPORTED_MODULE_5__providers_geoloc_service_geoloc_service__["a" /* GeolocServiceProvider */] !== "undefined" && __WEBPACK_IMPORTED_MODULE_5__providers_geoloc_service_geoloc_service__["a" /* GeolocServiceProvider */]) === "function" && _e || Object, typeof (_f = typeof __WEBPACK_IMPORTED_MODULE_6__pipes_shorten_string_shorten_string__["a" /* ShortenStringPipe */] !== "undefined" && __WEBPACK_IMPORTED_MODULE_6__pipes_shorten_string_shorten_string__["a" /* ShortenStringPipe */]) === "function" && _f || Object])
+        __metadata("design:paramtypes", [__WEBPACK_IMPORTED_MODULE_1_ionic_angular__["j" /* ToastController */],
+            __WEBPACK_IMPORTED_MODULE_3__providers_candy_api_service_candy_api_service__["a" /* CandyService */],
+            __WEBPACK_IMPORTED_MODULE_4__providers_backpack_service_backpack_service__["a" /* BackpackServiceProvider */],
+            __WEBPACK_IMPORTED_MODULE_2__ionic_native_geolocation__["a" /* Geolocation */],
+            __WEBPACK_IMPORTED_MODULE_5__providers_geoloc_service_geoloc_service__["a" /* GeolocServiceProvider */],
+            __WEBPACK_IMPORTED_MODULE_6__pipes_shorten_string_shorten_string__["a" /* ShortenStringPipe */]])
     ], ListPage);
     return ListPage;
-    var _a, _b, _c, _d, _e, _f;
 }());
 
 /*
@@ -1803,10 +1812,9 @@ var BackpackServiceProvider = (function () {
     };
     BackpackServiceProvider = __decorate([
         Object(__WEBPACK_IMPORTED_MODULE_1__angular_core__["A" /* Injectable */])(),
-        __metadata("design:paramtypes", [typeof (_a = typeof __WEBPACK_IMPORTED_MODULE_0__angular_common_http__["a" /* HttpClient */] !== "undefined" && __WEBPACK_IMPORTED_MODULE_0__angular_common_http__["a" /* HttpClient */]) === "function" && _a || Object])
+        __metadata("design:paramtypes", [__WEBPACK_IMPORTED_MODULE_0__angular_common_http__["a" /* HttpClient */]])
     ], BackpackServiceProvider);
     return BackpackServiceProvider;
-    var _a;
 }());
 
 // TODO : + backend => create new backpack for each user 

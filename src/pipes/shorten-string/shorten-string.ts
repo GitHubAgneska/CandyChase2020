@@ -23,3 +23,4 @@ export class ShortenStringPipe implements PipeTransform {
     } else { return value ;}
   }
 }
+

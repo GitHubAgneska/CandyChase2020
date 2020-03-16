@@ -41,9 +41,7 @@ npm i
 
 - 'candyService' => REMAP data results to leverage performances 
     on fetching candy list / => implem of a Sharereplay operator that inits as app opens
-
-- Change type of data fetched in 'candy details' or displaying ( nutriscore data )
-
+n
 - Routing / tabs 
 
 ---
@@ -76,4 +74,13 @@ npm i
 - Refactor scss to mutualize elements properties & 
     implement sass system
 
+---
 
+##### npm issues 
+
+- npm ERR! Cannot read property 'match' of undefined
+
+rm -rf node_modules
+rm package-lock.json
+npm cache clear --force
+npm install

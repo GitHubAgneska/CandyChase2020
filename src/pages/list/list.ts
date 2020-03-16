@@ -24,8 +24,6 @@ export class ListPage implements OnInit {
   public itemsInBackpack: Candy[];
   public totalCandy: number;
 
-  // public youLevelUp = "assets/graphicMat/levelUp.png";
-
   public geo: any;
 
   constructor(
@@ -50,7 +48,7 @@ export class ListPage implements OnInit {
                             vegetarian: false };
     this.itemsInBackpack = [];
     this.totalCandy = 0;
-    this.youLevelUp = false;
+    // this.youLevelUp = false;
   }
 
   public ngOnInit(): void {}
@@ -117,16 +115,20 @@ export class ListPage implements OnInit {
       cssClass: "custom-toast"
     }).present();
 
-    if ( this.totalCandy === 5 || this.totalCandy === 10 ){
+    if ( this.totalCandy%5 === 0 ){
       this.toast.create({
         duration: 800,
         position: "middle",
         cssClass: "levelUp"
       }).present();
+      this.toast.create({
+
+        duration: 400,
+        position: "middle",
+        cssClass: "newCard"
+      }).present();
     }
   }
-
-
 }
 
 

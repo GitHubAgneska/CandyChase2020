@@ -37,10 +37,15 @@ export class LevelPage implements OnInit {
       this.nextLevel = { "idLevel":"", "levelName": "", "levelImg": "", "bannerMessage":"", "levelCard":"",  "levelCardName":"" };
     }
 
+    public ngOnInit() {}
+
+   // public ionViewWillEnter():void{ this.backpackService.currentLevel.subscribe(data => { this.levelName = data.levelName } ) }
+
+/*
   public ngOnInit() {
     this.backpackService.currentBackpackCount.subscribe(data => this.totalPoints = data);
     this.totalCandy = this.totalPoints;
-    console.log(this.totalPoints);
+    // console.log(this.totalPoints);
   }
   
   public ionViewWillEnter():void{  
@@ -111,12 +116,8 @@ export class LevelPage implements OnInit {
         this.nextLevel.levelCardName = this.myArray[4].levelCardName;
       }
       this.backpackService.update_level(this.level.levelName);
-      
     });
+  } */
 
-  }
-
-  public ionViewDidLeave():void {
-
-  }
+  public ionViewDidLeave():void {}
 }

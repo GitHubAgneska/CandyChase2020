@@ -34185,7 +34185,7 @@ page-list .candyItem .plus-btn > button {
   background-color: transparent;
 }
 
-/* customize toast message */
+/* customize toast message points/total */
 .toast-message {
   height: 10vh !important;
   background-color: rgba(255, 0, 0, 0.589) !important;
@@ -34195,9 +34195,18 @@ page-list .candyItem .plus-btn > button {
   text-align: center;
 }
 
+/* customize toast message levelUp */
 .levelUp {
   z-index: 3;
-  background: rgba(255, 166, 0, 0.5) url("../assets/graphicMat/levelUp.png");
+  background: rgba(255, 166, 0, 0.7) url("../assets/graphicMat/levelUp.png");
+  background-size: contain;
+  background-position: center;
+  background-repeat: no-repeat;
+}
+
+.newCard {
+  z-index: 3;
+  background: rgba(255, 166, 0, 0.7) url("../assets/graphicMat/levelUp.png");
   background-size: contain;
   background-position: center;
   background-repeat: no-repeat;
