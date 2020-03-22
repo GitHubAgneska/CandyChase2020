@@ -45,6 +45,7 @@ import { LegalPage } from '../pages/legal/legal';
 import { AboutPage } from '../pages/about/about';
 import { AgeSelectPage } from '../pages/age-select/age-select';
 import { MapServiceProvider } from '../providers/map-service/map-service';
+import { LevelProvider } from '../providers/level/level';
 
 @NgModule({
   declarations: [
@@ -95,7 +96,7 @@ import { MapServiceProvider } from '../providers/map-service/map-service';
 /*     AngularFireAuth, */
     StatusBar,
     Geolocation,
-    Diagnostic,
+    // Diagnostic,
     SplashScreen,
     {provide: ErrorHandler, useClass: IonicErrorHandler},
     CandyService,
@@ -106,7 +107,8 @@ import { MapServiceProvider } from '../providers/map-service/map-service';
     RemoveUnderscorePipe,
     ShortenStringPipe,
     RemoveCharsPipe,
-    MapServiceProvider 
+    MapServiceProvider,
+    LevelProvider 
   ],
   exports : [
     KeyvaluePipe,

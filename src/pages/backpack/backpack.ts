@@ -18,7 +18,8 @@ export class BackpackPage implements OnInit{
   
   public totalCandy: number;
   public levelName: string;
-
+  public currentLevel: {};
+  
   public geo:any[];
 
   constructor(
@@ -38,7 +39,7 @@ export class BackpackPage implements OnInit{
     this.backpackService.currentBackpackCount.subscribe(data => this.totalCandy = data);
     //console.log("TOTAL CANDY AT INIT: ", this.totalCandy);
     
-    this.backpackService.currentLevel.subscribe(levelName => this.levelName = levelName);
+    this.backpackService.currentLevel.subscribe(level => this.currentLevel = level);
     //console.log("LEVEL NAME RETRIEVED: ", this.levelName);
   }
 

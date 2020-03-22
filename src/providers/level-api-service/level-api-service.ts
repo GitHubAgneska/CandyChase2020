@@ -17,10 +17,10 @@ export class LevelServiceProvider {
   public totalCandy: number;
   public totalPoints: number;
 
-  constructor(private httpService: Http, private candyService: CandyService) {
+  constructor(private httpService: Http) {
 
     this.levelList = [];
-    this.level = { "idLevel": "", "levelName": "", "levelImg": "", "bannerMessage": "", "levelCard": "", "levelCardName": "" };
+    // this.level = { "idLevel": "", "levelName": "", "levelImg": "", "bannerMessage": "", "levelCard": "", "levelCardName": "" };
   }
 
   // retrieve all models of json 'level models' from local folder
@@ -40,7 +40,4 @@ export class LevelServiceProvider {
   // retrieve models of level objects by id in json from local folder
   getLevelById(idLevel: string | number) {
   }
-
-  
-
 }

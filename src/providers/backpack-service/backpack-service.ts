@@ -73,8 +73,8 @@ export class BackpackServiceProvider {
     this.levelService.getLevelList().subscribe((response:Level[]) => {
 
       this.myArray = response;
-      //console.log("response modellist: ", this.myArray[0]);
-      //console.log("je suis myarray dans setcurrentLevel: ", this.myArray);
+      console.log("response modellist: ", this.myArray[0]);
+      console.log("je suis myarray dans setcurrentLevel: ", this.myArray);
       if (totalPoints <= 7 ) {
         this.level = this.myArray[0];
         this.level.levelName = this.myArray[0].levelName;
@@ -104,7 +104,7 @@ export class BackpackServiceProvider {
       if (totalPoints > 12 && totalPoints <= 18 ) {
         this.level = this.myArray[2];
         this.level.levelName = this.myArray[2].levelName;
-        //console.log( "je suis LEVEL NAME: ",this.level.levelName);
+        console.log( "je suis LEVEL NAME: ",this.level.levelName);
         this.level.levelImg = this.myArray[2].levelImg;
         this.level.bannerMessage = this.myArray[2].bannerMessage;
         this.level.levelCard = this.myArray[2].levelCard;
@@ -117,7 +117,7 @@ export class BackpackServiceProvider {
       if (totalPoints > 18 ) {
         this.level = this.myArray[3];
         this.level.levelName = this.myArray[3].levelName;
-        //console.log( "je suis LEVEL NAME: ",this.level.levelName);
+        console.log( "je suis LEVEL NAME: ",this.level.levelName);
         this.level.levelImg = this.myArray[3].levelImg;
         this.level.bannerMessage = this.myArray[3].bannerMessage;
         this.level.levelCard = this.myArray[3].levelCard;
