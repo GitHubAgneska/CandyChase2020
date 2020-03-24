@@ -283,3 +283,12 @@ runtime err can't resolve all parameters for service => check service params if 
 ex: 
 
    `constructor(private httpService: Http, private candyService: CandyService) { }`
+
+
+........... 
+
+24032020
+Most of the app is working, but 
+
+geoloc correct under firefox but pin not showing, 
+incorrect under chrome, but pin showing 

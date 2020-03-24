@@ -31,7 +31,7 @@ export class BackpackServiceProvider {
   private totalCandyInBackpack$ = new BehaviorSubject(0);
   currentBackpackCount = this.totalCandyInBackpack$.asObservable();
 
-  // keep track of current level --  
+  // keep track of current level --  whole object
   private level$ = new BehaviorSubject({});
   currentLevel = this.level$.asObservable();
   // ---

@@ -59,8 +59,6 @@ export class GeolocServiceProvider {
     this.geolocation.watchPosition();
   }
 
- 
-
 
   // get distance from age param
   public getDist(ageRange:number) {

@@ -39,7 +39,8 @@ export class LevelPage implements OnInit {
 
     public ngOnInit() {}
 
-   // public ionViewWillEnter():void{ this.backpackService.currentLevel.subscribe(data => { this.levelName = data.levelName } ) }
+    public ionViewWillEnter():void{ this.backpackService.getCurrentLevel()}
+    // public ionViewWillEnter():void{ this.backpackService.currentLevel.subscribe(data => { this.levelName = data.levelName } ) }
 
 /*
   public ngOnInit() {

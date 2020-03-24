@@ -682,6 +682,7 @@ var LevelPage = /** @class */ (function () {
         this.nextLevel = { "idLevel": "", "levelName": "", "levelImg": "", "bannerMessage": "", "levelCard": "", "levelCardName": "" };
     }
     LevelPage.prototype.ngOnInit = function () { };
+    LevelPage.prototype.ionViewWillEnter = function () { this.backpackService.getCurrentLevel(); };
     // public ionViewWillEnter():void{ this.backpackService.currentLevel.subscribe(data => { this.levelName = data.levelName } ) }
     /*
       public ngOnInit() {
@@ -974,7 +975,7 @@ var WelcomePage = /** @class */ (function () {
         this.img_chaseTitle = "assets/graphicMat/title_chase.png";
         this.img_circles = "assets/graphicMat/circles.png";
     }
-    WelcomePage.prototype.ionViewDidLoad = function () {
+    WelcomePage.prototype.ionViewWillEnter = function () {
         // get coords as soon as app opens
         this.geolocService.getLocation();
         // get candylist as 'hot observable' and cache response
@@ -1167,20 +1168,21 @@ var BackpackPage = /** @class */ (function () {
         this.backpackService = backpackService;
         this.keyvaluepipe = keyvaluepipe;
         this.shortenString = shortenString;
+        // this.currentLevel = { "idLevel":"", "levelName": "", "levelImg": "", "bannerMessage":"", "levelCard":"", "levelCardName":"" };
     }
     BackpackPage.prototype.ngOnInit = function () {
+        // retrieve all candy items
         this.setBackpack();
     };
     BackpackPage.prototype.ionViewDidEnter = function () {
         var _this = this;
+        // retrieve total candy/ points
         this.backpackService.currentBackpackCount.subscribe(function (data) { return _this.totalCandy = data; });
         //console.log("TOTAL CANDY AT INIT: ", this.totalCandy);
+        // retrieve current level
         this.backpackService.currentLevel.subscribe(function (level) { return _this.currentLevel = level; });
         //console.log("LEVEL NAME RETRIEVED: ", this.levelName);
     };
-    /* public ionViewWillEnter() {
-        this.backpackService.currentLevel.subscribe(levelName => this.levelName = levelName);
-      } */
     BackpackPage.prototype.setBackpack = function () {
         var _this = this;
         this.backpackService.currentBackpack.subscribe(function (data) { return _this.collectedCandy = data; });
@@ -1193,23 +1195,12 @@ var BackpackPage = /** @class */ (function () {
         Object(__WEBPACK_IMPORTED_MODULE_1__angular_core__["m" /* Component */])({
             selector: 'page-backpack',template:/*ion-inline-start:"/Users/hildegardagnesgenay/Documents/AndBEYOND/CANDY_CHASE_2020_ionic/candyChase2020/src/pages/backpack/backpack.html"*/'<ion-header>\n  <ion-navbar color="customColor">\n    <ion-title text-center class="mainTitles">Backpack</ion-title>\n  </ion-navbar>\n</ion-header>\n\n<ion-content class="backpackPage-container">\n\n  <div class="backpack-elements-container" *ngIf="collectedCandy">\n    <div class="bag-illust">\n      <img src="assets/graphicMat/candyBag.png" alt="" />\n    </div>\n\n    <div class="totalcandy">\n      <h2>Total candy</h2>\n      <h2>{{totalCandy}}</h2>\n    </div>\n\n    <div class="cornCandy-container">\n      <ng-container *ngFor="let i of [].constructor(3)">\n        <img src="assets/graphicMat/corn_candy.png" alt="" />\n      </ng-container>\n    </div>\n\n    <div class="totalpoints">\n      <h2>You have</h2>\n      <h2>{{totalCandy}} points !</h2>\n    </div>\n\n<!-- TO DO : get level (banner) at init --\n      <div class="current-level">\n          <h2>Current level</h2>\n          <h2>{{levelName}}</h2>\n      </div> -->\n\n    <div class="myCollectedCandy" *ngFor="let item of collectedCandy">\n      <div class="candyItem">\n        <div class="candyThumbnail">\n          <img src="{{item.image_front_url}}">\n        </div>\n        <div class="candyName">\n          <!-- <h2>{{data.brands_tags[1]}}</h2> -->\n          <h1>{{ item.product_name | shortenString:30 }}</h1>\n          <button (click)="seeCandyInfos(item._id)">see infos</button>\n        </div>\n        <div class="amount">\n          <h1>{{item.amountInBackpack}}</h1>\n        </div>\n      </div>\n    </div>\n\n  </div>\n</ion-content>'/*ion-inline-end:"/Users/hildegardagnesgenay/Documents/AndBEYOND/CANDY_CHASE_2020_ionic/candyChase2020/src/pages/backpack/backpack.html"*/
         }),
-        __metadata("design:paramtypes", [__WEBPACK_IMPORTED_MODULE_2_ionic_angular__["g" /* NavController */],
-            __WEBPACK_IMPORTED_MODULE_2_ionic_angular__["h" /* NavParams */],
-            __WEBPACK_IMPORTED_MODULE_0__providers_candy_api_service_candy_api_service__["a" /* CandyService */],
-            __WEBPACK_IMPORTED_MODULE_4__providers_backpack_service_backpack_service__["a" /* BackpackServiceProvider */],
-            __WEBPACK_IMPORTED_MODULE_5__pipes_keyvalue_keyvalue__["a" /* KeyvaluePipe */],
-            __WEBPACK_IMPORTED_MODULE_6__pipes_shorten_string_shorten_string__["a" /* ShortenStringPipe */]])
+        __metadata("design:paramtypes", [typeof (_a = typeof __WEBPACK_IMPORTED_MODULE_2_ionic_angular__["g" /* NavController */] !== "undefined" && __WEBPACK_IMPORTED_MODULE_2_ionic_angular__["g" /* NavController */]) === "function" && _a || Object, typeof (_b = typeof __WEBPACK_IMPORTED_MODULE_2_ionic_angular__["h" /* NavParams */] !== "undefined" && __WEBPACK_IMPORTED_MODULE_2_ionic_angular__["h" /* NavParams */]) === "function" && _b || Object, typeof (_c = typeof __WEBPACK_IMPORTED_MODULE_0__providers_candy_api_service_candy_api_service__["a" /* CandyService */] !== "undefined" && __WEBPACK_IMPORTED_MODULE_0__providers_candy_api_service_candy_api_service__["a" /* CandyService */]) === "function" && _c || Object, typeof (_d = typeof __WEBPACK_IMPORTED_MODULE_4__providers_backpack_service_backpack_service__["a" /* BackpackServiceProvider */] !== "undefined" && __WEBPACK_IMPORTED_MODULE_4__providers_backpack_service_backpack_service__["a" /* BackpackServiceProvider */]) === "function" && _d || Object, typeof (_e = typeof __WEBPACK_IMPORTED_MODULE_5__pipes_keyvalue_keyvalue__["a" /* KeyvaluePipe */] !== "undefined" && __WEBPACK_IMPORTED_MODULE_5__pipes_keyvalue_keyvalue__["a" /* KeyvaluePipe */]) === "function" && _e || Object, typeof (_f = typeof __WEBPACK_IMPORTED_MODULE_6__pipes_shorten_string_shorten_string__["a" /* ShortenStringPipe */] !== "undefined" && __WEBPACK_IMPORTED_MODULE_6__pipes_shorten_string_shorten_string__["a" /* ShortenStringPipe */]) === "function" && _f || Object])
     ], BackpackPage);
     return BackpackPage;
+    var _a, _b, _c, _d, _e, _f;
 }());
 
-/* --method with api call to retrieve backpack with candy id
-this.collectedCandy.forEach((item) => {
-this.candyService.getCandyById(item._id).subscribe((response:Candy) => {
-  this.candyName = response.product_name;
-  item._id = this.candyName;
-  return item;
-}); */ 
 //# sourceMappingURL=backpack.js.map
 
 /***/ }),
@@ -1800,7 +1791,7 @@ var BackpackServiceProvider = /** @class */ (function () {
         // keep track of candy total --  
         this.totalCandyInBackpack$ = new __WEBPACK_IMPORTED_MODULE_2_rxjs__["BehaviorSubject"](0);
         this.currentBackpackCount = this.totalCandyInBackpack$.asObservable();
-        // keep track of current level --  
+        // keep track of current level --  whole object
         this.level$ = new __WEBPACK_IMPORTED_MODULE_2_rxjs__["BehaviorSubject"]({});
         this.currentLevel = this.level$.asObservable();
         this.itemsInBackpack = [];

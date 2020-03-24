@@ -28,9 +28,10 @@ export class WelcomePage {
     public candyService: CandyService ) { }
 
 
-  public ionViewDidLoad() {
+  public ionViewWillEnter() {
     // get coords as soon as app opens
     this.geolocService.getLocation();
+
     // get candylist as 'hot observable' and cache response
     this.candyList$ = this.candyService.candy;
     if (this.candyList$) { console.log(this.candyList$ as any)};

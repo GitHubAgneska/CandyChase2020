@@ -29,42 +29,30 @@ export class BackpackPage implements OnInit{
     private backpackService: BackpackServiceProvider,
     public keyvaluepipe: KeyvaluePipe,
     public shortenString: ShortenStringPipe  ) {
+      // this.currentLevel = { "idLevel":"", "levelName": "", "levelImg": "", "bannerMessage":"", "levelCard":"", "levelCardName":"" };
   }
 
   public ngOnInit() {
+    // retrieve all candy items
       this.setBackpack();
   }
 
   public ionViewDidEnter() {
+    // retrieve total candy/ points
     this.backpackService.currentBackpackCount.subscribe(data => this.totalCandy = data);
     //console.log("TOTAL CANDY AT INIT: ", this.totalCandy);
     
+    // retrieve current level
     this.backpackService.currentLevel.subscribe(level => this.currentLevel = level);
     //console.log("LEVEL NAME RETRIEVED: ", this.levelName);
   }
-
-
-/* public ionViewWillEnter() {
-    this.backpackService.currentLevel.subscribe(levelName => this.levelName = levelName);
-  } */
 
   public setBackpack() {
     this.backpackService.currentBackpack.subscribe(data => this.collectedCandy = data);
     //console.log("COLLECTED CANDY RETRIEVED ON INIT: ", this.collectedCandy);
   }
 
-
   seeCandyInfos(id:string | number) {
     this.navCtrl.push(CandyDetailsPage, { idparam: id });
   }
-
 }
-
-
-/* --method with api call to retrieve backpack with candy id
-this.collectedCandy.forEach((item) => {
-this.candyService.getCandyById(item._id).subscribe((response:Candy) => {
-  this.candyName = response.product_name;
-  item._id = this.candyName;
-  return item;
-}); */
