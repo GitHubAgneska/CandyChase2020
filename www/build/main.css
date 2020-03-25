@@ -34260,10 +34260,6 @@ page-map .mapPage-container .mapContainer .scroll-content {
 }
 
 /* from https://github.com/Leaflet/Leaflet/issues/4686 */
-.leaflet-fade-anim .leaflet-tile, .leaflet-zoom-anim .leaflet-zoom-animated {
-  will-change: auto !important;
-}
-
 page-my-addresses .addressesPage-container .map-sample {
   height: 5vh;
 }
@@ -34279,11 +34275,18 @@ page-my-addresses .addressesPage-container .address-list-container .address-item
 }
 
 page-my-home .homepage-container {
-  background-image: url("../assets/graphicMat/gradient_bats_1920.png");
-  background-size: cover;
+  background-image: url("../assets/graphicMat/gradient_bats_1920.png"), url("../assets/graphicMat/circles.png");
+  background-size: cover, contain;
   background-position: center;
   height: 100vh;
   width: 100%;
+}
+
+page-my-home .homepage-container .menu-container {
+  background-image: url("../assets/graphicMat/circles.png");
+  background-size: contain;
+  background-position: center;
+  background-repeat: no-repeat;
 }
 
 page-my-home .homepage-container .menu-container .row {
@@ -34294,6 +34297,11 @@ page-my-home .homepage-container .menu-container .row {
 
 page-my-home .homepage-container .menu-container .col {
   height: 15vh !important;
+}
+
+page-my-home .homepage-container .menu-container img:active {
+  -webkit-box-shadow: 0 9px #ffc14f;
+  box-shadow: 0 9px #ffc14f;
 }
 
 .card-md {

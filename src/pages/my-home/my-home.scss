@@ -3,14 +3,17 @@
 page-my-home {
   // bat background
   .homepage-container {
-    background-image: url("../assets/graphicMat/gradient_bats_1920.png");
-    background-size: cover;
+    background-image: url("../assets/graphicMat/gradient_bats_1920.png"), url('../assets/graphicMat/circles.png');
+    background-size: cover, contain;
     background-position: center;
     height: 100vh;
     width: 100%;
 
     .menu-container {
-      
+      background-image: url('../assets/graphicMat/circles.png');
+      background-size: contain;
+      background-position: center;
+      background-repeat: no-repeat;
       .row {
         /* width: 80% !important; */
         text-align: center !important;
@@ -18,6 +21,9 @@ page-my-home {
       }
       .col {
         height: 15vh !important;
+      }
+      img:active {
+        box-shadow: 0 9px rgb(255, 193, 79);
       }
     }
   }

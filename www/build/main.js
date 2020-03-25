@@ -606,50 +606,6 @@ var CandyDetailsPage = /** @class */ (function () {
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
-/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "a", function() { return LegalPage; });
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__angular_core__ = __webpack_require__(1);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_1_ionic_angular__ = __webpack_require__(17);
-var __decorate = (this && this.__decorate) || function (decorators, target, key, desc) {
-    var c = arguments.length, r = c < 3 ? target : desc === null ? desc = Object.getOwnPropertyDescriptor(target, key) : desc, d;
-    if (typeof Reflect === "object" && typeof Reflect.decorate === "function") r = Reflect.decorate(decorators, target, key, desc);
-    else for (var i = decorators.length - 1; i >= 0; i--) if (d = decorators[i]) r = (c < 3 ? d(r) : c > 3 ? d(target, key, r) : d(target, key)) || r;
-    return c > 3 && r && Object.defineProperty(target, key, r), r;
-};
-var __metadata = (this && this.__metadata) || function (k, v) {
-    if (typeof Reflect === "object" && typeof Reflect.metadata === "function") return Reflect.metadata(k, v);
-};
-
-
-/**
- * Generated class for the LegalPage page.
- *
- * See https://ionicframework.com/docs/components/#navigation for more info on
- * Ionic pages and navigation.
- */
-var LegalPage = /** @class */ (function () {
-    function LegalPage(navCtrl, navParams) {
-        this.navCtrl = navCtrl;
-        this.navParams = navParams;
-    }
-    LegalPage.prototype.ionViewDidLoad = function () {
-    };
-    LegalPage = __decorate([
-        Object(__WEBPACK_IMPORTED_MODULE_0__angular_core__["m" /* Component */])({
-            selector: 'page-legal',template:/*ion-inline-start:"/Users/hildegardagnesgenay/Documents/AndBEYOND/CANDY_CHASE_2020_ionic/candyChase2020/src/pages/legal/legal.html"*/'<!--\n  Generated template for the LegalPage page.\n\n  See http://ionicframework.com/docs/components/#navigation for more info on\n  Ionic pages and navigation.\n-->\n<ion-header>\n\n  <ion-navbar>\n    <ion-title>legal</ion-title>\n  </ion-navbar>\n\n</ion-header>\n\n\n<ion-content padding>\n\n</ion-content>\n'/*ion-inline-end:"/Users/hildegardagnesgenay/Documents/AndBEYOND/CANDY_CHASE_2020_ionic/candyChase2020/src/pages/legal/legal.html"*/,
-        }),
-        __metadata("design:paramtypes", [__WEBPACK_IMPORTED_MODULE_1_ionic_angular__["g" /* NavController */], __WEBPACK_IMPORTED_MODULE_1_ionic_angular__["h" /* NavParams */]])
-    ], LegalPage);
-    return LegalPage;
-}());
-
-//# sourceMappingURL=legal.js.map
-
-/***/ }),
-
-/***/ 169:
-/***/ (function(module, __webpack_exports__, __webpack_require__) {
-
-"use strict";
 /* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "a", function() { return LevelPage; });
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__angular_core__ = __webpack_require__(1);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_1_ionic_angular__ = __webpack_require__(17);
@@ -779,6 +735,50 @@ var LevelPage = /** @class */ (function () {
 
 /***/ }),
 
+/***/ 169:
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "a", function() { return LegalPage; });
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__angular_core__ = __webpack_require__(1);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_1_ionic_angular__ = __webpack_require__(17);
+var __decorate = (this && this.__decorate) || function (decorators, target, key, desc) {
+    var c = arguments.length, r = c < 3 ? target : desc === null ? desc = Object.getOwnPropertyDescriptor(target, key) : desc, d;
+    if (typeof Reflect === "object" && typeof Reflect.decorate === "function") r = Reflect.decorate(decorators, target, key, desc);
+    else for (var i = decorators.length - 1; i >= 0; i--) if (d = decorators[i]) r = (c < 3 ? d(r) : c > 3 ? d(target, key, r) : d(target, key)) || r;
+    return c > 3 && r && Object.defineProperty(target, key, r), r;
+};
+var __metadata = (this && this.__metadata) || function (k, v) {
+    if (typeof Reflect === "object" && typeof Reflect.metadata === "function") return Reflect.metadata(k, v);
+};
+
+
+/**
+ * Generated class for the LegalPage page.
+ *
+ * See https://ionicframework.com/docs/components/#navigation for more info on
+ * Ionic pages and navigation.
+ */
+var LegalPage = /** @class */ (function () {
+    function LegalPage(navCtrl, navParams) {
+        this.navCtrl = navCtrl;
+        this.navParams = navParams;
+    }
+    LegalPage.prototype.ionViewDidLoad = function () {
+    };
+    LegalPage = __decorate([
+        Object(__WEBPACK_IMPORTED_MODULE_0__angular_core__["m" /* Component */])({
+            selector: 'page-legal',template:/*ion-inline-start:"/Users/hildegardagnesgenay/Documents/AndBEYOND/CANDY_CHASE_2020_ionic/candyChase2020/src/pages/legal/legal.html"*/'<!--\n  Generated template for the LegalPage page.\n\n  See http://ionicframework.com/docs/components/#navigation for more info on\n  Ionic pages and navigation.\n-->\n<ion-header>\n\n  <ion-navbar>\n    <ion-title>legal</ion-title>\n  </ion-navbar>\n\n</ion-header>\n\n\n<ion-content padding>\n\n</ion-content>\n'/*ion-inline-end:"/Users/hildegardagnesgenay/Documents/AndBEYOND/CANDY_CHASE_2020_ionic/candyChase2020/src/pages/legal/legal.html"*/,
+        }),
+        __metadata("design:paramtypes", [__WEBPACK_IMPORTED_MODULE_1_ionic_angular__["g" /* NavController */], __WEBPACK_IMPORTED_MODULE_1_ionic_angular__["h" /* NavParams */]])
+    ], LegalPage);
+    return LegalPage;
+}());
+
+//# sourceMappingURL=legal.js.map
+
+/***/ }),
+
 /***/ 170:
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
@@ -828,13 +828,58 @@ var LoginPage = /** @class */ (function () {
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "a", function() { return RulesPage; });
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__angular_core__ = __webpack_require__(1);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_1_ionic_angular__ = __webpack_require__(17);
+var __decorate = (this && this.__decorate) || function (decorators, target, key, desc) {
+    var c = arguments.length, r = c < 3 ? target : desc === null ? desc = Object.getOwnPropertyDescriptor(target, key) : desc, d;
+    if (typeof Reflect === "object" && typeof Reflect.decorate === "function") r = Reflect.decorate(decorators, target, key, desc);
+    else for (var i = decorators.length - 1; i >= 0; i--) if (d = decorators[i]) r = (c < 3 ? d(r) : c > 3 ? d(target, key, r) : d(target, key)) || r;
+    return c > 3 && r && Object.defineProperty(target, key, r), r;
+};
+var __metadata = (this && this.__metadata) || function (k, v) {
+    if (typeof Reflect === "object" && typeof Reflect.metadata === "function") return Reflect.metadata(k, v);
+};
+
+
+/**
+ * Generated class for the RulesPage page.
+ *
+ * See https://ionicframework.com/docs/components/#navigation for more info on
+ * Ionic pages and navigation.
+ */
+var RulesPage = /** @class */ (function () {
+    function RulesPage(navCtrl, navParams) {
+        this.navCtrl = navCtrl;
+        this.navParams = navParams;
+    }
+    RulesPage.prototype.ionViewDidLoad = function () {
+        console.log('ionViewDidLoad RulesPage');
+    };
+    RulesPage = __decorate([
+        Object(__WEBPACK_IMPORTED_MODULE_0__angular_core__["m" /* Component */])({
+            selector: 'page-rules',template:/*ion-inline-start:"/Users/hildegardagnesgenay/Documents/AndBEYOND/CANDY_CHASE_2020_ionic/candyChase2020/src/pages/rules/rules.html"*/'<ion-header>\n  <ion-navbar color="customColor">\n    <ion-title>rules</ion-title>\n  </ion-navbar>\n</ion-header>\n\n\n<ion-content padding>\n\n</ion-content>\n'/*ion-inline-end:"/Users/hildegardagnesgenay/Documents/AndBEYOND/CANDY_CHASE_2020_ionic/candyChase2020/src/pages/rules/rules.html"*/,
+        }),
+        __metadata("design:paramtypes", [__WEBPACK_IMPORTED_MODULE_1_ionic_angular__["g" /* NavController */], __WEBPACK_IMPORTED_MODULE_1_ionic_angular__["h" /* NavParams */]])
+    ], RulesPage);
+    return RulesPage;
+}());
+
+//# sourceMappingURL=rules.js.map
+
+/***/ }),
+
+/***/ 172:
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
 /* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "a", function() { return MyHomePage; });
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__angular_core__ = __webpack_require__(1);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_1_ionic_angular__ = __webpack_require__(17);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_2__list_list__ = __webpack_require__(142);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_3__rules_rules__ = __webpack_require__(172);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_3__rules_rules__ = __webpack_require__(171);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_4__login_login__ = __webpack_require__(170);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_5__legal_legal__ = __webpack_require__(168);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_5__legal_legal__ = __webpack_require__(169);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_6__about_about__ = __webpack_require__(164);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_7__age_select_age_select__ = __webpack_require__(165);
 var __decorate = (this && this.__decorate) || function (decorators, target, key, desc) {
@@ -892,51 +937,6 @@ var MyHomePage = /** @class */ (function () {
 }());
 
 //# sourceMappingURL=my-home.js.map
-
-/***/ }),
-
-/***/ 172:
-/***/ (function(module, __webpack_exports__, __webpack_require__) {
-
-"use strict";
-/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "a", function() { return RulesPage; });
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__angular_core__ = __webpack_require__(1);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_1_ionic_angular__ = __webpack_require__(17);
-var __decorate = (this && this.__decorate) || function (decorators, target, key, desc) {
-    var c = arguments.length, r = c < 3 ? target : desc === null ? desc = Object.getOwnPropertyDescriptor(target, key) : desc, d;
-    if (typeof Reflect === "object" && typeof Reflect.decorate === "function") r = Reflect.decorate(decorators, target, key, desc);
-    else for (var i = decorators.length - 1; i >= 0; i--) if (d = decorators[i]) r = (c < 3 ? d(r) : c > 3 ? d(target, key, r) : d(target, key)) || r;
-    return c > 3 && r && Object.defineProperty(target, key, r), r;
-};
-var __metadata = (this && this.__metadata) || function (k, v) {
-    if (typeof Reflect === "object" && typeof Reflect.metadata === "function") return Reflect.metadata(k, v);
-};
-
-
-/**
- * Generated class for the RulesPage page.
- *
- * See https://ionicframework.com/docs/components/#navigation for more info on
- * Ionic pages and navigation.
- */
-var RulesPage = /** @class */ (function () {
-    function RulesPage(navCtrl, navParams) {
-        this.navCtrl = navCtrl;
-        this.navParams = navParams;
-    }
-    RulesPage.prototype.ionViewDidLoad = function () {
-        console.log('ionViewDidLoad RulesPage');
-    };
-    RulesPage = __decorate([
-        Object(__WEBPACK_IMPORTED_MODULE_0__angular_core__["m" /* Component */])({
-            selector: 'page-rules',template:/*ion-inline-start:"/Users/hildegardagnesgenay/Documents/AndBEYOND/CANDY_CHASE_2020_ionic/candyChase2020/src/pages/rules/rules.html"*/'<ion-header>\n  <ion-navbar color="customColor">\n    <ion-title>rules</ion-title>\n  </ion-navbar>\n</ion-header>\n\n\n<ion-content padding>\n\n</ion-content>\n'/*ion-inline-end:"/Users/hildegardagnesgenay/Documents/AndBEYOND/CANDY_CHASE_2020_ionic/candyChase2020/src/pages/rules/rules.html"*/,
-        }),
-        __metadata("design:paramtypes", [__WEBPACK_IMPORTED_MODULE_1_ionic_angular__["g" /* NavController */], __WEBPACK_IMPORTED_MODULE_1_ionic_angular__["h" /* NavParams */]])
-    ], RulesPage);
-    return RulesPage;
-}());
-
-//# sourceMappingURL=rules.js.map
 
 /***/ }),
 
@@ -1038,11 +1038,11 @@ var map = {
 		7
 	],
 	"../pages/legal/legal.module": [
-		703,
+		704,
 		6
 	],
 	"../pages/level/level.module": [
-		704,
+		703,
 		5
 	],
 	"../pages/login/login.module": [
@@ -1054,11 +1054,11 @@ var map = {
 		3
 	],
 	"../pages/my-home/my-home.module": [
-		707,
+		708,
 		2
 	],
 	"../pages/rules/rules.module": [
-		708,
+		707,
 		1
 	],
 	"../pages/welcome/welcome.module": [
@@ -1092,8 +1092,8 @@ module.exports = webpackAsyncContext;
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_2__map_map__ = __webpack_require__(127);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_3__list_list__ = __webpack_require__(142);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_4__backpack_backpack__ = __webpack_require__(325);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_5__level_level__ = __webpack_require__(169);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_6__my_home_my_home__ = __webpack_require__(171);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_5__level_level__ = __webpack_require__(168);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_6__my_home_my_home__ = __webpack_require__(172);
 var __decorate = (this && this.__decorate) || function (decorators, target, key, desc) {
     var c = arguments.length, r = c < 3 ? target : desc === null ? desc = Object.getOwnPropertyDescriptor(target, key) : desc, d;
     if (typeof Reflect === "object" && typeof Reflect.decorate === "function") r = Reflect.decorate(decorators, target, key, desc);
@@ -1195,10 +1195,14 @@ var BackpackPage = /** @class */ (function () {
         Object(__WEBPACK_IMPORTED_MODULE_1__angular_core__["m" /* Component */])({
             selector: 'page-backpack',template:/*ion-inline-start:"/Users/hildegardagnesgenay/Documents/AndBEYOND/CANDY_CHASE_2020_ionic/candyChase2020/src/pages/backpack/backpack.html"*/'<ion-header>\n  <ion-navbar color="customColor">\n    <ion-title text-center class="mainTitles">Backpack</ion-title>\n  </ion-navbar>\n</ion-header>\n\n<ion-content class="backpackPage-container">\n\n  <div class="backpack-elements-container" *ngIf="collectedCandy">\n    <div class="bag-illust">\n      <img src="assets/graphicMat/candyBag.png" alt="" />\n    </div>\n\n    <div class="totalcandy">\n      <h2>Total candy</h2>\n      <h2>{{totalCandy}}</h2>\n    </div>\n\n    <div class="cornCandy-container">\n      <ng-container *ngFor="let i of [].constructor(3)">\n        <img src="assets/graphicMat/corn_candy.png" alt="" />\n      </ng-container>\n    </div>\n\n    <div class="totalpoints">\n      <h2>You have</h2>\n      <h2>{{totalCandy}} points !</h2>\n    </div>\n\n<!-- TO DO : get level (banner) at init --\n      <div class="current-level">\n          <h2>Current level</h2>\n          <h2>{{levelName}}</h2>\n      </div> -->\n\n    <div class="myCollectedCandy" *ngFor="let item of collectedCandy">\n      <div class="candyItem">\n        <div class="candyThumbnail">\n          <img src="{{item.image_front_url}}">\n        </div>\n        <div class="candyName">\n          <!-- <h2>{{data.brands_tags[1]}}</h2> -->\n          <h1>{{ item.product_name | shortenString:30 }}</h1>\n          <button (click)="seeCandyInfos(item._id)">see infos</button>\n        </div>\n        <div class="amount">\n          <h1>{{item.amountInBackpack}}</h1>\n        </div>\n      </div>\n    </div>\n\n  </div>\n</ion-content>'/*ion-inline-end:"/Users/hildegardagnesgenay/Documents/AndBEYOND/CANDY_CHASE_2020_ionic/candyChase2020/src/pages/backpack/backpack.html"*/
         }),
-        __metadata("design:paramtypes", [typeof (_a = typeof __WEBPACK_IMPORTED_MODULE_2_ionic_angular__["g" /* NavController */] !== "undefined" && __WEBPACK_IMPORTED_MODULE_2_ionic_angular__["g" /* NavController */]) === "function" && _a || Object, typeof (_b = typeof __WEBPACK_IMPORTED_MODULE_2_ionic_angular__["h" /* NavParams */] !== "undefined" && __WEBPACK_IMPORTED_MODULE_2_ionic_angular__["h" /* NavParams */]) === "function" && _b || Object, typeof (_c = typeof __WEBPACK_IMPORTED_MODULE_0__providers_candy_api_service_candy_api_service__["a" /* CandyService */] !== "undefined" && __WEBPACK_IMPORTED_MODULE_0__providers_candy_api_service_candy_api_service__["a" /* CandyService */]) === "function" && _c || Object, typeof (_d = typeof __WEBPACK_IMPORTED_MODULE_4__providers_backpack_service_backpack_service__["a" /* BackpackServiceProvider */] !== "undefined" && __WEBPACK_IMPORTED_MODULE_4__providers_backpack_service_backpack_service__["a" /* BackpackServiceProvider */]) === "function" && _d || Object, typeof (_e = typeof __WEBPACK_IMPORTED_MODULE_5__pipes_keyvalue_keyvalue__["a" /* KeyvaluePipe */] !== "undefined" && __WEBPACK_IMPORTED_MODULE_5__pipes_keyvalue_keyvalue__["a" /* KeyvaluePipe */]) === "function" && _e || Object, typeof (_f = typeof __WEBPACK_IMPORTED_MODULE_6__pipes_shorten_string_shorten_string__["a" /* ShortenStringPipe */] !== "undefined" && __WEBPACK_IMPORTED_MODULE_6__pipes_shorten_string_shorten_string__["a" /* ShortenStringPipe */]) === "function" && _f || Object])
+        __metadata("design:paramtypes", [__WEBPACK_IMPORTED_MODULE_2_ionic_angular__["g" /* NavController */],
+            __WEBPACK_IMPORTED_MODULE_2_ionic_angular__["h" /* NavParams */],
+            __WEBPACK_IMPORTED_MODULE_0__providers_candy_api_service_candy_api_service__["a" /* CandyService */],
+            __WEBPACK_IMPORTED_MODULE_4__providers_backpack_service_backpack_service__["a" /* BackpackServiceProvider */],
+            __WEBPACK_IMPORTED_MODULE_5__pipes_keyvalue_keyvalue__["a" /* KeyvaluePipe */],
+            __WEBPACK_IMPORTED_MODULE_6__pipes_shorten_string_shorten_string__["a" /* ShortenStringPipe */]])
     ], BackpackPage);
     return BackpackPage;
-    var _a, _b, _c, _d, _e, _f;
 }());
 
 //# sourceMappingURL=backpack.js.map
@@ -1296,15 +1300,15 @@ Object(__WEBPACK_IMPORTED_MODULE_0__angular_platform_browser_dynamic__["a" /* pl
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_19__pipes_remove_chars_remove_chars__ = __webpack_require__(141);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_20__pages_welcome_welcome__ = __webpack_require__(173);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_21__pages_login_login__ = __webpack_require__(170);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_22__pages_my_home_my_home__ = __webpack_require__(171);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_22__pages_my_home_my_home__ = __webpack_require__(172);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_23__pages_map_map__ = __webpack_require__(127);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_24__pages_list_list__ = __webpack_require__(142);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_25__pages_backpack_backpack__ = __webpack_require__(325);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_26__pages_level_level__ = __webpack_require__(169);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_26__pages_level_level__ = __webpack_require__(168);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_27__pages_candy_details_candy_details__ = __webpack_require__(167);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_28__pages_my_addresses_my_addresses__ = __webpack_require__(166);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_29__pages_rules_rules__ = __webpack_require__(172);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_30__pages_legal_legal__ = __webpack_require__(168);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_29__pages_rules_rules__ = __webpack_require__(171);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_30__pages_legal_legal__ = __webpack_require__(169);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_31__pages_about_about__ = __webpack_require__(164);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_32__pages_age_select_age_select__ = __webpack_require__(165);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_33__providers_map_service_map_service__ = __webpack_require__(698);
@@ -1383,12 +1387,12 @@ var AppModule = /** @class */ (function () {
                         { loadChildren: '../pages/about/about.module#AboutPageModule', name: 'AboutPage', segment: 'about', priority: 'low', defaultHistory: [] },
                         { loadChildren: '../pages/age-select/age-select.module#AgeSelectPageModule', name: 'AgeSelectPage', segment: 'age-select', priority: 'low', defaultHistory: [] },
                         { loadChildren: '../pages/candy-details/candy-details.module#CandyDetailsPageModule', name: 'CandyDetailsPage', segment: 'candy-details', priority: 'low', defaultHistory: [] },
-                        { loadChildren: '../pages/legal/legal.module#LegalPageModule', name: 'LegalPage', segment: 'legal', priority: 'low', defaultHistory: [] },
                         { loadChildren: '../pages/level/level.module#LevelPageModule', name: 'LevelPage', segment: 'level', priority: 'low', defaultHistory: [] },
+                        { loadChildren: '../pages/legal/legal.module#LegalPageModule', name: 'LegalPage', segment: 'legal', priority: 'low', defaultHistory: [] },
                         { loadChildren: '../pages/login/login.module#LoginPageModule', name: 'LoginPage', segment: 'login', priority: 'low', defaultHistory: [] },
                         { loadChildren: '../pages/my-addresses/my-addresses.module#MyAddressesPageModule', name: 'MyAddressesPage', segment: 'my-addresses', priority: 'low', defaultHistory: [] },
-                        { loadChildren: '../pages/my-home/my-home.module#MyHomePageModule', name: 'MyHomePage', segment: 'my-home', priority: 'low', defaultHistory: [] },
                         { loadChildren: '../pages/rules/rules.module#RulesPageModule', name: 'RulesPage', segment: 'rules', priority: 'low', defaultHistory: [] },
+                        { loadChildren: '../pages/my-home/my-home.module#MyHomePageModule', name: 'MyHomePage', segment: 'my-home', priority: 'low', defaultHistory: [] },
                         { loadChildren: '../pages/welcome/welcome.module#WelcomePageModule', name: 'WelcomePage', segment: 'welcome', priority: 'low', defaultHistory: [] }
                     ]
                 }),
@@ -1588,6 +1592,16 @@ var __metadata = (this && this.__metadata) || function (k, v) {
 var GeolocServiceProvider = /** @class */ (function () {
     function GeolocServiceProvider(geolocation) {
         this.geolocation = geolocation;
+        this.markerIcon = {
+            icon: __WEBPACK_IMPORTED_MODULE_2_leaflet___default.a.icon({
+                iconSize: [25, 41],
+                iconAnchor: [10, 41],
+                popupAnchor: [2, -40],
+                // specify the path here
+                iconUrl: "https://unpkg.com/leaflet@1.4.0/dist/images/marker-icon.png",
+                shadowUrl: "https://unpkg.com/leaflet@1.4.0/dist/images/marker-shadow.png"
+            })
+        };
         this.currentLat = 0;
         this.currentLong = 0;
         this.dist = 0;
@@ -1674,7 +1688,7 @@ var GeolocServiceProvider = /** @class */ (function () {
         })
             .on('locationfound', function (e) {
             var markerGroup = __WEBPACK_IMPORTED_MODULE_2_leaflet___default.a.featureGroup();
-            var marker = __WEBPACK_IMPORTED_MODULE_2_leaflet___default.a.marker([e.latitude, e.longitude]).on('click', function () {
+            var marker = __WEBPACK_IMPORTED_MODULE_2_leaflet___default.a.marker([e.latitude, e.longitude], _this.markerIcon).on('click', function () {
                 alert('Marker clicked');
             });
             markerGroup.addLayer(marker);

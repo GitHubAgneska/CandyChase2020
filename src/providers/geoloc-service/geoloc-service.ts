@@ -17,6 +17,17 @@ export class GeolocServiceProvider {
   public dist: number;
   public mybounds:number[];
 
+  markerIcon = {
+    icon: leaflet.icon({
+      iconSize: [25, 41],
+      iconAnchor: [10, 41],
+      popupAnchor: [2, -40],
+      // specify the path here
+      iconUrl: "https://unpkg.com/leaflet@1.4.0/dist/images/marker-icon.png",
+      shadowUrl: "https://unpkg.com/leaflet@1.4.0/dist/images/marker-shadow.png"
+    })
+  };
+
   constructor(
     public geolocation: Geolocation) {
       this.currentLat = 0;
@@ -123,7 +134,7 @@ export class GeolocServiceProvider {
     })
       .on('locationfound', (e) => {
         let markerGroup = leaflet.featureGroup();
-        let marker: any = leaflet.marker([e.latitude, e.longitude]).on('click', () => {
+        let marker: any = leaflet.marker([e.latitude, e.longitude], this.markerIcon).on('click', () => {
           alert('Marker clicked');
         })
         markerGroup.addLayer(marker);
@@ -154,6 +165,8 @@ export class GeolocServiceProvider {
       console.log('Error getting bounds', error);
     });
   }
+
+
 
 
   // additional tools for map -- 

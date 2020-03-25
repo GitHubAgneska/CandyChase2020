@@ -290,5 +290,13 @@ ex:
 24032020
 Most of the app is working, but 
 
-geoloc correct under firefox but pin not showing, 
-incorrect under chrome, but pin showing 
+geoloc correct under firefox but marker not showing, 
+incorrect under chrome, but marker showing 
+
+........... 
+
+game feature
+
+npm install phaser@3.22.0
+
+........... 
