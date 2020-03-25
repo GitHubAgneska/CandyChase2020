@@ -32,8 +32,13 @@ export class BackpackServiceProvider {
   currentBackpackCount = this.totalCandyInBackpack$.asObservable();
 
   // keep track of current level --  whole object
-  private level$ = new BehaviorSubject({});
-  currentLevel = this.level$.asObservable();
+  // public level$: BehaviorSubject<Level> = new BehaviorSubject(this.level);
+  // currentLevel = this.level$.asObservable();
+
+    // keep track of current level name --  
+    private levelName$ = new BehaviorSubject("");
+    currentLevel = this.levelName$.asObservable();
+
   // ---
 
   constructor(
@@ -58,13 +63,19 @@ export class BackpackServiceProvider {
   }
 
   // method for components to exceptionally update current level (besides regular points count)
-  public update_level(level: {}) {
-    this.level$.next(level);
+  //  public update_level(level: Level) {
+  //  this.level$.next(level);
+  // }
+
+  // method for components to update current level (besides regular count)
+  public update_level(levelName: string) {
+    this.levelName$.next(levelName);
   }
+
   // method for components to retrieve current level
-  public getCurrentLevel() {
-    return this.currentLevel;
-  }
+  // public getCurrentLevel() {
+  //  return this.currentLevel;
+  // }
 
 
   // Set level according to current total candy/total points, using json 'levelmodels'
@@ -127,7 +138,8 @@ export class BackpackServiceProvider {
         this.nextLevel.levelCard = this.myArray[4].levelCard;
         this.nextLevel.levelCardName = this.myArray[4].levelCardName;
       }
-      this.update_level(this.level);
+      // this.update_level(this.level);
+      this.update_level(this.levelName);
     });
   }
 }

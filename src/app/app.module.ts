@@ -39,6 +39,8 @@ import { BackpackPage } from '../pages/backpack/backpack';
 import { LevelPage } from './../pages/level/level';
 import { CandyDetailsPage } from './../pages/candy-details/candy-details';
 import { MyAddressesPage } from '../pages/my-addresses/my-addresses';
+import { MyCardsPage } from '../pages//my-cards/my-cards';
+
 
 import { RulesPage } from '../pages/rules/rules';
 import { LegalPage } from '../pages/legal/legal';
@@ -63,7 +65,8 @@ import { LevelProvider } from '../providers/level/level';
     LegalPage,
     AboutPage,
     MyAddressesPage,
-    AgeSelectPage
+    AgeSelectPage,
+    MyCardsPage
   ],
   imports: [
     BrowserModule,
@@ -90,7 +93,8 @@ import { LevelProvider } from '../providers/level/level';
     MyHomePage,
     LevelPage,
     CandyDetailsPage,
-    AgeSelectPage
+    AgeSelectPage,
+    MyCardsPage
   ],
   providers: [
 /*     AngularFireAuth, */
