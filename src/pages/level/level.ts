@@ -43,7 +43,7 @@ export class LevelPage implements OnInit {
 
     public ionViewWillEnter():void{ 
 
-      this.backpackService.currentLevel.subscribe(data => { this.levelName = data }); 
+      this.backpackService.currentLevel.subscribe(data => { this.levelName = data; console.log(this.levelName); }); 
       console.log("backpackservice triggered");
     }
 
