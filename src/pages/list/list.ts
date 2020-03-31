@@ -98,7 +98,7 @@ export class ListPage implements OnInit {
     this.backpackService.update_totalCandyCount(this.totalCandy+=1);
     // save backpack new state 
     this.backpackService.update_backpack(this.itemsInBackpack);
-
+    
     //this.geolocService.getLocation();
 
     // alert new points as user clicks '+' 

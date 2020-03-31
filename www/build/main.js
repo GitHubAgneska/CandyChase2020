@@ -9,7 +9,7 @@ webpackJsonp([11],{
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_1_ionic_angular__ = __webpack_require__(16);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_2__providers_geoloc_service_geoloc_service__ = __webpack_require__(57);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_3__ionic_native_geolocation__ = __webpack_require__(77);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_4__my_addresses_my_addresses__ = __webpack_require__(164);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_4__my_addresses_my_addresses__ = __webpack_require__(165);
 var __decorate = (this && this.__decorate) || function (decorators, target, key, desc) {
     var c = arguments.length, r = c < 3 ? target : desc === null ? desc = Object.getOwnPropertyDescriptor(target, key) : desc, d;
     if (typeof Reflect === "object" && typeof Reflect.decorate === "function") r = Reflect.decorate(decorators, target, key, desc);
@@ -288,6 +288,44 @@ var ListPage = /** @class */ (function () {
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "a", function() { return AboutPage; });
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__angular_core__ = __webpack_require__(1);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_1_ionic_angular__ = __webpack_require__(16);
+var __decorate = (this && this.__decorate) || function (decorators, target, key, desc) {
+    var c = arguments.length, r = c < 3 ? target : desc === null ? desc = Object.getOwnPropertyDescriptor(target, key) : desc, d;
+    if (typeof Reflect === "object" && typeof Reflect.decorate === "function") r = Reflect.decorate(decorators, target, key, desc);
+    else for (var i = decorators.length - 1; i >= 0; i--) if (d = decorators[i]) r = (c < 3 ? d(r) : c > 3 ? d(target, key, r) : d(target, key)) || r;
+    return c > 3 && r && Object.defineProperty(target, key, r), r;
+};
+var __metadata = (this && this.__metadata) || function (k, v) {
+    if (typeof Reflect === "object" && typeof Reflect.metadata === "function") return Reflect.metadata(k, v);
+};
+
+
+var AboutPage = /** @class */ (function () {
+    function AboutPage(navCtrl, navParams) {
+        this.navCtrl = navCtrl;
+        this.navParams = navParams;
+    }
+    AboutPage.prototype.ionViewDidLoad = function () {
+    };
+    AboutPage = __decorate([
+        Object(__WEBPACK_IMPORTED_MODULE_0__angular_core__["m" /* Component */])({
+            selector: 'page-about',template:/*ion-inline-start:"/Users/hildegardagnesgenay/Documents/AndBEYOND/CANDY_CHASE_2020_ionic/candyChase2020/src/pages/about/about.html"*/'\n<ion-header>\n\n  <ion-navbar color="customColor">\n    <ion-title>about</ion-title>\n  </ion-navbar>\n\n</ion-header>\n\n\n<ion-content padding>\n\n</ion-content>\n'/*ion-inline-end:"/Users/hildegardagnesgenay/Documents/AndBEYOND/CANDY_CHASE_2020_ionic/candyChase2020/src/pages/about/about.html"*/,
+        }),
+        __metadata("design:paramtypes", [__WEBPACK_IMPORTED_MODULE_1_ionic_angular__["g" /* NavController */], __WEBPACK_IMPORTED_MODULE_1_ionic_angular__["h" /* NavParams */]])
+    ], AboutPage);
+    return AboutPage;
+}());
+
+//# sourceMappingURL=about.js.map
+
+/***/ }),
+
+/***/ 164:
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
 /* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "a", function() { return AgeSelectPage; });
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__angular_core__ = __webpack_require__(1);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_1_ionic_angular__ = __webpack_require__(16);
@@ -339,7 +377,7 @@ var AgeSelectPage = /** @class */ (function () {
 
 /***/ }),
 
-/***/ 164:
+/***/ 165:
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
@@ -381,44 +419,6 @@ var MyAddressesPage = /** @class */ (function () {
 }());
 
 //# sourceMappingURL=my-addresses.js.map
-
-/***/ }),
-
-/***/ 165:
-/***/ (function(module, __webpack_exports__, __webpack_require__) {
-
-"use strict";
-/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "a", function() { return AboutPage; });
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__angular_core__ = __webpack_require__(1);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_1_ionic_angular__ = __webpack_require__(16);
-var __decorate = (this && this.__decorate) || function (decorators, target, key, desc) {
-    var c = arguments.length, r = c < 3 ? target : desc === null ? desc = Object.getOwnPropertyDescriptor(target, key) : desc, d;
-    if (typeof Reflect === "object" && typeof Reflect.decorate === "function") r = Reflect.decorate(decorators, target, key, desc);
-    else for (var i = decorators.length - 1; i >= 0; i--) if (d = decorators[i]) r = (c < 3 ? d(r) : c > 3 ? d(target, key, r) : d(target, key)) || r;
-    return c > 3 && r && Object.defineProperty(target, key, r), r;
-};
-var __metadata = (this && this.__metadata) || function (k, v) {
-    if (typeof Reflect === "object" && typeof Reflect.metadata === "function") return Reflect.metadata(k, v);
-};
-
-
-var AboutPage = /** @class */ (function () {
-    function AboutPage(navCtrl, navParams) {
-        this.navCtrl = navCtrl;
-        this.navParams = navParams;
-    }
-    AboutPage.prototype.ionViewDidLoad = function () {
-    };
-    AboutPage = __decorate([
-        Object(__WEBPACK_IMPORTED_MODULE_0__angular_core__["m" /* Component */])({
-            selector: 'page-about',template:/*ion-inline-start:"/Users/hildegardagnesgenay/Documents/AndBEYOND/CANDY_CHASE_2020_ionic/candyChase2020/src/pages/about/about.html"*/'\n<ion-header>\n\n  <ion-navbar color="customColor">\n    <ion-title>about</ion-title>\n  </ion-navbar>\n\n</ion-header>\n\n\n<ion-content padding>\n\n</ion-content>\n'/*ion-inline-end:"/Users/hildegardagnesgenay/Documents/AndBEYOND/CANDY_CHASE_2020_ionic/candyChase2020/src/pages/about/about.html"*/,
-        }),
-        __metadata("design:paramtypes", [__WEBPACK_IMPORTED_MODULE_1_ionic_angular__["g" /* NavController */], __WEBPACK_IMPORTED_MODULE_1_ionic_angular__["h" /* NavParams */]])
-    ], AboutPage);
-    return AboutPage;
-}());
-
-//# sourceMappingURL=about.js.map
 
 /***/ }),
 
@@ -629,16 +629,28 @@ var LevelPage = /** @class */ (function () {
         this.level = { "idLevel": "", "levelName": "", "levelImg": "", "bannerMessage": "", "levelCard": "", "levelCardName": "" };
         this.nextLevel = { "idLevel": "", "levelName": "", "levelImg": "", "bannerMessage": "", "levelCard": "", "levelCardName": "" };
     }
-    LevelPage.prototype.ngOnInit = function () { };
-    LevelPage.prototype.ionViewWillEnter = function () {
+    LevelPage.prototype.ngOnInit = function () {
+        this.setLevel();
+    };
+    LevelPage.prototype.ionViewDidEnter = function () {
+        //  this.backpackService.currentBackpackCount.subscribe(data=> this.totalCandy = data);
+        /*  this.backpackService.currentLevel.subscribe(data => { this.levelName = data; console.log(this.levelName); });
+          console.log("backpackservice triggered"); */
+    };
+    LevelPage.prototype.setLevel = function () {
         var _this = this;
-        this.backpackService.currentLevel.subscribe(function (data) { _this.levelName = data; console.log(_this.levelName); });
-        console.log("backpackservice triggered");
+        this.subcriber1 = this.backpackService.currentBackpackCount.subscribe(function (data) { return _this.totalCandy = data; });
+        console.log('candy total: ' + this.totalCandy);
+        this.subcriber2 = this.backpackService.currentLevel.subscribe(function (data) { _this.level.levelName = data; console.log(_this.level.levelName); });
     };
     LevelPage.prototype.goToMyCards = function () {
         this.navCtrl.push(__WEBPACK_IMPORTED_MODULE_4__my_cards_my_cards__["a" /* MyCardsPage */]);
     };
-    LevelPage.prototype.ionViewDidLeave = function () { };
+    LevelPage.prototype.ionViewDidLeave = function () {
+        //this.subcriber1.unsubscribe();
+        // this.subcriber2.unsubscribe();
+        //  this.navCtrl.setRoot(this.navCtrl.getActive().component); => infinite loop
+    };
     LevelPage = __decorate([
         Object(__WEBPACK_IMPORTED_MODULE_0__angular_core__["m" /* Component */])({
             selector: 'page-level',template:/*ion-inline-start:"/Users/hildegardagnesgenay/Documents/AndBEYOND/CANDY_CHASE_2020_ionic/candyChase2020/src/pages/level/level.html"*/'<ion-header>\n  <ion-navbar color="customColor">\n    <ion-title text-center>Your level</ion-title>\n  </ion-navbar>\n</ion-header>\n\n<ion-content class="levelPage-container">\n\n  <div class="levelElements">\n    <!-- <div>\n        <p>you have {{ totalPoints }} points</p> \n    </div> -->\n    <div class="levelNumber">\n      <h2><span>{{level.levelName}}</span></h2>\n    </div>\n\n    <div class="ribbon">\n      <img src="{{ level.bannerMessage }}" alt="" />\n    </div>\n\n    <div class="levelImage">\n      <img src="{{ level.levelImg }}" alt="" />\n    </div>\n  </div>\n\n  <div class="level-bottom-elements">\n    <div class="level-bubble">\n      <h2>Next mission:<br>Get the <span>{{ nextLevel.levelCardName }} !</span></h2>\n    </div>\n    <div class="next-level-card">\n      <img src="{{ nextLevel.levelCard}}" alt="" />\n    </div>\n  </div>\n  <button (click)="goToMyCards()">see my cards</button>\n\n</ion-content>'/*ion-inline-end:"/Users/hildegardagnesgenay/Documents/AndBEYOND/CANDY_CHASE_2020_ionic/candyChase2020/src/pages/level/level.html"*/,
@@ -755,8 +767,8 @@ var LoginPage = /** @class */ (function () {
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_3__rules_rules__ = __webpack_require__(172);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_4__login_login__ = __webpack_require__(170);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_5__legal_legal__ = __webpack_require__(167);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_6__about_about__ = __webpack_require__(165);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_7__age_select_age_select__ = __webpack_require__(163);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_6__about_about__ = __webpack_require__(163);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_7__age_select_age_select__ = __webpack_require__(164);
 var __decorate = (this && this.__decorate) || function (decorators, target, key, desc) {
     var c = arguments.length, r = c < 3 ? target : desc === null ? desc = Object.getOwnPropertyDescriptor(target, key) : desc, d;
     if (typeof Reflect === "object" && typeof Reflect.decorate === "function") r = Reflect.decorate(decorators, target, key, desc);
@@ -946,11 +958,11 @@ webpackEmptyAsyncContext.id = 184;
 
 var map = {
 	"../pages/about/about.module": [
-		702,
+		701,
 		10
 	],
 	"../pages/age-select/age-select.module": [
-		701,
+		702,
 		9
 	],
 	"../pages/candy-details/candy-details.module": [
@@ -1281,12 +1293,12 @@ Object(__WEBPACK_IMPORTED_MODULE_0__angular_platform_browser_dynamic__["a" /* pl
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_25__pages_backpack_backpack__ = __webpack_require__(326);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_26__pages_level_level__ = __webpack_require__(168);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_27__pages_candy_details_candy_details__ = __webpack_require__(166);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_28__pages_my_addresses_my_addresses__ = __webpack_require__(164);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_28__pages_my_addresses_my_addresses__ = __webpack_require__(165);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_29__pages_my_cards_my_cards__ = __webpack_require__(169);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_30__pages_rules_rules__ = __webpack_require__(172);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_31__pages_legal_legal__ = __webpack_require__(167);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_32__pages_about_about__ = __webpack_require__(165);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_33__pages_age_select_age_select__ = __webpack_require__(163);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_32__pages_about_about__ = __webpack_require__(163);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_33__pages_age_select_age_select__ = __webpack_require__(164);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_34__providers_map_service_map_service__ = __webpack_require__(699);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_35__providers_level_level__ = __webpack_require__(700);
 var __decorate = (this && this.__decorate) || function (decorators, target, key, desc) {
@@ -1362,8 +1374,8 @@ var AppModule = /** @class */ (function () {
                 __WEBPACK_IMPORTED_MODULE_15__pipes_pipes_module__["a" /* PipesModule */],
                 __WEBPACK_IMPORTED_MODULE_5_ionic_angular__["d" /* IonicModule */].forRoot(__WEBPACK_IMPORTED_MODULE_4__app_component__["a" /* MyApp */], {}, {
                     links: [
-                        { loadChildren: '../pages/age-select/age-select.module#AgeSelectPageModule', name: 'AgeSelectPage', segment: 'age-select', priority: 'low', defaultHistory: [] },
                         { loadChildren: '../pages/about/about.module#AboutPageModule', name: 'AboutPage', segment: 'about', priority: 'low', defaultHistory: [] },
+                        { loadChildren: '../pages/age-select/age-select.module#AgeSelectPageModule', name: 'AgeSelectPage', segment: 'age-select', priority: 'low', defaultHistory: [] },
                         { loadChildren: '../pages/candy-details/candy-details.module#CandyDetailsPageModule', name: 'CandyDetailsPage', segment: 'candy-details', priority: 'low', defaultHistory: [] },
                         { loadChildren: '../pages/legal/legal.module#LegalPageModule', name: 'LegalPage', segment: 'legal', priority: 'low', defaultHistory: [] },
                         { loadChildren: '../pages/level/level.module#LevelPageModule', name: 'LevelPage', segment: 'level', priority: 'low', defaultHistory: [] },
@@ -1585,7 +1597,7 @@ var BackpackServiceProvider = /** @class */ (function () {
         // public level$: BehaviorSubject<Level> = new BehaviorSubject(this.level);
         // currentLevel = this.level$.asObservable();
         // keep track of current level name --  
-        this.levelName$ = new __WEBPACK_IMPORTED_MODULE_2_rxjs__["BehaviorSubject"]("");
+        this.levelName$ = new __WEBPACK_IMPORTED_MODULE_2_rxjs__["BehaviorSubject"]("1");
         this.currentLevel = this.levelName$.asObservable();
         this.itemsInBackpack = [];
         this.candyItem = { "_id": "", "product_name": "", "amountInBackpack": 0 };
@@ -1611,9 +1623,9 @@ var BackpackServiceProvider = /** @class */ (function () {
         this.levelName$.next(levelName);
     };
     // method for components to retrieve current level
-    // public getCurrentLevel() {
-    //  return this.currentLevel;
-    // }
+    BackpackServiceProvider.prototype.getCurrentLevel = function () {
+        this.setCurrentLevel(this.totalCandy);
+    };
     // Set level according to current total candy/total points, using json 'levelmodels'
     BackpackServiceProvider.prototype.setCurrentLevel = function (totalPoints) {
         var _this = this;

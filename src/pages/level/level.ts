@@ -5,6 +5,7 @@ import { CandyService } from '../../providers/candy-api-service/candy-api-servic
 import { Level } from '../../models/level.model';
 import { BackpackServiceProvider } from '../../providers/backpack-service/backpack-service';
 import { MyCardsPage } from '../my-cards/my-cards';
+import { Subscription } from 'rxjs';
 
 @IonicPage()
 @Component({
@@ -32,25 +33,25 @@ export class LevelPage implements OnInit {
     public navParams: NavParams,
     public candyService: CandyService,
     public backpackService: BackpackServiceProvider,
-    //private levelService: LevelServiceProvider
     ) {
       this.levels = [];
       this.level = { "idLevel":"", "levelName": "", "levelImg": "", "bannerMessage":"", "levelCard":"", "levelCardName":"" };
       this.nextLevel = { "idLevel":"", "levelName": "", "levelImg": "", "bannerMessage":"", "levelCard":"",  "levelCardName":"" };
     }
 
-    public ngOnInit() {}
+    public ngOnInit() { this.setLevel(); }
 
-    public ionViewWillEnter():void{ 
+    public ionViewDidEnter():void{}
 
-      this.backpackService.currentLevel.subscribe(data => { this.levelName = data; console.log(this.levelName); }); 
-      console.log("backpackservice triggered");
+    public setLevel() {
+      //this.backpackService.currentBackpackCount.subscribe(data => this.totalCandy = data);
+      // console.log('candy total: ' + this.totalCandy);
+      this.backpackService.currentLevel.subscribe(data => { this.level.levelName = data; console.log(this.level.levelName); })
     }
 
+    public goToMyCards() {
+      this.navCtrl.push(MyCardsPage);
+    }
 
-  public goToMyCards() {
-    this.navCtrl.push(MyCardsPage);
-  }
-
-  public ionViewDidLeave():void {}
+    public ionViewDidLeave():void {}
 }

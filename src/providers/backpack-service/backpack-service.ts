@@ -35,9 +35,9 @@ export class BackpackServiceProvider {
   // public level$: BehaviorSubject<Level> = new BehaviorSubject(this.level);
   // currentLevel = this.level$.asObservable();
 
-    // keep track of current level name --  
-    private levelName$ = new BehaviorSubject("");
-    currentLevel = this.levelName$.asObservable();
+  // keep track of current level name --  
+  public levelName$ = new BehaviorSubject("1");
+  currentLevel = this.levelName$.asObservable();
 
   // ---
 
@@ -73,10 +73,9 @@ export class BackpackServiceProvider {
   }
 
   // method for components to retrieve current level
-  // public getCurrentLevel() {
-  //  return this.currentLevel;
-  // }
-
+  public getCurrentLevel() {
+    this.setCurrentLevel(this.totalCandy);
+  } 
 
   // Set level according to current total candy/total points, using json 'levelmodels'
   setCurrentLevel(totalPoints:number) {

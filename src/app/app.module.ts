@@ -48,6 +48,7 @@ import { AboutPage } from '../pages/about/about';
 import { AgeSelectPage } from '../pages/age-select/age-select';
 import { MapServiceProvider } from '../providers/map-service/map-service';
 import { LevelProvider } from '../providers/level/level';
+import { ProvidersStorageServiceProvider } from '../providers/storage-service/browserStorage-service';
 
 @NgModule({
   declarations: [
@@ -112,7 +113,8 @@ import { LevelProvider } from '../providers/level/level';
     ShortenStringPipe,
     RemoveCharsPipe,
     MapServiceProvider,
-    LevelProvider 
+    LevelProvider,
+    ProvidersStorageServiceProvider 
   ],
   exports : [
     KeyvaluePipe,
