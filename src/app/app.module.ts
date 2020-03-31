@@ -48,7 +48,8 @@ import { AboutPage } from '../pages/about/about';
 import { AgeSelectPage } from '../pages/age-select/age-select';
 import { MapServiceProvider } from '../providers/map-service/map-service';
 import { LevelProvider } from '../providers/level/level';
-import { ProvidersStorageServiceProvider } from '../providers/storage-service/browserStorage-service';
+import { BrowserStorageService } from '../providers/storage-service/browserStorage-service';
+import { ErrorServiceProvider } from '../providers/error-service/error-service';
 
 @NgModule({
   declarations: [
@@ -114,7 +115,9 @@ import { ProvidersStorageServiceProvider } from '../providers/storage-service/br
     RemoveCharsPipe,
     MapServiceProvider,
     LevelProvider,
-    ProvidersStorageServiceProvider 
+    BrowserStorageService,
+    ErrorServiceProvider
+    // { provide: BROWSER_STORAGE, {} etc  } => ? 
   ],
   exports : [
     KeyvaluePipe,

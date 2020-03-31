@@ -7,6 +7,7 @@ import { BackpackServiceProvider } from '../../providers/backpack-service/backpa
 import { MyCardsPage } from '../my-cards/my-cards';
 import { Subscription } from 'rxjs';
 
+
 @IonicPage()
 @Component({
   selector: 'page-level',

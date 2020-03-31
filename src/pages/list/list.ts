@@ -35,11 +35,10 @@ export class ListPage implements OnInit {
     public shortenString: ShortenStringPipe) {
 
     this.candyList = [];
-    this.candyItem = {
-      _id: "", product_name: "", amountInBackpack: 0,
+    this.candyItem = { _id: "", product_name: "", amountInBackpack: 0,
       image_front_url: "", brands_tags: [], ingredients_tags: [],
-      nutriscore_data: [], additives_tags: [], allergens_hierarchy:[]
-    };
+      nutriscore_data: [], additives_tags: [], allergens_hierarchy:[] };
+      
     this.candyChecklist = { additives: false,
                             preservatives: false,
                             organic: false,

@@ -20,11 +20,10 @@ factory: () => localStorage ;
 @Injectable()
 export class BrowserStorageService {
 
+  constructor(@Inject(BROWSER_STORAGE) public storage: Storage, public http: HttpClient) {}
   // The Inject decorator is a constructor parameter used to specify a custom provider 
   // of a dependency. This custom provider can now be overridden during testing 
   // with a mock API of localStorage instead of interacting with real browser APIs.
-  constructor(@Inject(BROWSER_STORAGE) public storage: Storage, public http: HttpClient) {}
-
 
   get(key: string) {
     this.storage.getItem(key);
