@@ -3,9 +3,9 @@ import { ToastController } from 'ionic-angular';
 import { Geolocation } from '@ionic-native/geolocation';
 import { Candy ,CandyChecklist } from '../../models/candy.model';
 import { CandyI, CandyChecklistI } from '../../models/candy.interface';
-import { CandyService } from '../../providers/candy-api-service/candy-api-service';
+import { CandyAPIService} from '../../providers/candy-api-service/candy-api.service';
 import { BackpackServiceProvider } from '../../providers/backpack-service/backpack-service'
-import { GeolocServiceProvider } from '../../providers/geoloc-service/geoloc-service';
+import { GeolocServiceProvider } from '../../providers/geoloc-service/geoloc.service';
 import { ShortenStringPipe } from '../../pipes/shorten-string/shorten-string';
 import { Observable } from 'rxjs';
 
@@ -28,7 +28,7 @@ export class ListPage implements OnInit {
 
   constructor(
     private toast: ToastController,
-    public candyService: CandyService,
+    public candyService: CandyAPIService,
     public backpackService: BackpackServiceProvider,
     public geolocation: Geolocation,
     public geolocService: GeolocServiceProvider,

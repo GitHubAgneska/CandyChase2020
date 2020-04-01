@@ -1,4 +1,4 @@
-import { CandyService } from '../../providers/candy-api-service/candy-api-service'; 
+import { CandyAPIService } from '../../providers/candy-api-service/candy-api.service'; 
 import { Component, OnInit } from '@angular/core';
 import { NavController, NavParams } from 'ionic-angular';
 import { CandyDetailsPage } from '../candy-details/candy-details';
@@ -25,7 +25,7 @@ export class BackpackPage implements OnInit{
   constructor(
     public navCtrl: NavController,
     public navParams: NavParams,
-    private candyService: CandyService,
+    private candyService: CandyAPIService,
     private backpackService: BackpackServiceProvider,
     public keyvaluepipe: KeyvaluePipe,
     public shortenString: ShortenStringPipe  ) {
@@ -41,10 +41,6 @@ export class BackpackPage implements OnInit{
     // retrieve total candy/ points
     this.backpackService.currentBackpackCount.subscribe(data => this.totalCandy = data);
     //console.log("TOTAL CANDY AT INIT: ", this.totalCandy);
-    
-    // retrieve current level
-    this.backpackService.currentLevel.subscribe(level => this.currentLevel = level);
-    //console.log("LEVEL NAME RETRIEVED: ", this.levelName);
   }
 
   public setBackpack() {

@@ -2,8 +2,8 @@ import { Component } from '@angular/core';
 import { IonicPage, NavController, NavParams } from 'ionic-angular';
 import { TabsPage } from '../tabs/tabs';
 import { MapPage } from '../map/map';
-import { GeolocServiceProvider } from  '../../providers/geoloc-service/geoloc-service';
-import { CandyService } from '../../providers/candy-api-service/candy-api-service';
+import { GeolocServiceProvider } from  '../../providers/geoloc-service/geoloc.service';
+import { CandyAPIService } from '../../providers/candy-api-service/candy-api.service';
 import { Observable } from 'rxjs';
 import { CandyI } from '../../models/candy.interface';
 
@@ -25,7 +25,7 @@ export class WelcomePage {
     public navCtrl: NavController,
     public navParams: NavParams,
     public geolocService: GeolocServiceProvider,
-    public candyService: CandyService ) { }
+    public candyService: CandyAPIService ) { }
 
 
   public ionViewWillEnter() {

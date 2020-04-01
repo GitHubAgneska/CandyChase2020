@@ -1,6 +1,6 @@
 import { Component } from '@angular/core';
 import { IonicPage, NavController, NavParams } from 'ionic-angular';
-import { GeolocServiceProvider } from '../../providers/geoloc-service/geoloc-service';
+import { GeolocServiceProvider } from '../../providers/geoloc-service/geoloc.service';
 import { MapPage } from '../map/map';
 
 @IonicPage()

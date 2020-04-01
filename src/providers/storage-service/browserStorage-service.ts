@@ -7,7 +7,7 @@ import { Inject, Injectable, InjectionToken } from '@angular/core';
 // Angular solves this problem using InjectionToken 
 
 export const BROWSER_STORAGE = new InjectionToken<Storage>('Browser Storage');
-factory: () => localStorage ;
+// factory: () => localStorage ;
 // The factory function returns the localStorage property that is 
 // attached to the browser window object.
 

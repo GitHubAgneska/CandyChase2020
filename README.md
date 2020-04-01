@@ -36,12 +36,17 @@ npm i
 #### Logic/data
 
 ##### must have
+ 
+- Map : new bug feb 2020 after system updates : geoloc not accurate anymore under chrome / accureate but marker does not show under firefox 
 
 - Map by age range implem => pass distance from 'age select' component to 'map'    component that calls 'load map' method ( distance passed is currently static )
 
-- 'candyService' => REMAP data results to leverage performances 
+- 'candyService' => REMAP data results to leverage performances ?
     on fetching candy list / => implem of a Sharereplay operator that inits as app opens
-n
+    or implement 'skeleton screen'
+
+- add function remove candy from backpack
+
 - Routing / tabs 
 
 ---
@@ -103,7 +108,6 @@ n
     gyp ERR! node -v v10.15.1
     gyp ERR! node-gyp -v v3.8.0
     gyp ERR! not ok 
-
 
 
 ```
@@ -295,7 +299,7 @@ incorrect under chrome, but marker showing
 
 ........... 
 
-game feature
++ game feature
 
 npm install phaser@3.22.0
 

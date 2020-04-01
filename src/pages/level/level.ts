@@ -1,12 +1,12 @@
 import { Component, OnInit, AfterViewInit } from '@angular/core';
 import { IonicPage, NavController, NavParams } from 'ionic-angular';
-import { CandyService } from '../../providers/candy-api-service/candy-api-service';
+import { CandyAPIService } from '../../providers/candy-api-service/candy-api.service';
 // import { LevelServiceProvider } from '../../providers/level-api-service/level-api-service';
 import { Level } from '../../models/level.model';
 import { BackpackServiceProvider } from '../../providers/backpack-service/backpack-service';
 import { MyCardsPage } from '../my-cards/my-cards';
 import { Subscription } from 'rxjs';
-
+import { LevelService } from '../../providers/level-service/level.service';
 
 @IonicPage()
 @Component({
@@ -32,8 +32,9 @@ export class LevelPage implements OnInit {
   constructor( 
     public navCtrl: NavController,
     public navParams: NavParams,
-    public candyService: CandyService,
+    public candyService: CandyAPIService,
     public backpackService: BackpackServiceProvider,
+    public levelService: LevelService
     ) {
       this.levels = [];
       this.level = { "idLevel":"", "levelName": "", "levelImg": "", "bannerMessage":"", "levelCard":"", "levelCardName":"" };
@@ -45,9 +46,8 @@ export class LevelPage implements OnInit {
     public ionViewDidEnter():void{}
 
     public setLevel() {
-      //this.backpackService.currentBackpackCount.subscribe(data => this.totalCandy = data);
       // console.log('candy total: ' + this.totalCandy);
-      this.backpackService.currentLevel.subscribe(data => { this.level.levelName = data; console.log(this.level.levelName); })
+      this.levelService.currentLevel.subscribe(data => { this.level.levelName = data; console.log(this.level.levelName); })
     }
 
     public goToMyCards() {

@@ -1,6 +1,6 @@
 import { Component, ViewChild, ElementRef } from '@angular/core';
 import { NavController } from 'ionic-angular';
-import { GeolocServiceProvider } from '../../providers/geoloc-service/geoloc-service';
+import { GeolocServiceProvider } from '../../providers/geoloc-service/geoloc.service';
 import { Coordonne } from '../../models/coordonne.model';
 import { Geolocation } from '@ionic-native/geolocation';
 import { MyAddressesPage } from '../my-addresses/my-addresses';
