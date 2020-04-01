@@ -630,12 +630,12 @@ var LevelPage = /** @class */ (function () {
         this.level = { "idLevel": "", "levelName": "", "levelImg": "", "bannerMessage": "", "levelCard": "", "levelCardName": "" };
         this.nextLevel = { "idLevel": "", "levelName": "", "levelImg": "", "bannerMessage": "", "levelCard": "", "levelCardName": "" };
     }
-    LevelPage.prototype.ngOnInit = function () { this.setLevel(); };
-    LevelPage.prototype.ionViewDidEnter = function () { };
-    LevelPage.prototype.setLevel = function () {
+    LevelPage.prototype.ngOnInit = function () { };
+    LevelPage.prototype.ionViewDidEnter = function () {
         var _this = this;
-        // console.log('candy total: ' + this.totalCandy);
-        this.levelService.currentLevel.subscribe(function (data) { _this.level.levelName = data; console.log(_this.level.levelName); });
+        this.levelService.setCurrentLevel();
+        this.currentLevel$ = this.levelService.currentLevel.subscribe(function (data) { return _this.currentLevel.levelName = data; });
+        console.log('CURRENT LEVEL RETRIEVED: ', this.currentLevel.levelName);
     };
     LevelPage.prototype.goToMyCards = function () {
         this.navCtrl.push(__WEBPACK_IMPORTED_MODULE_4__my_cards_my_cards__["a" /* MyCardsPage */]);
@@ -1048,26 +1048,32 @@ var LevelService = /** @class */ (function () {
         this.levelName$ = new __WEBPACK_IMPORTED_MODULE_2_rxjs__["BehaviorSubject"]("1");
         this.currentLevel = this.levelName$.asObservable();
     }
-    // keep track of current level --> whole object
-    // public level$: BehaviorSubject<Level> = new BehaviorSubject(this.level);
-    // currentLevel = this.level$.asObservable();
     // method for components to update current level (besides regular count)
     LevelService.prototype.update_level = function (levelName) {
         this.levelName$.next(levelName);
     };
+    // keep track of current level --> whole object
+    // public level$: BehaviorSubject<Level> = new BehaviorSubject(this.level);
+    // currentLevel = this.level$.asObservable();
+    // -----
     LevelService.prototype.retriveLevelList = function () {
         var _this = this;
         this.levelProvider.getLevelList().subscribe(function (response) {
             _this.myArrayOfLevels = response;
+            console.log(_this.myArrayOfLevels);
         });
+        return this.myArrayOfLevels;
     };
     LevelService.prototype.retrieveCurrentTotalPoints = function () {
         var _this = this;
         this.totalPoints$ = this.backpackService.currentBackpackCount.subscribe(function (data) { _this.totalPoints = data; });
-        console.log('TOTAL POINTS RETRIEVED: ', this.totalPoints);
+        // console.log('TOTAL POINTS RETRIEVED: ', this.totalPoints);
     };
-    LevelService.prototype.setCurrentLevel = function (totalPoints) {
-        if (totalPoints <= 7) {
+    LevelService.prototype.calculateCurrentLevel = function (totalPoints) {
+        totalPoints = this.totalPoints$;
+        console.log('TOTAL POINTS = : ', this.totalPoints);
+        if (this.totalPoints <= 7) {
+            console.log('IS < 7');
             this.level = this.myArrayOfLevels[0];
             this.level.levelName = this.myArrayOfLevels[0].levelName;
             //console.log( "je suis LEVEL NAME: ",this.level.levelName);
@@ -1115,16 +1121,23 @@ var LevelService = /** @class */ (function () {
             this.nextLevel.levelCard = this.myArrayOfLevels[4].levelCard;
             this.nextLevel.levelCardName = this.myArrayOfLevels[4].levelCardName;
         }
-        // this.update_level(this.level);
+        console.log(this.level.levelName);
         this.update_level(this.levelName);
+        // this.update_level(this.level);
+    };
+    LevelService.prototype.setCurrentLevel = function () {
+        this.retrieveCurrentTotalPoints();
+        console.log('TOTAL POINTS RETRIEVED: ', this.totalPoints);
+        this.retriveLevelList();
+        this.calculateCurrentLevel(this.totalPoints);
+        console.log('CURRENT LEVEL: ', this.level.levelName);
     };
     LevelService = __decorate([
         Object(__WEBPACK_IMPORTED_MODULE_1__angular_core__["A" /* Injectable */])(),
-        __metadata("design:paramtypes", [__WEBPACK_IMPORTED_MODULE_0__angular_common_http__["a" /* HttpClient */],
-            __WEBPACK_IMPORTED_MODULE_4__backpack_service_backpack_service__["a" /* BackpackServiceProvider */],
-            __WEBPACK_IMPORTED_MODULE_3__level_api_service_level_api_service__["a" /* LevelServiceProvider */]])
+        __metadata("design:paramtypes", [typeof (_a = typeof __WEBPACK_IMPORTED_MODULE_0__angular_common_http__["a" /* HttpClient */] !== "undefined" && __WEBPACK_IMPORTED_MODULE_0__angular_common_http__["a" /* HttpClient */]) === "function" && _a || Object, typeof (_b = typeof __WEBPACK_IMPORTED_MODULE_4__backpack_service_backpack_service__["a" /* BackpackServiceProvider */] !== "undefined" && __WEBPACK_IMPORTED_MODULE_4__backpack_service_backpack_service__["a" /* BackpackServiceProvider */]) === "function" && _b || Object, typeof (_c = typeof __WEBPACK_IMPORTED_MODULE_3__level_api_service_level_api_service__["a" /* LevelServiceProvider */] !== "undefined" && __WEBPACK_IMPORTED_MODULE_3__level_api_service_level_api_service__["a" /* LevelServiceProvider */]) === "function" && _c || Object])
     ], LevelService);
     return LevelService;
+    var _a, _b, _c;
 }());
 
 //# sourceMappingURL=level.service.js.map

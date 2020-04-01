@@ -1,7 +1,6 @@
 import { HttpClient } from '@angular/common/http';
 import { Injectable } from '@angular/core';
 import { Observable, BehaviorSubject } from 'rxjs';
-import { Candy } from '../../models/candy.model';
 import { Level } from '../../models/level.model';
 import { LevelServiceProvider } from '../level-api-service/level-api.service';
 import { BackpackServiceProvider } from '../backpack-service/backpack-service';
@@ -26,36 +25,40 @@ export class LevelService{
   public bannerMessage: string;
 
   public nextLevel: Level;
-  public myArrayOfLevels;
+  public myArrayOfLevels: Level[];
 
   // keep track of current level name --  
   public levelName$ = new BehaviorSubject("1");
   currentLevel = this.levelName$.asObservable();
 
+    // method for components to update current level (besides regular count)
+  public update_level(levelName: string) {
+    this.levelName$.next(levelName);
+  }
   // keep track of current level --> whole object
   // public level$: BehaviorSubject<Level> = new BehaviorSubject(this.level);
   // currentLevel = this.level$.asObservable();
-
-  // method for components to update current level (besides regular count)
-  public update_level(levelName: string) {
-  this.levelName$.next(levelName);
-  }
-
+// -----
 
   retriveLevelList() {
     this.levelProvider.getLevelList().subscribe((response:Level[]) => {
       this.myArrayOfLevels = response;
+      console.log(this.myArrayOfLevels);
     } );
+    return this.myArrayOfLevels;
   }
 
   retrieveCurrentTotalPoints(){
-    this.totalPoints$ = this.backpackService.currentBackpackCount.subscribe(data => { this.totalPoints = data});
-    console.log('TOTAL POINTS RETRIEVED: ', this.totalPoints);
+    this.totalPoints$ = this.backpackService.currentBackpackCount.subscribe(data => { this.totalPoints = data });
+    // console.log('TOTAL POINTS RETRIEVED: ', this.totalPoints);
   }
 
-  setCurrentLevel(totalPoints:number) {
-
-      if (totalPoints <= 7 ) {
+  calculateCurrentLevel(totalPoints:number) {
+      totalPoints = this.totalPoints$;
+      console.log('TOTAL POINTS = : ', this.totalPoints);
+      
+      if (this.totalPoints <= 7 ) {
+        console.log('IS < 7');
         this.level = this.myArrayOfLevels[0];
         this.level.levelName = this.myArrayOfLevels[0].levelName;
         //console.log( "je suis LEVEL NAME: ",this.level.levelName);
@@ -107,8 +110,20 @@ export class LevelService{
         this.nextLevel.levelCard = this.myArrayOfLevels[4].levelCard;
         this.nextLevel.levelCardName = this.myArrayOfLevels[4].levelCardName;
       }
-      // this.update_level(this.level);
+      console.log(this.level.levelName);
       this.update_level(this.levelName);
+      // this.update_level(this.level);
+      
+  }
+
+  setCurrentLevel() {
+    this.retrieveCurrentTotalPoints();
+    console.log('TOTAL POINTS RETRIEVED: ', this.totalPoints);
+    this.retriveLevelList();
+    
+    this.calculateCurrentLevel(this.totalPoints);
+    console.log('CURRENT LEVEL: ', this.level.levelName);
+    
   }
 
 }

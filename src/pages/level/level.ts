@@ -18,6 +18,8 @@ export class LevelPage implements OnInit {
   public levels: Level[];
   public level: Level;
   public currentLevel: Level;
+  public currentLevel$;
+
   public levelName: string;
   public levelImg: string;
   public bannerMessage: string;
@@ -41,13 +43,13 @@ export class LevelPage implements OnInit {
       this.nextLevel = { "idLevel":"", "levelName": "", "levelImg": "", "bannerMessage":"", "levelCard":"",  "levelCardName":"" };
     }
 
-    public ngOnInit() { this.setLevel(); }
+    public ngOnInit() {}
+    
+    public ionViewDidEnter():void{
 
-    public ionViewDidEnter():void{}
-
-    public setLevel() {
-      // console.log('candy total: ' + this.totalCandy);
-      this.levelService.currentLevel.subscribe(data => { this.level.levelName = data; console.log(this.level.levelName); })
+      this.levelService.setCurrentLevel();
+      this.currentLevel$ = this.levelService.currentLevel.subscribe(data => this.currentLevel.levelName = data)
+      console.log('CURRENT LEVEL RETRIEVED: ', this.currentLevel.levelName);
     }
 
     public goToMyCards() {
