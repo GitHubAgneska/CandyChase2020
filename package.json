@@ -4,11 +4,15 @@
   "author": "Ionic Framework",
   "homepage": "http://ionicframework.com/",
   "private": true,
+  "jest": {
+    "verbose": true
+  },
   "scripts": {
     "start": "ionic-app-scripts serve",
     "clean": "ionic-app-scripts clean",
     "build": "ionic-app-scripts build",
-    "lint": "ionic-app-scripts lint"
+    "lint": "ionic-app-scripts lint",
+    "test": "jest"
   },
   "dependencies": {
     "@agm/core": "^1.1.0",
@@ -28,6 +32,7 @@
     "@ionic-native/splash-screen": "4.20.0",
     "@ionic-native/status-bar": "4.20.0",
     "@ionic/storage": "2.2.0",
+    "@types/jest": "^25.1.4",
     "android-versions": "^1.5.0",
     "cordova-android": "^8.1.0",
     "cordova-plugin-device": "^2.0.3",
@@ -39,6 +44,7 @@
     "ionic-angular": "3.9.9",
     "ionic-plugin-keyboard": "^2.2.1",
     "ionicons": "3.0.0",
+    "jest": "^25.2.4",
     "leaflet": "^1.6.0",
     "node-sass": "^4.13.1",
     "phaser": "^3.22.0",

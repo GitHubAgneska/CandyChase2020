@@ -303,4 +303,13 @@ incorrect under chrome, but marker showing
 
 npm install phaser@3.22.0
 
-........... 
+...........
+
+
+TDD 
+
+npm i jest
+npm i @types/jest 
+
+
+...........

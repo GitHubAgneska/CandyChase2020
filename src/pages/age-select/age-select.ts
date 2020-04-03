@@ -23,13 +23,14 @@ export class AgeSelectPage {
   setAge(ageRange:number){
     this.ageRange = ageRange;
     console.log("AGE: ", this.ageRange);
-    // this.geolocService.currentUserAgeRange.subscribe(currentAge => this.ageRange = currentAge);
+
     this.geolocService.setCurrentAgeRange(this.ageRange);
     this.navCtrl.push(MapPage)
-/*     .then(() => {
-          const index = this.navCtrl.getActive().index;
-          this.navCtrl.remove(index-1);
-      }); */
+/*     
+  make map current active page
+  .then(() => {
+            const index = this.navCtrl.getActive().index;
+            this.navCtrl.remove(index-1);
+        }); */
   }
-  
 }
