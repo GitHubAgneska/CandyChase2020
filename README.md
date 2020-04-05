@@ -306,10 +306,70 @@ npm install phaser@3.22.0
 ...........
 
 
-TDD 
+UNIT TESTING 
 
 npm i jest
 npm i @types/jest 
+npm i ts-jest
 
+-- adding a 'tsconfig.spec.json'
+-- adding a 'jest.config.js' but removed atm (errors)
+
+    ``` module.exports = {
+        preset: 'jest-preset-angular',
+        roots: ['src'],
+        transform: {
+            '^.+\\.(ts|js|html)$': 'ts-jest',
+        },
+        setupFilesAfterEnv: ['<rootDir>/src/setup-jest.ts'],
+        moduleNameMapper: {
+            '@app/(.*)': '<rootDir>/src/app/$1',
+            '@assets/(.*)': '<rootDir>/src/assets/$1',
+            '@core/(.*)': '<rootDir>/src/app/core/$1',
+            '@env': '<rootDir>/src/environments/environment',
+            '@src/(.*)': '<rootDir>/src/src/$1',
+            '@state/(.*)': '<rootDir>/src/app/state/$1'
+        },
+        transformIgnorePatterns: [
+            '/node_modules/(?!@ionic|ngx-socket-io/).+\\.js$'
+        ]
+        };
+    ```
+
+=> tests start running but stop : error 'Test suite failed to run' : 'SyntaxError Unexpected token, expected ";" ' on variable declarations 'let component: AgeSelectPage'
+
+==> could not find out so switching to jasmine/karma + babel 
+
+====
+npm install karma --save-dev
+npm install karma-jasmine jasmine-core karma-chrome-launcher karma-firefox-launcher --save-dev
+
+launch : npx karma start karma.conf.js --log-level debug --single-run
+
+=> launch — --single-run => closes chrome & firefox otherwise, 
+Continuous Integration mode. If true , Karma will start and capture all configured browsers,
+run tests and then exit with an exit code of 0 or 1 depending on whether all tests passed or any tests failed.
+
+'WARN [middleware:karma]:Invalid file type (ts), defaulting to js.'
 
 ...........
+
++ npm i @types/jasminewd2
+npm i @types/node --save-dev
+
+npm i @types/node --save-dev
+npm i karma-jasmine-html-reporter --save-dev
+
+Under the hood Karma uses ts-node to transpile TypeScript to JavaScript :
+npm i ts-node --save-dev
+
+
+npm i karma-coverage-istanbul-reporter --save-dev
+
+
+---
+generate an initial configuration file  => karma init
+npx jasmine init
+
+
+official jasmine config doc : https://jasmine.github.io/setup/nodejs.html
