@@ -1,18 +1,27 @@
 // karma.conf.js
-require('ts-node').register({ 
-compilerOptions: { 
-    module: 'commonjs' 
-} 
+var webpackConfig = require('./webpack.test.js');
+require('ts-node').register({
+    compilerOptions: {
+        module: 'commonjs'
+    }
 });
 require('./karma.conf.js');
-module.exports = function(config) {
+module.exports = function (config) {
     config.set({
         basePath: '../..',
         frameworks: ['jasmine'],
+        /*         plugins: [
+            require('karma-jasmine'),
+            require('karma-chrome-launcher'),
+            require('karma-jasmine-html-reporter'),
+            require('karma-coverage-istanbul-reporter'),
+        ], */
 
         coverageIstanbulReporter: {
             dir: require('path').join(__dirname, './coverage/unitTesting'),
-            reports: ['html', 'lcovonly', 'text-summary'],
+            reports: [
+                'html', 'lcovonly', 'text-summary'
+            ],
             fixWebpackSourcePaths: true
         },
 
@@ -20,11 +29,16 @@ module.exports = function(config) {
         browsers: [
             'Firefox', 'Chrome'
         ],
+
         files: [
+            {
+                pattern: '../src/test.ts',
+                watched: false,
+                // pattern: './test-config/karma-test-shim.js',
+                watched: false
+            },
             // simple pattern to load the needed testfiles
             // equal to {pattern: 'test/unit/*.spec.js', watched: true, served: true, included: true}
-
-            'node_modules/karma-babel-preprocessor/node_modules/babel-core/browser-polyfill.js',
             // './src/**/*.spec.ts'
             'CANDY_CHASE_2020_ionic/candyChase2020/src/pages/age-select/age-select.spec.ts'
         ],
@@ -34,13 +48,26 @@ module.exports = function(config) {
         // preprocess matching files before serving them to the browser
         // available preprocessors: https://npmjs.org/browse/keyword/karma-preprocessor
         preprocessors: {
-            './src/**/*.spec.ts': 'babel'
+            './test-config/karma-test-shim.js': ['webpack'],
+            './src/**/*.spec.ts': 'webpack'
         },
 
-        babelPreprocessor: {
-            options: {
-                presets: ['@babel/preset-env']
-            }
+        // mime: {  'text/x-typescript': ['ts','tsx'] }, => An error was thrown in afterAll
+        // Uncaught SyntaxError: Cannot use import statement outside a module
+
+        webpack: webpackConfig,
+        plugins: [new webpack.SourceMapDevToolPlugin(
+                {filename: null, test: /\.(ts|tsx|js)($|\?)/i}
+            )],
+
+        webpackMiddleware: {
+            stats: 'errors-only'
+        },
+
+        webpackServer: {
+            noInfo: true
         }
+
     })
+
 }

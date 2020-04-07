@@ -1,4 +1,4 @@
-import { CandyAPIService } from '../../providers/candy-api-service/candy-api.service'; 
+// import { CandyAPIService } from '../../providers/candy-api-service/candy-api.service'; 
 import { Component, OnInit } from '@angular/core';
 import { NavController, NavParams } from 'ionic-angular';
 import { CandyDetailsPage } from '../candy-details/candy-details';
@@ -25,7 +25,7 @@ export class BackpackPage implements OnInit{
   constructor(
     public navCtrl: NavController,
     public navParams: NavParams,
-    private candyService: CandyAPIService,
+    // private candyService: CandyAPIService,
     private backpackService: BackpackServiceProvider,
     public keyvaluepipe: KeyvaluePipe,
     public shortenString: ShortenStringPipe  ) {

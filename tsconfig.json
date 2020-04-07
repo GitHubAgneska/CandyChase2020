@@ -21,7 +21,7 @@
     "target": "es5"
   },
   "include": [
-    "src/**/*.ts"
+    "src/**/*.ts", "src/pages/age-select/age-select.spec.js"
   ],
   "exclude": [
     "node_modules"

@@ -11,5 +11,17 @@
         "module": "commonjs"
     },
     "files": ["polyfills.ts"],
-    "include": ["**/*.spec.ts", "**/*.d.ts"]
+    "include": ["**/*.spec.ts", "**/*.d.ts"],
+
+    // ++ 
+    "baseUrl": "../src",
+    "paths": {
+        "@app/*": [ "app/*" ],
+        "@assets/*": [ "assets/*" ],
+        "@env": [ "environments/environment" ],
+        "@pages/*": [ "pages/*" ],
+        "@services/*": [ "services/*" ],
+        "@tests/*": [ "./*" ],
+        "@theme/*": [ "theme/*" ]
+    }
 }

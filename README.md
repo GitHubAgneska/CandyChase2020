@@ -338,7 +338,7 @@ npm i ts-jest
 
 => tests start running but stop : error 'Test suite failed to run' : 'SyntaxError Unexpected token, expected ";" ' on variable declarations 'let component: AgeSelectPage'
 
-==> could not find out so switching to jasmine/karma + babel 
+==> could not find out so switching to jasmine/karma + babel / webpack
 
 ====
 npm install karma --save-dev
@@ -373,3 +373,8 @@ npx jasmine init
 
 
 official jasmine config doc : https://jasmine.github.io/setup/nodejs.html
++
+ionic example with testing 
+https://github.com/ionic-team/ionic-unit-testing-example => npm = loads of errors..
+
+---

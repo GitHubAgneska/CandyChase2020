@@ -2,13 +2,11 @@ import { CUSTOM_ELEMENTS_SCHEMA } from "@angular/core";
 import { async, ComponentFixture, TestBed, inject } from "@angular/core/testing";
 import { By } from "@angular/platform-browser";
 import { DebugElement } from "@angular/core";
-
 import { Component } from '@angular/core';
 import { IonicPage, NavController, NavParams } from 'ionic-angular';
 import { GeolocServiceProvider } from '../../providers/geoloc-service/geoloc.service';
 import { MapPage } from '../map/map';
-
-import { AgeSelectPage } from '../../pages/age-select/age-select';
+import { AgeSelectPage } from './age-select';
 
 let ageRange = 0;
 
@@ -36,6 +34,12 @@ describe('AgeSelectPage', () => {
                 element = debug.nativeElement;
         });
     })
+
+    afterEach(() => {
+        fixture.destroy();
+    });
+
+    
     it('should create', () => {
         expect(component).toBeTruthy();
     });
