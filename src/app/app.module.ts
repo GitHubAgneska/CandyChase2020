@@ -48,7 +48,6 @@ import { AboutPage } from '../pages/about/about';
 import { AgeSelectPage } from '../pages/age-select/age-select';
 import { MapServiceProvider } from '../providers/map-service/map-service';
 import { LevelProvider } from '../providers/level/level';
-import { BrowserStorageService } from '../providers/storage-service/browserStorage-service';
 import { ErrorServiceProvider } from '../providers/error-service/error-service';
 
 @NgModule({
@@ -115,7 +114,7 @@ import { ErrorServiceProvider } from '../providers/error-service/error-service';
     RemoveCharsPipe,
     MapServiceProvider,
     LevelProvider,
-    BrowserStorageService,
+
     ErrorServiceProvider
     // { provide: BROWSER_STORAGE, {} etc  } => ? 
   ],
