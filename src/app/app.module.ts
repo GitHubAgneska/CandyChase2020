@@ -35,7 +35,7 @@ import { WelcomePage } from '../pages/welcome/welcome';
 import { LoginPage } from '../pages/login/login';
 import { MyHomePage } from './../pages/my-home/my-home';
 import { MapPage } from '../pages/map/map';
-import { ListPage } from '../pages/list/list';
+import { CandyListPage } from '../pages/candyList/candyList';
 import { BackpackPage } from '../pages/backpack/backpack';
 import { LevelPage } from './../pages/level/level';
 import { CandyDetailsPage } from './../pages/candy-details/candy-details';
@@ -56,7 +56,7 @@ import { AgeSelectPage } from '../pages/age-select/age-select';
     LoginPage,
     MapPage,
     BackpackPage,
-    ListPage,
+    CandyListPage,
     MyHomePage,
     LevelPage,
     CandyDetailsPage,
@@ -83,7 +83,7 @@ import { AgeSelectPage } from '../pages/age-select/age-select';
     WelcomePage,
     MapPage,
     BackpackPage,
-    ListPage,
+    CandyListPage,
     TabsPage,
     RulesPage,
     LegalPage,

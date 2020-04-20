@@ -2,7 +2,7 @@ import { Component } from '@angular/core';
 import { IonicPage, NavController, NavParams } from 'ionic-angular';
 import { TabsPage } from '../tabs/tabs';
 import { MapPage } from '../map/map';
-import { ListPage } from '../list/list';
+import { CandyListPage } from '../candyList/candyList';
 import { RulesPage } from '../rules/rules';
 import { LoginPage } from  '../login/login';
 import { LegalPage } from '../legal/legal';
@@ -27,7 +27,7 @@ export class MyHomePage {
 
 
   goto() :void {
-    this.navCtrl.push(ListPage);
+    this.navCtrl.push(CandyListPage);
   }
 
   goToStart() {

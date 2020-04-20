@@ -1,5 +1,5 @@
 // karma.conf.js
-var webpackConfig = require('./webpack.test.js');
+var webpackConfig = require('./webpack.test.ts');
 require('ts-node').register({
     compilerOptions: {
         module: 'commonjs'
@@ -29,6 +29,11 @@ module.exports = function (config) {
         browsers: [
             'Firefox', 'Chrome'
         ],
+        customLaunchers: {
+            ChromeHeadlessCI: {
+            base: 'ChromeHeadless',
+            flags: ['--no-sandbox']
+        }},
 
         files: [
             {
@@ -56,9 +61,9 @@ module.exports = function (config) {
         // Uncaught SyntaxError: Cannot use import statement outside a module
 
         webpack: webpackConfig,
-        plugins: [new webpack.SourceMapDevToolPlugin(
+        /* plugins: [new webpack.SourceMapDevToolPlugin(
                 {filename: null, test: /\.(ts|tsx|js)($|\?)/i}
-            )],
+            )], */
 
         webpackMiddleware: {
             stats: 'errors-only'

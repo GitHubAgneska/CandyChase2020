@@ -110,6 +110,16 @@ npm i
     gyp ERR! not ok 
 
 
+=> 
+
+> fsevents@1.2.11 install /Users/hildegardagnesgenay/Documents/AndBEYOND/CANDY_CHASE_2020_ionic/candyChase2020/node_modules/fsevents
+> node-gyp rebuild
+
+---
+
++ typescript@2.4.2
+updated 1 package in 5.585s
+
 ```
 rm -rf node_modules
 rm package-lock.json

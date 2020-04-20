@@ -30,10 +30,10 @@ import { TranslateServiceMock }     from './services/translate.mock';
 import { TranslatePipeMock }        from './pipes/translate.pipe.mock'; */
 
 declare const require: any;
-declare const __karma__: any;
+// declare const __karma__: any;
 
 // Prevent Karma from running prematurely.
-__karma__.loaded = function () {};
+// __karma__.loaded = function () {};
 
 
 // First, initialize the Angular testing environment.
@@ -46,7 +46,7 @@ const context: any = require.context('./', true, /\.spec\.ts$/);
 // And load the modules.
 context.keys().map(context);
 
-export class TestUtils {
+/* export class TestUtils {
 
   public static beforeEachCompiler(components: Array<any>): Promise<{fixture: any, instance: any}> {
     return TestUtils.configureIonicTestingModule(components)
@@ -93,3 +93,4 @@ export class TestUtils {
     }
   }
 }
+ */

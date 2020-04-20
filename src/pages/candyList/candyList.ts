@@ -10,10 +10,10 @@ import { ShortenStringPipe } from '../../pipes/shorten-string/shorten-string';
 import { Observable } from 'rxjs';
 
 @Component({
-  selector: 'page-list',
-  templateUrl: 'list.html'
+  selector: 'page-candyList',
+  templateUrl: 'candyList.html'
 })
-export class ListPage implements OnInit {
+export class CandyListPage implements OnInit {
 
   candyList$: Observable<Array<CandyI>>;
 
